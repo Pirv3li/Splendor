@@ -1,4 +1,4 @@
-package domein.Persistentie;
+package Persistentie;
 
 import domein.*;
 

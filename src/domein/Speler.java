@@ -36,7 +36,7 @@ public class Speler {
 		return this.aanDeBeurt;
 	}
 
-	public void setAanDeBeurt(bool aanDeBeurt) {
+	public void setAanDeBeurt(boolean aanDeBeurt) {
 		this.aanDeBeurt = aanDeBeurt;
 	}
 
@@ -44,7 +44,7 @@ public class Speler {
 		return this.isStartSpeler;
 	}
 
-	public void setIsStartSpeler(bool isStartSpeler) {
+	public void setIsStartSpeler(boolean isStartSpeler) {
 		this.isStartSpeler = isStartSpeler;
 	}
 

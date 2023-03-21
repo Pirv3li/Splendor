@@ -12,15 +12,33 @@ public class Speler {
 	private boolean aanDeBeurt;
 	private boolean isStartSpeler;
 	
-	public Speler() {
-		// TODO - implement Speler.Speler
+	public Speler(String gebruikersnaam, int geboortejaar) {
+		setGebruikersnaam(gebruikersnaam);
+		setGeboortejaar(geboortejaar);
+		//TODO aanDeBeurt, isStartSpeler : ? 
 	}
 
 	public String getGebruikersnaam() {
 		return this.gebruikersnaam;
 	}
 
-	public void setGebruikersnaam(String gebruikersnaam) {
+	private void setGebruikersnaam(String gebruikersnaam) {
+		// Domeinregels voor gebruikersnaam, kijk naar exceptions om te verstaan wat ze doen. 
+		
+		if (gebruikersnaam == null || gebruikersnaam.isBlank()) {
+	        throw new IllegalArgumentException("Gebruikersnaam mag niet leeg zijn.");
+	    }
+	    
+	    if (!Character.isLetter(gebruikersnaam.charAt(0))) {
+	        throw new IllegalArgumentException("Gebruikersnaam mag enkel met een letter starten.");
+	    }
+	    
+	    for (int i = 0; i < gebruikersnaam.length(); i++) {
+	        char c = gebruikersnaam.charAt(i);
+	        if (!Character.isLetterOrDigit(c) && c != ' ' && c != '_') {
+	            throw new IllegalArgumentException("Gebruikersnaam mag enkel letters, cijfers, spacies en _ bevatten.");
+	        }
+	    }
 		this.gebruikersnaam = gebruikersnaam;
 	}
 
@@ -28,15 +46,29 @@ public class Speler {
 		return this.geboortejaar;
 	}
 
-	public void setGeboortejaar(int geboortejaar) {
-		this.geboortejaar = geboortejaar;
+	private void setGeboortejaar(int geboortejaar) {
+		// domeinregels voor geboortejaar, kijk naar exception om te verstaan wat ze doen. 
+	    int huidigJaar = Calendar.getInstance().get(Calendar.YEAR);
+	    
+	    if (geboortejaar < 1900 || geboortejaar > huidigJaar) {
+	        throw new IllegalArgumentException("Geboortejaar is ongeldig.");
+	    }
+	    
+	    int leeftijd = huidigJaar - geboortejaar;
+	    
+	    if (leeftijd < 6) {
+	        throw new IllegalArgumentException("Gebruiker moet minstens 6 jaar oud zijn.");
+	    }
+	    
+	    this.geboortejaar = geboortejaar;
 	}
+
 
 	public boolean getAanDeBeurt() {
 		return this.aanDeBeurt;
 	}
 
-	public void setAanDeBeurt(boolean aanDeBeurt) {
+	private void setAanDeBeurt(boolean aanDeBeurt) {
 		this.aanDeBeurt = aanDeBeurt;
 	}
 
@@ -44,7 +76,7 @@ public class Speler {
 		return this.isStartSpeler;
 	}
 
-	public void setIsStartSpeler(boolean isStartSpeler) {
+	private void setIsStartSpeler(boolean isStartSpeler) {
 		this.isStartSpeler = isStartSpeler;
 	}
 

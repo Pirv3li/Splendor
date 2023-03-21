@@ -8,15 +8,20 @@ public class Domeincontroller {
 	SpelerRepository spelerRepository;
 
 	public Domeincontroller() {
-		// TODO - implement Domeincontroller.Domeincontroller
+		spel = new Spel(spelers);
 	}
 
 	public void startSpel() {
 		// TODO - implement Domeincontroller.startSpel
 	}
 
-	public void voegSpelerToe() {
-		// TODO - implement Domeincontroller.voegSpelerToe
+	public void voegSpelerToe(Speler speler) {
+	    if (spelers.size() < 4) {
+	        spelers.add(speler);
+	    } else {
+	        throw new IllegalArgumentException("Er kunnen maximaal 4 spelers meedoen.");
+	    }
 	}
+
 
 }

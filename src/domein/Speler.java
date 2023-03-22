@@ -10,7 +10,7 @@ public class Speler {
 	private String gebruikersnaam;
 	private int geboortejaar;
 	private boolean aanDeBeurt;
-	private boolean isStartSpeler;
+	private int leeftijd;
 	
 	public Speler(String gebruikersnaam, int geboortejaar) {
 		setGebruikersnaam(gebruikersnaam);
@@ -55,6 +55,7 @@ public class Speler {
 	    }
 	    
 	    int leeftijd = huidigJaar - geboortejaar;
+	    this.leeftijd = leeftijd;
 	    
 	    if (leeftijd < 6) {
 	        throw new IllegalArgumentException("Gebruiker moet minstens 6 jaar oud zijn.");
@@ -62,7 +63,10 @@ public class Speler {
 	    
 	    this.geboortejaar = geboortejaar;
 	}
-
+	
+	public int getLeeftijd() {
+		return this.leeftijd;
+	}
 
 	public boolean getAanDeBeurt() {
 		return this.aanDeBeurt;
@@ -72,16 +76,56 @@ public class Speler {
 		this.aanDeBeurt = aanDeBeurt;
 	}
 
-	public boolean getIsStartSpeler() {
-		return this.isStartSpeler;
+	public Speler getStartSpeler(ArrayList<Speler> spelers) {
+	    int youngestAge = 169;
+	    int numYoungestPlayers = 0;
+	    int longestUsernameLength = 0;
+	    int numLongestUsernamePlayers = 0;
+	    String lastUsername = "";
+	    int numLastUsernamePlayers = 0;
+	    Speler startSpeler = null;
+	    for (Speler speler : spelers) {
+	        if (speler.getLeeftijd() < youngestAge) {
+	            youngestAge = speler.getLeeftijd();
+	            numYoungestPlayers = 1;
+	            startSpeler = speler;
+	        } else if (speler.getLeeftijd() == youngestAge) {
+	            numYoungestPlayers++;
+	            if (numYoungestPlayers == 1) {
+	                startSpeler = speler;
+	            }
+	        }
+	        if (speler.getGebruikersnaam().length() > longestUsernameLength) {
+	            longestUsernameLength = speler.getGebruikersnaam().length();
+	            numLongestUsernamePlayers = 1;
+	            startSpeler = speler;
+	        } else if (speler.getGebruikersnaam().length() == longestUsernameLength) {
+	            numLongestUsernamePlayers++;
+	            if (numLongestUsernamePlayers == 1) {
+	                startSpeler = speler;
+	            }
+	        }
+	        String reversedUsername = new StringBuilder(speler.getGebruikersnaam()).reverse().toString();
+	        if (reversedUsername.compareTo(lastUsername) > 0) {
+	            lastUsername = reversedUsername;
+	            numLastUsernamePlayers = 1;
+	            startSpeler = speler;
+	        } else if (reversedUsername.equals(lastUsername)) {
+	            numLastUsernamePlayers++;
+	            if (numLastUsernamePlayers == 1) {
+	                startSpeler = speler;
+	            }
+	        }
+	    }
+	    return startSpeler;
 	}
 
-	private void setIsStartSpeler(boolean isStartSpeler) {
-		this.isStartSpeler = isStartSpeler;
-	}
+
 
 	public int telPuntenOp() {
-		// TODO - implement Speler.telPuntenOp
+		int punten = 0; 
+		// implement punten toevoegen
+		return punten;
 	}
 
 }

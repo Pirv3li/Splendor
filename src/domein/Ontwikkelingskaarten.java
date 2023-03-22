@@ -1,41 +1,33 @@
 package domein;
-import java.util.ArrayList;
 
 public class Ontwikkelingskaarten {
 
-	ArrayList<Edelsteenfiches> prijs;
+	Edelsteen[] prijs;
 	private int punten;
 	private int niveau;
-	private Edelsteenfiches bonus;
+	private Edelsteen bonus;
 	
-	public Ontwikkelingskaarten() {
-		// TODO - implement Ontwikkelingskaarten.Ontwikkelingskaarten
+	public Ontwikkelingskaarten(Edelsteen bonus, int punten, int niveau, Edelsteen[]prijs) {
+		this.prijs = prijs;
+		this.punten = punten;
+		this.niveau = niveau;
+		this.bonus = bonus;
 	}
 
 	public int getPunten() {
 		return this.punten;
 	}
 
-	public void setPunten(int punten) {
-		this.punten = punten;
-	}
-
 	public int getNiveau() {
 		return this.niveau;
 	}
 
-	public void setNiveau(int niveau) {
-		this.niveau = niveau;
-	}
-
-	public Edelsteenfiches getBonus() {
+	public Edelsteen getBonus() {
 		return this.bonus;
 	}
 
-	public void setBonus(Edelsteenfiches bonus) {
-		this.bonus = bonus;
+	public Edelsteen[] getPrijs() {
+		return this.prijs;
 	}
-
-	
 
 }

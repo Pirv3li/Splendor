@@ -1,21 +1,46 @@
 package domein;
 
 public class Edelsteenfiches {
-
-	private String soort;
 	
-	public Edelsteenfiches() {
-		// TODO - implement Edelsteenfiches.Edelsteenfiches
+	private static final String SMARAGDEN_GROEN = "Smaragden(groen)";
+	private static final String DIAMANTEN_WIT = "Diamanten(wit)";
+	private static final String SAFFIEREN = "Saffieren(blauw)";
+	private static final String ONYXEN = "Onyxen(zwart)";
+	private static final String ROBIJNEN = "Robijnen(rood)";
+	private String[] soort;
+	
+	public Edelsteenfiches(int spelerIndex) {
+		setSoort(spelerIndex);
 	}
 
-	public String getSoort() {
+	public String[] getSoort() {
 		return this.soort;
 	}
 
-	public void setSoort(String soort) {
-		this.soort = soort;
+	private void setSoort(int spelerIndex) {
+		// als 2 spelers spelen dan zijn er 4 edelsteenfiches per soort... 
+	    int gems = 0;
+	    switch (spelerIndex) {
+	        case 2:
+	            gems = 4;
+	            break;
+	        case 3:
+	            gems = 5;
+	            break;
+	        case 4:
+	            gems = 7;
+	            break;
+	        default:
+	            gems = 4;
+	    }
+	    // gems => hoeveel edelsteenfiches per soort, 5 => 5 soorten. bv soort[2] = SAFFIEREN, soort[7] = SAFFIEREN , soort[12] = SAFFIEREN... 
+	    this.soort = new String[gems * 5]; 
+	    for (int i = 0; i < gems * 5; i += 5) {
+	        soort[i] = SMARAGDEN_GROEN;
+	        soort[i + 1] = DIAMANTEN_WIT;
+	        soort[i + 2] = SAFFIEREN;
+	        soort[i + 3] = ONYXEN;
+	        soort[i + 4] = ROBIJNEN;
+	    }
 	}
-
-
-
 }

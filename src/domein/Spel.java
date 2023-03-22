@@ -7,7 +7,7 @@ public class Spel {
 	private static final int MAX_SPELERS = 4;
 
 	ArrayList<Speler> spelers;
-	ArrayList<Edelsteenfiches> gems;
+	Edelsteenfiches gems;
 	ArrayList<Edelen> edelen;
 	ArrayList<Ontwikkelingskaarten> ontwikkelingsKaarten;
 	private Speler isWinaar;
@@ -25,5 +25,12 @@ public class Spel {
 		spelerIndex = (spelerIndex + 1) % spelers.size();
         return spelers.get(spelerIndex);
 	}
+	
+	public String[] getEdelsteenfiches(int spelerIndex) {
+		gems = new Edelsteenfiches(spelerIndex);
+		return gems.getSoort();
+	}
+	
+	
 
 }

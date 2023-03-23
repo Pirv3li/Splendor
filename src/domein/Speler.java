@@ -123,9 +123,11 @@ public class Speler {
 
 
 	public int telPuntenOp() {
-		int punten = 0; 
-		// implement punten toevoegen
-		return punten;
+		int sum = 0;
+		for (Ontwikkelingskaarten Ontwikkelingskaart : ontwikkelingsKaarten) {
+			sum += Ontwikkelingskaart.getPunten();
+		}
+		return sum;
 	}
 
 }

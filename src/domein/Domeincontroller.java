@@ -15,8 +15,9 @@ public class Domeincontroller {
 		// TODO - implement Domeincontroller.startSpel
 	}
 
-	public void voegSpelerToe(Speler speler) {
+	public void voegSpelerToe(String naam, int geboortejaar) {
 	    if (spelers.size() < 4) {
+	    	Speler speler = new Speler(naam,geboortejaar);
 	        spelers.add(speler);
 	    } else {
 	        throw new IllegalArgumentException("Er kunnen maximaal 4 spelers meedoen.");

@@ -4,18 +4,16 @@ import java.util.*;
 
 public class Speler {
 
-	ArrayList<Ontwikkelingskaarten> ontwikkelingsKaarten;
-	ArrayList<Edelsteenfiches> gems;
+	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
+	ArrayList<Edelsteenfiche> gems;
 	ArrayList<Edelen> edelen;
 	private String gebruikersnaam;
 	private int geboortejaar;
-	private boolean aanDeBeurt;
 	private int leeftijd;
 	
 	public Speler(String gebruikersnaam, int geboortejaar) {
 		setGebruikersnaam(gebruikersnaam);
 		setGeboortejaar(geboortejaar);
-		//TODO aanDeBeurt, isStartSpeler : ? 
 	}
 
 	public String getGebruikersnaam() {
@@ -68,63 +66,10 @@ public class Speler {
 		return this.leeftijd;
 	}
 
-	public boolean getAanDeBeurt() {
-		return this.aanDeBeurt;
-	}
-
-	private void setAanDeBeurt(boolean aanDeBeurt) {
-		this.aanDeBeurt = aanDeBeurt;
-	}
-
-	public Speler getStartSpeler(ArrayList<Speler> spelers) {
-	    int youngestAge = 169;
-	    int numYoungestPlayers = 0;
-	    int longestUsernameLength = 0;
-	    int numLongestUsernamePlayers = 0;
-	    String lastUsername = "";
-	    int numLastUsernamePlayers = 0;
-	    Speler startSpeler = null;
-	    for (Speler speler : spelers) {
-	        if (speler.getLeeftijd() < youngestAge) {
-	            youngestAge = speler.getLeeftijd();
-	            numYoungestPlayers = 1;
-	            startSpeler = speler;
-	        } else if (speler.getLeeftijd() == youngestAge) {
-	            numYoungestPlayers++;
-	            if (numYoungestPlayers == 1) {
-	                startSpeler = speler;
-	            }
-	        }
-	        if (speler.getGebruikersnaam().length() > longestUsernameLength) {
-	            longestUsernameLength = speler.getGebruikersnaam().length();
-	            numLongestUsernamePlayers = 1;
-	            startSpeler = speler;
-	        } else if (speler.getGebruikersnaam().length() == longestUsernameLength) {
-	            numLongestUsernamePlayers++;
-	            if (numLongestUsernamePlayers == 1) {
-	                startSpeler = speler;
-	            }
-	        }
-	        String reversedUsername = new StringBuilder(speler.getGebruikersnaam()).reverse().toString();
-	        if (reversedUsername.compareTo(lastUsername) > 0) {
-	            lastUsername = reversedUsername;
-	            numLastUsernamePlayers = 1;
-	            startSpeler = speler;
-	        } else if (reversedUsername.equals(lastUsername)) {
-	            numLastUsernamePlayers++;
-	            if (numLastUsernamePlayers == 1) {
-	                startSpeler = speler;
-	            }
-	        }
-	    }
-	    return startSpeler;
-	}
-
-
 
 	public int telPuntenOp() {
 		int sum = 0;
-		for (Ontwikkelingskaarten Ontwikkelingskaart : ontwikkelingsKaarten) {
+		for (Ontwikkelingskaart Ontwikkelingskaart : ontwikkelingsKaarten) {
 			sum += Ontwikkelingskaart.getPunten();
 		}
 		return sum;

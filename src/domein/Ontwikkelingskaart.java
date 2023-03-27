@@ -1,13 +1,13 @@
 package domein;
 
-public class Ontwikkelingskaarten {
+public class Ontwikkelingskaart {
 
 	Edelsteen[] prijs;
 	private int punten;
 	private int niveau;
 	private Edelsteen bonus;
 	
-	public Ontwikkelingskaarten(Edelsteen bonus, int punten, int niveau, Edelsteen[]prijs) {
+	public Ontwikkelingskaart(Edelsteen bonus, int punten, int niveau, Edelsteen[]prijs) {
 		this.prijs = prijs;
 		this.punten = punten;
 		this.niveau = niveau;

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Edelen {
 
-	ArrayList<Ontwikkelingskaarten> ontwikkelingsKaarten;
+	ArrayList<Ontwikkelingskaart> prijs;
 	private int punten;
 
 	public Edelen() {

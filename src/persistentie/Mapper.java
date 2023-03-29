@@ -33,7 +33,7 @@ public class Mapper {
         List<Speler> spelers = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL);
-                PreparedStatement query = conn.prepareStatement("SELECT * FROM ID340733_g26.Speler");
+                PreparedStatement query = conn.prepareStatement("SELECT * FROM ID399806_g61.Speler");
                 ResultSet rs = query.executeQuery()) {
 
             while (rs.next()) {

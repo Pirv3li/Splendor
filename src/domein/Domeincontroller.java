@@ -6,13 +6,23 @@ public class Domeincontroller {
 	Spel spel;
 	ArrayList<Speler> spelers;
 	SpelerRepository spelerRepository;
+	private int startSpelerIndex;
 
 	public Domeincontroller() {
-		
+		spelers = new ArrayList<Speler>();
 	}
 
 	public void startSpel() {
-		spelers = new ArrayList<Speler>();
+		spel = new Spel(spelers);
+		
+	}
+	
+	public void setstartSpelerIndex() {
+		this.startSpelerIndex = spel.getStartSpelerIndex(spelers);
+	}
+	
+	public int getStartSpelerIndex() {
+		return startSpelerIndex;
 	}
 
 	public void voegSpelerToe(String naam, int geboortejaar) {

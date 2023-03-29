@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class SplendorApp {
 	
 	public void SplendorAppStart() {
-		Domeincontroller dc = new Domeincontroller();
 		String gebruikersnaam = "";
 		int geboortejaar = 0;
 		Scanner in = new Scanner (System.in);
@@ -13,7 +12,7 @@ public class SplendorApp {
 		int startSpelJaOfNee = in.nextInt();
 		in.nextLine();
 		if(startSpelJaOfNee==1) {
-			dc.startSpel();
+			Domeincontroller dc = new Domeincontroller();
 			System.out.println("Geef u gebruikersnaam : ");
 			gebruikersnaam = in.nextLine();
 			System.out.println("Geef u geboortejaar : ");
@@ -32,6 +31,8 @@ public class SplendorApp {
 				meerSpelersToevoegenJaOfNee = in.nextInt();
 				in.nextLine();
 			}
+			dc.startSpel(); // moet nog aangepast worden
+			dc.setstartSpelerIndex();
 			String spelersOverzicht = dc.getSpelersOverzicht();
 			System.out.println("Overzicht van spelers");
 			System.out.println(spelersOverzicht);

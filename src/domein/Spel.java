@@ -72,6 +72,7 @@ public class Spel {
 	            }
 	        }
 	    }
+	    this.spelerIndex = startSpelerIndex-1;
 	    return startSpelerIndex;
 	}
 	

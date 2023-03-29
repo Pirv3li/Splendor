@@ -32,10 +32,10 @@ public class SplendorApp {
 				meerSpelersToevoegenJaOfNee = in.nextInt();
 				in.nextLine();
 			}
+			String spelersOverzicht = dc.getSpelersOverzicht();
+			System.out.println("Overzicht van spelers");
+			System.out.println(spelersOverzicht);
 		}
 		in.close();
-		String spelersOverzicht = dc.getSpelersOverzicht();
-		System.out.println(spelersOverzicht);
-		
 	}
 }

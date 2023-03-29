@@ -40,11 +40,16 @@ public class Domeincontroller {
 	    for (Speler speler : spelers) {
 	        sb.append("Speler ").append(i).append(": ")
 	            .append(speler.getGebruikersnaam()).append(", ")
-	            .append(speler.getGeboortejaar()).append("\n");
+	            .append(speler.getGeboortejaar());
+	        if (i == startSpelerIndex+1) {
+	            sb.append(" (startspeler)");
+	        }
+	        sb.append("\n");
 	        i++;
 	    }
 	    return sb.toString();
 	}
+
 
 
 

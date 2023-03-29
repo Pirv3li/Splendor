@@ -1,8 +1,10 @@
 package domein;
+import persistentie.Mapper;
 import java.util.*;
 
 public class Domeincontroller {
-
+	
+	Mapper mapper;
 	Spel spel;
 	ArrayList<Speler> spelers;
 	SpelerRepository spelerRepository;
@@ -50,7 +52,7 @@ public class Domeincontroller {
 	    return sb.toString();
 	}
 
-
+	
 
 
 }

@@ -30,9 +30,12 @@ public class SplendorApp {
 				dc.voegSpelerToe(gebruikersnaam, geboortejaar);
 				System.out.println("Wil je meer spelers toevoegen ? ( 1=JA , 0=NEE )");
 				meerSpelersToevoegenJaOfNee = in.nextInt();
+				in.nextLine();
 			}
 		}
 		in.close();
+		String spelersOverzicht = dc.getSpelersOverzicht();
+		System.out.println(spelersOverzicht);
 		
 	}
 }

@@ -23,6 +23,19 @@ public class Domeincontroller {
 	        throw new IllegalArgumentException("Er kunnen maximaal 4 spelers meedoen.");
 	    }
 	}
+	
+	public String getSpelersOverzicht() {
+	    StringBuilder sb = new StringBuilder();
+	    int i = 1;
+	    for (Speler speler : spelers) {
+	        sb.append("Speler ").append(i).append(": ")
+	            .append(speler.getGebruikersnaam()).append(", ")
+	            .append(speler.getGeboortejaar()).append("\n");
+	        i++;
+	    }
+	    return sb.toString();
+	}
+
 
 
 }

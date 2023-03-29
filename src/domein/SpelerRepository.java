@@ -3,26 +3,30 @@ package domein;
 import java.util.*;
 
 public class SpelerRepository {
+    private List<Speler> spelers;
 
-	ArrayList<Speler> spelers;
+    public SpelerRepository() {
+        this.spelers = new ArrayList<>();
+    }
 
-	public SpelerRepository() {
-		// TODO - implement SpelerRepository.SpelerRepository
-		throw new UnsupportedOperationException();
-	}
+    public void voegSpelerToe(Speler speler) {
+        spelers.add(speler);
+    }
 
-	/**
-	 * 
-	 * @param Speler
-	 */
-	public boolean bestaatSpeler(int Speler) {
-		// TODO - implement SpelerRepository.bestaatSpeler
-		throw new UnsupportedOperationException();
-	}
+    public void verwijderSpeler(Speler speler) {
+        spelers.remove(speler);
+    }
 
-	public Speler geefSpelers() {
-		// TODO - implement SpelerRepository.geefSpelers
-		throw new UnsupportedOperationException();
-	}
+    public List<Speler> getSpelers() {
+        return spelers;
+    }
 
+    public Speler getSpelerOpGebruikersnaam(String gebruikersnaam) {
+        for (Speler speler : spelers) {
+            if (speler.getGebruikersnaam().equals(gebruikersnaam)) {
+                return speler;
+            }
+        }
+        return null;
+    }
 }

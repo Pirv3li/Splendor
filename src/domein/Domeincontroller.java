@@ -8,7 +8,7 @@ public class Domeincontroller {
 	SpelerRepository spelerRepository;
 
 	public Domeincontroller() {
-		spel = new Spel(spelers);
+		
 	}
 
 	public void startSpel() {

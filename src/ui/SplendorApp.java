@@ -18,9 +18,21 @@ public class SplendorApp {
 			gebruikersnaam = in.nextLine();
 			System.out.println("Geef u geboortejaar : ");
 			geboortejaar = in.nextInt();
+			dc.voegSpelerToe(gebruikersnaam, geboortejaar);
+			System.out.println("Wil je meer spelers toevoegen ? ( 1=JA , 0=NEE )");
+			int meerSpelersToevoegenJaOfNee = in.nextInt();
+			in.nextLine();
+			while(meerSpelersToevoegenJaOfNee!=0) {
+				System.out.println("Geef u gebruikersnaam : ");
+				gebruikersnaam = in.nextLine();
+				System.out.println("Geef u geboortejaar : ");
+				geboortejaar = in.nextInt();
+				dc.voegSpelerToe(gebruikersnaam, geboortejaar);
+				System.out.println("Wil je meer spelers toevoegen ? ( 1=JA , 0=NEE )");
+				meerSpelersToevoegenJaOfNee = in.nextInt();
+			}
 		}
-		System.out.println(gebruikersnaam);
-		System.out.println(geboortejaar);
+		in.close();
 		
 	}
 }

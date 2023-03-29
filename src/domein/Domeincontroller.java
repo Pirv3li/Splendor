@@ -12,11 +12,11 @@ public class Domeincontroller {
 	}
 
 	public void startSpel() {
-		// TODO - implement Domeincontroller.startSpel
+		spelers = new ArrayList<Speler>();
 	}
 
 	public void voegSpelerToe(String naam, int geboortejaar) {
-	    if (spelers.size() < 4) {
+	    if (spelers.size() <= 4) {
 	    	Speler speler = new Speler(naam,geboortejaar);
 	        spelers.add(speler);
 	    } else {

@@ -1,32 +1,26 @@
 package domein;
 
-import java.util.*;
+import persistentie.Mapper;
+import java.util.List;
 
 public class SpelerRepository {
-    private List<Speler> spelers;
+
+    private Mapper mapper;
 
     public SpelerRepository() {
-        this.spelers = new ArrayList<>();
+        mapper = new Mapper();
     }
 
     public void voegSpelerToe(Speler speler) {
-        spelers.add(speler);
+        mapper.voegToe(speler);
     }
 
-    public void verwijderSpeler(Speler speler) {
-        spelers.remove(speler);
+    public Speler getSpeler(String gebruikersnaam) {
+        Speler speler = mapper.geefSpeler(gebruikersnaam);
+        return speler;
     }
-
+    
     public List<Speler> getSpelers() {
-        return spelers;
-    }
-
-    public Speler getSpelerOpGebruikersnaam(String gebruikersnaam) {
-        for (Speler speler : spelers) {
-            if (speler.getGebruikersnaam().equals(gebruikersnaam)) {
-                return speler;
-            }
-        }
-        return null;
+    	return mapper.geefSpelers();
     }
 }

@@ -31,7 +31,7 @@ public class SplendorApp {
 				meerSpelersToevoegenJaOfNee = in.nextInt();
 				in.nextLine();
 			}
-			dc.startSpel(); // moet nog aangepast worden
+			dc.startSpel();
 			dc.setstartSpelerIndex();
 			String spelersOverzicht = dc.getSpelersOverzicht();
 			System.out.println("Overzicht van spelers");

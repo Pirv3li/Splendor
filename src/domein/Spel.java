@@ -8,7 +8,7 @@ public class Spel {
 
 	ArrayList<Speler> spelers;
 	ArrayList<Edelsteenfiche> gems;
-	ArrayList<Edelen> edelen;
+	ArrayList<Edel> edelen;
 	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
 	private int spelerIndex;
 

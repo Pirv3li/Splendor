@@ -2,12 +2,12 @@ package domein;
 
 import java.util.*;
 
-public class Edelen {
+public class Edel {
 
 	ArrayList<Ontwikkelingskaart> prijs;
 	private int punten;
 
-	public Edelen() {
+	public Edel() {
 		// TODO - implement Edelen.Edelen
 	}
 	

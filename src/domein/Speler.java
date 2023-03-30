@@ -6,7 +6,7 @@ public class Speler {
 
 	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
 	ArrayList<Edelsteenfiche> gems;
-	ArrayList<Edelen> edelen;
+	ArrayList<Edel> edelen;
 	private String gebruikersnaam;
 	private int geboortejaar;
 	private int leeftijd;
@@ -64,6 +64,10 @@ public class Speler {
 	
 	public int getLeeftijd() {
 		return this.leeftijd;
+	}
+	
+	public void setGemsInventory(Edelsteen soort, int aantal) {
+		
 	}
 
 

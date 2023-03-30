@@ -5,20 +5,35 @@ import java.util.*;
 public class Spel {
 	private static final int MIN_SPELERS = 2;
 	private static final int MAX_SPELERS = 4;
+	private int startSpelerIndex;
 
 	ArrayList<Speler> spelers;
 	ArrayList<Edel> edelen;
 	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
 	private int spelerIndex;
 
-	public Spel(ArrayList<Speler> spelers) {
-		// domeinregel voor max en min spelers.
-		if (spelers.size() < MIN_SPELERS || spelers.size() > MAX_SPELERS) {
-			throw new IllegalArgumentException("Het aantal spelers moet tussen " + MIN_SPELERS + " en " + MAX_SPELERS + " zijn.");
-		}
-		
+	public Spel() {
+		spelers = new ArrayList<Speler>();
 	}
 
+	public void voegSpelerToe(String naam, int geboortejaar) {
+	    if (spelers.size() <= 4) {
+	    	Speler speler = new Speler(naam,geboortejaar);
+	        spelers.add(speler);
+	    } else {
+	        throw new IllegalArgumentException("Er kunnen maximaal 4 spelers meedoen.");
+	    }
+	 		
+	}
+	
+	public void controleerSpelersSize() {
+		getStartSpelerIndex(spelers);
+		// domeinregel voor max en min spelers.
+ 		if (spelers.size() < MIN_SPELERS || spelers.size() > MAX_SPELERS) {
+ 			throw new IllegalArgumentException("Het aantal spelers moet tussen " + MIN_SPELERS + " en " + MAX_SPELERS + " zijn.");
+ 		}
+	}
+	
 	public Speler volgendeSpeler() {
 		spelerIndex = (spelerIndex + 1) % spelers.size();
         return spelers.get(spelerIndex);
@@ -72,6 +87,7 @@ public class Spel {
 	        }
 	    }
 	    this.spelerIndex = startSpelerIndex-1;
+	    this.startSpelerIndex = startSpelerIndex;
 	    return startSpelerIndex;
 	}
 	
@@ -93,5 +109,21 @@ public class Spel {
         edelstenen.put(Edelsteen.ROBIJNEN, aantal);
         
         return edelstenen;
+	}
+	
+	public String getSpelersOverzicht() {
+	    StringBuilder sb = new StringBuilder();
+	    int i = 1;
+	    for (Speler speler : spelers) {
+	        sb.append("Speler ").append(i).append(": ")
+	            .append(speler.getGebruikersnaam()).append(", ")
+	            .append(speler.getGeboortejaar());
+	        if (i == startSpelerIndex+1) {
+	            sb.append(" (startspeler)");
+	        }
+	        sb.append("\n");
+	        i++;
+	    }
+	    return sb.toString();
 	}
 }

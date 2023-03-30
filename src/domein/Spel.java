@@ -7,7 +7,6 @@ public class Spel {
 	private static final int MAX_SPELERS = 4;
 
 	ArrayList<Speler> spelers;
-	ArrayList<Edelsteenfiche> gems;
 	ArrayList<Edel> edelen;
 	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
 	private int spelerIndex;

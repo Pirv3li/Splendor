@@ -5,7 +5,6 @@ import java.util.*;
 public class Speler {
 
 	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
-	ArrayList<Edelsteenfiche> gems;
 	ArrayList<Edel> edelen;
 	private String gebruikersnaam;
 	private int geboortejaar;

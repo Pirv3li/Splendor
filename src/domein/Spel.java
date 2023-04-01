@@ -118,7 +118,7 @@ public class Spel {
 	        sb.append("Speler ").append(i).append(": ")
 	            .append(speler.getGebruikersnaam()).append(", ")
 	            .append(speler.getGeboortejaar());
-	        if (i == startSpelerIndex+1) {
+	        if (i == startSpelerIndex) {
 	            sb.append(" (startspeler)");
 	        }
 	        sb.append("\n");

@@ -15,13 +15,13 @@ public class Domeincontroller {
 		spel.controleerSpelersSize();
 	}
 	
-	//public void setstartSpelerIndex() {
-		//this.startSpelerIndex = spel.getStartSpelerIndex(spelers);
-	//}
+	public void setstartSpelerIndex() {
+		spel.setStartspelerIndex();
+	}
 	
-	//public int getStartSpelerIndex() {
-		//return startSpelerIndex;
-	//}
+//	public int getStartSpelerIndex() {
+//		return spel.getstartspelerindex();
+//	}
 
 	public void voegSpelerToe(String naam, int geboortejaar) {
 		spel.voegSpelerToe(naam, geboortejaar);

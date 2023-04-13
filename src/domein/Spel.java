@@ -5,7 +5,7 @@ import java.util.*;
 public class Spel {
 	private static final int MIN_SPELERS = 2;
 	private static final int MAX_SPELERS = 4;
-	private int startSpelerIndex;
+	private int startspelerIndex;
 
 	ArrayList<Speler> spelers;
 	ArrayList<Edel> edelen;
@@ -26,8 +26,12 @@ public class Spel {
 	 		
 	}
 	
+	public void setStartspelerIndex() {
+		startspelerIndex = getStartSpelerIndex(spelers);
+		spelerIndex = startspelerIndex;
+	}
+	
 	public void controleerSpelersSize() {
-		getStartSpelerIndex(spelers);
 		// domeinregel voor max en min spelers.
  		if (spelers.size() < MIN_SPELERS || spelers.size() > MAX_SPELERS) {
  			throw new IllegalArgumentException("Het aantal spelers moet tussen " + MIN_SPELERS + " en " + MAX_SPELERS + " zijn.");
@@ -47,10 +51,10 @@ public class Spel {
 	public int getStartSpelerIndex(ArrayList<Speler> spelers) {
 	    int youngestAge = 169;
 	    int numYoungestPlayers = 0;
-	    int longestUsernameLength = 0;
-	    int numLongestUsernamePlayers = 0;
-	    String lastUsername = "";
-	    int numLastUsernamePlayers = 0;
+//	    int longestUsernameLength = 0;
+//	    int numLongestUsernamePlayers = 0;
+//	    String lastUsername = "";
+//	    int numLastUsernamePlayers = 0;
 	    int startSpelerIndex = -1;
 	    for (int i = 0; i < spelers.size(); i++) {
 	        Speler speler = spelers.get(i);
@@ -64,30 +68,30 @@ public class Spel {
 	                startSpelerIndex = i;
 	            }
 	        }
-	        if (speler.getGebruikersnaam().length() > longestUsernameLength) {
-	            longestUsernameLength = speler.getGebruikersnaam().length();
-	            numLongestUsernamePlayers = 1;
-	            startSpelerIndex = i;
-	        } else if (speler.getGebruikersnaam().length() == longestUsernameLength) {
-	            numLongestUsernamePlayers++;
-	            if (numLongestUsernamePlayers == 1) {
-	                startSpelerIndex = i;
-	            }
-	        }
-	        String reversedUsername = new StringBuilder(speler.getGebruikersnaam()).reverse().toString();
-	        if (reversedUsername.compareTo(lastUsername) > 0) {
-	            lastUsername = reversedUsername;
-	            numLastUsernamePlayers = 1;
-	            startSpelerIndex = i;
-	        } else if (reversedUsername.equals(lastUsername)) {
-	            numLastUsernamePlayers++;
-	            if (numLastUsernamePlayers == 1) {
-	                startSpelerIndex = i;
-	            }
-	        }
+//	        else if (speler.getGebruikersnaam().length() > longestUsernameLength) {
+//	            longestUsernameLength = speler.getGebruikersnaam().length();
+//	            numLongestUsernamePlayers = 1;
+//	            startSpelerIndex = i;
+//	        } else if (speler.getGebruikersnaam().length() == longestUsernameLength) {
+//	            numLongestUsernamePlayers++;
+//	            if (numLongestUsernamePlayers == 1) {
+//	                startSpelerIndex = i;
+//	            }
+//	        }
+//	        else {
+//	        String reversedUsername = new StringBuilder(speler.getGebruikersnaam()).reverse().toString();
+//	        if (reversedUsername.compareTo(lastUsername) > 0) {
+//	            lastUsername = reversedUsername;
+//	            numLastUsernamePlayers = 1;
+//	            startSpelerIndex = i;
+//	        } else if (reversedUsername.equals(lastUsername)) {
+//	            numLastUsernamePlayers++;
+//	            if (numLastUsernamePlayers == 1) {
+//	                startSpelerIndex = i;
+//	            }
+//	        }
+//	       }
 	    }
-	    this.spelerIndex = startSpelerIndex-1;
-	    this.startSpelerIndex = startSpelerIndex;
 	    return startSpelerIndex;
 	}
 	
@@ -118,12 +122,15 @@ public class Spel {
 	        sb.append("Speler ").append(i).append(": ")
 	            .append(speler.getGebruikersnaam()).append(", ")
 	            .append(speler.getGeboortejaar());
-	        if (i == startSpelerIndex) {
+	        if (i == startspelerIndex+1) {
 	            sb.append(" (startspeler)");
 	        }
 	        sb.append("\n");
 	        i++;
 	    }
 	    return sb.toString();
+	}
+	public int getstartspelerindex() {
+		return this.startspelerIndex;
 	}
 }

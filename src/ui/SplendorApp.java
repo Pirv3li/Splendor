@@ -32,6 +32,7 @@ public class SplendorApp {
 				in.nextLine();
 			}
 			dc.startSpel();
+			dc.setstartSpelerIndex();
 			String spelersOverzicht = dc.getSpelersOverzicht();
 			System.out.println("Overzicht van spelers");
 			System.out.println(spelersOverzicht);

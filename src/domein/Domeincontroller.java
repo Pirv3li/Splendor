@@ -12,7 +12,7 @@ public class Domeincontroller {
 	}
 
 	public void startSpel() {
-		spel.controleerSpelersSize();
+		spel.startSpel();	
 	}
 	
 	public void setstartSpelerIndex() {
@@ -29,6 +29,10 @@ public class Domeincontroller {
 	
 	public String getSpelersOverzicht() {
 		return spel.getSpelersOverzicht();
+	}
+	
+	public String getEdelstenenOverzicht() {
+		return spel.edelstenenOverzicht();
 	}
 
 }

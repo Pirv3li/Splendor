@@ -6,6 +6,7 @@ public class Speler {
 
 	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
 	ArrayList<Edel> edelen;
+	ArrayList<Edelsteen> edelsteenfiches;
 	private String gebruikersnaam;
 	private int geboortejaar;
 	private int leeftijd;

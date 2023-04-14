@@ -6,7 +6,7 @@ public class Spel {
 	private static final int MIN_SPELERS = 2;
 	private static final int MAX_SPELERS = 4;
 	private int startspelerIndex;
-
+	HashMap<Edelsteen, Integer> edelstenen;
 	ArrayList<Speler> spelers;
 	ArrayList<Edel> edelen;
 	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
@@ -14,6 +14,14 @@ public class Spel {
 
 	public Spel() {
 		spelers = new ArrayList<Speler>();
+	}
+	
+	public void startSpel() {
+		// domeinregel voor max en min spelers.
+ 		if (spelers.size() < MIN_SPELERS || spelers.size() > MAX_SPELERS) {
+ 			throw new IllegalArgumentException("Het aantal spelers moet tussen " + MIN_SPELERS + " en " + MAX_SPELERS + " zijn.");
+ 		}
+ 		setAlleEdelstenen(spelers.size());
 	}
 
 	public void voegSpelerToe(String naam, int geboortejaar) {
@@ -31,12 +39,6 @@ public class Spel {
 		spelerIndex = startspelerIndex;
 	}
 	
-	public void controleerSpelersSize() {
-		// domeinregel voor max en min spelers.
- 		if (spelers.size() < MIN_SPELERS || spelers.size() > MAX_SPELERS) {
- 			throw new IllegalArgumentException("Het aantal spelers moet tussen " + MIN_SPELERS + " en " + MAX_SPELERS + " zijn.");
- 		}
-	}
 	
 	public Speler volgendeSpeler() {
 		spelerIndex = (spelerIndex + 1) % spelers.size();
@@ -94,9 +96,13 @@ public class Spel {
 	    }
 	    return startSpelerIndex;
 	}
+	public HashMap<Edelsteen, Integer> getAlleEdelstenen(){
+		return this.edelstenen;
+	}
 	
-	public HashMap<Edelsteen, Integer> getAlleEdelstenen(int spelerIndex) {
-		HashMap<Edelsteen, Integer> edelstenen = new HashMap<Edelsteen, Integer>();
+	
+	public void setAlleEdelstenen(int spelerIndex) {
+		edelstenen = new HashMap<Edelsteen, Integer>();
 		int aantal = 4;
 		switch (spelerIndex) {
 	    case 3:
@@ -111,8 +117,6 @@ public class Spel {
         edelstenen.put(Edelsteen.SAFFIEREN, aantal);
         edelstenen.put(Edelsteen.ONYXEN, aantal);
         edelstenen.put(Edelsteen.ROBIJNEN, aantal);
-        
-        return edelstenen;
 	}
 	
 	public String getSpelersOverzicht() {
@@ -130,7 +134,14 @@ public class Spel {
 	    }
 	    return sb.toString();
 	}
-	public int getstartspelerindex() {
-		return this.startspelerIndex;
+	
+	public String edelstenenOverzicht() {
+	    StringBuilder sb = new StringBuilder();
+	    sb.append("Beschikbaar edelstenen:\n");
+	    for (Map.Entry<Edelsteen, Integer> entry : edelstenen.entrySet()) {
+	        sb.append(entry.getKey() + " " + entry.getValue() + "\n");
+	    }
+	    return sb.toString();
 	}
 }
+

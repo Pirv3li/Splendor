@@ -6,12 +6,14 @@ public class Ontwikkelingskaart {
 	private int punten;
 	private int niveau;
 	private Edelsteen bonus;
+	private int kaartnummer;
 	
-	public Ontwikkelingskaart(int niveau, Edelsteen bonus, int punten, Edelsteen[]prijs) {
+	public Ontwikkelingskaart(int niveau, Edelsteen bonus, int punten, Edelsteen[]prijs, int kaartnummer) {
 		this.prijs = prijs;
 		this.punten = punten;
 		this.niveau = niveau;
 		this.bonus = bonus;
+		this.kaartnummer = kaartnummer;
 	}
 
 	public int getPunten() {
@@ -28,6 +30,10 @@ public class Ontwikkelingskaart {
 
 	public Edelsteen[] getPrijs() {
 		return this.prijs;
+	}
+	
+	public int getKaartnummer() {
+		return this.kaartnummer;
 	}
 
 }

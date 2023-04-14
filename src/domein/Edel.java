@@ -1,14 +1,19 @@
 package domein;
 
-import java.util.*;
-
 public class Edel {
 
-	ArrayList<Ontwikkelingskaart> prijs;
+	Edelsteen[] prijs;
 	private int punten;
+	private int edelnummer;
 
-	public Edel() {
-		// TODO - implement Edelen.Edelen
+	public Edel(int punten, Edelsteen[]prijs, int edelnummer) {
+		this.punten = punten;
+		this.prijs = prijs;
+		this.edelnummer = edelnummer;
+	}
+	
+	public int getEdelNummer() {
+		return this.edelnummer;
 	}
 	
 	public int getPunten() {

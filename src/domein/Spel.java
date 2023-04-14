@@ -137,7 +137,7 @@ public class Spel {
 	
 	public String edelstenenOverzicht() {
 	    StringBuilder sb = new StringBuilder();
-	    sb.append("Beschikbaar edelstenen:\n");
+	    sb.append("Beschikbare edelstenen:\n");
 	    for (Map.Entry<Edelsteen, Integer> entry : edelstenen.entrySet()) {
 	        sb.append(entry.getKey() + " " + entry.getValue() + "\n");
 	    }

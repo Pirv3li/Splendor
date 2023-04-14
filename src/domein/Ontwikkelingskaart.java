@@ -7,7 +7,7 @@ public class Ontwikkelingskaart {
 	private int niveau;
 	private Edelsteen bonus;
 	
-	public Ontwikkelingskaart(Edelsteen bonus, int punten, int niveau, Edelsteen[]prijs) {
+	public Ontwikkelingskaart(int niveau, Edelsteen bonus, int punten, Edelsteen[]prijs) {
 		this.prijs = prijs;
 		this.punten = punten;
 		this.niveau = niveau;

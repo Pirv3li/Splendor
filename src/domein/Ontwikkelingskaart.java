@@ -4,24 +4,18 @@ public class Ontwikkelingskaart {
 
 	Edelsteen[] prijs;
 	private int punten;
-	private int niveau;
 	private Edelsteen bonus;
 	private int kaartnummer;
 	
-	public Ontwikkelingskaart(int niveau, Edelsteen bonus, int punten, Edelsteen[]prijs, int kaartnummer) {
+	public Ontwikkelingskaart(Edelsteen bonus, int punten, Edelsteen[]prijs, int kaartnummer) {
 		this.prijs = prijs;
 		this.punten = punten;
-		this.niveau = niveau;
 		this.bonus = bonus;
 		this.kaartnummer = kaartnummer;
 	}
 
 	public int getPunten() {
 		return this.punten;
-	}
-
-	public int getNiveau() {
-		return this.niveau;
 	}
 
 	public Edelsteen getBonus() {
@@ -35,5 +29,17 @@ public class Ontwikkelingskaart {
 	public int getKaartnummer() {
 		return this.kaartnummer;
 	}
-
+	
+	@Override
+	public String toString() {
+	    StringBuilder sb = new StringBuilder();
+	    sb.append("kaart nummer: ").append(kaartnummer).append(":      ");
+	    sb.append("bonus edelsteen: ").append(bonus.toString()).append(", ");
+	    sb.append("punt(en): ").append(punten).append(", ");
+	    sb.append("prijs: ");
+	    for (Edelsteen edelsteen : prijs) {
+	        sb.append(edelsteen.toString()).append(" ");
+	    }
+	    return sb.toString();
+	}
 }

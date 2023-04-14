@@ -39,6 +39,9 @@ public class SplendorApp {
 			System.out.println("Overzicht van spel");
 			String edelstenenOverzicht = dc.getEdelstenenOverzicht();
 			System.out.println(edelstenenOverzicht);
+			String ontwikkelingsKaartenOverzicht = dc.getOntwikkelingskaartenOverzicht();
+			System.out.println("Beschikbare ontwikkelingskaarten");
+			System.out.println(ontwikkelingsKaartenOverzicht);
 		}
 		in.close();
 	}

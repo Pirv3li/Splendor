@@ -34,5 +34,9 @@ public class Domeincontroller {
 	public String getEdelstenenOverzicht() {
 		return spel.edelstenenOverzicht();
 	}
+	
+	public String getOntwikkelingskaartenOverzicht() {
+		return spel.ontwikkelingskaartenOverzicht();
+	}
 
 }

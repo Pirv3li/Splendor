@@ -1,5 +1,5 @@
 package domein;
-
+import util.ontwikkelingskaarten;
 import java.util.*;
 
 public class Spel {
@@ -143,5 +143,49 @@ public class Spel {
 	    }
 	    return sb.toString();
 	}
+	
+	 public String ontwikkelingskaartenOverzicht() {
+		 ontwikkelingskaarten kaarten = new ontwikkelingskaarten();
+	        List<Ontwikkelingskaart> niveau1Kaarten = kaarten.getNiveau1Kaarten();
+	        List<Ontwikkelingskaart> niveau2Kaarten = kaarten.getNiveau2Kaarten();
+	        List<Ontwikkelingskaart> niveau3Kaarten = kaarten.getNiveau3Kaarten();
+	        
+	        StringBuilder sb = new StringBuilder();
+	        sb.append("Niveau 1 kaarten:\n");
+	        sb.append(getRandomCards(niveau1Kaarten, 4));
+	        sb.append("\nNiveau 2 kaarten:\n");
+	        sb.append(getRandomCards(niveau2Kaarten, 4));
+	        sb.append("\nNiveau 3 kaarten:\n");
+	        sb.append(getRandomCards(niveau3Kaarten, 4));
+	        return sb.toString();
+	    }
+	    
+	 private static String getRandomCards(List<Ontwikkelingskaart> kaarten, int count) {
+		    Collections.shuffle(kaarten);
+		    List<Ontwikkelingskaart> selected = kaarten.subList(0, count);
+		    StringBuilder sb = new StringBuilder();
+		    for (Ontwikkelingskaart kaart : selected) {
+		        sb.append("kaart nummer: " + kaart.getKaartnummer() + ": ");
+		        sb.append("\tbonus edelsteen: " + kaart.getBonus());
+		        sb.append(",         punt(en): " + kaart.getPunten());
+		        sb.append(",         prijs: ");
+		        Edelsteen[] prijs = kaart.getPrijs();
+		        Map<Edelsteen, Integer> gemQuantities = new HashMap<>();
+		        for (Edelsteen edelsteen : prijs) {
+		            gemQuantities.put(edelsteen, gemQuantities.getOrDefault(edelsteen, 0) + 1);
+		        }
+		        boolean first = true;
+		        for (Map.Entry<Edelsteen, Integer> entry : gemQuantities.entrySet()) {
+		            if (!first) {
+		                sb.append(" ");
+		            }
+		            sb.append(entry.getValue() + " " + entry.getKey().toString());
+		            first = false;
+		        }
+		        sb.append("\n");
+		    }
+		    return sb.toString();
+		}
+
 }
 

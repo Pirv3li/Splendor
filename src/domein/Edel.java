@@ -20,8 +20,8 @@ public class Edel {
 		return this.punten;
 	}
 
-	public void setPunten(int punten) {
-		this.punten = punten;
+	public Edelsteen[] getPrijs() {
+		return prijs;
 	}
 
 

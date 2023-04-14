@@ -39,4 +39,9 @@ public class Edelen {
 		edelen.add(new Edel(3,prijsVanEdel_10,10));
 		
 	}
+	
+	public ArrayList<Edel> getEdelen(){
+		return edelen;
+	}
+	
 }

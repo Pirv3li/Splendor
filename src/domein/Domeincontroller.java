@@ -38,5 +38,9 @@ public class Domeincontroller {
 	public String getOntwikkelingskaartenOverzicht() {
 		return spel.ontwikkelingskaartenOverzicht();
 	}
+	
+	public String getEdelenOverzicht() {
+		return spel.getEdelen();
+	}
 
 }

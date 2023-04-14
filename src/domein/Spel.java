@@ -1,4 +1,5 @@
 package domein;
+import util.Edelen;
 import util.ontwikkelingskaarten;
 import java.util.*;
 
@@ -186,6 +187,40 @@ public class Spel {
 		    }
 		    return sb.toString();
 		}
+	 
+	 public String getEdelen() {
+		 Edelen edelen = new Edelen();
+		 List<Edel> edel = edelen.getEdelen();
+		 StringBuilder sb = new StringBuilder();
+		 sb.append(setEdelen(edel,5));
+		 return sb.toString();
+	 }
+	 
+	 private String setEdelen(List<Edel> edelen, int count) {
+		 Collections.shuffle(edelen);
+		 List<Edel> selected = edelen.subList(0, count);
+		 StringBuilder sb = new StringBuilder();
+		 for(Edel edel : selected) {
+			 sb.append("Edel nummer: "+edel.getEdelNummer()+": ");
+			 sb.append("\tpunten: "+edel.getPunten());
+			 sb.append("         prijs: ");
+			 Edelsteen[] prijs = edel.getPrijs();
+		        Map<Edelsteen, Integer> gemQuantities = new HashMap<>();
+		        for (Edelsteen edelsteen : prijs) {
+		            gemQuantities.put(edelsteen, gemQuantities.getOrDefault(edelsteen, 0) + 1);
+		        }
+		        boolean first = true;
+		        for (Map.Entry<Edelsteen, Integer> entry : gemQuantities.entrySet()) {
+		            if (!first) {
+		                sb.append(" ");
+		            }
+		            sb.append(entry.getValue() + " " + entry.getKey().toString());
+		            first = false;
+		        }
+		        sb.append("\n");
+		 }
+		 return sb.toString();
+	 }
 
 }
 

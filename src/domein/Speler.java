@@ -15,6 +15,7 @@ public class Speler {
 		setGebruikersnaam(gebruikersnaam);
 		setGeboortejaar(geboortejaar);
 		edelsteenfichesInventory = new HashMap<>();
+		ontwikkelingsKaarten = new ArrayList<>();
 	}
 
 	public String getGebruikersnaam() {

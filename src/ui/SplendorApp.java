@@ -51,9 +51,8 @@ public class SplendorApp {
 			String Edelsteen = in.nextLine();
 			System.out.println("aantal:");
 			int aantal = in.nextInt();
+			in.nextLine();
 			dc.neemTweeEdelstenen(Edelsteen, aantal);
-			edelstenenOverzicht = dc.getEdelstenenOverzicht();
-			System.out.println(edelstenenOverzicht);
 			}
 		}
 		in.close();

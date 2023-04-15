@@ -10,7 +10,7 @@ public class Spel {
 	HashMap<Edelsteen, Integer> edelstenen;
 	ArrayList<Speler> spelers;
 	ArrayList<Edel> edelen;
-	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
+	List<Ontwikkelingskaart> ontwikkelingsKaarten;
 	private int spelerIndex;
 
 	public Spel() {
@@ -161,9 +161,10 @@ public class Spel {
 	        return sb.toString();
 	    }
 	    
-	 private static String getRandomCards(List<Ontwikkelingskaart> kaarten, int count) {
+	 private String getRandomCards(List<Ontwikkelingskaart> kaarten, int count) {
 		    Collections.shuffle(kaarten);
 		    List<Ontwikkelingskaart> selected = kaarten.subList(0, count);
+		    this.ontwikkelingsKaarten = selected; // 4 Random kaarten van elke niveau
 		    StringBuilder sb = new StringBuilder();
 		    for (Ontwikkelingskaart kaart : selected) {
 		        sb.append("kaart nummer: " + kaart.getKaartnummer() + ": ");
@@ -220,6 +221,26 @@ public class Spel {
 		        sb.append("\n");
 		 }
 		 return sb.toString();
+	 }
+	 
+	 public void neem_1_Edelsteen(Edelsteen edelsteen, int aantal) {
+		 int currentAantal = edelstenen.get(edelsteen);
+		 if(currentAantal>= aantal && aantal == 1) {
+			 edelstenen .put(edelsteen, currentAantal - aantal);
+		 }
+		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, currentAantal);
+	 }
+	 		
+	 public void neem_2_Edelstenen(Edelsteen edelsteen, int aantal) {
+		 int currentAantal = edelstenen.get(edelsteen);
+		 if(currentAantal>= 4 && aantal == 2) {
+			 edelstenen .put(edelsteen, currentAantal - aantal);
+		 }
+		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, currentAantal);
+	 }
+	 
+	 public int telPuntenOp() {
+		 return spelers.get(spelerIndex).telPuntenOp();
 	 }
 
 }

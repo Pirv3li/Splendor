@@ -33,6 +33,7 @@ public class SplendorApp {
 			}
 			dc.startSpel();
 			dc.setstartSpelerIndex();
+			while(dc.getPunten()<15) {
 			String spelersOverzicht = dc.getSpelersOverzicht();
 			System.out.println("Overzicht van spelers");
 			System.out.println(spelersOverzicht);
@@ -45,6 +46,15 @@ public class SplendorApp {
 			String ontwikkelingsKaartenOverzicht = dc.getOntwikkelingskaartenOverzicht();
 			System.out.println("Beschikbare ontwikkelingskaarten");
 			System.out.println(ontwikkelingsKaartenOverzicht);
+			System.out.println("Neem een edelsteen(Schrijf soort en aantal)");
+			System.out.println("Edelsteen:");
+			String Edelsteen = in.nextLine();
+			System.out.println("aantal:");
+			int aantal = in.nextInt();
+			dc.neemTweeEdelstenen(Edelsteen, aantal);
+			edelstenenOverzicht = dc.getEdelstenenOverzicht();
+			System.out.println(edelstenenOverzicht);
+			}
 		}
 		in.close();
 	}

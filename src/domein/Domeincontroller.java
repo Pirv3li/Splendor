@@ -71,5 +71,9 @@ public class Domeincontroller {
 	        spel.neem_2_Edelstenen(edelsteen, aantal);
 	    }
 	}
+	
+	public void volgendeSpeler() {
+		spel.volgendeSpeler();
+	}
 
 }

@@ -53,6 +53,7 @@ public class SplendorApp {
 			int aantal = in.nextInt();
 			in.nextLine();
 			dc.neemTweeEdelstenen(Edelsteen, aantal);
+			dc.volgendeSpeler();
 			}
 		}
 		in.close();

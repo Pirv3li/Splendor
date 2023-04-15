@@ -41,9 +41,8 @@ public class Spel {
 	}
 	
 	
-	public Speler volgendeSpeler() {
+	public void volgendeSpeler() {
 		spelerIndex = (spelerIndex + 1) % spelers.size();
-        return spelers.get(spelerIndex);
 	}
 	
 	//public String[] getEdelsteenfiches(int spelerIndex) {
@@ -130,6 +129,10 @@ public class Spel {
 	        if (i == startspelerIndex+1) {
 	            sb.append(" (startspeler)");
 	        }
+	        sb.append("     Edelsteenfiches in inventory: ");
+			for (Map.Entry<Edelsteen, Integer> entry : speler.getEdelstenenInventory().entrySet()) {
+		        sb.append(entry.getKey() + " " + entry.getValue() + "\n");
+		    }
 	        sb.append("\n");
 	        i++;
 	    }
@@ -236,12 +239,14 @@ public class Spel {
 		 if(currentAantal>= 4 && aantal == 2) {
 			 edelstenen .put(edelsteen, currentAantal - aantal);
 		 }
-		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, currentAantal);
+		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
 	 }
 	 
 	 public int telPuntenOp() {
 		 return spelers.get(spelerIndex).telPuntenOp();
 	 }
+	 
+	 
 
 }
 

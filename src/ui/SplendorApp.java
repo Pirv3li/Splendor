@@ -52,7 +52,18 @@ public class SplendorApp {
 			System.out.println("aantal:");
 			int aantal = in.nextInt();
 			in.nextLine();
-			dc.neemTweeEdelstenen(Edelsteen, aantal);
+			if(aantal==1) {
+				dc.neemEdelstenen(Edelsteen, aantal);
+				System.out.println("Edelsteen 2:");
+				String EdelsteenTwee = in.nextLine();
+				dc.neemEdelstenen(EdelsteenTwee, aantal);
+				System.out.println("Edelsteen 3:");
+				String EdelsteenDrie = in.nextLine();
+				dc.neemEdelstenen(EdelsteenDrie, aantal);
+			}
+			else {
+				dc.neemEdelstenen(Edelsteen, aantal);
+			}
 			dc.volgendeSpeler();
 			}
 		}

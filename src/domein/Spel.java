@@ -231,7 +231,7 @@ public class Spel {
 		 if(currentAantal>= aantal && aantal == 1) {
 			 edelstenen .put(edelsteen, currentAantal - aantal);
 		 }
-		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, currentAantal);
+		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
 	 }
 	 		
 	 public void neem_2_Edelstenen(Edelsteen edelsteen, int aantal) {

@@ -47,7 +47,8 @@ public class Domeincontroller {
 		return spel.getEdelen();
 	}
 	
-	public void neemEenEdelsteen(String edelsteenString, int aantal) {
+	public void neemEdelstenen(String edelsteenString, int aantal) {
+		if(aantal==1) {
 	    Edelsteen edelsteen = null;
 	    try {
 	        edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
@@ -56,20 +57,17 @@ public class Domeincontroller {
 	    }
 	    if (edelsteen != null) {
 	        spel.neem_1_Edelsteen(edelsteen, aantal);
-	    }
-	}
-
-	
-	public void neemTweeEdelstenen(String edelsteenString, int aantal) {
-	    Edelsteen edelsteen = null;
-	    try {
-	        edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
-	    } catch (IllegalArgumentException e) {
-	        System.out.println("Invalid Edelsteenfiche");
-	    }
-	    if (edelsteen != null) {
-	        spel.neem_2_Edelstenen(edelsteen, aantal);
-	    }
+	    	}
+		}
+		else {
+			Edelsteen edelsteen = null;
+			try {
+		        edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
+		    } catch (IllegalArgumentException e) {
+		        System.out.println("Invalid Edelsteenfiche");
+		    }
+			spel.neem_2_Edelstenen(edelsteen, aantal);
+		}
 	}
 	
 	public void volgendeSpeler() {

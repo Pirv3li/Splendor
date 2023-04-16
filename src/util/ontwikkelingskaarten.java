@@ -16,7 +16,7 @@ private ArrayList<Ontwikkelingskaart> niveau3 = new ArrayList<>();
 	public ontwikkelingskaarten() {
 	
 	// NIVEAU 1 : 40 kaarten
-	
+
 	Edelsteen[] prijsVanKaart_1 = {Edelsteen.SAFFIEREN, Edelsteen.SAFFIEREN, Edelsteen.SAFFIEREN, Edelsteen.SAFFIEREN};
 	niveau1.add(new Ontwikkelingskaart(Edelsteen.ONYXEN, 1, prijsVanKaart_1, 1));
 	

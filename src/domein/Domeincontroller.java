@@ -40,7 +40,11 @@ public class Domeincontroller {
 	}
 	
 	public String getOntwikkelingskaartenOverzicht() {
-		return spel.ontwikkelingskaartenOverzicht();
+		return spel.toonOntwikkelingskaartenOverzicht();
+	}
+	
+	public void setOntwikkelingskaartenOverzicht() {
+		spel.setOntwikkelingsKaartenOverzicht();
 	}
 	
 	public String getEdelenOverzicht() {

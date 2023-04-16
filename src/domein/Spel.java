@@ -12,6 +12,10 @@ public class Spel {
 	ArrayList<Edel> edelen;
 	List<Ontwikkelingskaart> ontwikkelingsKaarten;
 	private int spelerIndex;
+	List<Ontwikkelingskaart> Niveau1Kaarten;
+	List<Ontwikkelingskaart> Niveau2Kaarten;
+	List<Ontwikkelingskaart> Niveau3Kaarten;
+
 
 	public Spel() {
 		spelers = new ArrayList<Speler>();
@@ -147,29 +151,11 @@ public class Spel {
 	    }
 	    return sb.toString();
 	}
-	
-	 public String ontwikkelingskaartenOverzicht() {
-		 ontwikkelingskaarten kaarten = new ontwikkelingskaarten();
-	        List<Ontwikkelingskaart> niveau1Kaarten = kaarten.getNiveau1Kaarten();
-	        List<Ontwikkelingskaart> niveau2Kaarten = kaarten.getNiveau2Kaarten();
-	        List<Ontwikkelingskaart> niveau3Kaarten = kaarten.getNiveau3Kaarten();
-	        
-	        StringBuilder sb = new StringBuilder();
-	        sb.append("Niveau 1 kaarten:\n");
-	        sb.append(getRandomCards(niveau1Kaarten, 4));
-	        sb.append("\nNiveau 2 kaarten:\n");
-	        sb.append(getRandomCards(niveau2Kaarten, 4));
-	        sb.append("\nNiveau 3 kaarten:\n");
-	        sb.append(getRandomCards(niveau3Kaarten, 4));
-	        return sb.toString();
-	    }
-	    
-	 private String getRandomCards(List<Ontwikkelingskaart> kaarten, int count) {
-		    Collections.shuffle(kaarten);
-		    List<Ontwikkelingskaart> selected = kaarten.subList(0, count);
-		    this.ontwikkelingsKaarten = selected; // 4 Random kaarten van elke niveau
+		    
+	 public String toonOntwikkelingskaartenOverzicht() {
 		    StringBuilder sb = new StringBuilder();
-		    for (Ontwikkelingskaart kaart : selected) {
+		    sb.append("Niveau 1 kaarten:\n");
+		    for (Ontwikkelingskaart kaart : Niveau1Kaarten) {
 		        sb.append("kaart nummer: " + kaart.getKaartnummer() + ": ");
 		        sb.append("\tbonus edelsteen: " + kaart.getBonus());
 		        sb.append(",         punt(en): " + kaart.getPunten());
@@ -186,12 +172,58 @@ public class Spel {
 		            }
 		            sb.append(entry.getValue() + " " + entry.getKey().toString());
 		            first = false;
+		        	}
+		        sb.append("\n");
+		        }
+		    	sb.append("\n");
+		        sb.append("Niveau 2 kaarten:\n");
+		        for (Ontwikkelingskaart kaart2 : Niveau2Kaarten) {
+			        sb.append("kaart nummer: " + kaart2.getKaartnummer() + ": ");
+			        sb.append("\tbonus edelsteen: " + kaart2.getBonus());
+			        sb.append(",         punt(en): " + kaart2.getPunten());
+			        sb.append(",         prijs: ");
+			        Edelsteen[] prijs2 = kaart2.getPrijs();
+			        Map<Edelsteen, Integer> gemQuantities2 = new HashMap<>();
+			        for (Edelsteen edelsteen : prijs2) {
+			            gemQuantities2.put(edelsteen, gemQuantities2.getOrDefault(edelsteen, 0) + 1);
+			        }
+			        boolean first2 = true;
+			        for (Map.Entry<Edelsteen, Integer> entry : gemQuantities2.entrySet()) {
+			            if (!first2) {
+			                sb.append(" ");
+			            }
+			            sb.append(entry.getValue() + " " + entry.getKey().toString());
+			            first2 = false;
+			        }
+			        sb.append("\n");
 		        }
 		        sb.append("\n");
-		    }
+			     sb.append("Niveau 3 kaarten:\n");
+			     for (Ontwikkelingskaart kaart3 : Niveau1Kaarten) {
+				        sb.append("kaart nummer: " + kaart3.getKaartnummer() + ": ");
+				        sb.append("\tbonus edelsteen: " + kaart3.getBonus());
+				        sb.append(",         punt(en): " + kaart3.getPunten());
+				        sb.append(",         prijs: ");
+				        Edelsteen[] prijs3 = kaart3.getPrijs();
+				        Map<Edelsteen, Integer> gemQuantities3 = new HashMap<>();
+				        for (Edelsteen edelsteen : prijs3) {
+				            gemQuantities3.put(edelsteen, gemQuantities3.getOrDefault(edelsteen, 0) + 1);
+				        }
+				        boolean first3 = true;
+				        for (Map.Entry<Edelsteen, Integer> entry : gemQuantities3.entrySet()) {
+				            if (!first3) {
+				                sb.append(" ");
+				            }
+				            sb.append(entry.getValue() + " " + entry.getKey().toString());
+				            first3 = false;
+				        }
+				        sb.append("\n");
+			     	}
+			     sb.append("\n");
 		    return sb.toString();
-		}
-	 
+		        }
+		    
+		
 	 public String getEdelen() {
 		 Edelen edelen = new Edelen();
 		 List<Edel> edel = edelen.getEdelen();
@@ -254,6 +286,32 @@ public class Spel {
 	 }
 	 
 	 
+	 public void koopOntwikkelingskaart(int kaartnummer) {
+		 //TODO
+		 // check of speler genoeg Edelstenen heeft om kaart te kopen 
+		 // verwijder kaart van lijst en voeg een andere random kaart toe 
+		 // voeg de kaart toe aan inventory van speler 
+	 }
+	 
+	 
+	 private List<Ontwikkelingskaart> getRandomKaarten(List<Ontwikkelingskaart> kaarten, int count){
+		 	Collections.shuffle(kaarten);
+		    List<Ontwikkelingskaart> selected = kaarten.subList(0, count);
+		    return selected;
+	 }
+	 
+	 public void setOntwikkelingsKaartenOverzicht () {
+		 ontwikkelingskaarten kaarten = new ontwikkelingskaarten();
+	        List<Ontwikkelingskaart> niveau1Kaarten = kaarten.getNiveau1Kaarten();
+	        List<Ontwikkelingskaart> niveau2Kaarten = kaarten.getNiveau2Kaarten();
+	        List<Ontwikkelingskaart> niveau3Kaarten = kaarten.getNiveau3Kaarten();
+		 Niveau1Kaarten = new ArrayList<>();
+		 Niveau2Kaarten = new ArrayList<>();
+		 Niveau3Kaarten = new ArrayList<>();
+		 Niveau1Kaarten = getRandomKaarten(niveau1Kaarten, 4);
+		 Niveau2Kaarten = getRandomKaarten(niveau2Kaarten, 4);
+		 Niveau3Kaarten = getRandomKaarten(niveau3Kaarten, 4);
+	 }
 
 }
 

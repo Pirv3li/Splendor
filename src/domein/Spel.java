@@ -246,6 +246,10 @@ public class Spel {
 		 return spelers.get(spelerIndex).telPuntenOp();
 	 }
 	 
+	 public String getSpelerAanDeBeurtNaam() {
+		 return spelers.get(spelerIndex).getGebruikersnaam();
+	 }
+	 
 	 
 
 }

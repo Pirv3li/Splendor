@@ -73,5 +73,9 @@ public class Domeincontroller {
 	public void volgendeSpeler() {
 		spel.volgendeSpeler();
 	}
+	
+	public String getNaamVanSpelerAanDeBeurt() {
+		return spel.getSpelerAanDeBeurtNaam();
+	}
 
 }

@@ -17,20 +17,55 @@ public class SplendorApp {
 			gebruikersnaam = in.nextLine();
 			System.out.println("Geef u geboortejaar : ");
 			geboortejaar = in.nextInt();
-			dc.voegSpelerToe(gebruikersnaam, geboortejaar);
+			in.nextLine();
+
+			boolean validInput = false;
+
+			while (!validInput) {
+			    try {
+			        dc.voegSpelerToe(gebruikersnaam, geboortejaar);
+			        validInput = true;
+			    } catch (IllegalArgumentException e) {
+			        System.out.println(e.getMessage());
+			        System.out.println("Geef u gebruikersnaam : ");
+			        gebruikersnaam = in.nextLine();
+			        System.out.println("Geef u geboortejaar : ");
+			        geboortejaar = in.nextInt();
+			        in.nextLine();
+			    }
+			}
+
 			System.out.println("Wil je meer spelers toevoegen ? ( 1=JA , 0=NEE )");
 			int meerSpelersToevoegenJaOfNee = in.nextInt();
 			in.nextLine();
-			while(meerSpelersToevoegenJaOfNee!=0) {
-				System.out.println("Geef u gebruikersnaam : ");
-				gebruikersnaam = in.nextLine();
-				System.out.println("Geef u geboortejaar : ");
-				geboortejaar = in.nextInt();
-				dc.voegSpelerToe(gebruikersnaam, geboortejaar);
-				System.out.println("Wil je meer spelers toevoegen ? ( 1=JA , 0=NEE )");
-				meerSpelersToevoegenJaOfNee = in.nextInt();
-				in.nextLine();
+
+			while (meerSpelersToevoegenJaOfNee != 0) {
+			    validInput = false;
+			    System.out.println("Geef u gebruikersnaam : ");
+			    gebruikersnaam = in.nextLine();
+			    System.out.println("Geef u geboortejaar : ");
+			    geboortejaar = in.nextInt();
+			    in.nextLine();
+
+			    while (!validInput) {
+			        try {
+			            dc.voegSpelerToe(gebruikersnaam, geboortejaar);
+			            validInput = true;
+			        } catch (IllegalArgumentException e) {
+			            System.out.println(e.getMessage());
+			            System.out.println("Geef u gebruikersnaam : ");
+			            gebruikersnaam = in.nextLine();
+			            System.out.println("Geef u geboortejaar : ");
+			            geboortejaar = in.nextInt();
+			            in.nextLine();
+			        }
+			    }
+
+			    System.out.println("Wil je meer spelers toevoegen ? ( 1=JA , 0=NEE )");
+			    meerSpelersToevoegenJaOfNee = in.nextInt();
+			    in.nextLine();
 			}
+			
 			dc.startSpel();
 			dc.setstartSpelerIndex();
 			while(dc.getPunten()<15) {

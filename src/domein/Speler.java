@@ -69,7 +69,15 @@ public class Speler {
 	}
 	
 	public void voegGemsToeAanInventory(Edelsteen edelsteen, int aantal) {
-		this.edelsteenfichesInventory.put(edelsteen, aantal);
+		// Get the current value for the given Edelsteen
+		int currentValue = this.edelsteenfichesInventory.getOrDefault(edelsteen, 0);
+
+		// Add the specified aantal to the current value
+		int newValue = currentValue + aantal;
+
+		// Update the HashMap with the new value
+		this.edelsteenfichesInventory.put(edelsteen, newValue);
+
 	}
 	
 	public void voegOntwikkelingskaartToeAanInventory(Ontwikkelingskaart ontwikkelingskaart) {

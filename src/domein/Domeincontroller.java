@@ -59,16 +59,18 @@ public class Domeincontroller {
 	        spel.neem_1_Edelsteen(edelsteen, aantal);
 	    	}
 		}
-		else {
+		if(aantal==2) {
 			Edelsteen edelsteen = null;
 			try {
 		        edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
 		    } catch (IllegalArgumentException e) {
 		        System.out.println("Invalid Edelsteenfiche");
 		    }
+			if(edelsteen != null) {
 			spel.neem_2_Edelstenen(edelsteen, aantal);
+				}
+			}
 		}
-	}
 	
 	public void volgendeSpeler() {
 		spel.volgendeSpeler();

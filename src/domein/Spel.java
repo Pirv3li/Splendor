@@ -229,7 +229,7 @@ public class Spel {
 	 public void neem_1_Edelsteen(Edelsteen edelsteen, int aantal) {
 		 int currentAantal = edelstenen.get(edelsteen);
 		 if(currentAantal>= aantal && aantal == 1) {
-			 edelstenen .put(edelsteen, currentAantal - aantal);
+			 edelstenen.put(edelsteen, currentAantal - aantal);
 		 }
 		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
 	 }
@@ -237,7 +237,10 @@ public class Spel {
 	 public void neem_2_Edelstenen(Edelsteen edelsteen, int aantal) {
 		 int currentAantal = edelstenen.get(edelsteen);
 		 if(currentAantal>= 4 && aantal == 2) {
-			 edelstenen .put(edelsteen, currentAantal - aantal);
+			 edelstenen.put(edelsteen, currentAantal - aantal);
+		 }
+		 else {
+			 throw new IllegalArgumentException("Je mag enkel 1 edelsteen pakken als er minder dan 4 edelstenen zijn !"); 
 		 }
 		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
 	 }

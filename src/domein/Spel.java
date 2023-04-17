@@ -9,7 +9,7 @@ public class Spel {
 	private int startspelerIndex;
 	HashMap<Edelsteen, Integer> edelstenen;
 	ArrayList<Speler> spelers;
-	ArrayList<Edel> edelen;
+	List<Edel> edelen;
 	List<Ontwikkelingskaart> ontwikkelingsKaarten;
 	private int spelerIndex;
 	List<Ontwikkelingskaart> Niveau1Kaarten;
@@ -199,7 +199,7 @@ public class Spel {
 		        }
 		        sb.append("\n");
 			     sb.append("Niveau 3 kaarten:\n");
-			     for (Ontwikkelingskaart kaart3 : Niveau1Kaarten) {
+			     for (Ontwikkelingskaart kaart3 : Niveau3Kaarten) {
 				        sb.append("kaart nummer: " + kaart3.getKaartnummer() + ": ");
 				        sb.append("\tbonus edelsteen: " + kaart3.getBonus());
 				        sb.append(",         punt(en): " + kaart3.getPunten());
@@ -223,20 +223,10 @@ public class Spel {
 		    return sb.toString();
 		        }
 		    
-		
-	 public String getEdelen() {
-		 Edelen edelen = new Edelen();
-		 List<Edel> edel = edelen.getEdelen();
-		 StringBuilder sb = new StringBuilder();
-		 sb.append(setEdelen(edel,5));
-		 return sb.toString();
-	 }
 	 
-	 private String setEdelen(List<Edel> edelen, int count) {
-		 Collections.shuffle(edelen);
-		 List<Edel> selected = edelen.subList(0, count);
+	 public String toonEdelenOverzicht() {
 		 StringBuilder sb = new StringBuilder();
-		 for(Edel edel : selected) {
+		 for(Edel edel : edelen) {
 			 sb.append("Edel nummer: "+edel.getEdelNummer()+": ");
 			 sb.append("\tpunten: "+edel.getPunten());
 			 sb.append("         prijs: ");
@@ -291,6 +281,19 @@ public class Spel {
 		 // check of speler genoeg Edelstenen heeft om kaart te kopen 
 		 // verwijder kaart van lijst en voeg een andere random kaart toe 
 		 // voeg de kaart toe aan inventory van speler 
+	 }
+	 
+	 private List<Edel> getRandomEdelen(List<Edel> edelen, int count){
+		 Collections.shuffle(edelen);
+		 List<Edel> selected = edelen.subList(0, count);
+		 return selected;
+	 }
+	 
+	 public void setEdelenOverzicht() {
+		 Edelen edelen = new Edelen();
+		 this.edelen = new ArrayList<>();
+		 List<Edel> edelenOverzicht = edelen.getEdelen();
+		 this.edelen = getRandomEdelen(edelenOverzicht,5);
 	 }
 	 
 	 

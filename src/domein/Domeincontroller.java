@@ -43,12 +43,13 @@ public class Domeincontroller {
 		return spel.toonOntwikkelingskaartenOverzicht();
 	}
 	
-	public void setOntwikkelingskaartenOverzicht() {
+	public void setOntwikkelingskaartenOverzichtEnEdelenOverzicht() {
 		spel.setOntwikkelingsKaartenOverzicht();
+		spel.setEdelenOverzicht();
 	}
 	
 	public String getEdelenOverzicht() {
-		return spel.getEdelen();
+		return spel.toonEdelenOverzicht();
 	}
 	
 	public void neemEdelstenen(String edelsteenString, int aantal) {

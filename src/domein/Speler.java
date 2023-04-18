@@ -10,12 +10,15 @@ public class Speler {
 	private String gebruikersnaam;
 	private int geboortejaar;
 	private int leeftijd;
+	HashMap<Edelsteen, Integer> bonusEdelsteenfichesInventory;
 	
 	public Speler(String gebruikersnaam, int geboortejaar) {
 		setGebruikersnaam(gebruikersnaam);
 		setGeboortejaar(geboortejaar);
 		edelsteenfichesInventory = new HashMap<>();
 		ontwikkelingsKaarten = new ArrayList<>();
+		bonusEdelsteenfichesInventory = new HashMap<>();
+
 	}
 
 	public String getGebruikersnaam() {
@@ -67,6 +70,17 @@ public class Speler {
 	public int getLeeftijd() {
 		return this.leeftijd;
 	}
+	
+	public void voegGemsToeAanBonusInventory(Edelsteen edelsteen) {
+		int currentValue = this.bonusEdelsteenfichesInventory.getOrDefault(edelsteen, 0);
+		int newValue = currentValue + 1;
+		this.bonusEdelsteenfichesInventory.put(edelsteen, newValue);
+	}
+	
+	public HashMap<Edelsteen, Integer> getBonusEdelstenenInventory(){ 
+		return this.bonusEdelsteenfichesInventory;
+	}
+	
 	
 	public void voegGemsToeAanInventory(Edelsteen edelsteen, int aantal) {
 		// Get the current value for the given Edelsteen

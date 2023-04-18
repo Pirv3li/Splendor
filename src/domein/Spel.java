@@ -133,6 +133,10 @@ public class Spel {
 			for (Map.Entry<Edelsteen, Integer> entry : speler.getEdelstenenInventory().entrySet()) {
 		        sb.append(entry.getKey() + " " + entry.getValue() + ", ");
 		    }
+			sb.append("     bonus edelsteenfiches in inventory: ");
+			for (Map.Entry<Edelsteen, Integer> entry : speler.getBonusEdelstenenInventory().entrySet()) {
+		        sb.append(entry.getKey() + " " + entry.getValue() + ", ");
+		    }
 			sb.append("     Ontwikkelingskaarten in inventory: ");
 	        for (Ontwikkelingskaart kaart : speler.getOntwikkelingskaartenInventory()) {
 	            sb.append(kaart.getKaartnummer()).append(", ");
@@ -292,7 +296,8 @@ public class Spel {
 			 	gekozenOntwikkelingskaart = alleOverzichtKaarten.get(i);
 		 	}
 		 }
-		 HashMap<Edelsteen, Integer> edelstenenInventory = spelers.get(spelerIndex).edelsteenfichesInventory;
+		 HashMap<Edelsteen, Integer> edelstenenInventory = spelers.get(spelerIndex).getEdelstenenInventory();
+		 HashMap<Edelsteen, Integer> bonusedelstenenInventory = spelers.get(spelerIndex).getBonusEdelstenenInventory(); 
 		 Edelsteen[] prijsInArray = gekozenOntwikkelingskaart.getPrijs();
 		 HashMap<Edelsteen, Integer> prijs = new HashMap<>();
 
@@ -306,7 +311,7 @@ public class Spel {
 		        prijs.put(element, 1);
 		    }
 		}
-		if(HeeftGenoegEdelstenenOfNietOmKaartTeKopen(prijs,edelstenenInventory)) {
+		if(HeeftGenoegEdelstenenOfNietOmKaartTeKopen(prijs,edelstenenInventory,bonusedelstenenInventory)) {
 			if (gekozenOntwikkelingskaart.getNiveau() == 1) {
 	            Niveau1Kaarten.remove(gekozenOntwikkelingskaart);
 	            Ontwikkelingskaart randomCard1 = kaarten.getNiveau1Kaarten().get(randomIndexNiveau1);
@@ -321,27 +326,33 @@ public class Spel {
 	            Niveau3Kaarten.add(randomCard3);
 	        }
 			spelers.get(spelerIndex).voegOntwikkelingskaartToeAanInventory(gekozenOntwikkelingskaart);
+			spelers.get(spelerIndex).voegGemsToeAanBonusInventory(gekozenOntwikkelingskaart.getBonus());
 		}
 	 }
 	 
-	 private boolean HeeftGenoegEdelstenenOfNietOmKaartTeKopen(HashMap<Edelsteen, Integer> kaartPrijs, HashMap<Edelsteen, Integer> spelerInventory) {
+	 private boolean HeeftGenoegEdelstenenOfNietOmKaartTeKopen(HashMap<Edelsteen, Integer> kaartPrijs, HashMap<Edelsteen, Integer> spelerInventory, HashMap<Edelsteen, Integer> bonusInventory) {
 		    // Iterate over the required gem prices of the card
 		    for (Edelsteen edelsteen : kaartPrijs.keySet()) {
 		        int requiredCount = kaartPrijs.get(edelsteen);
 		        int playerCount = spelerInventory.getOrDefault(edelsteen, 0); 
-		        if (requiredCount > playerCount) {
+		        int bonusCount = bonusInventory.getOrDefault(edelsteen, 0);
+		        if (requiredCount > (playerCount + bonusCount)) {
 		            throw new IllegalArgumentException("U heeft niet genoeg Edelstenen om deze ontwikkelingskaart te kopen!");
 		        }
 		        else {
-		            // Subtract the paid price from the player's inventory
-		            spelerInventory.put(edelsteen, playerCount - requiredCount);
+		            if (playerCount >= requiredCount) {
+		                // Subtract the paid price from the player's normal inventory
+		                spelerInventory.put(edelsteen, playerCount - requiredCount);
+		            } if(playerCount+bonusCount >= requiredCount) {
+		                spelerInventory.put(edelsteen, 0);
+		            }
 		            int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
 		            edelstenen.put(edelsteen, edelsteenCount + requiredCount);
-		        	}
-		    
-		    	}
+		        }
+		    }
 		    return true;
-	 	}
+		}
+
 
 	 
 	 private List<Edel> getRandomEdelen(List<Edel> edelen, int count){

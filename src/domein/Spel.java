@@ -128,16 +128,16 @@ public class Spel {
 	        if (i == startspelerIndex+1) {
 	            sb.append(" (startspeler)");
 	        }
+	        sb.append("     prestigepunten : "+speler.telPuntenOp());
 	        sb.append("     Edelsteenfiches in inventory: ");
 			for (Map.Entry<Edelsteen, Integer> entry : speler.getEdelstenenInventory().entrySet()) {
-		        sb.append(entry.getKey() + " " + entry.getValue() + "\n");
+		        sb.append(entry.getKey() + " " + entry.getValue() + ", ");
 		    }
-			sb.append("  Ontwikkelingskaarten in inventory: ");
+			sb.append("     Ontwikkelingskaarten in inventory: ");
 	        for (Ontwikkelingskaart kaart : speler.getOntwikkelingskaartenInventory()) {
 	            sb.append(kaart.getKaartnummer()).append(", ");
 	        }
 			sb.append("\n");
-	        sb.append("\n");
 	        i++;
 	    }
 	    return sb.toString();
@@ -314,11 +314,11 @@ public class Spel {
 	        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
 	            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
 	            Ontwikkelingskaart randomCard2 = kaarten.getNiveau2Kaarten().get(randomIndexNiveau2);
-	            Niveau1Kaarten.add(randomCard2);
+	            Niveau2Kaarten.add(randomCard2);
 	        } else {
 	            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
 	            Ontwikkelingskaart randomCard3 = kaarten.getNiveau3Kaarten().get(randomIndexNiveau3);
-	            Niveau1Kaarten.add(randomCard3);
+	            Niveau3Kaarten.add(randomCard3);
 	        }
 			spelers.get(spelerIndex).voegOntwikkelingskaartToeAanInventory(gekozenOntwikkelingskaart);
 		}

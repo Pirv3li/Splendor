@@ -341,6 +341,8 @@ public class Spel {
 		        }
 		        else {
 		            if (bonusCount >= requiredCount) {
+		            	int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
+				        edelstenen.put(edelsteen, edelsteenCount + requiredCount);
 		            	return true;
 		            } 
 		            else if(bonusCount < requiredCount && bonusCount + playerCount == requiredCount) {

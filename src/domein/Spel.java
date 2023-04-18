@@ -342,12 +342,13 @@ public class Spel {
 		        else {
 		            if (bonusCount >= requiredCount) {
 		            	return true;
-		            } if(bonusCount < requiredCount && bonusCount + playerCount == requiredCount) {
+		            } 
+		            else if(bonusCount < requiredCount && bonusCount + playerCount == requiredCount) {
 		                spelerInventory.put(edelsteen, 0);
 		            }
-		            	if(bonusCount < requiredCount && bonusCount + playerCount > requiredCount) {
+		            else if(bonusCount < requiredCount && bonusCount + playerCount > requiredCount) {
 		            		spelerInventory.put(edelsteen, playerCount - requiredCount);
-		            	}
+		            }
 		            int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
 		            edelstenen.put(edelsteen, edelsteenCount + requiredCount);
 		        }

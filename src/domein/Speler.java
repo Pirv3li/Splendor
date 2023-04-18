@@ -82,6 +82,11 @@ public class Speler {
 	
 	
 	public void voegGemsToeAanInventory(Edelsteen edelsteen, int aantal) {
+		int totalGems = 0;
+		for (int count : edelsteenfichesInventory.values()) {
+		    totalGems += count;
+		}
+		if(totalGems<10) {
 		// Get the current value for the given Edelsteen
 		int currentValue = this.edelsteenfichesInventory.getOrDefault(edelsteen, 0);
 
@@ -90,6 +95,10 @@ public class Speler {
 
 		// Update the HashMap with the new value
 		this.edelsteenfichesInventory.put(edelsteen, newValue);
+		}
+		else {
+			throw new IllegalArgumentException("uw Inventory is vol, u hebt 10 edelsteenfiches!");
+		}
 
 	}
 	

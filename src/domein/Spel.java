@@ -272,6 +272,11 @@ public class Spel {
 	 
 	 
 	 public void koopOntwikkelingskaart(int kaartnummer) {
+		 Random random = new Random();
+		 ontwikkelingskaarten kaarten = new ontwikkelingskaarten();
+		 int randomIndexNiveau1 = random.nextInt(kaarten.getNiveau1Kaarten().size());
+		 int randomIndexNiveau2 = random.nextInt(kaarten.getNiveau2Kaarten().size());
+		 int randomIndexNiveau3 = random.nextInt(kaarten.getNiveau3Kaarten().size());
 		 List<Ontwikkelingskaart> alleOverzichtKaarten = new ArrayList<>();
 		 alleOverzichtKaarten.addAll(Niveau1Kaarten);
 		 alleOverzichtKaarten.addAll(Niveau2Kaarten);
@@ -299,10 +304,16 @@ public class Spel {
 		if(HeeftGenoegEdelstenenOfNietOmKaartTeKopen(prijs,edelstenenInventory)) {
 			if (gekozenOntwikkelingskaart.getNiveau() == 1) {
 	            Niveau1Kaarten.remove(gekozenOntwikkelingskaart);
+	            Ontwikkelingskaart randomCard1 = kaarten.getNiveau1Kaarten().get(randomIndexNiveau1);
+	            Niveau1Kaarten.add(randomCard1);
 	        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
 	            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
+	            Ontwikkelingskaart randomCard2 = kaarten.getNiveau2Kaarten().get(randomIndexNiveau2);
+	            Niveau1Kaarten.add(randomCard2);
 	        } else {
 	            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
+	            Ontwikkelingskaart randomCard3 = kaarten.getNiveau3Kaarten().get(randomIndexNiveau3);
+	            Niveau1Kaarten.add(randomCard3);
 	        }
 			spelers.get(spelerIndex).voegOntwikkelingskaartToeAanInventory(gekozenOntwikkelingskaart);
 		}
@@ -333,7 +344,6 @@ public class Spel {
 		 List<Edel> edelenOverzicht = edelen.getEdelen();
 		 this.edelen = getRandomEdelen(edelenOverzicht,5);
 	 }
-	 
 	 
 	 private List<Ontwikkelingskaart> getRandomKaarten(List<Ontwikkelingskaart> kaarten, int count){
 		 	Collections.shuffle(kaarten);

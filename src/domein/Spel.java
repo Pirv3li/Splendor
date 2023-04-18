@@ -49,11 +49,6 @@ public class Spel {
 		spelerIndex = (spelerIndex + 1) % spelers.size();
 	}
 	
-	//public String[] getEdelsteenfiches(int spelerIndex) {
-		//gems = new Edelsteenfiche(spelerIndex);
-		//return gems.getSoort();
-	//}
-	
 	public int getStartSpelerIndex(ArrayList<Speler> spelers) {
 	    int youngestAge = 169;
 	    int numYoungestPlayers = 0;
@@ -277,11 +272,54 @@ public class Spel {
 	 
 	 
 	 public void koopOntwikkelingskaart(int kaartnummer) {
-		 //TODO
-		 // check of speler genoeg Edelstenen heeft om kaart te kopen 
-		 // verwijder kaart van lijst en voeg een andere random kaart toe 
-		 // voeg de kaart toe aan inventory van speler 
+		 List<Ontwikkelingskaart> alleOverzichtKaarten = new ArrayList<>();
+		 alleOverzichtKaarten.addAll(Niveau1Kaarten);
+		 alleOverzichtKaarten.addAll(Niveau2Kaarten);
+		 alleOverzichtKaarten.addAll(Niveau3Kaarten);
+		 Ontwikkelingskaart gekozenOntwikkelingskaart = null;
+		 for(int i=0; i<alleOverzichtKaarten.size(); i++) {
+		 if(alleOverzichtKaarten.get(i).getKaartnummer()==kaartnummer) {
+			 	gekozenOntwikkelingskaart = alleOverzichtKaarten.get(i);
+		 	}
+		 }
+		 HashMap<Edelsteen, Integer> edelstenenInventory = spelers.get(spelerIndex).edelsteenfichesInventory;
+		 Edelsteen[] prijsInArray = gekozenOntwikkelingskaart.getPrijs();
+		 HashMap<Edelsteen, Integer> prijs = new HashMap<>();
+
+		// Loop over the array and update the counts in the HashMap
+		for (Edelsteen element : prijsInArray) {
+		    if (prijs.containsKey(element)) {
+		        // Increment the count if the element is already in the HashMap
+		        prijs.put(element, prijs.get(element) + 1);
+		    } else {
+		        // Add the element to the HashMap with a count of 1 if it's not already in there
+		        prijs.put(element, 1);
+		    }
+		}
+		if(HeeftGenoegEdelstenenOfNietOmKaartTeKopen(prijs,edelstenenInventory)) {
+			if (gekozenOntwikkelingskaart.getNiveau() == 1) {
+	            Niveau1Kaarten.remove(gekozenOntwikkelingskaart);
+	        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
+	            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
+	        } else {
+	            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
+	        }
+			spelers.get(spelerIndex).voegOntwikkelingskaartToeAanInventory(gekozenOntwikkelingskaart);
+		}
 	 }
+	 
+	 private boolean HeeftGenoegEdelstenenOfNietOmKaartTeKopen(HashMap<Edelsteen, Integer> kaartPrijs, HashMap<Edelsteen, Integer> spelerInventory) {
+		    // Iterate over the required gem prices of the card
+		    for (Edelsteen edelsteen : kaartPrijs.keySet()) {
+		        int requiredCount = kaartPrijs.get(edelsteen);
+		        int playerCount = spelerInventory.getOrDefault(edelsteen, 0); 
+		        if (requiredCount > playerCount) {
+		            throw new IllegalArgumentException("U heeft niet genoeg Edelstenen om deze ontwikkelingskaart te kopen!");
+		        }
+		    }
+		    return true;
+		}
+
 	 
 	 private List<Edel> getRandomEdelen(List<Edel> edelen, int count){
 		 Collections.shuffle(edelen);
@@ -317,4 +355,3 @@ public class Spel {
 	 }
 
 }
-

@@ -340,12 +340,14 @@ public class Spel {
 		            throw new IllegalArgumentException("U heeft niet genoeg Edelstenen om deze ontwikkelingskaart te kopen!");
 		        }
 		        else {
-		            if (playerCount >= requiredCount) {
-		                // Subtract the paid price from the player's normal inventory
-		                spelerInventory.put(edelsteen, playerCount - requiredCount);
-		            } if(playerCount+bonusCount >= requiredCount) {
+		            if (bonusCount >= requiredCount) {
+		            	return true;
+		            } if(bonusCount < requiredCount && bonusCount + playerCount == requiredCount) {
 		                spelerInventory.put(edelsteen, 0);
 		            }
+		            	if(bonusCount < requiredCount && bonusCount + playerCount > requiredCount) {
+		            		spelerInventory.put(edelsteen, playerCount - requiredCount);
+		            	}
 		            int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
 		            edelstenen.put(edelsteen, edelsteenCount + requiredCount);
 		        }

@@ -2,7 +2,7 @@ package domein;
 
 public class Ontwikkelingskaart {
 
-	Edelsteen[] prijs;
+	private Edelsteen[] prijs;
 	private int punten;
 	private Edelsteen bonus;
 	private int kaartnummer;

@@ -1,11 +1,10 @@
 package domein;
-import java.util.*;
 
 public class Domeincontroller {
 	
-	Spel spel;
-	ArrayList<Speler> spelers;
-	SpelerRepository spelerRepository;
+	private Spel spel;
+//	private ArrayList<Speler> spelers;
+//	private SpelerRepository spelerRepository;
 
 	public Domeincontroller() {
 		spel = new Spel();
@@ -18,10 +17,6 @@ public class Domeincontroller {
 	public void setstartSpelerIndex() {
 		spel.setStartspelerIndex();
 	}
-	
-//	public int getStartSpelerIndex() {
-//		return spel.getstartspelerindex();
-//	}
 	
 	public int getPunten() {
 		return spel.telPuntenOp();

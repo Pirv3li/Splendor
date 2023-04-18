@@ -4,13 +4,12 @@ import java.util.*;
 
 public class Speler {
 
-	ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
-	ArrayList<Edel> edelen;
-	HashMap<Edelsteen, Integer> edelsteenfichesInventory;
+	private ArrayList<Ontwikkelingskaart> ontwikkelingsKaarten;
+	private HashMap<Edelsteen, Integer> edelsteenfichesInventory;
 	private String gebruikersnaam;
 	private int geboortejaar;
 	private int leeftijd;
-	HashMap<Edelsteen, Integer> bonusEdelsteenfichesInventory;
+	private HashMap<Edelsteen, Integer> bonusEdelsteenfichesInventory;
 	
 	public Speler(String gebruikersnaam, int geboortejaar) {
 		setGebruikersnaam(gebruikersnaam);

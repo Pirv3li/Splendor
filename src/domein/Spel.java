@@ -7,14 +7,14 @@ public class Spel {
 	private static final int MIN_SPELERS = 2;
 	private static final int MAX_SPELERS = 4;
 	private int startspelerIndex;
-	HashMap<Edelsteen, Integer> edelstenen;
-	ArrayList<Speler> spelers;
-	List<Edel> edelen;
-	List<Ontwikkelingskaart> ontwikkelingsKaarten;
+	private HashMap<Edelsteen, Integer> edelstenen;
+	private ArrayList<Speler> spelers;
+	private List<Edel> edelen;
+//	private List<Ontwikkelingskaart> ontwikkelingsKaarten;
 	private int spelerIndex;
-	List<Ontwikkelingskaart> Niveau1Kaarten;
-	List<Ontwikkelingskaart> Niveau2Kaarten;
-	List<Ontwikkelingskaart> Niveau3Kaarten;
+	private List<Ontwikkelingskaart> Niveau1Kaarten;
+	private List<Ontwikkelingskaart> Niveau2Kaarten;
+	private List<Ontwikkelingskaart> Niveau3Kaarten;
 
 
 	public Spel() {

@@ -2,7 +2,7 @@ package domein;
 
 public class Edel {
 
-	Edelsteen[] prijs;
+	private Edelsteen[] prijs;
 	private int punten;
 	private int edelnummer;
 

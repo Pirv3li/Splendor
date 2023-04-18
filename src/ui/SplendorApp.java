@@ -83,7 +83,10 @@ public class SplendorApp {
 			System.out.println("Beschikbare ontwikkelingskaarten");
 			System.out.println(ontwikkelingsKaartenOverzicht);
 			String naamVanSpelerAanDeBeurt = dc.getNaamVanSpelerAanDeBeurt();
-			System.out.println(naamVanSpelerAanDeBeurt + " (Je bent aan de beurt) Neem een edelsteen(Schrijf soort en aantal)");
+			System.out.println(naamVanSpelerAanDeBeurt + " (Je bent aan de beurt) Neem een edelsteen(Type 1) of koop een ontwikkelingskaart(Type 2)");
+			int EdelsteenNemenOfKaartKopen = in.nextInt();
+			in.nextLine();
+			if(EdelsteenNemenOfKaartKopen==1) {
 			System.out.println("Edelsteen:");
 			String Edelsteen = in.nextLine();
 			System.out.println("aantal:");
@@ -100,6 +103,23 @@ public class SplendorApp {
 			}
 			else {
 				dc.neemEdelstenen(Edelsteen, aantal);
+				}
+			}
+			if(EdelsteenNemenOfKaartKopen==2) {
+				System.out.println("geef kaartnummer van kaart dat je wilt kopen : ");
+				int kaartnummer = in.nextInt();
+				validInput = false;
+				while(!validInput) {
+				try {
+				dc.koopOntwikkelingskaart(kaartnummer);
+				validInput = true;
+				}catch(IllegalArgumentException e) {
+					System.out.println(e.getMessage());
+					System.out.println("geef kaartnummer van kaart dat je wilt kopen : ");
+					kaartnummer = in.nextInt();
+					}
+				}
+				in.nextLine();
 			}
 			dc.volgendeSpeler();
 			}

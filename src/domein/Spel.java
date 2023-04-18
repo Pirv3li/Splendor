@@ -132,6 +132,11 @@ public class Spel {
 			for (Map.Entry<Edelsteen, Integer> entry : speler.getEdelstenenInventory().entrySet()) {
 		        sb.append(entry.getKey() + " " + entry.getValue() + "\n");
 		    }
+			sb.append("  Ontwikkelingskaarten in inventory: ");
+	        for (Ontwikkelingskaart kaart : speler.getOntwikkelingskaartenInventory()) {
+	            sb.append(kaart.getKaartnummer()).append(", ");
+	        }
+			sb.append("\n");
 	        sb.append("\n");
 	        i++;
 	    }
@@ -327,9 +332,16 @@ public class Spel {
 		        if (requiredCount > playerCount) {
 		            throw new IllegalArgumentException("U heeft niet genoeg Edelstenen om deze ontwikkelingskaart te kopen!");
 		        }
-		    }
+		        else {
+		            // Subtract the paid price from the player's inventory
+		            spelerInventory.put(edelsteen, playerCount - requiredCount);
+		            int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
+		            edelstenen.put(edelsteen, edelsteenCount + requiredCount);
+		        	}
+		    
+		    	}
 		    return true;
-		}
+	 	}
 
 	 
 	 private List<Edel> getRandomEdelen(List<Edel> edelen, int count){

@@ -84,5 +84,9 @@ public class Domeincontroller {
 	public String getNaamVanSpelerAanDeBeurt() {
 		return spel.getSpelerAanDeBeurtNaam();
 	}
+	
+	public void koopOntwikkelingskaart(int kaartnummer) {
+		spel.koopOntwikkelingskaart(kaartnummer);
+	}
 
 }

@@ -1,0 +1,4 @@
+.root{
+-fx-background-image:url('../images//splendor-g_61/src/images/backgroundLoginScherm.jpg');
+-fx-background-size:cover;
+}

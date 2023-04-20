@@ -5,7 +5,7 @@ public class Domeincontroller {
 	private Spel spel;
 //	private ArrayList<Speler> spelers;
 //	private SpelerRepository spelerRepository;
-
+// test
 	public Domeincontroller() {
 		spel = new Spel();
 	}

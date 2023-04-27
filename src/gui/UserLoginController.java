@@ -28,6 +28,10 @@ public class UserLoginController extends Pane {
         int geboortejaar = Integer.parseInt(birthYearField.getText());
         dc.voegSpelerToe(naam, geboortejaar);
     }
+    
+    public void onClickStart() {
+    	
+    }
 
 }
 

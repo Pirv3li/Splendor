@@ -13,10 +13,10 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UserLoginController">
    <left>
-      <AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #ffa500;" BorderPane.alignment="CENTER" styleClass="left-pane">
+      <AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #ffa500;" styleClass="left-pane" BorderPane.alignment="CENTER">
          <children>
 <!--             <Icon content="BOOK" layoutX="160.0" layoutY="158.0" prefHeight="30.0" prefWidth="30.0" /> -->
-            <Text layoutX="150.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Splendor" style="-fx-text-fill: orange; -fx-stroke: orange; -fx-stroke-width: 2px;">
+            <Text layoutX="150.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: orange; -fx-stroke: orange; -fx-stroke-width: 2px;" text="Splendor">
                <font>
                   <Font size="30.0" />
                </font>
@@ -29,7 +29,7 @@
          <children>
             <TextField fx:id="usernameField" layoutX="101.0" layoutY="183.0" promptText="Gebruikersnaam" style="-fx-background-color: transparent; -fx-border-color: #ffa500; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="birthYearField" layoutX="101.0" layoutY="237.0" promptText="Geboortejaar" style="-fx-background-color: transparent; -fx-border-color: #ffa500; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button layoutX="149.0" layoutY="316.0" mnemonicParsing="false" onAction="#onClick" style="-fx-background-color: #ffa500;" text="Login" />
+            <Button layoutX="143.0" layoutY="281.0" mnemonicParsing="false" onAction="#onClick" style="-fx-background-color: #ffa500;" text="Voeg toe" />
 <!--             <Icon content="PEOPLE" layoutX="158.0" layoutY="46.0" prefHeight="34.0" prefWidth="37.0" /> -->
 <!--             <Icon content="PERSON" layoutX="79.0" layoutY="183.0" /> -->
 <!--             <Icon content="CAKE" layoutX="79.0" layoutY="237.0" /> -->
@@ -38,6 +38,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
+            <Button layoutX="121.0" layoutY="324.0" mnemonicParsing="false" onAction="#onClickStart" prefHeight="31.0" prefWidth="112.0" style="-fx-background-color: #ffa500;" text="Start" />
          </children>
       </AnchorPane>
    </right>

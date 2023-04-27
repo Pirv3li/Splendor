@@ -1,4 +1,5 @@
-.root{
--fx-background-image:url('../images/backgroundLoginScherm.jpg');
--fx-background-size:cover;
+.left-pane {
+  -fx-background-image: url('../images/backgroundLoginScherm.jpg');
+  -fx-background-size: cover;
 }
+

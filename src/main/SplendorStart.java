@@ -22,8 +22,8 @@ public class SplendorStart extends Application {
     	loader.setRoot(content); 	
     	  Parent root = loader.load();
     	  Domeincontroller dc = new Domeincontroller();
-          Scene scene = new Scene(root, 500, 400);
-          //scene.getStylesheets().add("file:///C:/SD_Project1/splendor-g_61/src/cssStyle/LoginStyle"); // moet een andere pad dit gaat niet bij iedereen werken
+          Scene scene = new Scene(root, 900, 600);
+          scene.getStylesheets().add("/cssStyle/LoginStyle");
           stage.setScene(scene);
           stage.show();
     }

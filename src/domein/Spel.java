@@ -1,6 +1,8 @@
 package domein;
 import util.Edelen;
 import util.ontwikkelingskaarten;
+
+import java.io.IOException;
 import java.util.*;
 
 public class Spel {
@@ -280,7 +282,7 @@ public class Spel {
 	 }
 	 
 	 
-	 public void koopOntwikkelingskaart(int kaartnummer) {
+	 public void koopOntwikkelingskaart(int kaartnummer) throws IOException {
 		 Random random = new Random();
 		 ontwikkelingskaarten kaarten = new ontwikkelingskaarten();
 		 int randomIndexNiveau1 = random.nextInt(kaarten.getNiveau1Kaarten().size());
@@ -314,14 +316,17 @@ public class Spel {
 		if(HeeftGenoegEdelstenenOfNietOmKaartTeKopen(prijs,edelstenenInventory,bonusedelstenenInventory)) {
 			if (gekozenOntwikkelingskaart.getNiveau() == 1) {
 	            Niveau1Kaarten.remove(gekozenOntwikkelingskaart);
+	            kaarten.getNiveau1Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
 	            Ontwikkelingskaart randomCard1 = kaarten.getNiveau1Kaarten().get(randomIndexNiveau1);
 	            Niveau1Kaarten.add(randomCard1);
 	        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
 	            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
+	            kaarten.getNiveau2Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
 	            Ontwikkelingskaart randomCard2 = kaarten.getNiveau2Kaarten().get(randomIndexNiveau2);
 	            Niveau2Kaarten.add(randomCard2);
 	        } else {
 	            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
+	            kaarten.getNiveau3Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
 	            Ontwikkelingskaart randomCard3 = kaarten.getNiveau3Kaarten().get(randomIndexNiveau3);
 	            Niveau3Kaarten.add(randomCard3);
 	        }
@@ -379,7 +384,7 @@ public class Spel {
 		    return selected;
 	 }
 	 
-	 public void setOntwikkelingsKaartenOverzicht () {
+	 public void setOntwikkelingsKaartenOverzicht () throws IOException {
 		 ontwikkelingskaarten kaarten = new ontwikkelingskaarten();
 	        List<Ontwikkelingskaart> niveau1Kaarten = kaarten.getNiveau1Kaarten();
 	        List<Ontwikkelingskaart> niveau2Kaarten = kaarten.getNiveau2Kaarten();

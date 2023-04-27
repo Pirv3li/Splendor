@@ -13,12 +13,12 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UserLoginController">
    <left>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #ffa500;" BorderPane.alignment="CENTER" styleClass="left-pane">
+      <AnchorPane prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #ffa500;" BorderPane.alignment="CENTER" styleClass="left-pane">
          <children>
 <!--             <Icon content="BOOK" layoutX="160.0" layoutY="158.0" prefHeight="30.0" prefWidth="30.0" /> -->
-            <Text layoutX="89.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spledor Management">
+            <Text layoutX="150.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Splendor" style="-fx-text-fill: orange; -fx-stroke: orange; -fx-stroke-width: 2px;">
                <font>
-                  <Font size="18.0" />
+                  <Font size="30.0" />
                </font>
             </Text>
          </children>

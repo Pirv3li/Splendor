@@ -1,5 +1,7 @@
 package domein;
 
+import java.awt.image.BufferedImage;
+
 public class Ontwikkelingskaart {
 
 	private Edelsteen[] prijs;
@@ -7,13 +9,19 @@ public class Ontwikkelingskaart {
 	private Edelsteen bonus;
 	private int kaartnummer;
 	private int niveau;
+	BufferedImage image;
 	
-	public Ontwikkelingskaart(int niveau,Edelsteen bonus, int punten, Edelsteen[]prijs, int kaartnummer) {
+	public Ontwikkelingskaart(BufferedImage image, int niveau,Edelsteen bonus, int punten, Edelsteen[]prijs, int kaartnummer) {
 		this.prijs = prijs;
 		this.punten = punten;
 		this.bonus = bonus;
 		this.kaartnummer = kaartnummer;
 		this.niveau = niveau;
+		this.image = image;
+	}
+	
+	public BufferedImage getImage() {
+		return this.image;
 	}
 
 	public int getNiveau() {

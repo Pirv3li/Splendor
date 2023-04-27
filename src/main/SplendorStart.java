@@ -1,53 +1,35 @@
 package main;
-import javafx.application.Application;
-import gui.*;
+import java.io.IOException;
+
+import domein.Domeincontroller;
 import javafx.scene.Parent;
+import gui.UserLoginController;
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import ui.SplendorApp;
 
 public class SplendorStart extends Application {
-	public static void main (String[] args) {
-		SplendorApp splendor = new SplendorApp();
-//		UserLoginController usrlogin = new UserLoginController();
-		splendor.SplendorAppStart();
-	}
-
-
-	/**
-	 * Start the GUI of the game
-	 * @param primaryStage Primary stage of the Game
-	 */
-	@Override
-	public void start(Stage primaryStage) {
-	    UserLoginController usrlogin = new UserLoginController();
-	    StackPane root = new StackPane();
-	    root.getChildren().add(usrlogin);
-	    Scene scene = new Scene(root);
-	    scene.getStylesheets().addAll(this.getClass().getResource("view/resource/Style.css").toExternalForm());
-	    primaryStage.setScene(scene);
-	    primaryStage.setTitle("Splendor");
-	    primaryStage.sizeToScene();
-	    primaryStage.setResizable(false);
-	    primaryStage.show();
-	}
-
+	@FXML public BorderPane content;
+	
+    @Override
+    public void start(Stage stage) throws IOException {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/UserLogin.fxml"));
+    	loader.setRoot(content); 	
+    	  Parent root = loader.load();
+    	  Domeincontroller dc = new Domeincontroller();
+          Scene scene = new Scene(root, 500, 400);
+          //scene.getStylesheets().add("file:///C:/SD_Project1/splendor-g_61/src/cssStyle/LoginStyle"); // moet een andere pad dit gaat niet bij iedereen werken
+          stage.setScene(scene);
+          stage.show();
+    }
+    
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
 
-
-//    public void start(Stage stage)
-//    {
-//        DomeinController controller = new DomeinController();
-//       
-//        Scene scene = new Scene(bs);
-//        stage.setScene(scene);
-//        stage.setTitle("Beheerskosten");
-//        stage.show();
-//    }
-//
-//    public static void main(String[] args)
-//    {
-//        launch(args);
-//    }
-//}

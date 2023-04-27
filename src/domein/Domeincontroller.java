@@ -1,5 +1,7 @@
 package domein;
 
+import java.io.IOException;
+
 public class Domeincontroller {
 	
 	private Spel spel;
@@ -38,7 +40,7 @@ public class Domeincontroller {
 		return spel.toonOntwikkelingskaartenOverzicht();
 	}
 	
-	public void setOntwikkelingskaartenOverzichtEnEdelenOverzicht() {
+	public void setOntwikkelingskaartenOverzichtEnEdelenOverzicht() throws IOException {
 		spel.setOntwikkelingsKaartenOverzicht();
 		spel.setEdelenOverzicht();
 	}
@@ -81,7 +83,12 @@ public class Domeincontroller {
 	}
 	
 	public void koopOntwikkelingskaart(int kaartnummer) {
-		spel.koopOntwikkelingskaart(kaartnummer);
+		try {
+			spel.koopOntwikkelingskaart(kaartnummer);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

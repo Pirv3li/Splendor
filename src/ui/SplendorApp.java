@@ -1,5 +1,7 @@
 package ui;
 import domein.Domeincontroller;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class SplendorApp {
@@ -67,7 +69,11 @@ public class SplendorApp {
 			}
 			
 			dc.startSpel();
-			dc.setOntwikkelingskaartenOverzichtEnEdelenOverzicht();
+			try {
+				dc.setOntwikkelingskaartenOverzichtEnEdelenOverzicht();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			dc.setstartSpelerIndex();
 			while(dc.getPunten()<15) {
 			String spelersOverzicht = dc.getSpelersOverzicht();

@@ -362,7 +362,43 @@ public class Spel {
 		    }
 		    return true;
 		}
-
+	 
+	 private boolean heeftGenoegBonusEdelstenenOmEdelTeNemen (HashMap<Edelsteen, Integer> edelPrijs, HashMap<Edelsteen,Integer> bonusInventory) {
+		 for (Edelsteen edelsteen : edelPrijs.keySet()) {
+		        int requiredCount = edelPrijs.get(edelsteen);
+		        int bonusCount = bonusInventory.getOrDefault(edelsteen, 0);
+		        if (requiredCount > bonusCount) {
+		        	return false;
+		        	}
+		       
+		        }
+		 return true;
+	 }
+	 
+	 public void neemEdelAlsSpelerGenoegBonusEdelstenenHeeft() {
+		 HashMap<Edelsteen,Integer> bonusInventory = spelers.get(spelerIndex).getBonusEdelstenenInventory();
+		 Random random = new Random();
+		 Edelen utilEdelen = new Edelen();
+		 int randomEdel = random.nextInt(utilEdelen.getEdelen().size());
+		 for(int i=0; i<edelen.size(); i++) {
+		 Edelsteen[] prijsInArray = edelen.get(i).getPrijs();
+		 HashMap<Edelsteen,Integer> prijs = new HashMap<>();
+		 for (Edelsteen element : prijsInArray) {
+			    if (prijs.containsKey(element)) {
+			        prijs.put(element, prijs.get(element) + 1);
+			    } else {
+			        prijs.put(element, 1);
+			    }
+			}
+		 if(heeftGenoegBonusEdelstenenOmEdelTeNemen(prijs,bonusInventory)) {
+			 spelers.get(spelerIndex).voegEdelenAanInventory(edelen.get(i));
+			 edelen.remove(i);
+			 utilEdelen.getEdelen().remove(i);
+			 edelen.add(utilEdelen.getEdelen().get(randomEdel));
+		 	}
+		 }
+		 
+	 }
 
 	 
 	 private List<Edel> getRandomEdelen(List<Edel> edelen, int count){

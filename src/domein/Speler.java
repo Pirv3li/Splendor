@@ -10,6 +10,7 @@ public class Speler {
 	private int geboortejaar;
 	private int leeftijd;
 	private HashMap<Edelsteen, Integer> bonusEdelsteenfichesInventory;
+	private ArrayList<Edel> edelen;
 	
 	public Speler(String gebruikersnaam, int geboortejaar) {
 		setGebruikersnaam(gebruikersnaam);
@@ -17,6 +18,7 @@ public class Speler {
 		edelsteenfichesInventory = new HashMap<>();
 		ontwikkelingsKaarten = new ArrayList<>();
 		bonusEdelsteenfichesInventory = new HashMap<>();
+		edelen = new ArrayList<>();
 
 	}
 
@@ -114,10 +116,21 @@ public class Speler {
 		return this.edelsteenfichesInventory;
 	}
 	
+	public void voegEdelenAanInventory(Edel edel) {
+		this.edelen.add(edel);
+	}
+	
+	public ArrayList<Edel> getEdelInventory(){
+		return this.edelen;
+	}
+	
 	public int telPuntenOp() {
 		int sum = 0;
 		for (Ontwikkelingskaart Ontwikkelingskaart : ontwikkelingsKaarten) {
 			sum += Ontwikkelingskaart.getPunten();
+		}
+		for(Edel edelen : edelen) {
+			sum += edelen.getPunten();
 		}
 		return sum;
 	}

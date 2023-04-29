@@ -69,11 +69,7 @@ public class SplendorApp {
 			}
 			
 			dc.startSpel();
-			try {
-				dc.setOntwikkelingskaartenOverzichtEnEdelenOverzicht();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			dc.setOntwikkelingskaartenOverzichtEnEdelenOverzicht();
 			dc.setstartSpelerIndex();
 			while(dc.getPunten()<15) {
 			String spelersOverzicht = dc.getSpelersOverzicht();

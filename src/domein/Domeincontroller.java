@@ -40,8 +40,12 @@ public class Domeincontroller {
 		return spel.toonOntwikkelingskaartenOverzicht();
 	}
 	
-	public void setOntwikkelingskaartenOverzichtEnEdelenOverzicht() throws IOException {
-		spel.setOntwikkelingsKaartenOverzicht();
+	public void setOntwikkelingskaartenOverzichtEnEdelenOverzicht() {
+		try {
+			spel.setOntwikkelingsKaartenOverzicht();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		spel.setEdelenOverzicht();
 	}
 	

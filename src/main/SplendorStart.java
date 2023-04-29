@@ -21,7 +21,6 @@ public class SplendorStart extends Application {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/UserLogin.fxml"));
     	loader.setRoot(content); 	
     	  Parent root = loader.load();
-    	  Domeincontroller dc = new Domeincontroller();
           Scene scene = new Scene(root, 900, 600);
           scene.getStylesheets().add("/cssStyle/LoginStyle");
           stage.setScene(scene);
@@ -30,6 +29,8 @@ public class SplendorStart extends Application {
     
     public static void main(String[] args) {
         launch(args);
+        SplendorApp speel = new SplendorApp();
+        speel.SplendorAppStart();
     }
 }
 

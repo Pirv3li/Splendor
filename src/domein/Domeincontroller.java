@@ -82,6 +82,18 @@ public class Domeincontroller {
 		spel.neemEdelAlsSpelerGenoegBonusEdelstenenHeeft();
 	}
 	
+	 public int getStapelSizeNiveau1() {
+		 return spel.getStapelSizeNiveau1();
+	 }
+	 
+	 public int getStapelSizeNiveau2() {
+		 return spel.getStapelSizeNiveau2();
+	 }
+	 
+	 public int getStapelSizeNiveau3() {
+		 return spel.getStapelSizeNiveau3();
+	 }
+	
 	public void volgendeSpeler() {
 		spel.volgendeSpeler();
 	}

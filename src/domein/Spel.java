@@ -17,6 +17,9 @@ public class Spel {
 	private List<Ontwikkelingskaart> Niveau1Kaarten;
 	private List<Ontwikkelingskaart> Niveau2Kaarten;
 	private List<Ontwikkelingskaart> Niveau3Kaarten;
+	private int niveau1StapelSize;
+	private int niveau2StapelSize;
+	private int niveau3StapelSize;
 
 
 	public Spel() {
@@ -281,6 +284,18 @@ public class Spel {
 		 return spelers.get(spelerIndex).getGebruikersnaam();
 	 }
 	 
+	 public int getStapelSizeNiveau1() {
+		 return this.niveau1StapelSize;
+	 }
+	 
+	 public int getStapelSizeNiveau2() {
+		 return this.niveau2StapelSize;
+	 }
+	 
+	 public int getStapelSizeNiveau3() {
+		 return this.niveau3StapelSize;
+	 }
+	 
 	 
 	 public void koopOntwikkelingskaart(int kaartnummer) throws IOException {
 		 Random random = new Random();
@@ -319,19 +334,23 @@ public class Spel {
 	            kaarten.getNiveau1Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
 	            Ontwikkelingskaart randomCard1 = kaarten.getNiveau1Kaarten().get(randomIndexNiveau1);
 	            Niveau1Kaarten.add(randomCard1);
+	            this.niveau1StapelSize -= 1;
 	        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
 	            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
 	            kaarten.getNiveau2Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
 	            Ontwikkelingskaart randomCard2 = kaarten.getNiveau2Kaarten().get(randomIndexNiveau2);
 	            Niveau2Kaarten.add(randomCard2);
+	            this.niveau2StapelSize -= 1;
 	        } else {
 	            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
 	            kaarten.getNiveau3Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
 	            Ontwikkelingskaart randomCard3 = kaarten.getNiveau3Kaarten().get(randomIndexNiveau3);
 	            Niveau3Kaarten.add(randomCard3);
+	            this.niveau3StapelSize -= 1;
 	        }
 			spelers.get(spelerIndex).voegOntwikkelingskaartToeAanInventory(gekozenOntwikkelingskaart);
 			spelers.get(spelerIndex).voegGemsToeAanBonusInventory(gekozenOntwikkelingskaart.getBonus());
+
 		}
 	 }
 	 
@@ -441,6 +460,9 @@ public class Spel {
 		 Niveau1Kaarten = getRandomKaarten(niveau1Kaarten, 4);
 		 Niveau2Kaarten = getRandomKaarten(niveau2Kaarten, 4);
 		 Niveau3Kaarten = getRandomKaarten(niveau3Kaarten, 4);
+		 this.niveau1StapelSize = niveau1Kaarten.size() - 4;
+		 this.niveau2StapelSize = niveau2Kaarten.size() - 4;
+		 this.niveau3StapelSize = niveau3Kaarten.size() - 4;
 	 }
 
 }

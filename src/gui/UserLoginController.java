@@ -22,15 +22,18 @@ public class UserLoginController extends Pane {
 
     private Domeincontroller dc;
     
-    public void onClick() {
+    public UserLoginController () {
     	dc = new Domeincontroller();
+    }
+    
+    public void onClick() {
         String naam = usernameField.getText();
         int geboortejaar = Integer.parseInt(birthYearField.getText());
         dc.voegSpelerToe(naam, geboortejaar);
     }
     
     public void onClickStart() {
-    	
+    	dc.startSpel();
     }
 
 }

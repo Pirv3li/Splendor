@@ -85,6 +85,7 @@ public class SplendorApp {
 			System.out.println("Beschikbare ontwikkelingskaarten");
 			System.out.println(ontwikkelingsKaartenOverzicht);
 			String naamVanSpelerAanDeBeurt = dc.getNaamVanSpelerAanDeBeurt();
+			dc.neemEdelenAlsGenoegBonusEdelstenen();
 			System.out.println(naamVanSpelerAanDeBeurt + " (Je bent aan de beurt) Neem een edelsteen(Type 1) of koop een ontwikkelingskaart(Type 2)");
 			int EdelsteenNemenOfKaartKopen = in.nextInt();
 			in.nextLine();

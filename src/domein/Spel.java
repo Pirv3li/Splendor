@@ -378,7 +378,12 @@ public class Spel {
 	 public void neemEdelAlsSpelerGenoegBonusEdelstenenHeeft() {
 		 HashMap<Edelsteen,Integer> bonusInventory = spelers.get(spelerIndex).getBonusEdelstenenInventory();
 		 Random random = new Random();
-		 Edelen utilEdelen = new Edelen();
+		 Edelen utilEdelen = null;
+		try {
+			utilEdelen = new Edelen();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		 int randomEdel = random.nextInt(utilEdelen.getEdelen().size());
 		 for(int i=0; i<edelen.size(); i++) {
 		 Edelsteen[] prijsInArray = edelen.get(i).getPrijs();
@@ -408,7 +413,12 @@ public class Spel {
 	 }
 	 
 	 public void setEdelenOverzicht() {
-		 Edelen edelen = new Edelen();
+		 Edelen edelen = null;
+		try {
+			edelen = new Edelen();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		 this.edelen = new ArrayList<>();
 		 List<Edel> edelenOverzicht = edelen.getEdelen();
 		 this.edelen = getRandomEdelen(edelenOverzicht,5);

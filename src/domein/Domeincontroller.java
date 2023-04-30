@@ -78,6 +78,10 @@ public class Domeincontroller {
 			}
 		}
 	
+	public void neemEdelenAlsGenoegBonusEdelstenen() {
+		spel.neemEdelAlsSpelerGenoegBonusEdelstenenHeeft();
+	}
+	
 	public void volgendeSpeler() {
 		spel.volgendeSpeler();
 	}

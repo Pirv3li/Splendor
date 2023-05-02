@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -13,55 +14,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/SpeelbordStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpelBordController">
    <children>
-      <TextField alignment="CENTER" layoutX="184.0" layoutY="295.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-color: #ffa500; -fx-border-width: 5px 5px 5px 5px; -fx-border-radius: 50%;" text="Inventory">
-         <font>
-            <Font size="11.0" />
-         </font></TextField>
-      <ImageView fx:id="imgvNiveau1" fitHeight="72.0" fitWidth="46.0" layoutX="44.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="295.57777404785156" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="39.0">
+      <ImageView fx:id="imgvNiveau1" fitHeight="139.0" fitWidth="100.0" layoutX="8.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="794.265625" AnchorPane.topAnchor="447.0">
          <image>
             <Image url="@../images/niveau1achterkant.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgvNiveau2" fitHeight="111.0" fitWidth="46.0" layoutX="44.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="216.09091186523438" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="117.0">
+      <ImageView fx:id="imgvNiveau2" fitHeight="138.0" fitWidth="100.0" layoutX="9.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/niveau2achterkant.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgvNiveau3" fitHeight="79.0" fitWidth="46.0" layoutX="44.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="133.4153823852539" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="199.0">
+      <ImageView fx:id="imgvNiveau3" fitHeight="138.0" fitWidth="100.0" layoutX="9.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/niveau3achterkant.png" />
          </image>
       </ImageView>
-      <Button layoutX="168.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnKaart5" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="168.0" AnchorPane.rightAnchor="386.0" AnchorPane.topAnchor="116.0" />
-      <Button layoutX="225.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnKaart6" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="329.0" AnchorPane.topAnchor="116.0" />
-      <Button layoutX="108.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnKaart4" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="446.0" AnchorPane.topAnchor="116.0" />
-      <Button layoutX="168.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnKaart8" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="133.0" AnchorPane.leftAnchor="168.0" AnchorPane.rightAnchor="386.0" AnchorPane.topAnchor="199.0" />
-      <Button layoutX="225.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnKaart9" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="133.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="329.0" AnchorPane.topAnchor="199.0" />
-      <Button layoutX="108.0" layoutY="199.0" mnemonicParsing="false" onAction="#btnKaart7" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="133.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="446.0" AnchorPane.topAnchor="199.0" />
-      <Button layoutX="168.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnKaart2" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="294.0" AnchorPane.leftAnchor="168.0" AnchorPane.rightAnchor="386.0" AnchorPane.topAnchor="38.0" />
-      <Button layoutX="225.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnKaart3" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="294.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="329.0" AnchorPane.topAnchor="38.0" />
-      <Button layoutX="108.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnKaart1" prefHeight="68.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="294.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="446.0" AnchorPane.topAnchor="38.0" />
-      <Button layoutX="309.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnEdele1" prefHeight="59.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="321.6666666666667" AnchorPane.leftAnchor="309.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="19.0" />
-      <Button layoutX="309.0" layoutY="91.0" mnemonicParsing="false" onAction="#btnEdele2" prefHeight="59.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="249.66666666666666" AnchorPane.leftAnchor="309.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="91.0" />
-      <Button layoutX="309.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnEdele3" prefHeight="59.0" prefWidth="46.0" text="Button" AnchorPane.bottomAnchor="176.66666666666669" AnchorPane.leftAnchor="309.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="164.0" />
-      <Button layoutX="406.0" layoutY="23.0" mnemonicParsing="false" onAction="#btnGem1" prefHeight="35.0" prefWidth="39.0" style="-fx-border-width: 1px 1px 1px 1px; -fx-border-radius: 50%;" text="Button" AnchorPane.bottomAnchor="341.6666666666667" AnchorPane.leftAnchor="406.0" AnchorPane.rightAnchor="154.66666666666674" AnchorPane.topAnchor="23.0" />
-      <Button layoutX="406.0" layoutY="69.0" mnemonicParsing="false" onAction="#btnGem2" prefHeight="35.0" prefWidth="39.0" text="Button" AnchorPane.bottomAnchor="295.6666666666667" AnchorPane.leftAnchor="406.0" AnchorPane.rightAnchor="154.66666666666674" AnchorPane.topAnchor="69.0" />
-      <Label fx:id="lblDiamant" layoutX="431.0" layoutY="14.0" text="Label" AnchorPane.bottomAnchor="368.6666666666667" AnchorPane.leftAnchor="431.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="14.0" />
-      <Label fx:id="lblSaffier" layoutX="429.0" layoutY="60.0" text="Label" AnchorPane.bottomAnchor="322.6666666666667" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="60.0" />
-      <Button layoutX="405.0" layoutY="113.0" mnemonicParsing="false" onAction="#btnGem3" prefHeight="35.0" prefWidth="39.0" text="Button" AnchorPane.bottomAnchor="251.66666666666666" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="155.66666666666674" AnchorPane.topAnchor="113.0" />
-      <Button layoutX="405.0" layoutY="159.0" mnemonicParsing="false" onAction="#btnGem4" prefHeight="35.0" prefWidth="39.0" text="Button" AnchorPane.bottomAnchor="205.66666666666666" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="155.66666666666674" AnchorPane.topAnchor="159.0" />
-      <Label fx:id="lblSmaragd" layoutX="431.0" layoutY="104.0" text="Label" AnchorPane.bottomAnchor="278.6666666666667" AnchorPane.leftAnchor="431.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="104.0" />
-      <Label fx:id="lblRobijn" layoutX="431.0" layoutY="150.0" text="Label" AnchorPane.bottomAnchor="232.66666666666666" AnchorPane.leftAnchor="431.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="150.0" />
-      <Button layoutX="404.0" layoutY="203.0" mnemonicParsing="false" onAction="#btnGem5" prefHeight="35.0" prefWidth="39.0" text="Button" AnchorPane.bottomAnchor="161.66666666666666" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="156.66666666666663" AnchorPane.topAnchor="203.0" />
-      <Label fx:id="lblOnyx" layoutX="431.0" layoutY="194.0" text="Label" AnchorPane.bottomAnchor="188.66666666666666" AnchorPane.leftAnchor="431.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="194.0" />
-      <Label fx:id="lblAantalKaarten1" layoutX="67.0" layoutY="33.0" text="Label" AnchorPane.bottomAnchor="349.6666666666667" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="505.0" AnchorPane.topAnchor="33.0" />
-      <Label fx:id="lblAantalKaarten2" layoutX="67.0" layoutY="111.0" text="Label" AnchorPane.bottomAnchor="271.6666666666667" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="505.0" AnchorPane.topAnchor="111.0" />
-      <Label fx:id="lblAantalKaarten3" layoutX="67.0" layoutY="192.0" text="Label" AnchorPane.bottomAnchor="190.66666666666666" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="505.0" AnchorPane.topAnchor="192.0" />
-      <Button layoutX="404.0" layoutY="248.0" mnemonicParsing="false" onAction="#btnGem6" prefHeight="35.0" prefWidth="39.0" text="Button" AnchorPane.bottomAnchor="116.66666666666669" AnchorPane.leftAnchor="404.0" AnchorPane.rightAnchor="156.66666666666663" AnchorPane.topAnchor="248.0" />
-      <Label fx:id="lblOnyx1" layoutX="431.0" layoutY="239.0" text="Label" AnchorPane.bottomAnchor="143.66666666666669" AnchorPane.leftAnchor="431.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="239.0" />
-      <GridPane layoutX="493.0" layoutY="7.0" prefHeight="366.0" prefWidth="101.0">
+      <GridPane layoutX="750.0" layoutY="14.0" prefHeight="488.0" prefWidth="122.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -72,7 +42,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox fx:id="VBoxSpeler1" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="VBoxSpeler1" prefHeight="85.0" prefWidth="98.0">
                <children>
                   <Label fx:id="lblSpeler1" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler1AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
@@ -87,12 +57,11 @@
                         <ImageView fx:id="imgvSpeler1Kaart2" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgvSpeler1Kaart3" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgvSpeler1Kaart4" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="imgvSpeler1Kaart5" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="VBoxSpeler2" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+            <VBox fx:id="VBoxSpeler2" prefHeight="86.0" prefWidth="126.0" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lblSpeler2" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler2AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
@@ -104,6 +73,7 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <ImageView fx:id="imgvSpeler2Kaart1" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imgvSpeler1Kaart5" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgvSpeler2Kaart2" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgvSpeler2Kaart3" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgvSpeler2Kaart4" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
@@ -112,27 +82,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="VBoxSpeler3" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
-               <children>
-                  <Label fx:id="lblSpeler3" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
-                  <Label fx:id="lblSpeler3AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
-                  <Label fx:id="lblSpeler1Kaarten2" prefHeight="17.0" prefWidth="105.0" text="Gereserveerde Kaarten" textAlignment="JUSTIFY">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="imgvSpeler3Kaart1" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="imgvSpeler3Kaart2" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="imgvSpeler3Kaart3" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="imgvSpeler3Kaart4" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="imgvSpeler3Kaart5" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox fx:id="VBoxSpeler4" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+            <VBox fx:id="VBoxSpeler4" prefHeight="56.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lblSpeler4" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler4AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
@@ -152,59 +102,108 @@
                   </HBox>
                </children>
             </VBox>
+            <VBox fx:id="VBoxSpeler3" prefHeight="66.0" prefWidth="100.0" GridPane.rowIndex="3">
+               <children>
+                  <Label fx:id="lblSpeler3" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
+                  <Label fx:id="lblSpeler3AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+                  <Label fx:id="lblSpeler1Kaarten2" prefHeight="17.0" prefWidth="105.0" text="Gereserveerde Kaarten" textAlignment="JUSTIFY">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imgvSpeler3Kaart1" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imgvSpeler3Kaart2" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imgvSpeler3Kaart3" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imgvSpeler3Kaart4" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imgvSpeler3Kaart5" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </GridPane>
-      <Button layoutX="309.0" layoutY="236.0" mnemonicParsing="false" onAction="#btnEdele3" prefHeight="59.0" prefWidth="46.0" text="Button" />
-      <ImageView fitHeight="31.0" fitWidth="65.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-      <GridPane layoutX="39.0" layoutY="320.0" prefHeight="65.0" prefWidth="371.0" style="-fx-background-color: #ffffff; -fx-border-width: 2PX 2PX 2PX 2PX; -fx-border-color: #ffffff;">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <TextField layoutX="582.0" layoutY="505.0" prefHeight="87.0" prefWidth="314.0" style="-fx-border-color: #ffa500; -fx-border-width: 5px 5px 5px 5px; -fx-border-radius: 50%;" />
+      <HBox layoutX="22.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="115.0" prefWidth="546.0" spacing="10.0">
          <children>
-            <ImageView fitHeight="37.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/DiamantRond.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-               <image>
-                  <Image url="@../images/SaffierRond.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-               <image>
-                  <Image url="@../images/SmagardRond.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
-               <image>
-                  <Image url="@../images/RobijnRond.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
-               <image>
-                  <Image url="@../images/OnyxRond.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
-               <image>
-                  <Image url="@../images/TegelRond.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="inventoryDiamant" prefHeight="17.0" prefWidth="58.0" text="Label" GridPane.rowIndex="1" />
-            <Label fx:id="inventorySaffier" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="inventorySmarg" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label fx:id="inventoryRobijn" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel1" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel2" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel3" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel4" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel5" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
          </children>
-      </GridPane>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </HBox>
+      <AnchorPane layoutX="118.0" layoutY="154.0" prefHeight="431.0" prefWidth="451.0">
+         <children>
+            <Button layoutX="117.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart6" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutX="342.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart4" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutX="231.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart3" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+      	  <Button layoutX="117.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart2" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutX="231.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart7" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart1" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutX="117.0" mnemonicParsing="false" onAction="#btnKaart10" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutX="342.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart8" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart5" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button mnemonicParsing="false" onAction="#btnKaart9" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutX="231.0" mnemonicParsing="false" onAction="#btnKaart11" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button layoutX="342.0" mnemonicParsing="false" onAction="#btnKaart12" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+         </children>
+      </AnchorPane>
+      <VBox layoutX="636.0" layoutY="26.0" prefHeight="464.0" prefWidth="86.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnGem1" prefHeight="70.0" prefWidth="70.0" style="-fx-border-width: 1px 1px 1px 1px; -fx-border-radius: 50%;" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/OnyxRond.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#btnGem2" prefHeight="70.0" prefWidth="70.0" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/RobijnRond.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#btnGem3" prefHeight="70.0" prefWidth="70.0" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/SaffierRond.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#btnGem4" prefHeight="70.0" prefWidth="70.0" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/DiamantRond.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#btnGem5" prefHeight="70.0" prefWidth="70.0" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/SmagardRond.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#btnGem6" prefHeight="70.0" prefWidth="70.0" VBox.vgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/TegelRond.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </VBox>
    </children>
-</fx:root>
+</AnchorPane>

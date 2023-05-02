@@ -22,7 +22,7 @@ public class SplendorStart extends Application {
     	loader.setRoot(content); 	
     	  Parent root = loader.load();
           Scene scene = new Scene(root, 900, 600);
-          scene.getStylesheets().add("/cssStyle/LoginStyle");
+          scene.getStylesheets().add("/css/LoginStyle.css");
           stage.setScene(scene);
           stage.show();
     }

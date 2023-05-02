@@ -1,5 +1,6 @@
 package gui;
 
+import domein.Domeincontroller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class SpelBordController {
+	Domeincontroller dc;
 
     @FXML
     private VBox VBoxSpeler1;
@@ -153,17 +155,28 @@ public class SpelBordController {
     private Label lblSpeler4AantalPunten;
 
     @FXML
-    void btnEdele1(ActionEvent event) {
+    void btnEdel1(ActionEvent event) {
 
     }
 
     @FXML
-    void btnEdele2(ActionEvent event) {
+    void btnEdel2(ActionEvent event) {
 
     }
 
     @FXML
-    void btnEdele3(ActionEvent event) {
+    void btnEdel3(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnEdel4(ActionEvent event) {
+
+    }
+    
+
+    @FXML
+    void btnEdel5(ActionEvent event) {
 
     }
 
@@ -241,5 +254,27 @@ public class SpelBordController {
     void btnKaart9(ActionEvent event) {
 
     }
+    
+
+    @FXML
+    void btnKaart10(ActionEvent event) {
+
+    }
+    
+
+    @FXML
+    void btnKaart11(ActionEvent event) {
+
+    }
+    
+
+    @FXML
+    void btnKaart12(ActionEvent event) {
+
+    }
+
+	public void setDC(Domeincontroller dc) {
+		this.dc = dc;
+	}
 
 }

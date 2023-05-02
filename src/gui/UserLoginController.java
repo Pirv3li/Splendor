@@ -38,6 +38,8 @@ public class UserLoginController extends Pane {
         String naam = usernameField.getText();
         int geboortejaar = Integer.parseInt(birthYearField.getText());
         dc.voegSpelerToe(naam, geboortejaar);
+        usernameField.clear();
+        birthYearField.clear();
     }
     
     @FXML

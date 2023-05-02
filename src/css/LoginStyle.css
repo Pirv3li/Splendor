@@ -2,3 +2,17 @@
   -fx-background-image: url('../images/backgroundLoginScherm.jpg');
   -fx-background-size: cover;
 }
+
+.button:hover {
+    -fx-cursor: hand;
+    -fx-border-color: blue;
+    
+}
+
+.button:pressed {
+    -fx-background-color: blue;
+}
+
+.button:released {
+    -fx-background-color: orange;
+}

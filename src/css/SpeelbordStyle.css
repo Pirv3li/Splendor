@@ -1,5 +1,10 @@
 .button {
     -fx-background-color: rgba(0,0,0,0.84);
+    
+}
+
+.button:hover {
+    -fx-cursor: hand;
 }
 
 .body{

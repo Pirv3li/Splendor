@@ -15,6 +15,10 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <TextField alignment="CENTER" layoutX="184.0" layoutY="295.0" prefHeight="33.0" prefWidth="81.0" style="-fx-border-color: #ffa500; -fx-border-width: 5px 5px 5px 5px; -fx-border-radius: 50%;" text="Inventory">
+         <font>
+            <Font size="11.0" />
+         </font></TextField>
       <ImageView fx:id="imgvNiveau1" fitHeight="72.0" fitWidth="46.0" layoutX="44.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="295.57777404785156" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="39.0">
          <image>
             <Image url="@../images/niveau1achterkant.png" />
@@ -152,6 +156,55 @@
       </GridPane>
       <Button layoutX="309.0" layoutY="236.0" mnemonicParsing="false" onAction="#btnEdele3" prefHeight="59.0" prefWidth="46.0" text="Button" />
       <ImageView fitHeight="31.0" fitWidth="65.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField layoutX="44.0" layoutY="314.0" prefHeight="65.0" prefWidth="381.0" style="-fx-border-color: #ffa500; -fx-border-width: 5px 5px 5px 5px; -fx-border-radius: 50%;" />
+      <GridPane layoutX="39.0" layoutY="320.0" prefHeight="65.0" prefWidth="371.0" style="-fx-background-color: #ffffff; -fx-border-width: 2PX 2PX 2PX 2PX; -fx-border-color: #ffffff;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="37.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/DiamantRond.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../images/SaffierRond.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../images/SmagardRond.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+               <image>
+                  <Image url="@../images/RobijnRond.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+               <image>
+                  <Image url="@../images/OnyxRond.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
+               <image>
+                  <Image url="@../images/TegelRond.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="inventoryDiamant" prefHeight="17.0" prefWidth="58.0" text="Label" GridPane.rowIndex="1" />
+            <Label fx:id="inventorySaffier" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="inventorySmarg" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="inventoryRobijn" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
    </children>
 </fx:root>

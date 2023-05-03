@@ -1,6 +1,5 @@
 package gui;
 
-import domein.Domeincontroller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -8,7 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class SpelBordController {
-	Domeincontroller dc;
 
     @FXML
     private VBox VBoxSpeler1;
@@ -21,6 +19,42 @@ public class SpelBordController {
 
     @FXML
     private VBox VBoxSpeler4;
+
+    @FXML
+    private ImageView btnDiamant;
+
+    @FXML
+    private ImageView btnInventoryDiamant;
+
+    @FXML
+    private ImageView btnInventoryOnyx;
+
+    @FXML
+    private ImageView btnInventoryRobijn;
+
+    @FXML
+    private ImageView btnInventorySaffier;
+
+    @FXML
+    private ImageView btnInventorySmaragd;
+
+    @FXML
+    private ImageView btnInventoryTegel;
+
+    @FXML
+    private ImageView btnOnyx;
+
+    @FXML
+    private ImageView btnRobijn;
+
+    @FXML
+    private ImageView btnSaffier;
+
+    @FXML
+    private ImageView btnSmaragd;
+
+    @FXML
+    private ImageView btnTegel;
 
     @FXML
     private ImageView imgvNiveau1;
@@ -47,6 +81,9 @@ public class SpelBordController {
     private ImageView imgvSpeler1Kaart5;
 
     @FXML
+    private ImageView imgvSpeler1Kaart6;
+
+    @FXML
     private ImageView imgvSpeler2Kaart1;
 
     @FXML
@@ -60,6 +97,9 @@ public class SpelBordController {
 
     @FXML
     private ImageView imgvSpeler2Kaart5;
+
+    @FXML
+    private ImageView imgvSpeler2Kaart6;
 
     @FXML
     private ImageView imgvSpeler3Kaart1;
@@ -77,6 +117,9 @@ public class SpelBordController {
     private ImageView imgvSpeler3Kaart5;
 
     @FXML
+    private ImageView imgvSpeler3Kaart6;
+
+    @FXML
     private ImageView imgvSpeler4Kaart1;
 
     @FXML
@@ -92,13 +135,10 @@ public class SpelBordController {
     private ImageView imgvSpeler4Kaart5;
 
     @FXML
-    private Label lblAantalKaarten1;
+    private ImageView imgvSpeler4Kaart6;
 
     @FXML
-    private Label lblAantalKaarten2;
-
-    @FXML
-    private Label lblAantalKaarten3;
+    private Label lbSmaragd;
 
     @FXML
     private Label lblDiamant;
@@ -107,16 +147,10 @@ public class SpelBordController {
     private Label lblOnyx;
 
     @FXML
-    private Label lblOnyx1;
-
-    @FXML
     private Label lblRobijn;
 
     @FXML
     private Label lblSaffier;
-
-    @FXML
-    private Label lblSmaragd;
 
     @FXML
     private Label lblSpeler1;
@@ -128,19 +162,13 @@ public class SpelBordController {
     private Label lblSpeler1Kaarten;
 
     @FXML
-    private Label lblSpeler1Kaarten1;
-
-    @FXML
-    private Label lblSpeler1Kaarten2;
-
-    @FXML
-    private Label lblSpeler1Kaarten3;
-
-    @FXML
     private Label lblSpeler2;
 
     @FXML
     private Label lblSpeler2AantalPunten;
+
+    @FXML
+    private Label lblSpeler2Kaarten;
 
     @FXML
     private Label lblSpeler3;
@@ -149,10 +177,28 @@ public class SpelBordController {
     private Label lblSpeler3AantalPunten;
 
     @FXML
+    private Label lblSpeler3Kaarten;
+
+    @FXML
     private Label lblSpeler4;
 
     @FXML
     private Label lblSpeler4AantalPunten;
+
+    @FXML
+    private Label lblSpeler4Kaarten;
+
+    @FXML
+    private Label lblStapelNiveau1;
+
+    @FXML
+    private Label lblStapelNiveau2;
+
+    @FXML
+    private Label lblStapelNiveau3;
+
+    @FXML
+    private Label lblTegel;
 
     @FXML
     void btnEdel1(ActionEvent event) {
@@ -173,7 +219,6 @@ public class SpelBordController {
     void btnEdel4(ActionEvent event) {
 
     }
-    
 
     @FXML
     void btnEdel5(ActionEvent event) {
@@ -216,6 +261,21 @@ public class SpelBordController {
     }
 
     @FXML
+    void btnKaart10(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnKaart11(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnKaart12(ActionEvent event) {
+
+    }
+
+    @FXML
     void btnKaart2(ActionEvent event) {
 
     }
@@ -254,27 +314,5 @@ public class SpelBordController {
     void btnKaart9(ActionEvent event) {
 
     }
-    
-
-    @FXML
-    void btnKaart10(ActionEvent event) {
-
-    }
-    
-
-    @FXML
-    void btnKaart11(ActionEvent event) {
-
-    }
-    
-
-    @FXML
-    void btnKaart12(ActionEvent event) {
-
-    }
-
-	public void setDC(Domeincontroller dc) {
-		this.dc = dc;
-	}
 
 }

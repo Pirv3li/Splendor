@@ -27,7 +27,7 @@ public class EdelTest {
 		image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
 		edel = new Edel(image, punten, prijs, edelnummer);
 	}
-	
+	//
 	@Test
 	public void testGetEdelImage() {
 		assertNotNull(edel.getEdelImage());

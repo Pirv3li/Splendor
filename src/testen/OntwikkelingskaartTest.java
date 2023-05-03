@@ -30,7 +30,7 @@ class OntwikkelingskaartTest {
         kaartnummer = 1;
         niveau = 1;
     }
-
+//
     @Test
     void testOntwikkelingskaart() {
         Ontwikkelingskaart kaart = new Ontwikkelingskaart(image, niveau, bonus, punten, prijs, kaartnummer);

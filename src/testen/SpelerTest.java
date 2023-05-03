@@ -34,7 +34,7 @@ class SpelerTest {
             assertThrows(IllegalArgumentException.class, () -> speler = new Speler(gebruikersnaam, geboortejaar));
         }
     }
-
+//
     @ParameterizedTest
     @CsvSource({
             "Test, 1899, false",

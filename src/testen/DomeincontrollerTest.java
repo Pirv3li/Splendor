@@ -141,7 +141,7 @@ public class DomeincontrollerTest {
 		domeinController.volgendeSpeler();
 		assertEquals("Player1", domeinController.getNaamVanSpelerAanDeBeurt());
 	}
-
+////
 	//@Test
 	//public void testGetNaamVanSpelerAanDeBeurt() {
 	  //  String naam = "Jan";

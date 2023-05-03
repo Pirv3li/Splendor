@@ -122,7 +122,6 @@ public class Spel {
         edelstenen.put(Edelsteen.ONYXEN, aantal);
         edelstenen.put(Edelsteen.ROBIJNEN, aantal);
 	}
-	
 	public String getSpelersOverzicht() {
 	    StringBuilder sb = new StringBuilder();
 	    int i = 1;

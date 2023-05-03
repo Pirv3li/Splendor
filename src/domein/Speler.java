@@ -25,7 +25,7 @@ public class Speler {
 	public String getGebruikersnaam() {
 		return this.gebruikersnaam;
 	}
-
+	
 	private void setGebruikersnaam(String gebruikersnaam) {
 		// Domeinregels voor gebruikersnaam, kijk naar exceptions om te verstaan wat ze doen. 
 		

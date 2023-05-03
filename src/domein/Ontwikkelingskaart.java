@@ -23,7 +23,6 @@ public class Ontwikkelingskaart {
 	public BufferedImage getImage() {
 		return this.image;
 	}
-
 	public int getNiveau() {
 		return this.niveau;
 	}

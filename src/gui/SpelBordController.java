@@ -1,6 +1,7 @@
 package gui;
 import dto.OntwikkelingskaartDto;
 
+
 import java.util.List;
 
 import domein.Domeincontroller;
@@ -256,36 +257,42 @@ public class SpelBordController {
     @FXML
     private Label lblSpeler4AantalPunten;
     
-//    public SpelBordController(Domeincontroller dc) {
-//    	this.dc = dc;
-//    	setupButtonImages();
-//    	}
-//    
-//    private void setupButtonImages() {
-//    	Niveau1Kaarten = dc.getNiveau1Kaarten();
-//    	Niveau2Kaarten = dc.getNiveau2Kaarten();
-//    	Niveau3Kaarten = dc.getNiveau3Kaarten();
-//        setImageToButton(btnKaart1, Niveau1Kaarten.get(0));
-//        setImageToButton(btnKaart2, Niveau1Kaarten.get(1));
-//        setImageToButton(btnKaart3, Niveau1Kaarten.get(2));
-//        setImageToButton(btnKaart4, Niveau1Kaarten.get(3));
-//        
-//        setImageToButton(btnKaart5, Niveau2Kaarten.get(0));
-//        setImageToButton(btnKaart6, Niveau2Kaarten.get(1));
-//        setImageToButton(btnKaart7, Niveau2Kaarten.get(2));
-//        setImageToButton(btnKaart8, Niveau2Kaarten.get(3));
-//        
-//        setImageToButton(btnKaart9, Niveau3Kaarten.get(0));
-//        setImageToButton(btnKaart10, Niveau3Kaarten.get(1));
-//        setImageToButton(btnKaart11, Niveau3Kaarten.get(2));
-//        setImageToButton(btnKaart12, Niveau3Kaarten.get(3));
-//    }
-//    
-//    private void setImageToButton(Button button, OntwikkelingskaartDto ontwikkelingskaartDto) {
-//        Image image = SwingFXUtils.toFXImage(ontwikkelingskaartDto.getImage(), null);
-//        ImageView imageView = new ImageView(image);
-//        button.setGraphic(imageView);
-//    }
+    public void setDc(Domeincontroller dc) {
+    	this.dc = dc;
+    	setupButtonImages();
+    	}
+    
+    private void setupButtonImages() {
+    	Niveau1Kaarten = dc.getNiveau1Kaarten();
+    	Niveau2Kaarten = dc.getNiveau2Kaarten();
+    	Niveau3Kaarten = dc.getNiveau3Kaarten();
+        setImageToButton(btnKaart1, Niveau1Kaarten.get(0));
+        setImageToButton(btnKaart2, Niveau1Kaarten.get(1));
+        setImageToButton(btnKaart3, Niveau1Kaarten.get(2));
+        setImageToButton(btnKaart4, Niveau1Kaarten.get(3));
+        
+        setImageToButton(btnKaart5, Niveau2Kaarten.get(0));
+        setImageToButton(btnKaart6, Niveau2Kaarten.get(1));
+        setImageToButton(btnKaart7, Niveau2Kaarten.get(2));
+        setImageToButton(btnKaart8, Niveau2Kaarten.get(3));
+        
+        setImageToButton(btnKaart9, Niveau3Kaarten.get(0));
+        setImageToButton(btnKaart10, Niveau3Kaarten.get(1));
+        setImageToButton(btnKaart11, Niveau3Kaarten.get(2));
+        setImageToButton(btnKaart12, Niveau3Kaarten.get(3));
+    }
+    
+    private void setImageToButton(Button button, OntwikkelingskaartDto ontwikkelingskaartDto) {
+        if (ontwikkelingskaartDto.getImage() != null) {
+            Image image = SwingFXUtils.toFXImage(ontwikkelingskaartDto.getImage(), null);
+            ImageView imageView = new ImageView(image);
+            imageView.setFitHeight(129);
+            imageView.setFitWidth(90);
+            button.setGraphic(imageView);
+        }
+    }
+
+
 
 
     @FXML

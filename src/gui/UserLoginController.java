@@ -30,8 +30,8 @@ public class UserLoginController extends Pane {
 
     private Domeincontroller dc;
     
-    public UserLoginController () {
-    	dc = new Domeincontroller();
+    public void setDc (Domeincontroller dc) {
+    	this.dc = dc;
     }
     
     public void onClick() {
@@ -52,8 +52,11 @@ public class UserLoginController extends Pane {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("spelbord.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            SpelBordController spelBordController = new SpelBordController();
-            spelBordController = loader.getController();
+             
+           
+            SpelBordController spelBordController = loader.getController();
+            spelBordController.setDc(dc);
+            
             Stage stage = (Stage) startButton.getScene().getWindow(); // get the current stage
             stage.setScene(scene); // set the new scene
             stage.show();

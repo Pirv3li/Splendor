@@ -11,11 +11,13 @@ public class Domeincontroller {
 	private List<OntwikkelingskaartDto> Niveau2Kaarten;
 	private List<OntwikkelingskaartDto> Niveau3Kaarten;
 	private Spel spel;
+	SpelerRepository repo;
 //	private ArrayList<Speler> spelers;
 //	private SpelerRepository spelerRepository;
 // test
 	public Domeincontroller() {
 		spel = new Spel();
+		repo = new SpelerRepository();
 	}
 
 	public void startSpel() {
@@ -31,7 +33,9 @@ public class Domeincontroller {
 	}
 
 	public void voegSpelerToe(String naam, int geboortejaar) {
+		if(repo.bestaatSpeler(naam,geboortejaar)) {
 		spel.voegSpelerToe(naam, geboortejaar);
+		}
 	}
 	
 	public String getSpelersOverzicht() {

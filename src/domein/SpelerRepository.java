@@ -11,16 +11,15 @@ public class SpelerRepository {
         mapper = new Mapper();
     }
 
-    public void voegSpelerToe(Speler speler) {
-        mapper.voegToe(speler);
-    }
+//    public void voegSpelerToe(Speler speler) {
+//        mapper.voegToe(speler);
+//    }
 
-    public Speler getSpeler(String gebruikersnaam) {
-        Speler speler = mapper.geefSpeler(gebruikersnaam);
-        return speler;
+    public boolean bestaatSpeler(String gebruikersnaam, int geboortejaar) {
+        return mapper.isSpelerInDatabase(gebruikersnaam, geboortejaar);
     }
     
-    public List<Speler> getSpelers() {
-    	return mapper.geefSpelers();
-    }
+//    public List<Speler> getSpelers() {
+//    	return mapper.geefSpelers();
+//    }
 }

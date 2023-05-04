@@ -1,9 +1,15 @@
 package domein;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import dto.OntwikkelingskaartDto;
 
 public class Domeincontroller {
 	
+	private List<OntwikkelingskaartDto> Niveau1Kaarten;
+	private List<OntwikkelingskaartDto> Niveau2Kaarten;
+	private List<OntwikkelingskaartDto> Niveau3Kaarten;
 	private Spel spel;
 //	private ArrayList<Speler> spelers;
 //	private SpelerRepository spelerRepository;
@@ -109,6 +115,38 @@ public class Domeincontroller {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void setOntwikkelingskaartenDtos() {
+		Niveau1Kaarten = new ArrayList<>();
+		Niveau2Kaarten = new ArrayList<>();
+		Niveau3Kaarten = new ArrayList<>();
+		Niveau1Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(0).getKaartnummer(),spel.getNiveau1Kaarten().get(0).getImage()));
+		Niveau1Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(1).getKaartnummer(),spel.getNiveau1Kaarten().get(1).getImage()));
+		Niveau1Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(2).getKaartnummer(),spel.getNiveau1Kaarten().get(2).getImage()));
+		Niveau1Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(3).getKaartnummer(),spel.getNiveau1Kaarten().get(3).getImage()));
+		
+		Niveau2Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(0).getKaartnummer(),spel.getNiveau2Kaarten().get(0).getImage()));
+		Niveau2Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(1).getKaartnummer(),spel.getNiveau2Kaarten().get(1).getImage()));
+		Niveau2Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(2).getKaartnummer(),spel.getNiveau2Kaarten().get(2).getImage()));
+		Niveau2Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(3).getKaartnummer(),spel.getNiveau2Kaarten().get(3).getImage()));
+		
+		Niveau3Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(0).getKaartnummer(),spel.getNiveau3Kaarten().get(0).getImage()));
+		Niveau3Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(1).getKaartnummer(),spel.getNiveau3Kaarten().get(1).getImage()));
+		Niveau3Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(2).getKaartnummer(),spel.getNiveau3Kaarten().get(2).getImage()));
+		Niveau3Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(3).getKaartnummer(),spel.getNiveau3Kaarten().get(3).getImage()));
+	}
+	
+	public List<OntwikkelingskaartDto> getNiveau1Kaarten(){
+		return this.Niveau1Kaarten;
+	}
+	
+	public List<OntwikkelingskaartDto> getNiveau2Kaarten(){
+		return this.Niveau2Kaarten;
+	}
+	
+	public List<OntwikkelingskaartDto> getNiveau3Kaarten(){
+		return this.Niveau3Kaarten;
 	}
 
 }

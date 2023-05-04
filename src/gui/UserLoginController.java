@@ -45,12 +45,15 @@ public class UserLoginController extends Pane {
     @FXML
     public void onClickStart() {
         dc.startSpel();
+        dc.setstartSpelerIndex();
+        dc.setOntwikkelingskaartenOverzichtEnEdelenOverzicht();
+        dc.setOntwikkelingskaartenDtos();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("spelbord.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            SpelBordController spelBordController = loader.getController();
-            spelBordController.setDC(dc); // pass the data controller to the new controller
+            SpelBordController spelBordController = new SpelBordController();
+            spelBordController = loader.getController();
             Stage stage = (Stage) startButton.getScene().getWindow(); // get the current stage
             stage.setScene(scene); // set the new scene
             stage.show();

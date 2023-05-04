@@ -141,18 +141,18 @@
       </HBox>
       <AnchorPane layoutX="118.0" layoutY="154.0" prefHeight="431.0" prefWidth="451.0">
          <children>
-            <Button layoutX="117.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart6" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button layoutX="342.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart12" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button layoutX="231.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart11" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-      	  <Button layoutX="117.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart10" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button layoutX="231.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart7" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart9" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button layoutX="117.0" mnemonicParsing="false" onAction="#btnKaart2" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button layoutX="342.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart8" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart5" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button mnemonicParsing="false" onAction="#btnKaart1" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" AnchorPane.bottomAnchor="292.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="351.42857142857144" AnchorPane.topAnchor="0.0" />
-            <Button layoutX="231.0" mnemonicParsing="false" onAction="#btnKaart3" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
-            <Button layoutX="342.0" mnemonicParsing="false" onAction="#btnKaart4" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart1" layoutX="117.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart1" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart2" layoutX="342.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart2" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart3" layoutX="231.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart3" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+      	  <Button fx:id="btnKaart4" layoutX="117.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart4" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart5" layoutX="231.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart5" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart6" layoutY="291.0" mnemonicParsing="false" onAction="#btnKaart6" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart7" layoutX="117.0" mnemonicParsing="false" onAction="#btnKaart7" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart8" layoutX="342.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart8" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart9" layoutY="146.0" mnemonicParsing="false" onAction="#btnKaart9" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart10" mnemonicParsing="false" onAction="#btnKaart10" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart11" layoutX="231.0" mnemonicParsing="false" onAction="#btnKaart11" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
+            <Button fx:id="btnKaart12" layoutX="342.0" mnemonicParsing="false" onAction="#btnKaart12" prefHeight="139.0" prefWidth="100.0" text="Button" textFill="#ac1e1e" />
          </children>
       </AnchorPane>
       <VBox layoutX="636.0" layoutY="26.0" prefHeight="464.0" prefWidth="86.0" spacing="10.0">

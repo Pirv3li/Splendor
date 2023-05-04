@@ -44,6 +44,18 @@ public class Spel {
 	 		
 	}
 	
+	public List<Ontwikkelingskaart> getNiveau1Kaarten(){
+		return this.Niveau1Kaarten;
+	}
+	
+	public List<Ontwikkelingskaart> getNiveau2Kaarten(){
+		return this.Niveau2Kaarten;
+	}
+	
+	public List<Ontwikkelingskaart> getNiveau3Kaarten(){
+		return this.Niveau3Kaarten;
+	}
+	
 	public void setStartspelerIndex() {
 		startspelerIndex = getStartSpelerIndex(spelers);
 		spelerIndex = startspelerIndex;

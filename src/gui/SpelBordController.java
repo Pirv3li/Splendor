@@ -1,12 +1,61 @@
 package gui;
+import dto.OntwikkelingskaartDto;
 
+import java.util.List;
+
+import domein.Domeincontroller;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class SpelBordController {
+
+	Domeincontroller dc;
+	
+	private List<OntwikkelingskaartDto> Niveau1Kaarten;
+    private List<OntwikkelingskaartDto> Niveau2Kaarten;
+    private List<OntwikkelingskaartDto> Niveau3Kaarten;
+	
+	@FXML
+	private Button btnKaart1;
+	
+	@FXML
+	private Button btnKaart2;
+	
+	@FXML
+	private Button btnKaart3;
+	
+	@FXML
+	private Button btnKaart4;
+	
+	@FXML
+	private Button btnKaart5;
+	
+	@FXML
+	private Button btnKaart6;
+	
+	@FXML
+	private Button btnKaart7;
+	
+	@FXML
+	private Button btnKaart8;
+	
+	@FXML
+	private Button btnKaart9;
+	
+	@FXML
+	private Button btnKaart10;
+	
+	@FXML
+	private Button btnKaart11;
+	
+	@FXML
+	private Button btnKaart12;
 
     @FXML
     private VBox VBoxSpeler1;
@@ -184,6 +233,38 @@ public class SpelBordController {
 
     @FXML
     private Label lblSpeler4AantalPunten;
+    
+//    public SpelBordController(Domeincontroller dc) {
+//    	this.dc = dc;
+//    	setupButtonImages();
+//    	}
+//    
+//    private void setupButtonImages() {
+//    	Niveau1Kaarten = dc.getNiveau1Kaarten();
+//    	Niveau2Kaarten = dc.getNiveau2Kaarten();
+//    	Niveau3Kaarten = dc.getNiveau3Kaarten();
+//        setImageToButton(btnKaart1, Niveau1Kaarten.get(0));
+//        setImageToButton(btnKaart2, Niveau1Kaarten.get(1));
+//        setImageToButton(btnKaart3, Niveau1Kaarten.get(2));
+//        setImageToButton(btnKaart4, Niveau1Kaarten.get(3));
+//        
+//        setImageToButton(btnKaart5, Niveau2Kaarten.get(0));
+//        setImageToButton(btnKaart6, Niveau2Kaarten.get(1));
+//        setImageToButton(btnKaart7, Niveau2Kaarten.get(2));
+//        setImageToButton(btnKaart8, Niveau2Kaarten.get(3));
+//        
+//        setImageToButton(btnKaart9, Niveau3Kaarten.get(0));
+//        setImageToButton(btnKaart10, Niveau3Kaarten.get(1));
+//        setImageToButton(btnKaart11, Niveau3Kaarten.get(2));
+//        setImageToButton(btnKaart12, Niveau3Kaarten.get(3));
+//    }
+//    
+//    private void setImageToButton(Button button, OntwikkelingskaartDto ontwikkelingskaartDto) {
+//        Image image = SwingFXUtils.toFXImage(ontwikkelingskaartDto.getImage(), null);
+//        ImageView imageView = new ImageView(image);
+//        button.setGraphic(imageView);
+//    }
+
 
     @FXML
     private Label lblSpeler4Kaarten;
@@ -257,22 +338,7 @@ public class SpelBordController {
 
     @FXML
     void btnKaart1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnKaart10(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnKaart11(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnKaart12(ActionEvent event) {
-
+    	
     }
 
     @FXML
@@ -312,6 +378,23 @@ public class SpelBordController {
 
     @FXML
     void btnKaart9(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnKaart10(ActionEvent event) {
+
+    }
+    
+
+    @FXML
+    void btnKaart11(ActionEvent event) {
+
+    }
+    
+
+    @FXML
+    void btnKaart12(ActionEvent event) {
 
     }
 

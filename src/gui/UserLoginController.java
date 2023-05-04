@@ -48,6 +48,8 @@ public class UserLoginController extends Pane {
         dc.setstartSpelerIndex();
         dc.setOntwikkelingskaartenOverzichtEnEdelenOverzicht();
         dc.setOntwikkelingskaartenDtos();
+        dc.setEdelstenenAantalDto();
+        dc.setEdelenDto();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("spelbord.fxml"));
             Parent root = loader.load();

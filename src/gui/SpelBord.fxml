@@ -48,19 +48,19 @@
             </VBox>
             <VBox fx:id="VBoxSpeler2" prefHeight="86.0" prefWidth="126.0" GridPane.rowIndex="2">
                <children>
-                  <Label fx:id="lblSpeler2" prefHeight="18.0" prefWidth="123.0" text="Speler" textAlignment="JUSTIFY" />
+                  <Label fx:id="lblSpeler3" prefHeight="18.0" prefWidth="123.0" text="Speler" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler3AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
                </children>
             </VBox>
             <VBox fx:id="VBoxSpeler4" prefHeight="56.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="lblSpeler4" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
+                  <Label fx:id="lblSpeler2" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler2AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
                </children>
             </VBox>
             <VBox fx:id="VBoxSpeler3" prefHeight="66.0" prefWidth="100.0" GridPane.rowIndex="3">
                <children>
-                  <Label fx:id="lblSpeler3" prefHeight="18.0" prefWidth="125.0" text="Speler" textAlignment="JUSTIFY" />
+                  <Label fx:id="lblSpeler4" prefHeight="18.0" prefWidth="125.0" text="Speler" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler4AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
                </children>
             </VBox>
@@ -68,11 +68,11 @@
       </GridPane>
       <HBox layoutX="22.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="115.0" prefWidth="546.0" spacing="10.0">
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel1" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel2" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel3" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel4" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel5" prefHeight="65.0" prefWidth="65.0" text="Button" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnEdel1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel1" prefHeight="65.0" prefWidth="65.0" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnEdel2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel2" prefHeight="65.0" prefWidth="65.0" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnEdel3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel3" prefHeight="65.0" prefWidth="65.0" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnEdel4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel4" prefHeight="65.0" prefWidth="65.0" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnEdel5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnEdel5" prefHeight="65.0" prefWidth="65.0" textFill="#ac1e1e" HBox.hgrow="ALWAYS" />
          </children>
          <padding>
             <Insets top="5.0" />

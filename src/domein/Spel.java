@@ -116,6 +116,9 @@ public class Spel {
 		return this.edelstenen;
 	}
 	
+	public HashMap<Edelsteen, Integer> getEdelstenen(){
+		return this.edelstenen;
+	}
 	
 	public void setAlleEdelstenen(int spelerIndex) {
 		edelstenen = new HashMap<Edelsteen, Integer>();
@@ -434,7 +437,18 @@ public class Spel {
 		 }
 		 
 	 }
-
+	 
+	 public ArrayList<String> getSpelerNamen(){
+		 ArrayList<String> spelerNamen = new ArrayList<>();
+		 for(int i = 0 ; i<spelers.size() ; i++) {
+			 spelerNamen.add(spelers.get(i).getGebruikersnaam());
+		 }
+		 return spelerNamen;
+	 }
+	 
+	 public List<Edel> getEdelen(){
+		 return this.edelen;
+	 }
 	 
 	 private List<Edel> getRandomEdelen(List<Edel> edelen, int count){
 		 Collections.shuffle(edelen);

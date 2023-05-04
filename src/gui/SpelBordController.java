@@ -1,7 +1,9 @@
 package gui;
+import dto.EdelenDto;
+import dto.EdelstenenDto;
 import dto.OntwikkelingskaartDto;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 import domein.Domeincontroller;
@@ -21,7 +23,9 @@ public class SpelBordController {
 	private List<OntwikkelingskaartDto> Niveau1Kaarten;
     private List<OntwikkelingskaartDto> Niveau2Kaarten;
     private List<OntwikkelingskaartDto> Niveau3Kaarten;
-    
+    private ArrayList<EdelstenenDto> aantalEdelstenen;
+    private ArrayList<String> spelerNamen;
+    private List<EdelenDto> edelen;
     @FXML
     private Label labelDiamantenInInventory;
     
@@ -39,10 +43,6 @@ public class SpelBordController {
     
     @FXML
     private Label labelSpelerInventory;
-    
-    
-    @FXML
-    private Label labelGoudInInventory;
 	
 	@FXML
 	private Button btnKaart1;
@@ -257,10 +257,76 @@ public class SpelBordController {
     @FXML
     private Label lblSpeler4AantalPunten;
     
+    @FXML
+    private Button btnEdel1;
+    
+    @FXML
+    private Button btnEdel2;
+    
+    @FXML
+    private Button btnEdel3;
+    
+    @FXML
+    private Button btnEdel4;
+    
+    @FXML
+    private Button btnEdel5;
+    
     public void setDc(Domeincontroller dc) {
     	this.dc = dc;
     	setupButtonImages();
+    	setupEdelstenenAantal();
+    	setupSpelerNamen();
+    	setupEdelenImages();
     	}
+    
+    private void setupEdelenImages() {
+    	edelen = dc.getEdelen();
+    	setImageToEdelButton(btnEdel1, edelen.get(0));
+    	setImageToEdelButton(btnEdel2, edelen.get(1));
+    	setImageToEdelButton(btnEdel3, edelen.get(2));
+    	setImageToEdelButton(btnEdel4, edelen.get(3));
+    	setImageToEdelButton(btnEdel5, edelen.get(4));
+    }
+    
+    private void setImageToEdelButton(Button button, EdelenDto edelen) {
+        if (edelen.getImage() != null) {
+            Image image = SwingFXUtils.toFXImage(edelen.getImage(), null);
+            ImageView imageView = new ImageView(image);
+            imageView.setFitHeight(100);
+            imageView.setFitWidth(90);
+            button.setGraphic(imageView);
+        }
+    }
+    
+    private void setupSpelerNamen() {
+    	spelerNamen = dc.getSpelerNamen();
+    	lblSpeler1.setText(spelerNamen.get(0));
+    	lblSpeler2.setText(spelerNamen.get(1));
+    	if(spelerNamen.size()<3) {
+    		lblSpeler3.setText("");
+    		lblSpeler3AantalPunten.setText("");
+    	}
+    	if(spelerNamen.size()<4) {
+    		lblSpeler4.setText("");
+    		lblSpeler4AantalPunten.setText("");
+    	}
+    	if(spelerNamen.size()==3 || spelerNamen.size()==4) {
+        	lblSpeler3.setText(spelerNamen.get(2));
+    	}
+    	if(spelerNamen.size()==4) {
+        	lblSpeler4.setText(spelerNamen.get(3));
+    	}
+    }
+    
+    private void setupEdelstenenAantal() {
+    	aantalEdelstenen = dc.getEdelstenenAantalDto();
+    	lblDiamant.setText(String.valueOf(aantalEdelstenen.get(0).aantal()));
+    	lblSaffier.setText(String.valueOf(aantalEdelstenen.get(1).aantal()));
+    	lbSmaragd.setText(String.valueOf(aantalEdelstenen.get(2).aantal()));
+    	lblRobijn.setText(String.valueOf(aantalEdelstenen.get(3).aantal()));
+    	lblOnyx.setText(String.valueOf(aantalEdelstenen.get(4).aantal()));
+    }
     
     private void setupButtonImages() {
     	Niveau1Kaarten = dc.getNiveau1Kaarten();
@@ -291,9 +357,6 @@ public class SpelBordController {
             button.setGraphic(imageView);
         }
     }
-
-
-
 
     @FXML
     private Label lblSpeler4Kaarten;

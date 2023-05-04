@@ -1,7 +1,9 @@
 package domein;
-
+import dto.EdelenDto;
+import dto.EdelstenenDto;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import dto.OntwikkelingskaartDto;
 
@@ -11,7 +13,9 @@ public class Domeincontroller {
 	private List<OntwikkelingskaartDto> Niveau2Kaarten;
 	private List<OntwikkelingskaartDto> Niveau3Kaarten;
 	private Spel spel;
-	SpelerRepository repo;
+	private SpelerRepository repo;
+	private ArrayList<EdelstenenDto> aantalEdelstenen;
+	private List<EdelenDto> edelen;
 //	private ArrayList<Speler> spelers;
 //	private SpelerRepository spelerRepository;
 // test
@@ -152,5 +156,36 @@ public class Domeincontroller {
 	public List<OntwikkelingskaartDto> getNiveau3Kaarten(){
 		return this.Niveau3Kaarten;
 	}
-
+	
+	public void setEdelstenenAantalDto() {
+		aantalEdelstenen = new ArrayList<>();
+		HashMap<Edelsteen, Integer> alleEdelstenen = spel.getAlleEdelstenen();
+		aantalEdelstenen.add(new EdelstenenDto(alleEdelstenen.get(Edelsteen.DIAMANTEN)));
+		aantalEdelstenen.add(new EdelstenenDto(alleEdelstenen.get(Edelsteen.SAFFIEREN)));
+		aantalEdelstenen.add(new EdelstenenDto(alleEdelstenen.get(Edelsteen.SMARAGDEN)));
+		aantalEdelstenen.add(new EdelstenenDto(alleEdelstenen.get(Edelsteen.ROBIJNEN)));
+		aantalEdelstenen.add(new EdelstenenDto(alleEdelstenen.get(Edelsteen.ONYXEN)));
+	}
+	
+	public ArrayList<EdelstenenDto> getEdelstenenAantalDto(){
+		return this.aantalEdelstenen;
+	}
+	
+	public ArrayList<String> getSpelerNamen() {
+		return spel.getSpelerNamen();
+	}
+	
+	public void setEdelenDto() {
+		edelen = new ArrayList<>();
+		List<Edel> alleEdelen = spel.getEdelen();
+		edelen.add(new EdelenDto(alleEdelen.get(0).getEdelImage()));
+		edelen.add(new EdelenDto(alleEdelen.get(1).getEdelImage()));
+		edelen.add(new EdelenDto(alleEdelen.get(2).getEdelImage()));
+		edelen.add(new EdelenDto(alleEdelen.get(3).getEdelImage()));
+		edelen.add(new EdelenDto(alleEdelen.get(4).getEdelImage()));
+	}
+	
+	public List<EdelenDto> getEdelen(){
+		return this.edelen;
+	}
 }

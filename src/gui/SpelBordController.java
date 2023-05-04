@@ -20,6 +20,28 @@ public class SpelBordController {
 	private List<OntwikkelingskaartDto> Niveau1Kaarten;
     private List<OntwikkelingskaartDto> Niveau2Kaarten;
     private List<OntwikkelingskaartDto> Niveau3Kaarten;
+    
+    @FXML
+    private Label labelDiamantenInInventory;
+    
+    @FXML
+    private Label labelSaffierenInInventory;
+    
+    @FXML
+    private Label labelSmaragdenInInventory;
+    
+    @FXML
+    private Label labelRobijnenInInventory;
+    
+    @FXML
+    private Label labelOnyxenInInventory;
+    
+    @FXML
+    private Label labelSpelerInventory;
+    
+    
+    @FXML
+    private Label labelGoudInInventory;
 	
 	@FXML
 	private Button btnKaart1;

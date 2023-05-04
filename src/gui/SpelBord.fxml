@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/SpeelbordStyle.css" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpelBordController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/SpeelbordStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpelBordController">
    <children>
       <ImageView fx:id="imgvNiveau1" fitHeight="139.0" fitWidth="100.0" layoutX="8.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="794.265625" AnchorPane.topAnchor="447.0">
          <image>
@@ -64,14 +64,14 @@
             </VBox>
             <VBox fx:id="VBoxSpeler2" prefHeight="86.0" prefWidth="126.0" GridPane.rowIndex="2">
                <children>
-                  <Label fx:id="lblSpeler2" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
+                  <Label fx:id="lblSpeler2" prefHeight="18.0" prefWidth="123.0" text="Speler" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler3AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler3Kaarten" prefHeight="17.0" prefWidth="105.0" text="Gereserveerde Kaarten" textAlignment="JUSTIFY">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="40.0" prefWidth="122.0">
                      <children>
                         <ImageView fx:id="imgvSpeler3Kaart1" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgvSpeler3Kaart2" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
@@ -92,7 +92,7 @@
                         <Font size="10.0" />
                      </font>
                   </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="40.0" prefWidth="122.0">
                      <children>
                         <ImageView fx:id="imgvSpeler2Kaart1" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgvSpeler2Kaart2" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
@@ -106,14 +106,14 @@
             </VBox>
             <VBox fx:id="VBoxSpeler3" prefHeight="66.0" prefWidth="100.0" GridPane.rowIndex="3">
                <children>
-                  <Label fx:id="lblSpeler3" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
+                  <Label fx:id="lblSpeler3" prefHeight="18.0" prefWidth="125.0" text="Speler" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler4AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
                   <Label fx:id="lblSpeler4Kaarten" prefHeight="17.0" prefWidth="105.0" text="Gereserveerde Kaarten" textAlignment="JUSTIFY">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="40.0" prefWidth="122.0">
                      <children>
                         <ImageView fx:id="imgvSpeler4Kaart1" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="imgvSpeler4Kaart2" fitHeight="34.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" />
@@ -207,7 +207,7 @@
                </graphic></Button>
          </children>
       </VBox>
-      <GridPane alignment="CENTER" layoutX="560.0" layoutY="490.0" prefHeight="110.0" prefWidth="339.0">
+      <GridPane alignment="CENTER" layoutX="568.0" layoutY="502.0" prefHeight="100.0" prefWidth="333.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="55.333333333333336" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.33331298828125" minWidth="10.0" prefWidth="55.333353678385414" />
@@ -221,70 +221,53 @@
           <RowConstraints maxHeight="76.00002034505209" minHeight="7.33331298828125" prefHeight="34.33335367838542" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#btnGem1" prefHeight="46.0" prefWidth="51.0" style="-fx-border-width: 1px 1px 1px 1px; -fx-border-radius: 50%;" GridPane.columnIndex="4">
-               <graphic>
-                  <ImageView fx:id="btnInventoryOnyx" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/OnyxRond.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#btnGem2" prefHeight="41.0" prefWidth="47.0" GridPane.columnIndex="3">
-               <graphic>
-                  <ImageView fx:id="btnInventoryRobijn" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/RobijnRond.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#btnGem3" prefHeight="6.0" prefWidth="34.0" GridPane.columnIndex="1">
-               <graphic>
-                  <ImageView fx:id="btnInventorySaffier" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/SaffierRond.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#btnGem4" prefHeight="38.0" prefWidth="25.0">
-               <graphic>
-                  <ImageView fx:id="btnInventoryDiamant" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/DiamantRond.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#btnGem5" prefHeight="47.0" prefWidth="44.0" GridPane.columnIndex="2">
-               <graphic>
-                  <ImageView fx:id="btnInventorySmaragd" fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/SmagardRond.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#btnGem6" prefHeight="32.0" prefWidth="39.0" GridPane.columnIndex="5">
-               <graphic>
-                  <ImageView fx:id="btnInventoryTegel" fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/TegelRond.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Diamant.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../images/Saffier.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../images/Smagard.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+               <image>
+                  <Image url="@../images/Robijn.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+               <image>
+                  <Image url="@../images/Onyx.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
+               <image>
+                  <Image url="@../images/Tegel.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelDiamantenInInventory" alignment="CENTER" prefHeight="18.0" prefWidth="54.0" text="0:0" GridPane.rowIndex="1" />
+            <Label fx:id="labelSaffierenInInventory" alignment="CENTER" prefHeight="18.0" prefWidth="54.0" text="0:0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="labelSmaragdenInInventory" alignment="CENTER" prefHeight="18.0" prefWidth="55.0" text="0:0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="labelRobijnenInInventory" alignment="CENTER" prefHeight="18.0" prefWidth="58.0" text="0:0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="labelOnyxenInInventory" alignment="CENTER" prefHeight="18.0" prefWidth="60.0" text="0:0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label fx:id="labelGoudInInventory" alignment="CENTER" prefHeight="18.0" prefWidth="62.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Label fx:id="lblStapelNiveau3" layoutX="75.0" layoutY="153.0" text="Label" />
       <Label fx:id="lblStapelNiveau2" layoutX="75.0" layoutY="301.0" text="Label" />
       <Label fx:id="lblStapelNiveau1" layoutX="75.0" layoutY="447.0" text="Label" />
-      <Label fx:id="lblDiamant" layoutX="708.0" layoutY="17.0" text="Label" />
-      <Label fx:id="lblSaffier" layoutX="708.0" layoutY="101.0" text="Label" />
-      <Label fx:id="lbSmaragd" layoutX="708.0" layoutY="180.0" text="Label" />
-      <Label fx:id="lblRobijn" layoutX="708.0" layoutY="258.0" text="Label" />
-      <Label fx:id="lblOnyx" layoutX="708.0" layoutY="340.0" text="Label" />
-      <Label fx:id="lblTegel" layoutX="708.0" layoutY="421.0" text="Label" />
+      <Label fx:id="lblDiamant" layoutX="716.0" layoutY="52.0" text="4" />
+      <Label fx:id="lblSaffier" layoutX="716.0" layoutY="127.0" text="4" />
+      <Label fx:id="lbSmaragd" layoutX="716.0" layoutY="213.0" text="4" />
+      <Label fx:id="lblRobijn" layoutX="716.0" layoutY="291.0" text="4" />
+      <Label fx:id="lblOnyx" layoutX="716.0" layoutY="370.0" text="4" />
+      <Label fx:id="lblTegel" layoutX="716.0" layoutY="447.0" text="4" />
+      <Label fx:id="labelSpelerInventory" layoutX="569.0" layoutY="493.0" prefHeight="18.0" prefWidth="304.0" text="Speler Inventory" />
    </children>
-</fx:root>
+</AnchorPane>

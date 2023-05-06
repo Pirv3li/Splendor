@@ -4,6 +4,7 @@ import dto.EdelstenenDto;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import dto.OntwikkelingskaartDto;
 
@@ -67,30 +68,38 @@ public class Domeincontroller {
 		return spel.toonEdelenOverzicht();
 	}
 	
-	public void neemEdelstenen(String edelsteenString, int aantal) {
-		if(aantal==1) {
-	    Edelsteen edelsteen = null;
-	    try {
-	        edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
-	    } catch (IllegalArgumentException e) {
-	        System.out.println("Invalid Edelsteenfiche");
+	public void neemEdelstenen(List<String> edelsteenStrings) {
+	    if (edelsteenStrings == null || edelsteenStrings.isEmpty()) {
+	        System.out.println("Invalid Edelstenen selected");
+	        return;
 	    }
-	    if (edelsteen != null) {
-	        spel.neem_1_Edelsteen(edelsteen, aantal);
-	    	}
-		}
-		if(aantal==2) {
-			Edelsteen edelsteen = null;
-			try {
-		        edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
-		    } catch (IllegalArgumentException e) {
-		        System.out.println("Invalid Edelsteenfiche");
-		    }
-			if(edelsteen != null) {
-			spel.neem_2_Edelstenen(edelsteen, aantal);
-				}
-			}
-		}
+	    
+	    List<Edelsteen> edelstenen = new ArrayList<>();
+	    for (String edelsteenString : edelsteenStrings) {
+	        try {
+	            Edelsteen edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
+	            edelstenen.add(edelsteen);
+	        } catch (IllegalArgumentException e) {
+	            System.out.println("Invalid Edelsteenfiche");
+	            return;
+	        }
+	    }
+	    
+	    if (edelstenen.size() == 3 && new HashSet<>(edelstenen).size() == 3) {
+	        spel.neem_1_Edelsteen(edelstenen.get(0),1);
+	        spel.neem_1_Edelsteen(edelstenen.get(1),1);
+	        spel.neem_1_Edelsteen(edelstenen.get(2),1);
+	        return;
+	    }
+	    
+	    if (edelstenen.size() == 2 && edelstenen.get(0).equals(edelstenen.get(1))) {
+	        spel.neem_2_Edelstenen(edelstenen.get(0), 2);
+	        return;
+	    }
+	    
+	    System.out.println("Invalid combination of Edelstenen selected");
+	}
+
 	
 	public void neemEdelenAlsGenoegBonusEdelstenen() {
 		spel.neemEdelAlsSpelerGenoegBonusEdelstenenHeeft();

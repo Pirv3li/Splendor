@@ -9,6 +9,7 @@ public class Speler {
 	private String gebruikersnaam;
 	private int geboortejaar;
 	private int leeftijd;
+	private int punten;
 	private HashMap<Edelsteen, Integer> bonusEdelsteenfichesInventory;
 	private ArrayList<Edel> edelen;
 	
@@ -132,7 +133,8 @@ public class Speler {
 		for(Edel edelen : edelen) {
 			sum += edelen.getPunten();
 		}
-		return sum;
+		this.punten = sum;
+		return punten;
 	}
 
 }

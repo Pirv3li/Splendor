@@ -1,11 +1,8 @@
 package gui;
 import dto.EdelenDto;
+import java.util.*;
 import dto.EdelstenenDto;
 import dto.OntwikkelingskaartDto;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import domein.Domeincontroller;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -19,6 +16,8 @@ import javafx.scene.layout.VBox;
 public class SpelBordController {
 
 	Domeincontroller dc;
+	private List<String> selectedGems;
+
 	
 	private List<OntwikkelingskaartDto> Niveau1Kaarten;
     private List<OntwikkelingskaartDto> Niveau2Kaarten;
@@ -208,7 +207,22 @@ public class SpelBordController {
 
     @FXML
     private ImageView imgvSpeler4Kaart6;
+    
+    @FXML
+    private Button btnGem1;
 
+    @FXML
+    private Button btnGem2;
+    
+    @FXML
+    private Button btnGem3;
+    
+    @FXML
+    private Button btnGem4;
+    
+    @FXML
+    private Button btnGem5;
+    
     @FXML
     private Label lbSmaragd;
 
@@ -272,13 +286,17 @@ public class SpelBordController {
     @FXML
     private Button btnEdel5;
     
+    @FXML
+    private Button neemEdelstenen;
+    
     public void setDc(Domeincontroller dc) {
+    	selectedGems = new ArrayList<>();
     	this.dc = dc;
     	setupButtonImages();
     	setupEdelstenenAantal();
     	setupSpelerNamen();
     	setupEdelenImages();
-    	}
+    }
     
     private void setupEdelenImages() {
     	edelen = dc.getEdelen();
@@ -357,6 +375,43 @@ public class SpelBordController {
             button.setGraphic(imageView);
         }
     }
+    
+
+    private void checkSelectedGems3() {
+        if (selectedGems.size() == 3) {
+            // check if there are three different types of gems
+            if (selectedGems.stream().distinct().count() == 3) {
+            	dc.neemEdelstenen(selectedGems);
+            	selectedGems = new ArrayList<>();
+                dc.setEdelstenenAantalDto();
+            	setupEdelstenenAantal();
+            } else {
+            	throw new IllegalArgumentException("Invalid keuze :");
+            }
+        } 
+    }
+    
+    private void checkSelectedGems() {
+    	if(selectedGems.size()==3) {
+    		checkSelectedGems3();
+    	}
+    	else if (selectedGems.size() == 2) {
+            // check if there are two of the same type of gem
+            String firstGem = selectedGems.get(0);
+            String secondGem = selectedGems.get(1);
+            if (firstGem.equals(secondGem)) {
+            	dc.neemEdelstenen(selectedGems);
+            	selectedGems = new ArrayList<>();
+                dc.setEdelstenenAantalDto();
+            	setupEdelstenenAantal();
+            } else {
+            	throw new IllegalArgumentException("Invalid keuze :: ");
+            }
+        } else {
+        	throw new IllegalArgumentException("Invalid keuze :::");
+        }
+    }
+
 
     @FXML
     private Label lblSpeler4Kaarten;
@@ -397,36 +452,53 @@ public class SpelBordController {
     void btnEdel5(ActionEvent event) {
 
     }
+    
+    @FXML
+    void neemEdelstenen(ActionEvent event) {
+        if(selectedGems.size()==3) {
+    		checkSelectedGems3();
+    		}
+        if(selectedGems.size()==2) {
+    		checkSelectedGems();
+    		}
+        btnGem1.setStyle(null);
+        btnGem2.setStyle(null);
+        btnGem3.setStyle(null);
+        btnGem4.setStyle(null);
+        btnGem5.setStyle(null);
 
+    }
+    
     @FXML
     void btnGem1(ActionEvent event) {
-
+       selectedGems.add("DIAMANTEN");
+       btnGem1.setStyle("-fx-background-color: orange;");
     }
 
     @FXML
     void btnGem2(ActionEvent event) {
-
+    	selectedGems.add("SAFFIEREN");
+    	btnGem2.setStyle("-fx-background-color: orange;");
     }
 
     @FXML
     void btnGem3(ActionEvent event) {
-
+    	selectedGems.add("SMARAGDEN");
+    	btnGem3.setStyle("-fx-background-color: orange;");
     }
 
     @FXML
     void btnGem4(ActionEvent event) {
-
+    	selectedGems.add("ROBIJNEN");
+    	btnGem4.setStyle("-fx-background-color: orange;");
     }
 
     @FXML
     void btnGem5(ActionEvent event) {
-
+    	selectedGems.add("ONYXEN");
+    	btnGem5.setStyle("-fx-background-color: orange;");
     }
 
-    @FXML
-    void btnGem6(ActionEvent event) {
-
-    }
 
     @FXML
     void btnKaart1(ActionEvent event) {

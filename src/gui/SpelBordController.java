@@ -395,6 +395,7 @@ public class SpelBordController {
             	setSpelerAandebeurt();
             	dc.setInventoryDto();
             	setInventory();
+            	setPunten();
             } else {
             	throw new IllegalArgumentException("Invalid keuze :");
             }
@@ -418,6 +419,7 @@ public class SpelBordController {
             	setSpelerAandebeurt();
             	dc.setInventoryDto();
             	setInventory();
+            	setPunten();
             } else {
             	throw new IllegalArgumentException("Invalid keuze :: ");
             }
@@ -431,13 +433,18 @@ public class SpelBordController {
     }
     
     private void setPunten() {
-    	String punten = String.valueOf(dc.getPunten());
-    	lblSpeler1AantalPunten.setText("Punten : "+punten);
-    	lblSpeler2AantalPunten.setText("Punten : "+punten);
+    	String punten1 = String.valueOf(dc.getPunten());
+    	lblSpeler1AantalPunten.setText("Punten : "+punten1);
+    	String punten2 = String.valueOf(dc.getPunten());
+    	lblSpeler2AantalPunten.setText("Punten : "+punten2);
     	if(spelerNamen.size()==3) {
-    	lblSpeler3AantalPunten.setText("Punten : "+punten);}
+        	String punten3 = String.valueOf(dc.getPunten());
+        	lblSpeler3AantalPunten.setText("Punten : "+punten3);
+        	}
     	if(spelerNamen.size()==4) {
-    	lblSpeler4AantalPunten.setText("Punten : "+punten);}
+        	String punten4 = String.valueOf(dc.getPunten());
+        	lblSpeler4AantalPunten.setText("Punten : "+punten4);
+        	}
     }
     
     private void setInventory() {
@@ -496,7 +503,17 @@ public class SpelBordController {
                 checkSelectedGems3();
             } else if (selectedGems.size() == 2) {
                 checkSelectedGems();
-            } else {
+            } else if (selectedGems.size() == 0) {
+            	selectedGems = new ArrayList<>();
+                dc.setEdelstenenAantalDto();
+            	setupEdelstenenAantal();
+            	dc.volgendeSpeler();
+            	setSpelerAandebeurt();
+            	dc.setInventoryDto();
+            	setInventory();
+            	setPunten();
+            }
+            else {
                 throw new IllegalArgumentException("You must select either 2 or 3 gems.");
             }
         } catch (IllegalArgumentException e) {
@@ -545,64 +562,245 @@ public class SpelBordController {
 
     @FXML
     void btnKaart1(ActionEvent event) {
-    	
+        Button button = (Button) event.getSource();
+        String buttonId = button.getId();
+        int kaartNummer = -1;
+        if (buttonId.equals("btnKaart1")) {
+            kaartNummer = Niveau1Kaarten.get(0).getKaartnummer();
+        }
+        dc.koopOntwikkelingskaart(kaartNummer);
+        dc.setOntwikkelingskaartenDtos();
+        setupButtonImages();
+        dc.setEdelstenenAantalDto();
+    	setupEdelstenenAantal();
+    	dc.volgendeSpeler();
+    	setSpelerAandebeurt();
+    	dc.setInventoryDto();
+    	setInventory();
+    	setPunten();
     }
+
 
     @FXML
     void btnKaart2(ActionEvent event) {
-
+    	   Button button = (Button) event.getSource();
+           String buttonId = button.getId();
+           int kaartNummer = -1;
+           if (buttonId.equals("btnKaart2")) {
+               kaartNummer = Niveau1Kaarten.get(1).getKaartnummer();
+           }
+           dc.koopOntwikkelingskaart(kaartNummer);
+           dc.setOntwikkelingskaartenDtos();
+           setupButtonImages();
+           dc.setEdelstenenAantalDto();
+       	setupEdelstenenAantal();
+       	dc.volgendeSpeler();
+       	setSpelerAandebeurt();
+       	dc.setInventoryDto();
+       	setInventory();
+       	setPunten();
     }
 
     @FXML
     void btnKaart3(ActionEvent event) {
-
+    	   Button button = (Button) event.getSource();
+           String buttonId = button.getId();
+           int kaartNummer = -1;
+           if (buttonId.equals("btnKaart3")) {
+               kaartNummer = Niveau1Kaarten.get(2).getKaartnummer();
+           }
+           dc.koopOntwikkelingskaart(kaartNummer);
+           dc.setOntwikkelingskaartenDtos();
+           setupButtonImages();
+           dc.setEdelstenenAantalDto();
+       	setupEdelstenenAantal();
+       	dc.volgendeSpeler();
+       	setSpelerAandebeurt();
+       	dc.setInventoryDto();
+       	setInventory();
+       	setPunten();
     }
 
     @FXML
     void btnKaart4(ActionEvent event) {
-
+    	   Button button = (Button) event.getSource();
+           String buttonId = button.getId();
+           int kaartNummer = -1;
+           if (buttonId.equals("btnKaart4")) {
+               kaartNummer = Niveau1Kaarten.get(3).getKaartnummer();
+           }
+           dc.koopOntwikkelingskaart(kaartNummer);
+           dc.setOntwikkelingskaartenDtos();
+           setupButtonImages();
+           dc.setEdelstenenAantalDto();
+       	setupEdelstenenAantal();
+       	dc.volgendeSpeler();
+       	setSpelerAandebeurt();
+       	dc.setInventoryDto();
+       	setInventory();
+       	setPunten();
     }
 
     @FXML
     void btnKaart5(ActionEvent event) {
-
+    	   Button button = (Button) event.getSource();
+           String buttonId = button.getId();
+           int kaartNummer = -1;
+           if (buttonId.equals("btnKaart5")) {
+               kaartNummer = Niveau2Kaarten.get(0).getKaartnummer();
+           }
+           dc.koopOntwikkelingskaart(kaartNummer);
+           dc.setOntwikkelingskaartenDtos();
+           setupButtonImages();
+           dc.setEdelstenenAantalDto();
+       	setupEdelstenenAantal();
+       	dc.volgendeSpeler();
+       	setSpelerAandebeurt();
+       	dc.setInventoryDto();
+       	setInventory();
+       	setPunten();
     }
 
     @FXML
     void btnKaart6(ActionEvent event) {
-
+    	 Button button = (Button) event.getSource();
+         String buttonId = button.getId();
+         int kaartNummer = -1;
+         if (buttonId.equals("btnKaart6")) {
+             kaartNummer = Niveau2Kaarten.get(1).getKaartnummer();
+         }
+         dc.koopOntwikkelingskaart(kaartNummer);
+         dc.setOntwikkelingskaartenDtos();
+         setupButtonImages();
+         dc.setEdelstenenAantalDto();
+     	setupEdelstenenAantal();
+     	dc.volgendeSpeler();
+     	setSpelerAandebeurt();
+     	dc.setInventoryDto();
+     	setInventory();
+     	setPunten();
     }
 
     @FXML
     void btnKaart7(ActionEvent event) {
-
+    	 Button button = (Button) event.getSource();
+         String buttonId = button.getId();
+         int kaartNummer = -1;
+         if (buttonId.equals("btnKaart7")) {
+             kaartNummer = Niveau2Kaarten.get(2).getKaartnummer();
+         }
+         dc.koopOntwikkelingskaart(kaartNummer);
+         dc.setOntwikkelingskaartenDtos();
+         setupButtonImages();
+         dc.setEdelstenenAantalDto();
+     	setupEdelstenenAantal();
+     	dc.volgendeSpeler();
+     	setSpelerAandebeurt();
+     	dc.setInventoryDto();
+     	setInventory();
+     	setPunten();
     }
 
     @FXML
     void btnKaart8(ActionEvent event) {
-
+    	 Button button = (Button) event.getSource();
+         String buttonId = button.getId();
+         int kaartNummer = -1;
+         if (buttonId.equals("btnKaart8")) {
+             kaartNummer = Niveau2Kaarten.get(3).getKaartnummer();
+         }
+         dc.koopOntwikkelingskaart(kaartNummer);
+         dc.setOntwikkelingskaartenDtos();
+         setupButtonImages();
+         dc.setEdelstenenAantalDto();
+     	setupEdelstenenAantal();
+     	dc.volgendeSpeler();
+     	setSpelerAandebeurt();
+     	dc.setInventoryDto();
+     	setInventory();
+     	setPunten();
     }
 
     @FXML
     void btnKaart9(ActionEvent event) {
-
+    	 Button button = (Button) event.getSource();
+         String buttonId = button.getId();
+         int kaartNummer = -1;
+         if (buttonId.equals("btnKaart9")) {
+             kaartNummer = Niveau3Kaarten.get(0).getKaartnummer();
+         }
+         dc.koopOntwikkelingskaart(kaartNummer);
+         dc.setOntwikkelingskaartenDtos();
+         setupButtonImages();
+         dc.setEdelstenenAantalDto();
+     	setupEdelstenenAantal();
+     	dc.volgendeSpeler();
+     	setSpelerAandebeurt();
+     	dc.setInventoryDto();
+     	setInventory();
+     	setPunten();
     }
 
     @FXML
     void btnKaart10(ActionEvent event) {
-
-    }
+    	 Button button = (Button) event.getSource();
+         String buttonId = button.getId();
+         int kaartNummer = -1;
+         if (buttonId.equals("btnKaart10")) {
+             kaartNummer = Niveau3Kaarten.get(1).getKaartnummer();
+         }
+         dc.koopOntwikkelingskaart(kaartNummer);
+         dc.setOntwikkelingskaartenDtos();
+         setupButtonImages();
+         dc.setEdelstenenAantalDto();
+     	setupEdelstenenAantal();
+     	dc.volgendeSpeler();
+     	setSpelerAandebeurt();
+     	dc.setInventoryDto();
+     	setInventory();
+     	setPunten();
+    }	
     
 
     @FXML
     void btnKaart11(ActionEvent event) {
-
+    	 Button button = (Button) event.getSource();
+         String buttonId = button.getId();
+         int kaartNummer = -1;
+         if (buttonId.equals("btnKaart11")) {
+             kaartNummer = Niveau3Kaarten.get(2).getKaartnummer();
+         }
+         dc.koopOntwikkelingskaart(kaartNummer);
+         dc.setOntwikkelingskaartenDtos();
+         setupButtonImages();
+         dc.setEdelstenenAantalDto();
+     	setupEdelstenenAantal();
+     	dc.volgendeSpeler();
+     	setSpelerAandebeurt();
+     	dc.setInventoryDto();
+     	setInventory();
+     	setPunten();
     }
     
 
     @FXML
     void btnKaart12(ActionEvent event) {
-
+    	 Button button = (Button) event.getSource();
+         String buttonId = button.getId();
+         int kaartNummer = -1;
+         if (buttonId.equals("btnKaart12")) {
+             kaartNummer = Niveau3Kaarten.get(3).getKaartnummer();
+         }
+         dc.koopOntwikkelingskaart(kaartNummer);
+         dc.setOntwikkelingskaartenDtos();
+         setupButtonImages();
+         dc.setEdelstenenAantalDto();
+     	setupEdelstenenAantal();
+     	dc.volgendeSpeler();
+     	setSpelerAandebeurt();
+     	dc.setInventoryDto();
+     	setInventory();
+     	setPunten();
     }
 
 }

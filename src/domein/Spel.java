@@ -291,7 +291,11 @@ public class Spel {
 	 }
 	 
 	 public int telPuntenOp() {
-		 return spelers.get(spelerIndex).telPuntenOp();
+		 int punten = 0;
+		 for(Speler speler : spelers) {
+		   punten = speler.telPuntenOp();
+		 }
+		 return punten;
 	 }
 	 
 	 public String getSpelerAanDeBeurtNaam() {
@@ -351,13 +355,13 @@ public class Spel {
 	            this.niveau1StapelSize -= 1;
 	        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
 	            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
-	            kaarten.getNiveau2Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
+	            kaarten.getNiveau2Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-41);
 	            Ontwikkelingskaart randomCard2 = kaarten.getNiveau2Kaarten().get(randomIndexNiveau2);
 	            Niveau2Kaarten.add(randomCard2);
 	            this.niveau2StapelSize -= 1;
 	        } else {
 	            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
-	            kaarten.getNiveau3Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
+	            kaarten.getNiveau3Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-71);
 	            Ontwikkelingskaart randomCard3 = kaarten.getNiveau3Kaarten().get(randomIndexNiveau3);
 	            Niveau3Kaarten.add(randomCard3);
 	            this.niveau3StapelSize -= 1;

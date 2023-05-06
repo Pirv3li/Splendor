@@ -7,6 +7,7 @@ import domein.Domeincontroller;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -455,12 +456,19 @@ public class SpelBordController {
     
     @FXML
     void neemEdelstenen(ActionEvent event) {
-        if(selectedGems.size()==3) {
-    		checkSelectedGems3();
-    		}
-        if(selectedGems.size()==2) {
-    		checkSelectedGems();
-    		}
+        try {
+            if (selectedGems.size() == 3) {
+                checkSelectedGems3();
+            } else if (selectedGems.size() == 2) {
+                checkSelectedGems();
+            } else {
+                throw new IllegalArgumentException("You must select either 2 or 3 gems.");
+            }
+        } catch (IllegalArgumentException e) {
+            // reset the selected gems and update the view
+            selectedGems.clear();
+            setupEdelstenenAantal();
+        }
         btnGem1.setStyle(null);
         btnGem2.setStyle(null);
         btnGem3.setStyle(null);

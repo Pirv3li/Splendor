@@ -1,5 +1,6 @@
 package gui;
 import dto.EdelenDto;
+import dto.InventoryDto;
 import java.util.*;
 import dto.EdelstenenDto;
 import dto.OntwikkelingskaartDto;
@@ -290,6 +291,7 @@ public class SpelBordController {
     @FXML
     private Button neemEdelstenen;
     
+    
     public void setDc(Domeincontroller dc) {
     	selectedGems = new ArrayList<>();
     	this.dc = dc;
@@ -297,6 +299,9 @@ public class SpelBordController {
     	setupEdelstenenAantal();
     	setupSpelerNamen();
     	setupEdelenImages();
+    	setSpelerAandebeurt();
+    	setPunten();
+    	setInventory();
     }
     
     private void setupEdelenImages() {
@@ -386,6 +391,10 @@ public class SpelBordController {
             	selectedGems = new ArrayList<>();
                 dc.setEdelstenenAantalDto();
             	setupEdelstenenAantal();
+            	dc.volgendeSpeler();
+            	setSpelerAandebeurt();
+            	dc.setInventoryDto();
+            	setInventory();
             } else {
             	throw new IllegalArgumentException("Invalid keuze :");
             }
@@ -405,6 +414,10 @@ public class SpelBordController {
             	selectedGems = new ArrayList<>();
                 dc.setEdelstenenAantalDto();
             	setupEdelstenenAantal();
+            	dc.volgendeSpeler();
+            	setSpelerAandebeurt();
+            	dc.setInventoryDto();
+            	setInventory();
             } else {
             	throw new IllegalArgumentException("Invalid keuze :: ");
             }
@@ -412,7 +425,29 @@ public class SpelBordController {
         	throw new IllegalArgumentException("Invalid keuze :::");
         }
     }
-
+    
+    private void setSpelerAandebeurt() {
+    	labelSpelerInventory.setText(dc.getNaamVanSpelerAanDeBeurt()+"'s Inventory");
+    }
+    
+    private void setPunten() {
+    	String punten = String.valueOf(dc.getPunten());
+    	lblSpeler1AantalPunten.setText("Punten : "+punten);
+    	lblSpeler2AantalPunten.setText("Punten : "+punten);
+    	if(spelerNamen.size()==3) {
+    	lblSpeler3AantalPunten.setText("Punten : "+punten);}
+    	if(spelerNamen.size()==4) {
+    	lblSpeler4AantalPunten.setText("Punten : "+punten);}
+    }
+    
+    private void setInventory() {
+        List<InventoryDto> inventory = dc.getInventory();
+        labelDiamantenInInventory.setText(String.valueOf(inventory.get(0).getEdelstenen())+" : "+String.valueOf(inventory.get(0).getBonusEdelstenen()));
+        labelSaffierenInInventory.setText(String.valueOf(inventory.get(1).getEdelstenen())+" : "+String.valueOf(inventory.get(1).getBonusEdelstenen()));
+        labelSmaragdenInInventory.setText(String.valueOf(inventory.get(2).getEdelstenen())+" : "+String.valueOf(inventory.get(2).getBonusEdelstenen()));
+        labelRobijnenInInventory.setText(String.valueOf(inventory.get(3).getEdelstenen())+" : "+String.valueOf(inventory.get(3).getBonusEdelstenen()));
+        labelOnyxenInInventory.setText(String.valueOf(inventory.get(4).getEdelstenen())+" : "+String.valueOf(inventory.get(4).getBonusEdelstenen()));
+    }
 
     @FXML
     private Label lblSpeler4Kaarten;

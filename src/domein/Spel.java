@@ -438,6 +438,23 @@ public class Spel {
 		 
 	 }
 	 
+	 public List<Integer> getEdelstenenInventory(){
+		    List<Integer> inventory = new ArrayList<>();
+		    for (Edelsteen gem : Edelsteen.values()) {
+		        inventory.add(spelers.get(spelerIndex).getEdelstenenInventory().get(gem));
+		    }
+		    return inventory;
+		}
+
+		public List<Integer> getBonusEdelstenenInventory(){
+		    List<Integer> inventory = new ArrayList<>();
+		    for (Edelsteen gem : Edelsteen.values()) {
+		        inventory.add(spelers.get(spelerIndex).getBonusEdelstenenInventory().get(gem));
+		    }
+		    return inventory;
+		}
+
+	 
 	 public ArrayList<String> getSpelerNamen(){
 		 ArrayList<String> spelerNamen = new ArrayList<>();
 		 for(int i = 0 ; i<spelers.size() ; i++) {

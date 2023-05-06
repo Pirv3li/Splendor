@@ -1,8 +1,7 @@
 package ui;
 import domein.Domeincontroller;
-
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.*;
 
 public class SplendorApp {
 	
@@ -90,23 +89,25 @@ public class SplendorApp {
 			int EdelsteenNemenOfKaartKopen = in.nextInt();
 			in.nextLine();
 			if(EdelsteenNemenOfKaartKopen==1) {
-			System.out.println("Edelsteen:");
-			String Edelsteen = in.nextLine();
-			System.out.println("aantal:");
-			int aantal = in.nextInt();
-			in.nextLine();
-			if(aantal==1) {
-				dc.neemEdelstenen(Edelsteen, aantal);
-				System.out.println("Edelsteen 2:");
-				String EdelsteenTwee = in.nextLine();
-				dc.neemEdelstenen(EdelsteenTwee, aantal);
-				System.out.println("Edelsteen 3:");
-				String EdelsteenDrie = in.nextLine();
-				dc.neemEdelstenen(EdelsteenDrie, aantal);
-			}
-			else {
-				dc.neemEdelstenen(Edelsteen, aantal);
+				List<String> edelstenen = new ArrayList<>();
+				System.out.println("Wil je 2 van zelfde soort of 3 van verschillende soort nemen? (vul in 2 of 3)");
+				int tweeOfDrie = in.nextInt();
+				in.nextLine();
+				if(tweeOfDrie==2) {
+				System.out.println("Edelsteen :");
+				String tweeZelfdeEdelstenen = in.nextLine();
+				edelstenen.add(tweeZelfdeEdelstenen);
+				edelstenen.add(tweeZelfdeEdelstenen);
 				}
+				if(tweeOfDrie==3) {
+					System.out.println("Edelsteen 1:");
+					edelstenen.add(in.nextLine());
+					System.out.println("Edelsteen 2:");
+					edelstenen.add(in.nextLine());
+					System.out.println("Edelsteen 3:");
+					edelstenen.add(in.nextLine());
+				}
+				dc.neemEdelstenen(edelstenen);
 			}
 			if(EdelsteenNemenOfKaartKopen==2) {
 				System.out.println("geef kaartnummer van kaart dat je wilt kopen : ");

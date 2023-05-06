@@ -16,9 +16,21 @@ public class Speler {
 	public Speler(String gebruikersnaam, int geboortejaar) {
 		setGebruikersnaam(gebruikersnaam);
 		setGeboortejaar(geboortejaar);
-		edelsteenfichesInventory = new HashMap<>();
+		edelsteenfichesInventory = new HashMap<>(Map.of(
+			    Edelsteen.DIAMANTEN, 0,
+			    Edelsteen.SAFFIEREN, 0,
+			    Edelsteen.SMARAGDEN, 0,
+			    Edelsteen.ROBIJNEN, 0,
+			    Edelsteen.ONYXEN, 0
+			));
 		ontwikkelingsKaarten = new ArrayList<>();
-		bonusEdelsteenfichesInventory = new HashMap<>();
+		bonusEdelsteenfichesInventory = new HashMap<>(Map.of(
+			    Edelsteen.DIAMANTEN, 0,
+			    Edelsteen.SAFFIEREN, 0,
+			    Edelsteen.SMARAGDEN, 0,
+			    Edelsteen.ROBIJNEN, 0,
+			    Edelsteen.ONYXEN, 0
+			));
 		edelen = new ArrayList<>();
 
 	}

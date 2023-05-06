@@ -1,4 +1,5 @@
 package domein;
+import dto.InventoryDto;
 import dto.EdelenDto;
 import dto.EdelstenenDto;
 import java.io.IOException;
@@ -17,6 +18,7 @@ public class Domeincontroller {
 	private SpelerRepository repo;
 	private ArrayList<EdelstenenDto> aantalEdelstenen;
 	private List<EdelenDto> edelen;
+	private List<InventoryDto> InventoryDto;
 //	private ArrayList<Speler> spelers;
 //	private SpelerRepository spelerRepository;
 // test
@@ -196,5 +198,21 @@ public class Domeincontroller {
 	
 	public List<EdelenDto> getEdelen(){
 		return this.edelen;
+	}
+	
+	public void setInventoryDto(){
+	    InventoryDto = new ArrayList<>();
+	    List<Integer> inventory = spel.getEdelstenenInventory();
+	    List<Integer> bonusInventory = spel.getBonusEdelstenenInventory();
+	    InventoryDto.add(new InventoryDto(inventory.get(0), bonusInventory.get(0)));
+	    InventoryDto.add(new InventoryDto(inventory.get(1), bonusInventory.get(1)));
+	    InventoryDto.add(new InventoryDto(inventory.get(2), bonusInventory.get(2)));
+	    InventoryDto.add(new InventoryDto(inventory.get(3), bonusInventory.get(3)));
+	    InventoryDto.add(new InventoryDto(inventory.get(4), bonusInventory.get(4)));
+	}
+
+	
+	public List<InventoryDto> getInventory(){
+		return this.InventoryDto;
 	}
 }

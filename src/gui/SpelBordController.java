@@ -4,6 +4,7 @@ import dto.InventoryDto;
 import java.util.*;
 import dto.EdelstenenDto;
 import dto.OntwikkelingskaartDto;
+import dto.PuntenDto;
 import domein.Domeincontroller;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -302,6 +303,7 @@ public class SpelBordController {
     	setSpelerAandebeurt();
     	setPunten();
     	setInventory();
+    	setLabels();
     }
     
     private void setupEdelenImages() {
@@ -380,6 +382,12 @@ public class SpelBordController {
             imageView.setFitWidth(90);
             button.setGraphic(imageView);
         }
+        if(dc.isBuyable(ontwikkelingskaartDto.getKaartnummer())) {
+        	button.setStyle("-fx-background-color: green");
+        }
+        else {
+        	button.setStyle(null);
+        }
     }
     
 
@@ -396,6 +404,8 @@ public class SpelBordController {
             	dc.setInventoryDto();
             	setInventory();
             	setPunten();
+                dc.setOntwikkelingskaartenDtos();
+            	setupButtonImages();
             } else {
             	throw new IllegalArgumentException("Invalid keuze :");
             }
@@ -420,6 +430,8 @@ public class SpelBordController {
             	dc.setInventoryDto();
             	setInventory();
             	setPunten();
+                dc.setOntwikkelingskaartenDtos();
+            	setupButtonImages();
             } else {
             	throw new IllegalArgumentException("Invalid keuze :: ");
             }
@@ -433,16 +445,17 @@ public class SpelBordController {
     }
     
     private void setPunten() {
-    	String punten1 = String.valueOf(dc.getPunten());
+    	List<PuntenDto> puntenDto = dc.getPunten();
+    	String punten1 = String.valueOf(puntenDto.get(0).getPunten());
     	lblSpeler1AantalPunten.setText("Punten : "+punten1);
-    	String punten2 = String.valueOf(dc.getPunten());
+    	String punten2 = String.valueOf(puntenDto.get(1).getPunten());
     	lblSpeler2AantalPunten.setText("Punten : "+punten2);
     	if(spelerNamen.size()==3) {
-        	String punten3 = String.valueOf(dc.getPunten());
+        	String punten3 = String.valueOf(puntenDto.get(2).getPunten());
         	lblSpeler3AantalPunten.setText("Punten : "+punten3);
         	}
     	if(spelerNamen.size()==4) {
-        	String punten4 = String.valueOf(dc.getPunten());
+        	String punten4 = String.valueOf(puntenDto.get(3).getPunten());
         	lblSpeler4AantalPunten.setText("Punten : "+punten4);
         	}
     }
@@ -470,6 +483,12 @@ public class SpelBordController {
 
     @FXML
     private Label lblTegel;
+    
+    private void setLabels() {
+    	lblStapelNiveau1.setText(String.valueOf(dc.getStapelSizeNiveau1()));
+    	lblStapelNiveau2.setText(String.valueOf(dc.getStapelSizeNiveau2()));
+    	lblStapelNiveau3.setText(String.valueOf(dc.getStapelSizeNiveau3()));
+    }
 
     @FXML
     void btnEdel1(ActionEvent event) {
@@ -578,6 +597,7 @@ public class SpelBordController {
     	dc.setInventoryDto();
     	setInventory();
     	setPunten();
+    	setLabels();
     }
 
 
@@ -599,6 +619,7 @@ public class SpelBordController {
        	dc.setInventoryDto();
        	setInventory();
        	setPunten();
+       	setLabels();
     }
 
     @FXML
@@ -619,6 +640,7 @@ public class SpelBordController {
        	dc.setInventoryDto();
        	setInventory();
        	setPunten();
+       	setLabels();
     }
 
     @FXML
@@ -639,6 +661,7 @@ public class SpelBordController {
        	dc.setInventoryDto();
        	setInventory();
        	setPunten();
+       	setLabels();
     }
 
     @FXML
@@ -659,6 +682,7 @@ public class SpelBordController {
        	dc.setInventoryDto();
        	setInventory();
        	setPunten();
+       	setLabels();
     }
 
     @FXML
@@ -679,6 +703,7 @@ public class SpelBordController {
      	dc.setInventoryDto();
      	setInventory();
      	setPunten();
+     	setLabels();
     }
 
     @FXML
@@ -699,6 +724,7 @@ public class SpelBordController {
      	dc.setInventoryDto();
      	setInventory();
      	setPunten();
+     	setLabels();
     }
 
     @FXML
@@ -719,6 +745,7 @@ public class SpelBordController {
      	dc.setInventoryDto();
      	setInventory();
      	setPunten();
+     	setLabels();
     }
 
     @FXML
@@ -739,6 +766,7 @@ public class SpelBordController {
      	dc.setInventoryDto();
      	setInventory();
      	setPunten();
+     	setLabels();
     }
 
     @FXML
@@ -759,6 +787,7 @@ public class SpelBordController {
      	dc.setInventoryDto();
      	setInventory();
      	setPunten();
+     	setLabels();
     }	
     
 
@@ -780,6 +809,7 @@ public class SpelBordController {
      	dc.setInventoryDto();
      	setInventory();
      	setPunten();
+     	setLabels();
     }
     
 
@@ -801,6 +831,7 @@ public class SpelBordController {
      	dc.setInventoryDto();
      	setInventory();
      	setPunten();
+     	setLabels();
     }
 
 }

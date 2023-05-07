@@ -70,7 +70,8 @@ public class SplendorApp {
 			dc.startSpel();
 			dc.setOntwikkelingskaartenOverzichtEnEdelenOverzicht();
 			dc.setstartSpelerIndex();
-			while(dc.getPunten()<15) {
+			
+			while(dc.getPuntenVoorUi()<15) {
 			String spelersOverzicht = dc.getSpelersOverzicht();
 			System.out.println("Overzicht van spelers");
 			System.out.println(spelersOverzicht);

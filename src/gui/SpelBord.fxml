@@ -210,9 +210,18 @@
             <Label fx:id="labelOnyxenInInventory" alignment="CENTER" prefHeight="18.0" prefWidth="60.0" text="0:0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Label fx:id="lblStapelNiveau3" layoutX="75.0" layoutY="153.0" text="Label" />
-      <Label fx:id="lblStapelNiveau2" layoutX="75.0" layoutY="301.0" text="Label" />
-      <Label fx:id="lblStapelNiveau1" layoutX="75.0" layoutY="447.0" text="Label" />
+      <Label fx:id="lblStapelNiveau3" layoutX="70.0" layoutY="154.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="lblStapelNiveau2" layoutX="75.0" layoutY="301.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="lblStapelNiveau1" layoutX="75.0" layoutY="447.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <Label fx:id="lblDiamant" layoutX="716.0" layoutY="52.0" text="4" />
       <Label fx:id="lblSaffier" layoutX="716.0" layoutY="127.0" text="4" />
       <Label fx:id="lbSmaragd" layoutX="716.0" layoutY="213.0" text="4" />

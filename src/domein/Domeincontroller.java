@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import dto.OntwikkelingskaartDto;
+import dto.PuntenDto;
 
 public class Domeincontroller {
 	
@@ -35,8 +36,26 @@ public class Domeincontroller {
 		spel.setStartspelerIndex();
 	}
 	
-	public int getPunten() {
-		return spel.telPuntenOp();
+	public int getPuntenVoorUi() {
+		return spel.getPuntenVoorUi();
+	}
+	
+	public boolean isBuyable(int kaartnummer) {
+		return spel.isBuyable(kaartnummer);
+	}
+	
+	public List<PuntenDto> getPunten() {
+		ArrayList<Integer> punten = spel.telPuntenOp();
+		List<PuntenDto> puntenDto = new ArrayList<>();
+		puntenDto.add(new PuntenDto(punten.get(0))); 
+		puntenDto.add(new PuntenDto(punten.get(1)));
+		if(punten.size()==3) {
+			puntenDto.add(new PuntenDto(punten.get(2)));
+		}
+		if(punten.size()==4) {
+			puntenDto.add(new PuntenDto(punten.get(3)));
+		}
+		return puntenDto;
 	}
 
 	public void voegSpelerToe(String naam, int geboortejaar) {

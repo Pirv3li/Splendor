@@ -290,13 +290,18 @@ public class Spel {
 		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
 	 }
 	 
-	 public int telPuntenOp() {
-		 int punten = 0;
-		 for(Speler speler : spelers) {
-		   punten = speler.telPuntenOp();
-		 }
-		 return punten;
+	 public ArrayList<Integer> telPuntenOp() {
+		    ArrayList<Integer> punten = new ArrayList<Integer>();
+		    for (Speler speler : spelers) {
+		        punten.add(speler.telPuntenOp());
+		    }
+		    return punten;
+		}
+	 
+	 public int getPuntenVoorUi() {
+		 return spelers.get(spelerIndex).telPuntenOp();
 	 }
+
 	 
 	 public String getSpelerAanDeBeurtNaam() {
 		 return spelers.get(spelerIndex).getGebruikersnaam();
@@ -312,6 +317,39 @@ public class Spel {
 	 
 	 public int getStapelSizeNiveau3() {
 		 return this.niveau3StapelSize;
+	 }
+	 
+	 public boolean isBuyable(int kaartnummer) {
+		 HashMap<Edelsteen, Integer>inventory = spelers.get(spelerIndex).getEdelstenenInventory();
+		 HashMap<Edelsteen, Integer>bonusInventory = spelers.get(spelerIndex).getBonusEdelstenenInventory();
+		 List<Ontwikkelingskaart> alleOverzichtKaarten = new ArrayList<>();
+		 alleOverzichtKaarten.addAll(Niveau1Kaarten);
+		 alleOverzichtKaarten.addAll(Niveau2Kaarten);
+		 alleOverzichtKaarten.addAll(Niveau3Kaarten);
+		 Ontwikkelingskaart gekozenOntwikkelingskaart = null;
+		 for(int i=0; i<alleOverzichtKaarten.size(); i++) {
+		 if(alleOverzichtKaarten.get(i).getKaartnummer()==kaartnummer) {
+			 	gekozenOntwikkelingskaart = alleOverzichtKaarten.get(i);
+		 	}
+		 }
+		 Edelsteen[] prijsInArray = gekozenOntwikkelingskaart.getPrijs();
+		 HashMap<Edelsteen, Integer> prijs = new HashMap<>();
+		for (Edelsteen element : prijsInArray) {
+		    if (prijs.containsKey(element)) {
+		        prijs.put(element, prijs.get(element) + 1);
+		    } else {
+		        prijs.put(element, 1);
+		    }
+		}
+	    for (Edelsteen edelsteen : prijs.keySet()) {
+	        int requiredCount = prijs.get(edelsteen);
+	        int playerCount = inventory.getOrDefault(edelsteen, 0); 
+	        int bonusCount = bonusInventory.getOrDefault(edelsteen, 0);
+	        if (requiredCount > (playerCount + bonusCount)) {
+	            return false;
+	        }
+	    }
+	    return true;
 	 }
 	 
 	 

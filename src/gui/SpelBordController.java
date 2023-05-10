@@ -404,7 +404,7 @@ public class SpelBordController {
             	setupEdelstenenAantal();
             	dc.volgendeSpeler();
             	setSpelerAandebeurt();
-            	dc.neemEdelenAlsGenoegBonusEdelstenen();
+            	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
             	dc.setInventoryDto();
             	setInventory();
             	setPunten();
@@ -431,7 +431,7 @@ public class SpelBordController {
             	setupEdelstenenAantal();
             	dc.volgendeSpeler();
             	setSpelerAandebeurt();
-            	dc.neemEdelenAlsGenoegBonusEdelstenen();
+            	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
             	dc.setInventoryDto();
             	setInventory();
             	setPunten();
@@ -611,7 +611,9 @@ public class SpelBordController {
         	setInventory();
         	setPunten();
         	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
+        	setupEdelenImages();
         } catch (IllegalArgumentException e) {
             String errorMessage = e.getMessage();
             exceptionLabel.setText(errorMessage);
@@ -640,7 +642,9 @@ public class SpelBordController {
            	setInventory();
            	setPunten();
            	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
+        	setupEdelenImages();
            } catch (IllegalArgumentException e) {
                String errorMessage = e.getMessage();
                exceptionLabel.setText(errorMessage);
@@ -668,7 +672,9 @@ public class SpelBordController {
            	setInventory();
            	setPunten();
            	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
+        	setupEdelenImages();
            } catch (IllegalArgumentException e) {
                String errorMessage = e.getMessage();
                exceptionLabel.setText(errorMessage);
@@ -697,7 +703,9 @@ public class SpelBordController {
            	setInventory();
            	setPunten();
            	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
+        	setupEdelenImages();
            } catch (IllegalArgumentException e) {
                String errorMessage = e.getMessage();
                exceptionLabel.setText(errorMessage);
@@ -727,6 +735,8 @@ public class SpelBordController {
            	setPunten();
            	setLabels();
         	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.setEdelenDto();
+        	setupEdelenImages();
            } catch (IllegalArgumentException e) {
                String errorMessage = e.getMessage();
                exceptionLabel.setText(errorMessage);
@@ -755,7 +765,9 @@ public class SpelBordController {
          	setInventory();
          	setPunten();
          	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto();
+        	setupEdelenImages();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -784,7 +796,10 @@ public class SpelBordController {
          	setInventory();
          	setPunten();
          	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
+         	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.setEdelenDto();
+        	setupEdelenImages();
+        	
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -814,6 +829,8 @@ public class SpelBordController {
          	setPunten();
          	setLabels();
         	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.setEdelenDto();
+        	setupEdelenImages();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -843,6 +860,8 @@ public class SpelBordController {
          	setPunten();
          	setLabels();
         	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.setEdelenDto(); 
+        	setupEdelenImages();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -871,7 +890,9 @@ public class SpelBordController {
          	setInventory();
          	setPunten();
          	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
+        	setupEdelenImages();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -900,7 +921,9 @@ public class SpelBordController {
          	setInventory();
          	setPunten();
          	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto();
+        	setupEdelenImages();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -931,6 +954,8 @@ public class SpelBordController {
          	setPunten();
          	setLabels();   
          	dc.neemEdelenAlsGenoegBonusEdelstenen();
+         	dc.setEdelenDto();
+         	setupEdelenImages();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);

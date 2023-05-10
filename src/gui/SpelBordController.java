@@ -292,6 +292,9 @@ public class SpelBordController {
     @FXML
     private Button neemEdelstenen;
     
+    @FXML
+    private Label exceptionLabel;
+    
     
     public void setDc(Domeincontroller dc) {
     	selectedGems = new ArrayList<>();
@@ -407,7 +410,7 @@ public class SpelBordController {
                 dc.setOntwikkelingskaartenDtos();
             	setupButtonImages();
             } else {
-            	throw new IllegalArgumentException("Invalid keuze :");
+            	throw new IllegalArgumentException("Invalid keuze probeer opnieuw");
             }
         } 
     }
@@ -433,10 +436,10 @@ public class SpelBordController {
                 dc.setOntwikkelingskaartenDtos();
             	setupButtonImages();
             } else {
-            	throw new IllegalArgumentException("Invalid keuze :: ");
+            	throw new IllegalArgumentException("Invalid keuze probeer opnieuw");
             }
         } else {
-        	throw new IllegalArgumentException("Invalid keuze :::");
+        	throw new IllegalArgumentException("Invalid keuze probeer opnieuw");
         }
     }
     
@@ -468,6 +471,7 @@ public class SpelBordController {
         labelRobijnenInInventory.setText(String.valueOf(inventory.get(3).getEdelstenen())+" : "+String.valueOf(inventory.get(3).getBonusEdelstenen()));
         labelOnyxenInInventory.setText(String.valueOf(inventory.get(4).getEdelstenen())+" : "+String.valueOf(inventory.get(4).getBonusEdelstenen()));
     }
+
 
     @FXML
     private Label lblSpeler4Kaarten;
@@ -520,8 +524,10 @@ public class SpelBordController {
         try {
             if (selectedGems.size() == 3) {
                 checkSelectedGems3();
+                exceptionLabel.setText("");
             } else if (selectedGems.size() == 2) {
                 checkSelectedGems();
+                exceptionLabel.setText("");
             } else if (selectedGems.size() == 0) {
             	selectedGems = new ArrayList<>();
                 dc.setEdelstenenAantalDto();
@@ -536,7 +542,8 @@ public class SpelBordController {
                 throw new IllegalArgumentException("You must select either 2 or 3 gems.");
             }
         } catch (IllegalArgumentException e) {
-            // reset the selected gems and update the view
+        	String errorMessage = e.getMessage();
+        	exceptionLabel.setText(errorMessage);
             selectedGems.clear();
             setupEdelstenenAantal();
         }
@@ -587,17 +594,23 @@ public class SpelBordController {
         if (buttonId.equals("btnKaart1")) {
             kaartNummer = Niveau1Kaarten.get(0).getKaartnummer();
         }
-        dc.koopOntwikkelingskaart(kaartNummer);
-        dc.setOntwikkelingskaartenDtos();
-        setupButtonImages();
-        dc.setEdelstenenAantalDto();
-    	setupEdelstenenAantal();
-    	dc.volgendeSpeler();
-    	setSpelerAandebeurt();
-    	dc.setInventoryDto();
-    	setInventory();
-    	setPunten();
-    	setLabels();
+        try {
+            dc.koopOntwikkelingskaart(kaartNummer);
+            exceptionLabel.setText("");
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
+            dc.setEdelstenenAantalDto();
+        	setupEdelstenenAantal();
+        	dc.volgendeSpeler();
+        	setSpelerAandebeurt();
+        	dc.setInventoryDto();
+        	setInventory();
+        	setPunten();
+        	setLabels();
+        } catch (IllegalArgumentException e) {
+            String errorMessage = e.getMessage();
+            exceptionLabel.setText(errorMessage);
+        }
     }
 
 
@@ -609,17 +622,23 @@ public class SpelBordController {
            if (buttonId.equals("btnKaart2")) {
                kaartNummer = Niveau1Kaarten.get(1).getKaartnummer();
            }
-           dc.koopOntwikkelingskaart(kaartNummer);
-           dc.setOntwikkelingskaartenDtos();
-           setupButtonImages();
-           dc.setEdelstenenAantalDto();
-       	setupEdelstenenAantal();
-       	dc.volgendeSpeler();
-       	setSpelerAandebeurt();
-       	dc.setInventoryDto();
-       	setInventory();
-       	setPunten();
-       	setLabels();
+           try {
+               dc.koopOntwikkelingskaart(kaartNummer);
+               exceptionLabel.setText("");
+               dc.setOntwikkelingskaartenDtos();
+               setupButtonImages();
+               dc.setEdelstenenAantalDto();
+           	setupEdelstenenAantal();
+           	dc.volgendeSpeler();
+           	setSpelerAandebeurt();
+           	dc.setInventoryDto();
+           	setInventory();
+           	setPunten();
+           	setLabels();
+           } catch (IllegalArgumentException e) {
+               String errorMessage = e.getMessage();
+               exceptionLabel.setText(errorMessage);
+           }  
     }
 
     @FXML
@@ -630,17 +649,24 @@ public class SpelBordController {
            if (buttonId.equals("btnKaart3")) {
                kaartNummer = Niveau1Kaarten.get(2).getKaartnummer();
            }
-           dc.koopOntwikkelingskaart(kaartNummer);
-           dc.setOntwikkelingskaartenDtos();
-           setupButtonImages();
-           dc.setEdelstenenAantalDto();
-       	setupEdelstenenAantal();
-       	dc.volgendeSpeler();
-       	setSpelerAandebeurt();
-       	dc.setInventoryDto();
-       	setInventory();
-       	setPunten();
-       	setLabels();
+           try {
+               dc.koopOntwikkelingskaart(kaartNummer);
+               exceptionLabel.setText("");
+               dc.setOntwikkelingskaartenDtos();
+               setupButtonImages();
+               dc.setEdelstenenAantalDto();
+           	setupEdelstenenAantal();
+           	dc.volgendeSpeler();
+           	setSpelerAandebeurt();
+           	dc.setInventoryDto();
+           	setInventory();
+           	setPunten();
+           	setLabels();
+           } catch (IllegalArgumentException e) {
+               String errorMessage = e.getMessage();
+               exceptionLabel.setText(errorMessage);
+           }   
+
     }
 
     @FXML
@@ -651,17 +677,24 @@ public class SpelBordController {
            if (buttonId.equals("btnKaart4")) {
                kaartNummer = Niveau1Kaarten.get(3).getKaartnummer();
            }
-           dc.koopOntwikkelingskaart(kaartNummer);
-           dc.setOntwikkelingskaartenDtos();
-           setupButtonImages();
-           dc.setEdelstenenAantalDto();
-       	setupEdelstenenAantal();
-       	dc.volgendeSpeler();
-       	setSpelerAandebeurt();
-       	dc.setInventoryDto();
-       	setInventory();
-       	setPunten();
-       	setLabels();
+           try {
+               dc.koopOntwikkelingskaart(kaartNummer);
+               exceptionLabel.setText("");
+               dc.setOntwikkelingskaartenDtos();
+               setupButtonImages();
+               dc.setEdelstenenAantalDto();
+           	setupEdelstenenAantal();
+           	dc.volgendeSpeler();
+           	setSpelerAandebeurt();
+           	dc.setInventoryDto();
+           	setInventory();
+           	setPunten();
+           	setLabels();
+           } catch (IllegalArgumentException e) {
+               String errorMessage = e.getMessage();
+               exceptionLabel.setText(errorMessage);
+           }         
+ 
     }
 
     @FXML
@@ -672,17 +705,24 @@ public class SpelBordController {
            if (buttonId.equals("btnKaart5")) {
                kaartNummer = Niveau2Kaarten.get(0).getKaartnummer();
            }
-           dc.koopOntwikkelingskaart(kaartNummer);
-           dc.setOntwikkelingskaartenDtos();
-           setupButtonImages();
-           dc.setEdelstenenAantalDto();
-       	setupEdelstenenAantal();
-       	dc.volgendeSpeler();
-       	setSpelerAandebeurt();
-       	dc.setInventoryDto();
-       	setInventory();
-       	setPunten();
-       	setLabels();
+           try {
+               dc.koopOntwikkelingskaart(kaartNummer);
+               exceptionLabel.setText("");
+               dc.setOntwikkelingskaartenDtos();
+               setupButtonImages();
+               dc.setEdelstenenAantalDto();
+           	setupEdelstenenAantal();
+           	dc.volgendeSpeler();
+           	setSpelerAandebeurt();
+           	dc.setInventoryDto();
+           	setInventory();
+           	setPunten();
+           	setLabels();
+           } catch (IllegalArgumentException e) {
+               String errorMessage = e.getMessage();
+               exceptionLabel.setText(errorMessage);
+           }  
+
     }
 
     @FXML
@@ -693,17 +733,24 @@ public class SpelBordController {
          if (buttonId.equals("btnKaart6")) {
              kaartNummer = Niveau2Kaarten.get(1).getKaartnummer();
          }
-         dc.koopOntwikkelingskaart(kaartNummer);
-         dc.setOntwikkelingskaartenDtos();
-         setupButtonImages();
-         dc.setEdelstenenAantalDto();
-     	setupEdelstenenAantal();
-     	dc.volgendeSpeler();
-     	setSpelerAandebeurt();
-     	dc.setInventoryDto();
-     	setInventory();
-     	setPunten();
-     	setLabels();
+         try {
+             dc.koopOntwikkelingskaart(kaartNummer);
+             exceptionLabel.setText("");
+             dc.setOntwikkelingskaartenDtos();
+             setupButtonImages();
+             dc.setEdelstenenAantalDto();
+         	setupEdelstenenAantal();
+         	dc.volgendeSpeler();
+         	setSpelerAandebeurt();
+         	dc.setInventoryDto();
+         	setInventory();
+         	setPunten();
+         	setLabels();
+         } catch (IllegalArgumentException e) {
+             String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
+         }        
+
     }
 
     @FXML
@@ -714,17 +761,24 @@ public class SpelBordController {
          if (buttonId.equals("btnKaart7")) {
              kaartNummer = Niveau2Kaarten.get(2).getKaartnummer();
          }
-         dc.koopOntwikkelingskaart(kaartNummer);
-         dc.setOntwikkelingskaartenDtos();
-         setupButtonImages();
-         dc.setEdelstenenAantalDto();
-     	setupEdelstenenAantal();
-     	dc.volgendeSpeler();
-     	setSpelerAandebeurt();
-     	dc.setInventoryDto();
-     	setInventory();
-     	setPunten();
-     	setLabels();
+         try {
+             dc.koopOntwikkelingskaart(kaartNummer);
+             exceptionLabel.setText("");
+             dc.setOntwikkelingskaartenDtos();
+             setupButtonImages();
+             dc.setEdelstenenAantalDto();
+         	setupEdelstenenAantal();
+         	dc.volgendeSpeler();
+         	setSpelerAandebeurt();
+         	dc.setInventoryDto();
+         	setInventory();
+         	setPunten();
+         	setLabels();
+         } catch (IllegalArgumentException e) {
+             String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
+         }     
+
     }
 
     @FXML
@@ -735,17 +789,24 @@ public class SpelBordController {
          if (buttonId.equals("btnKaart8")) {
              kaartNummer = Niveau2Kaarten.get(3).getKaartnummer();
          }
-         dc.koopOntwikkelingskaart(kaartNummer);
-         dc.setOntwikkelingskaartenDtos();
-         setupButtonImages();
-         dc.setEdelstenenAantalDto();
-     	setupEdelstenenAantal();
-     	dc.volgendeSpeler();
-     	setSpelerAandebeurt();
-     	dc.setInventoryDto();
-     	setInventory();
-     	setPunten();
-     	setLabels();
+         try {
+             dc.koopOntwikkelingskaart(kaartNummer);
+             exceptionLabel.setText("");
+             dc.setOntwikkelingskaartenDtos();
+             setupButtonImages();
+             dc.setEdelstenenAantalDto();
+         	setupEdelstenenAantal();
+         	dc.volgendeSpeler();
+         	setSpelerAandebeurt();
+         	dc.setInventoryDto();
+         	setInventory();
+         	setPunten();
+         	setLabels();
+         } catch (IllegalArgumentException e) {
+             String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
+         }       
+ 
     }
 
     @FXML
@@ -756,17 +817,24 @@ public class SpelBordController {
          if (buttonId.equals("btnKaart9")) {
              kaartNummer = Niveau3Kaarten.get(0).getKaartnummer();
          }
-         dc.koopOntwikkelingskaart(kaartNummer);
-         dc.setOntwikkelingskaartenDtos();
-         setupButtonImages();
-         dc.setEdelstenenAantalDto();
-     	setupEdelstenenAantal();
-     	dc.volgendeSpeler();
-     	setSpelerAandebeurt();
-     	dc.setInventoryDto();
-     	setInventory();
-     	setPunten();
-     	setLabels();
+         try {
+             dc.koopOntwikkelingskaart(kaartNummer);
+             exceptionLabel.setText("");
+             dc.setOntwikkelingskaartenDtos();
+             setupButtonImages();
+             dc.setEdelstenenAantalDto();
+         	setupEdelstenenAantal();
+         	dc.volgendeSpeler();
+         	setSpelerAandebeurt();
+         	dc.setInventoryDto();
+         	setInventory();
+         	setPunten();
+         	setLabels();
+         } catch (IllegalArgumentException e) {
+             String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
+         }     
+
     }
 
     @FXML
@@ -777,17 +845,23 @@ public class SpelBordController {
          if (buttonId.equals("btnKaart10")) {
              kaartNummer = Niveau3Kaarten.get(1).getKaartnummer();
          }
-         dc.koopOntwikkelingskaart(kaartNummer);
-         dc.setOntwikkelingskaartenDtos();
-         setupButtonImages();
-         dc.setEdelstenenAantalDto();
-     	setupEdelstenenAantal();
-     	dc.volgendeSpeler();
-     	setSpelerAandebeurt();
-     	dc.setInventoryDto();
-     	setInventory();
-     	setPunten();
-     	setLabels();
+         try {
+             dc.koopOntwikkelingskaart(kaartNummer);
+             exceptionLabel.setText("");
+             dc.setOntwikkelingskaartenDtos();
+             setupButtonImages();
+             dc.setEdelstenenAantalDto();
+         	setupEdelstenenAantal();
+         	dc.volgendeSpeler();
+         	setSpelerAandebeurt();
+         	dc.setInventoryDto();
+         	setInventory();
+         	setPunten();
+         	setLabels();
+         } catch (IllegalArgumentException e) {
+             String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
+         }      
     }	
     
 
@@ -799,17 +873,24 @@ public class SpelBordController {
          if (buttonId.equals("btnKaart11")) {
              kaartNummer = Niveau3Kaarten.get(2).getKaartnummer();
          }
-         dc.koopOntwikkelingskaart(kaartNummer);
-         dc.setOntwikkelingskaartenDtos();
-         setupButtonImages();
-         dc.setEdelstenenAantalDto();
-     	setupEdelstenenAantal();
-     	dc.volgendeSpeler();
-     	setSpelerAandebeurt();
-     	dc.setInventoryDto();
-     	setInventory();
-     	setPunten();
-     	setLabels();
+         try {
+             dc.koopOntwikkelingskaart(kaartNummer);
+             exceptionLabel.setText("");
+             dc.setOntwikkelingskaartenDtos();
+             setupButtonImages();
+             dc.setEdelstenenAantalDto();
+         	setupEdelstenenAantal();
+         	dc.volgendeSpeler();
+         	setSpelerAandebeurt();
+         	dc.setInventoryDto();
+         	setInventory();
+         	setPunten();
+         	setLabels();
+         } catch (IllegalArgumentException e) {
+             String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
+         }     
+
     }
     
 
@@ -821,17 +902,24 @@ public class SpelBordController {
          if (buttonId.equals("btnKaart12")) {
              kaartNummer = Niveau3Kaarten.get(3).getKaartnummer();
          }
-         dc.koopOntwikkelingskaart(kaartNummer);
-         dc.setOntwikkelingskaartenDtos();
-         setupButtonImages();
-         dc.setEdelstenenAantalDto();
-     	setupEdelstenenAantal();
-     	dc.volgendeSpeler();
-     	setSpelerAandebeurt();
-     	dc.setInventoryDto();
-     	setInventory();
-     	setPunten();
-     	setLabels();
+         try {
+             dc.koopOntwikkelingskaart(kaartNummer);
+             exceptionLabel.setText("");
+             dc.setOntwikkelingskaartenDtos();
+             setupButtonImages();
+             dc.setEdelstenenAantalDto();
+         	setupEdelstenenAantal();
+         	dc.volgendeSpeler();
+         	setSpelerAandebeurt();
+         	dc.setInventoryDto();
+         	setInventory();
+         	setPunten();
+         	setLabels();
+         } catch (IllegalArgumentException e) {
+             String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
+         }   
+
     }
 
 }

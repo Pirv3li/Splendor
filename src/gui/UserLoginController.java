@@ -51,8 +51,8 @@ public class UserLoginController extends Pane {
     public void setResourceBundle(ResourceBundle bundle) {
         this.bundle = bundle;
         titleLabel.setText(bundle.getString("login"));
-        usernameField.setText(bundle.getString("name"));
-        birthYearField.setText(bundle.getString("birth"));
+        usernameField.setPromptText(bundle.getString("name"));
+        birthYearField.setPromptText(bundle.getString("birth"));
         loginButton.setText(bundle.getString("addplayer"));
         startButton.setText(bundle.getString("start"));
         switchLanguageButton.setText(bundle.getString("switch"));

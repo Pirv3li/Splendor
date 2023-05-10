@@ -18,6 +18,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class UserLoginController extends Pane {
+	
+	@FXML
+	private Label loginExceptionLabel;
 
     @FXML
     private Button startButton;
@@ -59,7 +62,13 @@ public class UserLoginController extends Pane {
     public void onClick() {
         String naam = usernameField.getText();
         int geboortejaar = Integer.parseInt(birthYearField.getText());
-        dc.voegSpelerToe(naam, geboortejaar);
+        try{
+        	dc.voegSpelerToe(naam, geboortejaar);
+        	loginExceptionLabel.setText("");
+        } catch (IllegalArgumentException e) {
+        	String errorMessage = e.getMessage();
+        	loginExceptionLabel.setText(errorMessage);
+        }
         usernameField.clear();
         birthYearField.clear();
     }

@@ -227,7 +227,10 @@
       <Label fx:id="lbSmaragd" layoutX="716.0" layoutY="213.0" text="4" />
       <Label fx:id="lblRobijn" layoutX="716.0" layoutY="291.0" text="4" />
       <Label fx:id="lblOnyx" layoutX="716.0" layoutY="370.0" text="4" />
-      <Label fx:id="labelSpelerInventory" layoutX="582.0" layoutY="465.0" prefHeight="18.0" prefWidth="304.0" text="Speler Inventory" />
+      <Label fx:id="labelSpelerInventory" alignment="CENTER" contentDisplay="CENTER" layoutX="571.0" layoutY="467.0" prefHeight="18.0" prefWidth="304.0" text="Speler Inventory">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <Label text="Label" />
       <Label fx:id="exceptionLabel" alignment="CENTER" layoutX="13.0" layoutY="603.0" prefHeight="35.0" prefWidth="874.0" textFill="#a1270e">
          <font>

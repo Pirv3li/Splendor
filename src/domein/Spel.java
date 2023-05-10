@@ -411,32 +411,34 @@ public class Spel {
 	 }
 	 
 	 private boolean HeeftGenoegEdelstenenOfNietOmKaartTeKopen(HashMap<Edelsteen, Integer> kaartPrijs, HashMap<Edelsteen, Integer> spelerInventory, HashMap<Edelsteen, Integer> bonusInventory) {
-		    // Iterate over the required gem prices of the card
-		    for (Edelsteen edelsteen : kaartPrijs.keySet()) {
-		        int requiredCount = kaartPrijs.get(edelsteen);
-		        int playerCount = spelerInventory.getOrDefault(edelsteen, 0); 
-		        int bonusCount = bonusInventory.getOrDefault(edelsteen, 0);
-		        if (requiredCount > (playerCount + bonusCount)) {
-		            throw new IllegalArgumentException("U heeft niet genoeg Edelstenen om deze ontwikkelingskaart te kopen!");
-		        }
-		        else {
-		            if (bonusCount >= requiredCount) {
-		            	int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
-				        edelstenen.put(edelsteen, edelsteenCount + requiredCount);
-		            	return true;
-		            } 
-		            else if(bonusCount < requiredCount && bonusCount + playerCount == requiredCount) {
-		                spelerInventory.put(edelsteen, 0);
-		            }
-		            else if(bonusCount < requiredCount && bonusCount + playerCount > requiredCount) {
-		            		spelerInventory.put(edelsteen, playerCount - requiredCount);
-		            }
-		            int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
-		            edelstenen.put(edelsteen, edelsteenCount + requiredCount);
-		        }
-		    }
-		    return true;
+		 boolean cardPurchased = false; 
+		 for (Edelsteen edelsteen : kaartPrijs.keySet()) {
+		     int requiredCount = kaartPrijs.get(edelsteen);
+		     int playerCount = spelerInventory.getOrDefault(edelsteen, 0);
+		     int bonusCount = bonusInventory.getOrDefault(edelsteen, 0);
+
+		     if (requiredCount > (playerCount + bonusCount)) {
+		         throw new IllegalArgumentException("U heeft niet genoeg Edelstenen om deze ontwikkelingskaart te kopen!");
+		     }
+		     else {
+		         int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
+		         int remainingRequiredCount = requiredCount;
+
+		         if (bonusCount >= requiredCount) {
+		             remainingRequiredCount = 0;
+		         } 
+		         else if(bonusCount < requiredCount) {
+		             remainingRequiredCount -= bonusCount;
+		             spelerInventory.put(edelsteen, playerCount - remainingRequiredCount);
+		             edelstenen.put(edelsteen, edelsteenCount + remainingRequiredCount);
+		             cardPurchased = true; 
+		         }
+		     }
+		 }
+
+		 return cardPurchased;
 		}
+	 
 	 
 	 private boolean heeftGenoegBonusEdelstenenOmEdelTeNemen (HashMap<Edelsteen, Integer> edelPrijs, HashMap<Edelsteen,Integer> bonusInventory) {
 		 for (Edelsteen edelsteen : edelPrijs.keySet()) {

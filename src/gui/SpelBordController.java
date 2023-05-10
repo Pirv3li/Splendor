@@ -404,6 +404,7 @@ public class SpelBordController {
             	setupEdelstenenAantal();
             	dc.volgendeSpeler();
             	setSpelerAandebeurt();
+            	dc.neemEdelenAlsGenoegBonusEdelstenen();
             	dc.setInventoryDto();
             	setInventory();
             	setPunten();
@@ -430,6 +431,7 @@ public class SpelBordController {
             	setupEdelstenenAantal();
             	dc.volgendeSpeler();
             	setSpelerAandebeurt();
+            	dc.neemEdelenAlsGenoegBonusEdelstenen();
             	dc.setInventoryDto();
             	setInventory();
             	setPunten();
@@ -537,9 +539,11 @@ public class SpelBordController {
             	dc.setInventoryDto();
             	setInventory();
             	setPunten();
+            	dc.setOntwikkelingskaartenDtos();
+            	setupButtonImages();
             }
             else {
-                throw new IllegalArgumentException("You must select either 2 or 3 gems.");
+                throw new IllegalArgumentException("Je moet 2 of 3 edelstenen nemen");
             }
         } catch (IllegalArgumentException e) {
         	String errorMessage = e.getMessage();
@@ -597,16 +601,17 @@ public class SpelBordController {
         try {
             dc.koopOntwikkelingskaart(kaartNummer);
             exceptionLabel.setText("");
-            dc.setOntwikkelingskaartenDtos();
-            setupButtonImages();
             dc.setEdelstenenAantalDto();
         	setupEdelstenenAantal();
         	dc.volgendeSpeler();
         	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
         	dc.setInventoryDto();
         	setInventory();
         	setPunten();
         	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
         } catch (IllegalArgumentException e) {
             String errorMessage = e.getMessage();
             exceptionLabel.setText(errorMessage);
@@ -625,16 +630,17 @@ public class SpelBordController {
            try {
                dc.koopOntwikkelingskaart(kaartNummer);
                exceptionLabel.setText("");
-               dc.setOntwikkelingskaartenDtos();
-               setupButtonImages();
                dc.setEdelstenenAantalDto();
            	setupEdelstenenAantal();
            	dc.volgendeSpeler();
            	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
            	dc.setInventoryDto();
            	setInventory();
            	setPunten();
            	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
            } catch (IllegalArgumentException e) {
                String errorMessage = e.getMessage();
                exceptionLabel.setText(errorMessage);
@@ -652,16 +658,17 @@ public class SpelBordController {
            try {
                dc.koopOntwikkelingskaart(kaartNummer);
                exceptionLabel.setText("");
-               dc.setOntwikkelingskaartenDtos();
-               setupButtonImages();
                dc.setEdelstenenAantalDto();
            	setupEdelstenenAantal();
            	dc.volgendeSpeler();
            	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
            	dc.setInventoryDto();
            	setInventory();
            	setPunten();
            	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
            } catch (IllegalArgumentException e) {
                String errorMessage = e.getMessage();
                exceptionLabel.setText(errorMessage);
@@ -680,16 +687,17 @@ public class SpelBordController {
            try {
                dc.koopOntwikkelingskaart(kaartNummer);
                exceptionLabel.setText("");
-               dc.setOntwikkelingskaartenDtos();
-               setupButtonImages();
                dc.setEdelstenenAantalDto();
            	setupEdelstenenAantal();
            	dc.volgendeSpeler();
            	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
            	dc.setInventoryDto();
            	setInventory();
            	setPunten();
            	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
            } catch (IllegalArgumentException e) {
                String errorMessage = e.getMessage();
                exceptionLabel.setText(errorMessage);
@@ -708,16 +716,17 @@ public class SpelBordController {
            try {
                dc.koopOntwikkelingskaart(kaartNummer);
                exceptionLabel.setText("");
-               dc.setOntwikkelingskaartenDtos();
-               setupButtonImages();
                dc.setEdelstenenAantalDto();
            	setupEdelstenenAantal();
            	dc.volgendeSpeler();
            	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
            	dc.setInventoryDto();
            	setInventory();
            	setPunten();
            	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
            } catch (IllegalArgumentException e) {
                String errorMessage = e.getMessage();
                exceptionLabel.setText(errorMessage);
@@ -736,16 +745,17 @@ public class SpelBordController {
          try {
              dc.koopOntwikkelingskaart(kaartNummer);
              exceptionLabel.setText("");
-             dc.setOntwikkelingskaartenDtos();
-             setupButtonImages();
              dc.setEdelstenenAantalDto();
          	setupEdelstenenAantal();
          	dc.volgendeSpeler();
          	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
          	setPunten();
          	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -764,16 +774,17 @@ public class SpelBordController {
          try {
              dc.koopOntwikkelingskaart(kaartNummer);
              exceptionLabel.setText("");
-             dc.setOntwikkelingskaartenDtos();
-             setupButtonImages();
              dc.setEdelstenenAantalDto();
          	setupEdelstenenAantal();
          	dc.volgendeSpeler();
          	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
          	setPunten();
          	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -792,16 +803,17 @@ public class SpelBordController {
          try {
              dc.koopOntwikkelingskaart(kaartNummer);
              exceptionLabel.setText("");
-             dc.setOntwikkelingskaartenDtos();
-             setupButtonImages();
              dc.setEdelstenenAantalDto();
          	setupEdelstenenAantal();
          	dc.volgendeSpeler();
          	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
          	setPunten();
          	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -820,16 +832,17 @@ public class SpelBordController {
          try {
              dc.koopOntwikkelingskaart(kaartNummer);
              exceptionLabel.setText("");
-             dc.setOntwikkelingskaartenDtos();
-             setupButtonImages();
              dc.setEdelstenenAantalDto();
          	setupEdelstenenAantal();
          	dc.volgendeSpeler();
          	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
          	setPunten();
          	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -848,16 +861,17 @@ public class SpelBordController {
          try {
              dc.koopOntwikkelingskaart(kaartNummer);
              exceptionLabel.setText("");
-             dc.setOntwikkelingskaartenDtos();
-             setupButtonImages();
              dc.setEdelstenenAantalDto();
          	setupEdelstenenAantal();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
          	dc.volgendeSpeler();
          	setSpelerAandebeurt();
          	dc.setInventoryDto();
          	setInventory();
          	setPunten();
          	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -876,16 +890,17 @@ public class SpelBordController {
          try {
              dc.koopOntwikkelingskaart(kaartNummer);
              exceptionLabel.setText("");
-             dc.setOntwikkelingskaartenDtos();
-             setupButtonImages();
              dc.setEdelstenenAantalDto();
          	setupEdelstenenAantal();
          	dc.volgendeSpeler();
          	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
          	setPunten();
          	setLabels();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);
@@ -905,16 +920,17 @@ public class SpelBordController {
          try {
              dc.koopOntwikkelingskaart(kaartNummer);
              exceptionLabel.setText("");
-             dc.setOntwikkelingskaartenDtos();
-             setupButtonImages();
              dc.setEdelstenenAantalDto();
          	setupEdelstenenAantal();
          	dc.volgendeSpeler();
          	setSpelerAandebeurt();
+            dc.setOntwikkelingskaartenDtos();
+            setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
          	setPunten();
-         	setLabels();
+         	setLabels();   
+         	dc.neemEdelenAlsGenoegBonusEdelstenen();
          } catch (IllegalArgumentException e) {
              String errorMessage = e.getMessage();
              exceptionLabel.setText(errorMessage);

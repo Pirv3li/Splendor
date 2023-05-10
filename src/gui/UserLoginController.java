@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class UserLoginController extends Pane {
@@ -27,12 +28,6 @@ public class UserLoginController extends Pane {
     
     @FXML
     private Text titleLabel;
-
-    @FXML
-    private Label usernameLabel;
-    
-    @FXML
-    private Label birthYearLabel;
     
     @FXML
     private Button loginButton;
@@ -42,6 +37,9 @@ public class UserLoginController extends Pane {
 
     @FXML
     private TextField birthYearField;
+    
+    @FXML
+    private Button switchLanguageButton;
 
     private Domeincontroller dc;
     private ResourceBundle bundle;
@@ -53,10 +51,11 @@ public class UserLoginController extends Pane {
     public void setResourceBundle(ResourceBundle bundle) {
         this.bundle = bundle;
         titleLabel.setText(bundle.getString("login"));
-        usernameLabel.setText(bundle.getString("name"));
-        birthYearLabel.setText(bundle.getString("birth"));
+        usernameField.setText(bundle.getString("name"));
+        birthYearField.setText(bundle.getString("birth"));
         loginButton.setText(bundle.getString("addplayer"));
         startButton.setText(bundle.getString("start"));
+        switchLanguageButton.setText(bundle.getString("switch"));
     }
 
     public void onClick() {
@@ -108,5 +107,18 @@ public class UserLoginController extends Pane {
         birthYearField.setPromptText(bundle.getString("birth"));
         loginButton.setText(bundle.getString("addplayer"));
         startButton.setText(bundle.getString("start"));
+        switchLanguageButton.setText(bundle.getString("switch"));
+    }
+    
+ // Step 5: Change the locale and reload the resource bundle
+    @FXML
+    public void onLanguageButtonClick() {
+        if (bundle.getLocale().equals(new Locale("en", "GB"))) {
+            Locale.setDefault(new Locale("nl", "BE"));
+        } else {
+            Locale.setDefault(new Locale("en", "GB"));
+        }
+        bundle = ResourceBundle.getBundle("gui.messages", Locale.getDefault());
+        setResourceBundle(bundle);
     }
 }

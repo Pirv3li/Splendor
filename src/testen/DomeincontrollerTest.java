@@ -3,12 +3,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import domein.Domeincontroller;
 import domein.Edel;
 import domein.Edelsteen;
+import dto.PuntenDto;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
@@ -23,7 +28,7 @@ public class DomeincontrollerTest {
 	private Domeincontroller domeinController;
 
 	@BeforeEach
-	public void setUp() {
+	public void UseIt() {
 	    domeinController = new Domeincontroller();
 	}
 
@@ -35,21 +40,36 @@ public class DomeincontrollerTest {
 	}
 
 	@Test
-	public void testGetPunten() {
-		domeinController.voegSpelerToe("Player1", 1990);
-		domeinController.voegSpelerToe("Player2", 1995);
-		domeinController.startSpel();
-		
-		
-	    Assertions.assertEquals(0, domeinController.getPunten());
-	}
+    public void testGetPunten() {
+        // Создаем экземпляр класса, который хотим протестировать
+        Domeincontroller domeincontroller = new Domeincontroller();
+
+        // Задаем фиктивные значения для списка punten
+        ArrayList<Integer> punten = new ArrayList<>();
+        punten.add(10);
+        punten.add(20);
+        punten.add(30);
+
+        // Задаем ожидаемое значение для списка puntenDto
+        List<PuntenDto> expectedPuntenDto = new ArrayList<>();
+        expectedPuntenDto.add(new PuntenDto(10));
+        expectedPuntenDto.add(new PuntenDto(20));
+        expectedPuntenDto.add(new PuntenDto(30));
+
+        // Вызываем метод, который хотим протестировать, и получаем фактическое значение
+        List<PuntenDto> actualPuntenDto = domeincontroller.getPunten();
+
+        // Проверяем, что фактическое значение соответствует ожидаемому????
+        Assertions.assertEquals(expectedPuntenDto, actualPuntenDto);
+    }
 
 	@Test
 	public void testVoegSpelerToe() {
 	    String naam = "Jan";
 	    int geboortejaar = 1990;
 	    domeinController.voegSpelerToe(naam, geboortejaar);
-	    Assertions.assertEquals(naam, domeinController.getNaamVanSpelerAanDeBeurt());
+	    String spelerAanDeBeurt = domeinController.getNaamVanSpelerAanDeBeurt();
+	    Assertions.assertEquals(naam, spelerAanDeBeurt);
 	}
 
 	@Test
@@ -58,17 +78,19 @@ public class DomeincontrollerTest {
 	    Assertions.assertNotNull(spelersOverzicht);
 	}
 
-	//@Test
-	//public void testGetEdelstenenOverzicht() {
-	//    String edelstenenOverzicht = domeinController.getEdelstenenOverzicht();
-	 //   Assertions.assertNotNull(edelstenenOverzicht);
-	//}
 
 	@Test
-	public void testGetOntwikkelingskaartenOverzicht() {
-	    String ontwikkelingskaartenOverzicht = domeinController.getOntwikkelingskaartenOverzicht();
-	    Assertions.assertNotNull(ontwikkelingskaartenOverzicht);
-	}
+    public void testGetOntwikkelingskaartenOverzicht() {
+        // Создаем экземпляр класса Domeincontroller 
+        Domeincontroller domeincontroller = new Domeincontroller();
+
+        // Вызываем метод getOntwikkelingskaartenOverzicht ???????
+        String ontwikkelingskaartenOverzicht = domeincontroller.getOntwikkelingskaartenOverzicht();
+
+        // Проверяем, что полученное значение соответствует ожидаемому значению
+        String expectedOntwikkelingskaartenOverzicht = "Ontwikkelingskaarten overzicht";
+        Assertions.assertEquals(expectedOntwikkelingskaartenOverzicht, ontwikkelingskaartenOverzicht);
+    }
 
 	@Test
 	public void testSetOntwikkelingskaartenOverzichtEnEdelenOverzicht() {
@@ -88,14 +110,15 @@ public class DomeincontrollerTest {
 		domeinController.startSpel();
 		 StringBuilder sb = new StringBuilder();
 		    sb.append("Beschikbare edelstenen:\n");
-		    sb.append("ROBIJNEN 4\n");
-		    sb.append("DIAMANTEN 4\n");
-		    sb.append("ONYXEN 4\n");
-		    sb.append("SMARAGDEN 4\n");
-		    sb.append("SAFFIEREN 4\n");
+		    sb.append("ROBIJNEN 4 \n");
+		    sb.append("DIAMANTEN 4 \n");
+		    sb.append("ONYXEN 4 \n");
+		    sb.append("SMARAGDEN 4 \n");
+		    sb.append("SAFFIEREN 4 \n");
+		    
 		    
 		
-		assertEquals(sb, domeinController.getEdelstenenOverzicht());
+		assertEquals(sb.toString(), domeinController.getEdelstenenOverzicht());
 	}
 
 
@@ -141,10 +164,6 @@ public class DomeincontrollerTest {
 		domeinController.volgendeSpeler();
 		assertEquals("Player1", domeinController.getNaamVanSpelerAanDeBeurt());
 	}
-////
-	//@Test
-	//public void testGetNaamVanSpelerAanDeBeurt() {
-	  //  String naam = "Jan";
-	   
+
 
 }

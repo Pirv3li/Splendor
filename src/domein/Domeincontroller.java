@@ -78,6 +78,8 @@ public class Domeincontroller {
 		return spel.getSpelersOverzicht();
 	}
 	
+	
+	
 	public String getEdelstenenOverzicht() {
 		return spel.edelstenenOverzicht();
 	}

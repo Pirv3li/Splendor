@@ -39,7 +39,7 @@ public class Speler {
 		return this.gebruikersnaam;
 	}
 	
-	private void setGebruikersnaam(String gebruikersnaam) {
+	public void setGebruikersnaam(String gebruikersnaam) {
 		// Domeinregels voor gebruikersnaam, kijk naar exceptions om te verstaan wat ze doen. 
 		
 		if (gebruikersnaam == null || gebruikersnaam.isBlank()) {
@@ -63,7 +63,7 @@ public class Speler {
 		return this.geboortejaar;
 	}
 
-	private void setGeboortejaar(int geboortejaar) {
+	public void setGeboortejaar(int geboortejaar) {
 		// domeinregels voor geboortejaar, kijk naar exception om te verstaan wat ze doen. 
 	    int huidigJaar = Calendar.getInstance().get(Calendar.YEAR);
 	    
@@ -84,6 +84,8 @@ public class Speler {
 	public int getLeeftijd() {
 		return this.leeftijd;
 	}
+	
+	
 	
 	public void voegGemsToeAanBonusInventory(Edelsteen edelsteen) {
 		int currentValue = this.bonusEdelsteenfichesInventory.getOrDefault(edelsteen, 0);

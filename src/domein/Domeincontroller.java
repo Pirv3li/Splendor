@@ -11,7 +11,7 @@ import dto.OntwikkelingskaartDto;
 import dto.PuntenDto;
 
 public class Domeincontroller {
-	
+	private String language = "en"; // Default language is English
 	private List<OntwikkelingskaartDto> Niveau1Kaarten;
 	private List<OntwikkelingskaartDto> Niveau2Kaarten;
 	private List<OntwikkelingskaartDto> Niveau3Kaarten;
@@ -28,6 +28,16 @@ public class Domeincontroller {
 		repo = new SpelerRepository();
 	}
 
+
+    // Getter and setter for language
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+    
 	public void startSpel() {
 		spel.startSpel();	
 	}

@@ -16,8 +16,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/SpeelbordStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpelBordController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/SpeelbordStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpelBordController">
    <children>
+   <Button fx:id="switchLanguageButton" layoutX="10.0" layoutY="590.0" mnemonicParsing="false" onAction="#onLanguageButtonClick" prefHeight="20.0" prefWidth="110.0" style="-fx-background-color: #000;" text="Switch Language" textFill="WHITE" />
       <ImageView fx:id="imgvNiveau1" fitHeight="139.0" fitWidth="100.0" layoutX="8.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="794.265625" AnchorPane.topAnchor="447.0">
          <image>
             <Image url="@../images/niveau1achterkant.png" />
@@ -47,25 +48,25 @@
             <VBox fx:id="VBoxSpeler1" prefHeight="85.0" prefWidth="98.0">
                <children>
                   <Label fx:id="lblSpeler1" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
-                  <Label fx:id="lblSpeler1AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+                  <Label fx:id="Punten1" layoutX="10.0" layoutY="28.0" prefHeight="18.0" prefWidth="135.0" text="punten" textAlignment="JUSTIFY" />
                </children>
             </VBox>
             <VBox fx:id="VBoxSpeler2" prefHeight="86.0" prefWidth="126.0" GridPane.rowIndex="2">
                <children>
                   <Label fx:id="lblSpeler3" prefHeight="18.0" prefWidth="123.0" text="Speler" textAlignment="JUSTIFY" />
-                  <Label fx:id="lblSpeler3AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+                  <Label fx:id="Punten3" layoutX="10.0" layoutY="28.0" prefHeight="18.0" prefWidth="139.0" text="punten" textAlignment="JUSTIFY" />
                </children>
             </VBox>
             <VBox fx:id="VBoxSpeler4" prefHeight="56.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="lblSpeler2" prefHeight="17.0" prefWidth="105.0" text="Speler" textAlignment="JUSTIFY" />
-                  <Label fx:id="lblSpeler2AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+                  <Label fx:id="Punten2" layoutX="10.0" layoutY="28.0" prefHeight="18.0" prefWidth="137.0" text="punten" textAlignment="JUSTIFY" />
                </children>
             </VBox>
             <VBox fx:id="VBoxSpeler3" prefHeight="66.0" prefWidth="100.0" GridPane.rowIndex="3">
                <children>
                   <Label fx:id="lblSpeler4" prefHeight="18.0" prefWidth="125.0" text="Speler" textAlignment="JUSTIFY" />
-                  <Label fx:id="lblSpeler4AantalPunten" prefHeight="17.0" prefWidth="105.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+                  <Label fx:id="Punten4" layoutX="10.0" layoutY="28.0" prefHeight="18.0" prefWidth="141.0" text="punten" textAlignment="JUSTIFY" />
                </children>
             </VBox>
          </children>
@@ -140,27 +141,6 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="neemEdelstenen" mnemonicParsing="false" onAction="#neemEdelstenen" prefHeight="26.0" prefWidth="78.0" text="Nemen">
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Button>
          </children>
       </VBox>
       <GridPane alignment="CENTER" layoutX="569.0" layoutY="483.0" prefHeight="100.0" prefWidth="330.0">
@@ -227,14 +207,65 @@
       <Label fx:id="lbSmaragd" layoutX="716.0" layoutY="213.0" text="4" />
       <Label fx:id="lblRobijn" layoutX="716.0" layoutY="291.0" text="4" />
       <Label fx:id="lblOnyx" layoutX="716.0" layoutY="370.0" text="4" />
-      <Label fx:id="labelSpelerInventory" alignment="CENTER" contentDisplay="CENTER" layoutX="571.0" layoutY="467.0" prefHeight="18.0" prefWidth="304.0" text="Speler Inventory">
+      <Label fx:id="labelSpelerInventory" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="571.0" layoutY="467.0" prefHeight="27.0" prefWidth="150.0" text="Speler1's">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label text="Label" />
-      <Label fx:id="exceptionLabel" alignment="CENTER" layoutX="13.0" layoutY="603.0" prefHeight="35.0" prefWidth="874.0" textFill="#a1270e">
+      <Label />
+      <Label fx:id="exceptionLabel" alignment="CENTER" layoutX="113.0" layoutY="603.0" prefHeight="35.0" prefWidth="774.0" textFill="#a1270e">
          <font>
             <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="neemEdelstenen" layoutX="614.0" layoutY="425.0" mnemonicParsing="false" onAction="#neemEdelstenen" prefHeight="26.0" prefWidth="120.0" text="nemen">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="pass" layoutX="744.0" layoutY="425.0" mnemonicParsing="false" onAction="#pass" prefHeight="26.0" prefWidth="110.0" text="Beurt overslaan">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblSpeler1AantalPunten" layoutX="837.0" layoutY="32.0" prefHeight="18.0" prefWidth="126.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+      <Label fx:id="lblSpeler2AantalPunten" layoutX="831.0" layoutY="155.0" prefHeight="18.0" prefWidth="137.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+      <Label fx:id="lblSpeler3AantalPunten" layoutX="832.0" layoutY="277.0" prefHeight="18.0" prefWidth="139.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+      <Label fx:id="lblSpeler4AantalPunten" layoutX="828.0" layoutY="400.0" prefHeight="18.0" prefWidth="141.0" text="Aantal Punten" textAlignment="JUSTIFY" />
+      <Label fx:id="inventory" alignment="TOP_LEFT" layoutX="729.0" layoutY="467.0" prefHeight="18.0" prefWidth="304.0" text="Inventory">
+         <font>
+            <Font size="18.0" />
          </font>
       </Label>
    </children>

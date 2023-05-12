@@ -6,7 +6,7 @@
 .button:hover {
     -fx-cursor: hand;
 }
-
+										
 .body{
-	-fx-background-color: grey;
+	-fx-background-color: #c9c4c2;
 }

@@ -264,6 +264,18 @@ public class SpelBordController {
 
     @FXML
     private Label lblSpeler3AantalPunten;
+    
+    @FXML
+    private Label Punten1;
+    
+    @FXML
+    private Label Punten2;
+    
+    @FXML
+    private Label Punten3;
+    
+    @FXML
+    private Label Punten4;
 
     @FXML
     private Label lblSpeler3Kaarten;
@@ -293,7 +305,12 @@ public class SpelBordController {
     private Button neemEdelstenen;
     
     @FXML
+    private Button pass;
+    
+    @FXML
     private Label exceptionLabel;
+    
+    private ResourceBundle bundle;
     
     
     public void setDc(Domeincontroller dc) {
@@ -335,10 +352,12 @@ public class SpelBordController {
     	if(spelerNamen.size()<3) {
     		lblSpeler3.setText("");
     		lblSpeler3AantalPunten.setText("");
+    		Punten3.setText("");
     	}
     	if(spelerNamen.size()<4) {
     		lblSpeler4.setText("");
     		lblSpeler4AantalPunten.setText("");
+    		Punten4.setText("");
     	}
     	if(spelerNamen.size()==3 || spelerNamen.size()==4) {
         	lblSpeler3.setText(spelerNamen.get(2));
@@ -411,7 +430,7 @@ public class SpelBordController {
                 dc.setOntwikkelingskaartenDtos();
             	setupButtonImages();
             } else {
-            	throw new IllegalArgumentException("Invalid keuze probeer opnieuw");
+            	throw new IllegalArgumentException(bundle.getString("keuze"));
             }
         } 
     }
@@ -438,30 +457,30 @@ public class SpelBordController {
                 dc.setOntwikkelingskaartenDtos();
             	setupButtonImages();
             } else {
-            	throw new IllegalArgumentException("Invalid keuze probeer opnieuw");
+            	throw new IllegalArgumentException(bundle.getString("keuze"));
             }
         } else {
-        	throw new IllegalArgumentException("Invalid keuze probeer opnieuw");
+        	throw new IllegalArgumentException(bundle.getString("keuze"));
         }
     }
     
     private void setSpelerAandebeurt() {
-    	labelSpelerInventory.setText(dc.getNaamVanSpelerAanDeBeurt()+"'s Inventory");
+    	labelSpelerInventory.setText(dc.getNaamVanSpelerAanDeBeurt()+"'s");
     }
     
     private void setPunten() {
     	List<PuntenDto> puntenDto = dc.getPunten();
     	String punten1 = String.valueOf(puntenDto.get(0).getPunten());
-    	lblSpeler1AantalPunten.setText("Punten : "+punten1);
+    	lblSpeler1AantalPunten.setText(punten1);
     	String punten2 = String.valueOf(puntenDto.get(1).getPunten());
-    	lblSpeler2AantalPunten.setText("Punten : "+punten2);
+    	lblSpeler2AantalPunten.setText(punten2);
     	if(spelerNamen.size()==3) {
         	String punten3 = String.valueOf(puntenDto.get(2).getPunten());
-        	lblSpeler3AantalPunten.setText("Punten : "+punten3);
+        	lblSpeler3AantalPunten.setText(punten3);
         	}
     	if(spelerNamen.size()==4) {
         	String punten4 = String.valueOf(puntenDto.get(3).getPunten());
-        	lblSpeler4AantalPunten.setText("Punten : "+punten4);
+        	lblSpeler4AantalPunten.setText(punten4);
         	}
     }
     
@@ -522,6 +541,20 @@ public class SpelBordController {
     }
     
     @FXML
+    void pass(ActionEvent event) {
+    	dc.volgendeSpeler();
+    	setSpelerAandebeurt();
+    	selectedGems = new ArrayList<>();
+        dc.setEdelstenenAantalDto();
+    	setupEdelstenenAantal();
+    	dc.setInventoryDto();
+    	setInventory();
+    	setPunten();
+    	dc.setOntwikkelingskaartenDtos();
+    	setupButtonImages();
+    }
+    
+    @FXML
     void neemEdelstenen(ActionEvent event) {
         try {
             if (selectedGems.size() == 3) {
@@ -530,24 +563,18 @@ public class SpelBordController {
             } else if (selectedGems.size() == 2) {
                 checkSelectedGems();
                 exceptionLabel.setText("");
-            } else if (selectedGems.size() == 0) {
-            	selectedGems = new ArrayList<>();
-                dc.setEdelstenenAantalDto();
-            	setupEdelstenenAantal();
-            	dc.volgendeSpeler();
-            	setSpelerAandebeurt();
-            	dc.setInventoryDto();
-            	setInventory();
-            	setPunten();
-            	dc.setOntwikkelingskaartenDtos();
-            	setupButtonImages();
-            }
+            }            
             else {
-                throw new IllegalArgumentException("Je moet 2 of 3 edelstenen nemen");
+                throw new IllegalArgumentException(bundle.getString("keuze"));
             }
         } catch (IllegalArgumentException e) {
         	String errorMessage = e.getMessage();
-        	exceptionLabel.setText(errorMessage);
+        	if (errorMessage=="Je mag enkel 1 edelsteen pakken als er minder dan 4 edelstenen zijn !") {
+        		exceptionLabel.setText(bundle.getString("less4"));
+        	}
+        	else {
+        		exceptionLabel.setText(errorMessage);
+        	}
             selectedGems.clear();
             setupEdelstenenAantal();
         }
@@ -615,8 +642,7 @@ public class SpelBordController {
         	dc.setEdelenDto(); 
         	setupEdelenImages();
         } catch (IllegalArgumentException e) {
-            String errorMessage = e.getMessage();
-            exceptionLabel.setText(errorMessage);
+       	 exceptionLabel.setText(bundle.getString("broke"));
         }
     }
 
@@ -646,8 +672,7 @@ public class SpelBordController {
         	dc.setEdelenDto(); 
         	setupEdelenImages();
            } catch (IllegalArgumentException e) {
-               String errorMessage = e.getMessage();
-               exceptionLabel.setText(errorMessage);
+          	 exceptionLabel.setText(bundle.getString("broke"));
            }  
     }
 
@@ -676,8 +701,7 @@ public class SpelBordController {
         	dc.setEdelenDto(); 
         	setupEdelenImages();
            } catch (IllegalArgumentException e) {
-               String errorMessage = e.getMessage();
-               exceptionLabel.setText(errorMessage);
+          	 exceptionLabel.setText(bundle.getString("broke"));
            }   
 
     }
@@ -707,8 +731,7 @@ public class SpelBordController {
         	dc.setEdelenDto(); 
         	setupEdelenImages();
            } catch (IllegalArgumentException e) {
-               String errorMessage = e.getMessage();
-               exceptionLabel.setText(errorMessage);
+          	 exceptionLabel.setText(bundle.getString("broke"));
            }         
  
     }
@@ -738,8 +761,7 @@ public class SpelBordController {
         	dc.setEdelenDto();
         	setupEdelenImages();
            } catch (IllegalArgumentException e) {
-               String errorMessage = e.getMessage();
-               exceptionLabel.setText(errorMessage);
+          	 exceptionLabel.setText(bundle.getString("broke"));
            }  
 
     }
@@ -769,8 +791,7 @@ public class SpelBordController {
         	dc.setEdelenDto();
         	setupEdelenImages();
          } catch (IllegalArgumentException e) {
-             String errorMessage = e.getMessage();
-             exceptionLabel.setText(errorMessage);
+        	 exceptionLabel.setText(bundle.getString("broke"));
          }        
 
     }
@@ -801,8 +822,7 @@ public class SpelBordController {
         	setupEdelenImages();
         	
          } catch (IllegalArgumentException e) {
-             String errorMessage = e.getMessage();
-             exceptionLabel.setText(errorMessage);
+        	 exceptionLabel.setText(bundle.getString("broke"));
          }     
 
     }
@@ -832,8 +852,7 @@ public class SpelBordController {
         	dc.setEdelenDto();
         	setupEdelenImages();
          } catch (IllegalArgumentException e) {
-             String errorMessage = e.getMessage();
-             exceptionLabel.setText(errorMessage);
+             exceptionLabel.setText(bundle.getString("broke"));
          }       
  
     }
@@ -863,8 +882,7 @@ public class SpelBordController {
         	dc.setEdelenDto(); 
         	setupEdelenImages();
          } catch (IllegalArgumentException e) {
-             String errorMessage = e.getMessage();
-             exceptionLabel.setText(errorMessage);
+        	 exceptionLabel.setText(bundle.getString("broke"));
          }     
 
     }
@@ -894,8 +912,7 @@ public class SpelBordController {
         	dc.setEdelenDto(); 
         	setupEdelenImages();
          } catch (IllegalArgumentException e) {
-             String errorMessage = e.getMessage();
-             exceptionLabel.setText(errorMessage);
+        	 exceptionLabel.setText(bundle.getString("broke"));
          }      
     }	
     
@@ -925,8 +942,7 @@ public class SpelBordController {
         	dc.setEdelenDto();
         	setupEdelenImages();
          } catch (IllegalArgumentException e) {
-             String errorMessage = e.getMessage();
-             exceptionLabel.setText(errorMessage);
+        	 exceptionLabel.setText(bundle.getString("broke"));
          }     
 
     }
@@ -957,10 +973,56 @@ public class SpelBordController {
          	dc.setEdelenDto();
          	setupEdelenImages();
          } catch (IllegalArgumentException e) {
-             String errorMessage = e.getMessage();
-             exceptionLabel.setText(errorMessage);
+        	 exceptionLabel.setText(bundle.getString("broke"));
          }   
 
+    }
+    
+    @FXML
+    private Button switchLanguageButton;
+    
+    @FXML
+    private Label inventory;
+    
+    public void setResourceBundle(ResourceBundle bundle) {
+        this.bundle = bundle;
+        neemEdelstenen.setText(bundle.getString("take"));
+        pass.setText(bundle.getString("pass"));
+        switchLanguageButton.setText(bundle.getString("switch"));
+        Punten1.setText(bundle.getString("score"));
+        Punten2.setText(bundle.getString("score"));
+        if(spelerNamen.size()==3 || spelerNamen.size()==4) {
+        	Punten3.setText(bundle.getString("score"));
+    	}
+    	if(spelerNamen.size()==4) {
+        	Punten4.setText(bundle.getString("score"));
+    	}
+    	inventory.setText(bundle.getString("inventory"));
+    	
+    }
+    
+    public void initialize() {
+        Locale currentLocale = Locale.getDefault();
+        bundle = ResourceBundle.getBundle("gui.messages", currentLocale);
+        neemEdelstenen.setText(bundle.getString("take"));
+        pass.setText(bundle.getString("pass"));
+        switchLanguageButton.setText(bundle.getString("switch"));
+        Punten1.setText(bundle.getString("score"));
+        Punten2.setText(bundle.getString("score"));
+        Punten3.setText(bundle.getString("score"));
+        Punten4.setText(bundle.getString("score"));
+        inventory.setText(bundle.getString("inventory"));
+    }
+    
+    @FXML
+    public void onLanguageButtonClick() {
+        if (bundle.getLocale().equals(new Locale("en", "GB"))) {
+            Locale.setDefault(new Locale("nl", "BE"));
+        } else {
+            Locale.setDefault(new Locale("en", "GB"));
+        }
+        bundle = ResourceBundle.getBundle("gui.messages", Locale.getDefault());
+        setResourceBundle(bundle);
     }
 
 }

@@ -422,7 +422,7 @@ public class SpelBordController {
     	 for (int i = 0; i < SpelerPunten.size(); i++) {
     	        if (SpelerPunten.get(i).getPunten() >= 15) {
     			winnaarIndex = i;
-    			WinnaarLabel.setText(spelerNamen.get(i)+" is winnaar met "+SpelerPunten.get(i).getPunten()+" punten");
+    			WinnaarLabel.setText(spelerNamen.get(i)+" "+bundle.getString("won")+" "+SpelerPunten.get(i).getPunten()+" "+bundle.getString("points"));
     	        WinnaarLabel.setVisible(true);
     	        WinnaarLabel.setStyle("-fx-background-image: url('images/SplendorVertikaalInlog.jpg');");
     	        WinnaarLabel.setMouseTransparent(false);

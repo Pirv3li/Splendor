@@ -53,9 +53,6 @@ public class UserLoginController extends Pane {
     
     @FXML
     private Label Speler4Label;
-    
-    @FXML
-    private Label list;
 
     private Domeincontroller dc;
     private ResourceBundle bundle;
@@ -72,7 +69,6 @@ public class UserLoginController extends Pane {
         loginButton.setText(bundle.getString("addplayer"));
         startButton.setText(bundle.getString("start"));
         switchLanguageButton.setText(bundle.getString("switch"));
-        list.setText(bundle.getString("list"));
     }
 
     public void onClick() {
@@ -138,7 +134,6 @@ public class UserLoginController extends Pane {
         loginButton.setText(bundle.getString("addplayer"));
         startButton.setText(bundle.getString("start"));
         switchLanguageButton.setText(bundle.getString("switch"));
-        list.setText(bundle.getString("list"));
     }
     
  // Step 5: Change the locale and reload the resource bundle

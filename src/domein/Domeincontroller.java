@@ -20,7 +20,7 @@ public class Domeincontroller {
 	private ArrayList<EdelstenenDto> aantalEdelstenen;
 	private List<EdelenDto> edelen;
 	private List<InventoryDto> InventoryDto;
-//	private ArrayList<Speler> spelers;
+	private ArrayList<String> spelers;
 //	private SpelerRepository spelerRepository;
 // test
 	public Domeincontroller() {
@@ -69,8 +69,12 @@ public class Domeincontroller {
 	}
 
 	public void voegSpelerToe(String naam, int geboortejaar) {
-		if(repo.bestaatSpeler(naam,geboortejaar)) {
+		spelers = spel.getSpelerNamen();
+		if(!spelers.contains(naam) && repo.bestaatSpeler(naam,geboortejaar)) {
 		spel.voegSpelerToe(naam, geboortejaar);
+		}
+		else {
+			throw new IllegalArgumentException(naam + " is al toegevoegd!");
 		}
 	}
 	

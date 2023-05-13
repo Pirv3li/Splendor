@@ -59,7 +59,7 @@ public class Domeincontroller {
 		List<PuntenDto> puntenDto = new ArrayList<>();
 		puntenDto.add(new PuntenDto(punten.get(0))); 
 		puntenDto.add(new PuntenDto(punten.get(1)));
-		if(punten.size()==3) {
+		if(punten.size()>=3) {
 			puntenDto.add(new PuntenDto(punten.get(2)));
 		}
 		if(punten.size()==4) {

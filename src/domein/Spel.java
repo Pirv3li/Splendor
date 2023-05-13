@@ -361,9 +361,9 @@ public class Spel {
 	 
 	 public void koopOntwikkelingskaart(int kaartnummer) throws IOException {
 		    Random random = new Random();
-		    int randomIndexNiveau1 = random.nextInt(kaarten.getNiveau1Kaarten().size());
-		    int randomIndexNiveau2 = random.nextInt(kaarten.getNiveau2Kaarten().size());
-		    int randomIndexNiveau3 = random.nextInt(kaarten.getNiveau3Kaarten().size());
+		    int randomIndexNiveau1 = random.nextInt(kaarten.getNiveau1Kaarten().size()-1);
+		    int randomIndexNiveau2 = random.nextInt(kaarten.getNiveau2Kaarten().size()-1);
+		    int randomIndexNiveau3 = random.nextInt(kaarten.getNiveau3Kaarten().size()-1);
 		    List<Ontwikkelingskaart> alleOverzichtKaarten = new ArrayList<>();
 		    alleOverzichtKaarten.addAll(Niveau1Kaarten);
 		    alleOverzichtKaarten.addAll(Niveau2Kaarten);

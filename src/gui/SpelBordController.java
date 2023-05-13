@@ -469,20 +469,21 @@ public class SpelBordController {
     }
     
     private void setPunten() {
-    	List<PuntenDto> puntenDto = dc.getPunten();
-    	String punten1 = String.valueOf(puntenDto.get(0).getPunten());
-    	lblSpeler1AantalPunten.setText(punten1);
-    	String punten2 = String.valueOf(puntenDto.get(1).getPunten());
-    	lblSpeler2AantalPunten.setText(punten2);
-    	if(spelerNamen.size()==3) {
-        	String punten3 = String.valueOf(puntenDto.get(2).getPunten());
-        	lblSpeler3AantalPunten.setText(punten3);
-        	}
-    	if(spelerNamen.size()==4) {
-        	String punten4 = String.valueOf(puntenDto.get(3).getPunten());
-        	lblSpeler4AantalPunten.setText(punten4);
-        	}
+        List<PuntenDto> puntenDto = dc.getPunten();
+        String punten1 = String.valueOf(puntenDto.get(0).getPunten());
+        lblSpeler1AantalPunten.setText(punten1);
+        String punten2 = String.valueOf(puntenDto.get(1).getPunten());
+        lblSpeler2AantalPunten.setText(punten2);
+        if (puntenDto.size() >= 3) {
+            String punten3 = String.valueOf(puntenDto.get(2).getPunten());
+            lblSpeler3AantalPunten.setText(punten3);
+        }
+        if (puntenDto.size() == 4) {
+            String punten4 = String.valueOf(puntenDto.get(3).getPunten());
+            lblSpeler4AantalPunten.setText(punten4);
+        }
     }
+
     
     private void setInventory() {
         List<InventoryDto> inventory = dc.getInventory();

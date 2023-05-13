@@ -394,20 +394,26 @@ public class Spel {
 		            Niveau1Kaarten.remove(gekozenOntwikkelingskaart);
 		            Ontwikkelingskaart randomCard1 = kaarten.getNiveau1Kaarten().get(randomIndexNiveau1);
 		            kaarten.getNiveau1Kaarten().remove(randomCard1);
+		            if(this.niveau1StapelSize>0) {
 		            Niveau1Kaarten.add(randomCard1);
 		            this.niveau1StapelSize -= 1;
+		            }
 		        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
 		            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
 		            Ontwikkelingskaart randomCard2 = kaarten.getNiveau2Kaarten().get(randomIndexNiveau2);
 		            kaarten.getNiveau2Kaarten().remove(randomCard2);
+		            if(this.niveau1StapelSize>0) {
 		            Niveau2Kaarten.add(randomCard2);
 		            this.niveau2StapelSize -= 1;
+		            }
 		        } else {
 		            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
 		            Ontwikkelingskaart randomCard3 = kaarten.getNiveau3Kaarten().get(randomIndexNiveau3);
 		            kaarten.getNiveau3Kaarten().remove(randomCard3);
+		            if(this.niveau3StapelSize>0) {
 		            Niveau3Kaarten.add(randomCard3);
 		            this.niveau3StapelSize -= 1;
+		            }
 		        }
 		        spelers.get(spelerIndex).voegOntwikkelingskaartToeAanInventory(gekozenOntwikkelingskaart);
 		        spelers.get(spelerIndex).voegGemsToeAanBonusInventory(gekozenOntwikkelingskaart.getBonus());

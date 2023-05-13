@@ -1,4 +1,6 @@
 package main;
+import javafx.scene.image.Image;
+
 import java.io.IOException;
 
 import domein.Domeincontroller;
@@ -25,9 +27,12 @@ public class SplendorStart extends Application {
     	  Parent root = loader.load();
     	  UserLoginController loginController = loader.getController();
     	  loginController.setDc(dc);
+    	  Image logo = new Image("/images/SplendorVertikaalInlog.jpg");
           Scene scene = new Scene(root, 900, 600);
           scene.getStylesheets().add("/css/LoginStyle.css");
           stage.setScene(scene);
+          stage.setTitle("Splendor");
+          stage.getIcons().add(logo);
           stage.show();
     }
     

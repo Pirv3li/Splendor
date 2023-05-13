@@ -412,6 +412,10 @@ public class SpelBordController {
         }
     }
     
+    private void isWinaar() {
+    	
+    }
+    
 
     private void checkSelectedGems3() {
         if (selectedGems.size() == 3) {

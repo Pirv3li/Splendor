@@ -1,6 +1,7 @@
 package gui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -40,6 +41,18 @@ public class UserLoginController extends Pane {
     
     @FXML
     private Button switchLanguageButton;
+    
+    @FXML
+    private Label Speler1Label;
+    
+    @FXML
+    private Label Speler2Label;
+    
+    @FXML
+    private Label Speler3Label;
+    
+    @FXML
+    private Label Speler4Label;
 
     private Domeincontroller dc;
     private ResourceBundle bundle;
@@ -70,6 +83,19 @@ public class UserLoginController extends Pane {
         }
         usernameField.clear();
         birthYearField.clear();
+        ArrayList<String>namen = dc.getSpelerNamen();
+        if(namen.size()>=1) {
+        	Speler1Label.setText(namen.get(0));
+        }
+        if(namen.size()>=2) {
+        	Speler2Label.setText(namen.get(1));
+        }
+        if(namen.size()>=3) {
+        	Speler3Label.setText(namen.get(2));
+        }
+        if(namen.size()==4) {
+        	Speler4Label.setText(namen.get(3));
+        }
     }
 
     @FXML

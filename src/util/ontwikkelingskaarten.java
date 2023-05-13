@@ -13,9 +13,9 @@ import domein.Edelsteen;
 public class ontwikkelingskaarten {
 	
 	
-private ArrayList<Ontwikkelingskaart> niveau1 = new ArrayList<>();
-private ArrayList<Ontwikkelingskaart> niveau2 = new ArrayList<>();
-private ArrayList<Ontwikkelingskaart> niveau3 = new ArrayList<>();
+public ArrayList<Ontwikkelingskaart> niveau1 = new ArrayList<>();
+public ArrayList<Ontwikkelingskaart> niveau2 = new ArrayList<>();
+public ArrayList<Ontwikkelingskaart> niveau3 = new ArrayList<>();
 
 	
 	public ontwikkelingskaarten() throws IOException {
@@ -80,7 +80,7 @@ private ArrayList<Ontwikkelingskaart> niveau3 = new ArrayList<>();
 	
 	String imagePath12 = cwd + "/src/images/12.png";
 	BufferedImage image12 = ImageIO.read(new File(imagePath12));
-	Edelsteen[] prijsVanKaart_12 = {Edelsteen.SAFFIEREN, Edelsteen.SMARAGDEN, Edelsteen.SMARAGDEN};
+	Edelsteen[] prijsVanKaart_12 = {Edelsteen.SAFFIEREN, Edelsteen.SAFFIEREN, Edelsteen.SMARAGDEN};
 	niveau1.add(new Ontwikkelingskaart(image12,1, Edelsteen.ROBIJNEN, 0, prijsVanKaart_12, 12));
 	
 	String imagePath13 = cwd + "/src/images/13.png";

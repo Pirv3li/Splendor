@@ -20,10 +20,16 @@ public class Spel {
 	private int niveau1StapelSize;
 	private int niveau2StapelSize;
 	private int niveau3StapelSize;
+	ontwikkelingskaarten kaarten;
 
 
 	public Spel() {
 		spelers = new ArrayList<Speler>();
+		try {
+			kaarten = new ontwikkelingskaarten();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void startSpel() {
@@ -354,61 +360,59 @@ public class Spel {
 	 
 	 
 	 public void koopOntwikkelingskaart(int kaartnummer) throws IOException {
-		 Random random = new Random();
-		 ontwikkelingskaarten kaarten = new ontwikkelingskaarten();
-		 int randomIndexNiveau1 = random.nextInt(kaarten.getNiveau1Kaarten().size());
-		 int randomIndexNiveau2 = random.nextInt(kaarten.getNiveau2Kaarten().size());
-		 int randomIndexNiveau3 = random.nextInt(kaarten.getNiveau3Kaarten().size());
-		 List<Ontwikkelingskaart> alleOverzichtKaarten = new ArrayList<>();
-		 alleOverzichtKaarten.addAll(Niveau1Kaarten);
-		 alleOverzichtKaarten.addAll(Niveau2Kaarten);
-		 alleOverzichtKaarten.addAll(Niveau3Kaarten);
-		 Ontwikkelingskaart gekozenOntwikkelingskaart = null;
-		 for(int i=0; i<alleOverzichtKaarten.size(); i++) {
-		 if(alleOverzichtKaarten.get(i).getKaartnummer()==kaartnummer) {
-			 	gekozenOntwikkelingskaart = alleOverzichtKaarten.get(i);
-		 	}
-		 }
-		 HashMap<Edelsteen, Integer> edelstenenInventory = spelers.get(spelerIndex).getEdelstenenInventory();
-		 HashMap<Edelsteen, Integer> bonusedelstenenInventory = spelers.get(spelerIndex).getBonusEdelstenenInventory(); 
-		 Edelsteen[] prijsInArray = gekozenOntwikkelingskaart.getPrijs();
-		 HashMap<Edelsteen, Integer> prijs = new HashMap<>();
+		    Random random = new Random();
+		    int randomIndexNiveau1 = random.nextInt(kaarten.getNiveau1Kaarten().size());
+		    int randomIndexNiveau2 = random.nextInt(kaarten.getNiveau2Kaarten().size());
+		    int randomIndexNiveau3 = random.nextInt(kaarten.getNiveau3Kaarten().size());
+		    List<Ontwikkelingskaart> alleOverzichtKaarten = new ArrayList<>();
+		    alleOverzichtKaarten.addAll(Niveau1Kaarten);
+		    alleOverzichtKaarten.addAll(Niveau2Kaarten);
+		    alleOverzichtKaarten.addAll(Niveau3Kaarten);
+		    Ontwikkelingskaart gekozenOntwikkelingskaart = null;
+		    for (int i = 0; i < alleOverzichtKaarten.size(); i++) {
+		        if (alleOverzichtKaarten.get(i).getKaartnummer() == kaartnummer) {
+		            gekozenOntwikkelingskaart = alleOverzichtKaarten.get(i);
+		        }
+		    }
+		    HashMap<Edelsteen, Integer> edelstenenInventory = spelers.get(spelerIndex).getEdelstenenInventory();
+		    HashMap<Edelsteen, Integer> bonusedelstenenInventory = spelers.get(spelerIndex).getBonusEdelstenenInventory();
+		    Edelsteen[] prijsInArray = gekozenOntwikkelingskaart.getPrijs();
+		    HashMap<Edelsteen, Integer> prijs = new HashMap<>();
 
-		// Loop over the array and update the counts in the HashMap
-		for (Edelsteen element : prijsInArray) {
-		    if (prijs.containsKey(element)) {
-		        // Increment the count if the element is already in the HashMap
-		        prijs.put(element, prijs.get(element) + 1);
-		    } else {
-		        // Add the element to the HashMap with a count of 1 if it's not already in there
-		        prijs.put(element, 1);
+		    // Loop over the array and update the counts in the HashMap
+		    for (Edelsteen element : prijsInArray) {
+		        if (prijs.containsKey(element)) {
+		            // Increment the count if the element is already in the HashMap
+		            prijs.put(element, prijs.get(element) + 1);
+		        } else {
+		            // Add the element to the HashMap with a count of 1 if it's not already in there
+		            prijs.put(element, 1);
+		        }
+		    }
+		    if (HeeftGenoegEdelstenenOfNietOmKaartTeKopen(prijs, edelstenenInventory, bonusedelstenenInventory)) {
+		        if (gekozenOntwikkelingskaart.getNiveau() == 1) {
+		            Niveau1Kaarten.remove(gekozenOntwikkelingskaart);
+		            Ontwikkelingskaart randomCard1 = kaarten.getNiveau1Kaarten().get(randomIndexNiveau1);
+		            kaarten.getNiveau1Kaarten().remove(randomCard1);
+		            Niveau1Kaarten.add(randomCard1);
+		            this.niveau1StapelSize -= 1;
+		        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
+		            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
+		            Ontwikkelingskaart randomCard2 = kaarten.getNiveau2Kaarten().get(randomIndexNiveau2);
+		            kaarten.getNiveau2Kaarten().remove(randomCard2);
+		            Niveau2Kaarten.add(randomCard2);
+		            this.niveau2StapelSize -= 1;
+		        } else {
+		            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
+		            Ontwikkelingskaart randomCard3 = kaarten.getNiveau3Kaarten().get(randomIndexNiveau3);
+		            kaarten.getNiveau3Kaarten().remove(randomCard3);
+		            Niveau3Kaarten.add(randomCard3);
+		            this.niveau3StapelSize -= 1;
+		        }
+		        spelers.get(spelerIndex).voegOntwikkelingskaartToeAanInventory(gekozenOntwikkelingskaart);
+		        spelers.get(spelerIndex).voegGemsToeAanBonusInventory(gekozenOntwikkelingskaart.getBonus());
 		    }
 		}
-		if(HeeftGenoegEdelstenenOfNietOmKaartTeKopen(prijs,edelstenenInventory,bonusedelstenenInventory)) {
-			if (gekozenOntwikkelingskaart.getNiveau() == 1) {
-	            Niveau1Kaarten.remove(gekozenOntwikkelingskaart);
-	            kaarten.getNiveau1Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-1);
-	            Ontwikkelingskaart randomCard1 = kaarten.getNiveau1Kaarten().get(randomIndexNiveau1);
-	            Niveau1Kaarten.add(randomCard1);
-	            this.niveau1StapelSize -= 1;
-	        } else if (gekozenOntwikkelingskaart.getNiveau() == 2) {
-	            Niveau2Kaarten.remove(gekozenOntwikkelingskaart);
-	            kaarten.getNiveau2Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-41);
-	            Ontwikkelingskaart randomCard2 = kaarten.getNiveau2Kaarten().get(randomIndexNiveau2);
-	            Niveau2Kaarten.add(randomCard2);
-	            this.niveau2StapelSize -= 1;
-	        } else {
-	            Niveau3Kaarten.remove(gekozenOntwikkelingskaart);
-	            kaarten.getNiveau3Kaarten().remove(gekozenOntwikkelingskaart.getKaartnummer()-71);
-	            Ontwikkelingskaart randomCard3 = kaarten.getNiveau3Kaarten().get(randomIndexNiveau3);
-	            Niveau3Kaarten.add(randomCard3);
-	            this.niveau3StapelSize -= 1;
-	        }
-			spelers.get(spelerIndex).voegOntwikkelingskaartToeAanInventory(gekozenOntwikkelingskaart);
-			spelers.get(spelerIndex).voegGemsToeAanBonusInventory(gekozenOntwikkelingskaart.getBonus());
-
-		}
-	 }
 	 
 	 private boolean HeeftGenoegEdelstenenOfNietOmKaartTeKopen(HashMap<Edelsteen, Integer> kaartPrijs, HashMap<Edelsteen, Integer> spelerInventory, HashMap<Edelsteen, Integer> bonusInventory) {
 		 boolean cardPurchased = false; 
@@ -426,6 +430,7 @@ public class Spel {
 
 		         if (bonusCount >= requiredCount) {
 		             remainingRequiredCount = 0;
+		             cardPurchased = true;
 		         } 
 		         else if(bonusCount < requiredCount) {
 		             remainingRequiredCount -= bonusCount;

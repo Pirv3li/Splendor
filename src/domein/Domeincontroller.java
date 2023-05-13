@@ -70,11 +70,11 @@ public class Domeincontroller {
 
 	public void voegSpelerToe(String naam, int geboortejaar) {
 		spelers = spel.getSpelerNamen();
-		if(!spelers.contains(naam) && repo.bestaatSpeler(naam,geboortejaar)) {
-		spel.voegSpelerToe(naam, geboortejaar);
-		}
-		else {
+		if(spelers.contains(naam)) {
 			throw new IllegalArgumentException(naam + " is al toegevoegd!");
+		}
+		else if(repo.bestaatSpeler(naam,geboortejaar)) {
+		spel.voegSpelerToe(naam, geboortejaar);
 		}
 	}
 	

@@ -312,6 +312,11 @@ public class SpelBordController {
     
     private ResourceBundle bundle;
     
+    private int winnaarIndex;
+    
+    @FXML
+    private Label WinnaarLabel;
+    
     
     public void setDc(Domeincontroller dc) {
     	selectedGems = new ArrayList<>();
@@ -413,7 +418,16 @@ public class SpelBordController {
     }
     
     private void isWinaar() {
-    	
+    	List<PuntenDto> SpelerPunten = dc.getPunten();
+    	 for (int i = 0; i < SpelerPunten.size(); i++) {
+    	        if (SpelerPunten.get(i).getPunten() >= 15) {
+    			winnaarIndex = i;
+    			WinnaarLabel.setText(spelerNamen.get(i)+" is winnaar met "+SpelerPunten.get(i).getPunten()+" punten");
+    	        WinnaarLabel.setVisible(true);
+    	        WinnaarLabel.setStyle("-fx-background-image: url('images/SplendorVertikaalInlog.jpg');");
+    	        WinnaarLabel.setMouseTransparent(false);
+    		}
+    	}
     }
     
 
@@ -646,6 +660,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
         	setupEdelenImages();
+        	isWinaar();
         } catch (IllegalArgumentException e) {
        	 exceptionLabel.setText(bundle.getString("broke"));
         }
@@ -676,6 +691,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
         	setupEdelenImages();
+        	isWinaar();
            } catch (IllegalArgumentException e) {
           	 exceptionLabel.setText(bundle.getString("broke"));
            }  
@@ -705,6 +721,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
         	setupEdelenImages();
+        	isWinaar();
            } catch (IllegalArgumentException e) {
           	 exceptionLabel.setText(bundle.getString("broke"));
            }   
@@ -735,6 +752,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
         	setupEdelenImages();
+        	isWinaar();
            } catch (IllegalArgumentException e) {
           	 exceptionLabel.setText(bundle.getString("broke"));
            }         
@@ -765,6 +783,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen();
         	dc.setEdelenDto();
         	setupEdelenImages();
+        	isWinaar();
            } catch (IllegalArgumentException e) {
           	 exceptionLabel.setText(bundle.getString("broke"));
            }  
@@ -795,6 +814,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto();
         	setupEdelenImages();
+        	isWinaar();
          } catch (IllegalArgumentException e) {
         	 exceptionLabel.setText(bundle.getString("broke"));
          }        
@@ -825,7 +845,7 @@ public class SpelBordController {
          	dc.neemEdelenAlsGenoegBonusEdelstenen();
         	dc.setEdelenDto();
         	setupEdelenImages();
-        	
+        	isWinaar();
          } catch (IllegalArgumentException e) {
         	 exceptionLabel.setText(bundle.getString("broke"));
          }     
@@ -856,6 +876,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen();
         	dc.setEdelenDto();
         	setupEdelenImages();
+        	isWinaar();
          } catch (IllegalArgumentException e) {
              exceptionLabel.setText(bundle.getString("broke"));
          }       
@@ -886,6 +907,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen();
         	dc.setEdelenDto(); 
         	setupEdelenImages();
+        	isWinaar();
          } catch (IllegalArgumentException e) {
         	 exceptionLabel.setText(bundle.getString("broke"));
          }     
@@ -916,6 +938,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
         	setupEdelenImages();
+        	isWinaar();
          } catch (IllegalArgumentException e) {
         	 exceptionLabel.setText(bundle.getString("broke"));
          }      
@@ -946,6 +969,7 @@ public class SpelBordController {
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto();
         	setupEdelenImages();
+        	isWinaar();
          } catch (IllegalArgumentException e) {
         	 exceptionLabel.setText(bundle.getString("broke"));
          }     
@@ -977,6 +1001,7 @@ public class SpelBordController {
          	dc.neemEdelenAlsGenoegBonusEdelstenen();
          	dc.setEdelenDto();
          	setupEdelenImages();
+         	isWinaar();
          } catch (IllegalArgumentException e) {
         	 exceptionLabel.setText(bundle.getString("broke"));
          }   

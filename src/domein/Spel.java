@@ -465,14 +465,12 @@ public class Spel {
 	 
 	 public void neemEdelAlsSpelerGenoegBonusEdelstenenHeeft() {
 		 HashMap<Edelsteen,Integer> bonusInventory = spelers.get(spelerIndex).getBonusEdelstenenInventory();
-		 Random random = new Random();
 		 Edelen utilEdelen = null;
 		try {
 			utilEdelen = new Edelen();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		 int randomEdel = random.nextInt(utilEdelen.getEdelen().size());
 		 for(int i=0; i<edelen.size(); i++) {
 		 Edelsteen[] prijsInArray = edelen.get(i).getPrijs();
 		 HashMap<Edelsteen,Integer> prijs = new HashMap<>();
@@ -486,8 +484,6 @@ public class Spel {
 		 if(heeftGenoegBonusEdelstenenOmEdelTeNemen(prijs,bonusInventory)) {
 			 spelers.get(spelerIndex).voegEdelenAanInventory(edelen.get(i));
 			 edelen.remove(i);
-			 utilEdelen.getEdelen().remove(i);
-			 edelen.add(utilEdelen.getEdelen().get(randomEdel));
 		 	}
 		 }
 		 

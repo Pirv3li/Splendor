@@ -172,24 +172,45 @@ public class Domeincontroller {
 	}
 	
 	public void setOntwikkelingskaartenDtos() {
-		Niveau1Kaarten = new ArrayList<>();
-		Niveau2Kaarten = new ArrayList<>();
-		Niveau3Kaarten = new ArrayList<>();
-		Niveau1Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(0).getKaartnummer(),spel.getNiveau1Kaarten().get(0).getImage()));
-		Niveau1Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(1).getKaartnummer(),spel.getNiveau1Kaarten().get(1).getImage()));
-		Niveau1Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(2).getKaartnummer(),spel.getNiveau1Kaarten().get(2).getImage()));
-		Niveau1Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(3).getKaartnummer(),spel.getNiveau1Kaarten().get(3).getImage()));
-		
-		Niveau2Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(0).getKaartnummer(),spel.getNiveau2Kaarten().get(0).getImage()));
-		Niveau2Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(1).getKaartnummer(),spel.getNiveau2Kaarten().get(1).getImage()));
-		Niveau2Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(2).getKaartnummer(),spel.getNiveau2Kaarten().get(2).getImage()));
-		Niveau2Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(3).getKaartnummer(),spel.getNiveau2Kaarten().get(3).getImage()));
-		
-		Niveau3Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(0).getKaartnummer(),spel.getNiveau3Kaarten().get(0).getImage()));
-		Niveau3Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(1).getKaartnummer(),spel.getNiveau3Kaarten().get(1).getImage()));
-		Niveau3Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(2).getKaartnummer(),spel.getNiveau3Kaarten().get(2).getImage()));
-		Niveau3Kaarten.add(new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(3).getKaartnummer(),spel.getNiveau3Kaarten().get(3).getImage()));
+	    Niveau1Kaarten = new ArrayList<>();
+	    Niveau2Kaarten = new ArrayList<>();
+	    Niveau3Kaarten = new ArrayList<>();
+
+	    if (spel.getNiveau1Kaarten().size() > 0) {
+	        for (int i = 0; i < 4; i++) {
+	            if (i < spel.getNiveau1Kaarten().size()) {
+	                OntwikkelingskaartDto kaartDto = new OntwikkelingskaartDto(spel.getNiveau1Kaarten().get(i).getKaartnummer(), spel.getNiveau1Kaarten().get(i).getImage());
+	                Niveau1Kaarten.add(kaartDto);
+	            } else {
+	                Niveau1Kaarten.add(null);
+	            }
+	        }
+	    }
+
+	    if (spel.getNiveau2Kaarten().size() > 0) {
+	        for (int i = 0; i < 4; i++) {
+	            if (i < spel.getNiveau2Kaarten().size()) {
+	                OntwikkelingskaartDto kaartDto = new OntwikkelingskaartDto(spel.getNiveau2Kaarten().get(i).getKaartnummer(), spel.getNiveau2Kaarten().get(i).getImage());
+	                Niveau2Kaarten.add(kaartDto);
+	            } else {
+	                Niveau2Kaarten.add(null);
+	            }
+	        }
+	    }
+
+	    if (spel.getNiveau3Kaarten().size() > 0) {
+	        for (int i = 0; i < 4; i++) {
+	            if (i < spel.getNiveau3Kaarten().size()) {
+	                OntwikkelingskaartDto kaartDto = new OntwikkelingskaartDto(spel.getNiveau3Kaarten().get(i).getKaartnummer(), spel.getNiveau3Kaarten().get(i).getImage());
+	                Niveau3Kaarten.add(kaartDto);
+	            } else {
+	                Niveau3Kaarten.add(null);
+	            }
+	        }
+	    }
 	}
+
+
 	
 	public List<OntwikkelingskaartDto> getNiveau1Kaarten(){
 		return this.Niveau1Kaarten;
@@ -222,14 +243,13 @@ public class Domeincontroller {
 	}
 	
 	public void setEdelenDto() {
-		edelen = new ArrayList<>();
-		List<Edel> alleEdelen = spel.getEdelen();
-		edelen.add(new EdelenDto(alleEdelen.get(0).getEdelImage()));
-		edelen.add(new EdelenDto(alleEdelen.get(1).getEdelImage()));
-		edelen.add(new EdelenDto(alleEdelen.get(2).getEdelImage()));
-		edelen.add(new EdelenDto(alleEdelen.get(3).getEdelImage()));
-		edelen.add(new EdelenDto(alleEdelen.get(4).getEdelImage()));
+	    edelen = new ArrayList<>();
+	    List<Edel> alleEdelen = spel.getEdelen();
+	    for (int i = 0; i < alleEdelen.size() && i < 5; i++) {
+	        edelen.add(new EdelenDto(alleEdelen.get(i).getEdelImage()));
+	    }
 	}
+
 	
 	public List<EdelenDto> getEdelen(){
 		return this.edelen;

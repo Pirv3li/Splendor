@@ -332,13 +332,40 @@ public class SpelBordController {
     }
     
     private void setupEdelenImages() {
-    	edelen = dc.getEdelen();
-    	setImageToEdelButton(btnEdel1, edelen.get(0));
-    	setImageToEdelButton(btnEdel2, edelen.get(1));
-    	setImageToEdelButton(btnEdel3, edelen.get(2));
-    	setImageToEdelButton(btnEdel4, edelen.get(3));
-    	setImageToEdelButton(btnEdel5, edelen.get(4));
+        edelen = dc.getEdelen();
+        for (int i = 0; i < edelen.size(); i++) {
+            EdelenDto edelDto = edelen.get(i);
+            switch (i) {
+                case 0:
+                    setImageToEdelButton(btnEdel1, edelDto);
+                    btnEdel1.setVisible(true);
+                    break;
+                case 1:
+                    setImageToEdelButton(btnEdel2, edelDto);
+                    btnEdel2.setVisible(true);
+                    break;
+                case 2:
+                    setImageToEdelButton(btnEdel3, edelDto);
+                    btnEdel3.setVisible(true);
+                    break;
+                case 3:
+                    setImageToEdelButton(btnEdel4, edelDto);
+                    btnEdel4.setVisible(true);
+                    break;
+                case 4:
+                    setImageToEdelButton(btnEdel5, edelDto);
+                    btnEdel5.setVisible(true);
+                    break;
+            }
+        }
+        btnEdel1.setVisible(edelen.size() >= 1);
+        btnEdel2.setVisible(edelen.size() >= 2);
+        btnEdel3.setVisible(edelen.size() >= 3);
+        btnEdel4.setVisible(edelen.size() >= 4);
+        btnEdel5.setVisible(edelen.size() == 5);
     }
+
+
     
     private void setImageToEdelButton(Button button, EdelenDto edelen) {
         if (edelen.getImage() != null) {
@@ -382,33 +409,107 @@ public class SpelBordController {
     }
     
     private void setupButtonImages() {
-    	Niveau1Kaarten = dc.getNiveau1Kaarten();
-    	Niveau2Kaarten = dc.getNiveau2Kaarten();
-    	Niveau3Kaarten = dc.getNiveau3Kaarten();
-        setImageToButton(btnKaart1, Niveau1Kaarten.get(0));
-        setImageToButton(btnKaart2, Niveau1Kaarten.get(1));
-        setImageToButton(btnKaart3, Niveau1Kaarten.get(2));
-        setImageToButton(btnKaart4, Niveau1Kaarten.get(3));
+        Niveau1Kaarten = dc.getNiveau1Kaarten();
+        Niveau2Kaarten = dc.getNiveau2Kaarten();
+        Niveau3Kaarten = dc.getNiveau3Kaarten();
+        int n1Size = Niveau1Kaarten.size();
+        int n2Size = Niveau2Kaarten.size();
+        int n3Size = Niveau3Kaarten.size();
+
+        if (n1Size > 0 && Niveau1Kaarten.get(0) != null) {
+            setImageToButton(btnKaart1, Niveau1Kaarten.get(0));
+            btnKaart1.setVisible(true);
+        } else {
+            btnKaart1.setVisible(false);
+        }
+
+        if (n1Size > 1 && Niveau1Kaarten.get(1) != null) {
+            setImageToButton(btnKaart2, Niveau1Kaarten.get(1));
+            btnKaart2.setVisible(true);
+        } else {
+            btnKaart2.setVisible(false);
+        }
+
+        if (n1Size > 2 && Niveau1Kaarten.get(2) != null) {
+            setImageToButton(btnKaart3, Niveau1Kaarten.get(2));
+            btnKaart3.setVisible(true);
+        } else {
+            btnKaart3.setVisible(false);
+        }
+
+        if (n1Size > 3 && Niveau1Kaarten.get(3) != null) {
+            setImageToButton(btnKaart4, Niveau1Kaarten.get(3));
+            btnKaart4.setVisible(true);
+        } else {
+            btnKaart4.setVisible(false);
+        }
+
+        if (n2Size > 0 && Niveau2Kaarten.get(0) != null) {
+            setImageToButton(btnKaart5, Niveau2Kaarten.get(0));
+            btnKaart5.setVisible(true);
+        } else {
+            btnKaart5.setVisible(false);
+        }
+
+        if (n2Size > 1 && Niveau2Kaarten.get(1) != null) {
+            setImageToButton(btnKaart6, Niveau2Kaarten.get(1));
+            btnKaart6.setVisible(true);
+        } else {
+            btnKaart6.setVisible(false);
+        }
+
+        if (n2Size > 2 && Niveau2Kaarten.get(2) != null) {
+            setImageToButton(btnKaart7, Niveau2Kaarten.get(2));
+            btnKaart7.setVisible(true);
+        } else {
+            btnKaart7.setVisible(false);
+        }
+
+        if (n2Size > 3 && Niveau2Kaarten.get(3) != null) {
+            setImageToButton(btnKaart8, Niveau2Kaarten.get(3));
+            btnKaart8.setVisible(true);
+        } else {
+            btnKaart8.setVisible(false);
+        }
+
+        if (n3Size > 0 && Niveau3Kaarten.get(0) != null) {
+            setImageToButton(btnKaart9, Niveau3Kaarten.get(0));
+            btnKaart9.setVisible(true);
+        } else {
+            btnKaart9.setVisible(false);
+        }
+
+        if (n3Size > 1 && Niveau3Kaarten.get(1) != null) {
+            setImageToButton(btnKaart10, Niveau3Kaarten.get(1));
+            btnKaart10.setVisible(true);
+        } else {
+            btnKaart10.setVisible(false);
+        }
+
+        if (n3Size > 2 && Niveau3Kaarten.get(2) != null) {
+            setImageToButton(btnKaart11, Niveau3Kaarten.get(2));
+            btnKaart11.setVisible(true);
+        } else {
+            btnKaart11.setVisible(false);
+        }
         
-        setImageToButton(btnKaart5, Niveau2Kaarten.get(0));
-        setImageToButton(btnKaart6, Niveau2Kaarten.get(1));
-        setImageToButton(btnKaart7, Niveau2Kaarten.get(2));
-        setImageToButton(btnKaart8, Niveau2Kaarten.get(3));
-        
-        setImageToButton(btnKaart9, Niveau3Kaarten.get(0));
-        setImageToButton(btnKaart10, Niveau3Kaarten.get(1));
-        setImageToButton(btnKaart11, Niveau3Kaarten.get(2));
-        setImageToButton(btnKaart12, Niveau3Kaarten.get(3));
+        if (n3Size > 3 && Niveau3Kaarten.get(3) != null) {
+            setImageToButton(btnKaart12, Niveau3Kaarten.get(3));
+            btnKaart12.setVisible(true);
+        } else {
+            btnKaart12.setVisible(false);
+        }
     }
+
+
+
     
     private void setImageToButton(Button button, OntwikkelingskaartDto ontwikkelingskaartDto) {
-        if (ontwikkelingskaartDto.getImage() != null) {
             Image image = SwingFXUtils.toFXImage(ontwikkelingskaartDto.getImage(), null);
             ImageView imageView = new ImageView(image);
             imageView.setFitHeight(129);
             imageView.setFitWidth(90);
             button.setGraphic(imageView);
-        }
         if(dc.isBuyable(ontwikkelingskaartDto.getKaartnummer())) {
         	button.setStyle("-fx-background-color: green");
         }
@@ -655,10 +756,10 @@ public class SpelBordController {
             setupButtonImages();
         	dc.setInventoryDto();
         	setInventory();
-        	setPunten();
-        	setLabels();
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
+        	setPunten();
+        	setLabels();
         	setupEdelenImages();
         	isWinaar();
         } catch (IllegalArgumentException e) {
@@ -686,10 +787,10 @@ public class SpelBordController {
             setupButtonImages();
            	dc.setInventoryDto();
            	setInventory();
-           	setPunten();
-           	setLabels();
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
+           	setPunten();
+           	setLabels();
         	setupEdelenImages();
         	isWinaar();
            } catch (IllegalArgumentException e) {
@@ -716,10 +817,10 @@ public class SpelBordController {
             setupButtonImages();
            	dc.setInventoryDto();
            	setInventory();
-           	setPunten();
-           	setLabels();
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
+           	setPunten();
+           	setLabels();
         	setupEdelenImages();
         	isWinaar();
            } catch (IllegalArgumentException e) {
@@ -747,10 +848,10 @@ public class SpelBordController {
             setupButtonImages();
            	dc.setInventoryDto();
            	setInventory();
-           	setPunten();
-           	setLabels();
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
+           	setPunten();
+           	setLabels();
         	setupEdelenImages();
         	isWinaar();
            } catch (IllegalArgumentException e) {
@@ -778,10 +879,10 @@ public class SpelBordController {
             setupButtonImages();
            	dc.setInventoryDto();
            	setInventory();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
            	setPunten();
            	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
-        	dc.setEdelenDto();
         	setupEdelenImages();
         	isWinaar();
            } catch (IllegalArgumentException e) {
@@ -809,10 +910,10 @@ public class SpelBordController {
             setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
          	setPunten();
          	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
-        	dc.setEdelenDto();
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
@@ -840,10 +941,10 @@ public class SpelBordController {
             setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
          	setPunten();
          	setLabels();
-         	dc.neemEdelenAlsGenoegBonusEdelstenen();
-        	dc.setEdelenDto();
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
@@ -871,10 +972,10 @@ public class SpelBordController {
             setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
          	setPunten();
          	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
-        	dc.setEdelenDto();
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
@@ -902,10 +1003,10 @@ public class SpelBordController {
             setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
          	setPunten();
          	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen();
-        	dc.setEdelenDto(); 
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
@@ -933,10 +1034,10 @@ public class SpelBordController {
          	setSpelerAandebeurt();
          	dc.setInventoryDto();
          	setInventory();
-         	setPunten();
-         	setLabels();
         	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
         	dc.setEdelenDto(); 
+         	setPunten();
+         	setLabels();
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
@@ -964,10 +1065,10 @@ public class SpelBordController {
             setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
          	setPunten();
          	setLabels();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
-        	dc.setEdelenDto();
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
@@ -996,10 +1097,10 @@ public class SpelBordController {
             setupButtonImages();
          	dc.setInventoryDto();
          	setInventory();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); 
+        	dc.setEdelenDto(); 
          	setPunten();
          	setLabels();   
-         	dc.neemEdelenAlsGenoegBonusEdelstenen();
-         	dc.setEdelenDto();
          	setupEdelenImages();
          	isWinaar();
          } catch (IllegalArgumentException e) {

@@ -1266,7 +1266,7 @@ public class SpelBordController {
     
     public void initialize() {
         Locale currentLocale = Locale.getDefault();
-        bundle = ResourceBundle.getBundle("gui.messages", currentLocale);
+        bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
         neemEdelstenen.setText(bundle.getString("take"));
         pass.setText(bundle.getString("pass"));
         switchLanguageButton.setText(bundle.getString("switch"));
@@ -1284,7 +1284,7 @@ public class SpelBordController {
         } else {
             Locale.setDefault(new Locale("en", "GB"));
         }
-        bundle = ResourceBundle.getBundle("gui.messages", Locale.getDefault());
+        bundle = ResourceBundle.getBundle("resources/messages", Locale.getDefault());
         setResourceBundle(bundle);
     }
 

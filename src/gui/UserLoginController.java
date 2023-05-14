@@ -131,7 +131,7 @@ public class UserLoginController extends Pane {
     // Step 4: Load the resource bundle based on the default locale
     public void initialize() {
         Locale currentLocale = Locale.getDefault();
-        bundle = ResourceBundle.getBundle("gui.messages", currentLocale);
+        bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
         titleLabel.setText(bundle.getString("login"));
         usernameField.setPromptText(bundle.getString("name"));
         birthYearField.setPromptText(bundle.getString("birth"));
@@ -149,7 +149,7 @@ public class UserLoginController extends Pane {
         } else {
             Locale.setDefault(new Locale("en", "GB"));
         }
-        bundle = ResourceBundle.getBundle("gui.messages", Locale.getDefault());
+        bundle = ResourceBundle.getBundle("resources/messages", Locale.getDefault());
         setResourceBundle(bundle);
     }
 }

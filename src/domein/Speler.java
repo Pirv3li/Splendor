@@ -68,6 +68,7 @@ public class Speler {
 	}
 
 	public void setGeboortejaar(int geboortejaar) {
+		//
 		// domeinregels voor geboortejaar, kijk naar exception om te verstaan wat ze doen. 
 	    int huidigJaar = Calendar.getInstance().get(Calendar.YEAR);
 	    

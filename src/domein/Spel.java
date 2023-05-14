@@ -20,6 +20,7 @@ public class Spel {
 	private int niveau2StapelSize;
 	private int niveau3StapelSize;
 	ontwikkelingskaarten kaarten;
+	private int edelstenenCount;
 
 
 	public Spel() {
@@ -226,6 +227,10 @@ public class Spel {
 			     sb.append("\n");
 		    return sb.toString();
 		        }
+	 
+	 public int getInventoryCount() {
+		 return this.edelstenenCount;
+	 }
 		    
 	 
 	 public String toonEdelenOverzicht() {
@@ -258,6 +263,7 @@ public class Spel {
 			 edelstenen.put(edelsteen, currentAantal - aantal);
 		 }
 		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
+		 edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
 	 }
 	 		
 	 public void neem_2_Edelstenen(Edelsteen edelsteen, int aantal) {
@@ -269,6 +275,62 @@ public class Spel {
 			 throw new IllegalArgumentException("Je mag enkel 1 edelsteen pakken als er minder dan 4 edelstenen zijn !"); 
 		 }
 		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
+		 edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
+	 }
+	 
+		public void zetEdelstenenTerugString(List<String> edelsteenStrings) {
+			 if (edelsteenStrings == null || edelsteenStrings.isEmpty()) {
+			        System.out.println("Invalid Edelstenen selected");
+			        return;
+			    }
+			    
+			    List<Edelsteen> edelstenen = new ArrayList<>();
+			    for (String edelsteenString : edelsteenStrings) {
+			        try {
+			            Edelsteen edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
+			            edelstenen.add(edelsteen);
+			        } catch (IllegalArgumentException e) {
+			            System.out.println("Invalid Edelsteenfiche");
+			            return;
+			        }
+			    }
+
+				 if(edelstenenCount>10) {
+					    if (edelstenen.size() == 1 && new HashSet<>(edelstenen).size() == 1) {
+					        zetEdelstenenTerug(edelstenen.get(0),1);
+					        return;
+					    }
+					    
+					    if (edelstenen.size() == 2 && edelstenen.get(0).equals(edelstenen.get(1))) {
+					        zetEdelstenenTerug(edelstenen.get(0), 2);
+					        return;
+					    }
+					    if (edelstenen.size() == 2 && new HashSet<>(edelstenen).size() == 2) {
+					        zetEdelstenenTerug(edelstenen.get(0),1);
+					        zetEdelstenenTerug(edelstenen.get(1),1);
+					        return;
+					    }
+					    if (edelstenen.size() == 3 && new HashSet<>(edelstenen).size() == 3) {
+					        zetEdelstenenTerug(edelstenen.get(0),1);
+					        zetEdelstenenTerug(edelstenen.get(1),1);
+					        zetEdelstenenTerug(edelstenen.get(2),1);
+					        return;
+					    }
+				 }
+			    
+		}
+	 
+	 public void zetEdelstenenTerug(Edelsteen edelsteen, int aantal) {
+		 int currentAantal = edelstenen.get(edelsteen);
+		 int inventoryCurrentAantal = spelers.get(spelerIndex).getEdelstenenInventory().get(edelsteen);
+		 int edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
+		 if(inventoryCurrentAantal>=1) {
+			 edelstenen.put(edelsteen, currentAantal + aantal);
+			 spelers.get(spelerIndex).getEdelstenenInventory().put(edelsteen, inventoryCurrentAantal - aantal);
+		 }
+		 else {
+			 throw new IllegalArgumentException("U heeft niet genoeg edelstenen");
+		 }
 	 }
 	 
 	 public ArrayList<Integer> telPuntenOp() {

@@ -136,7 +136,14 @@ public class Domeincontroller {
 	    
 	    System.out.println("Invalid combination of Edelstenen selected");
 	}
-
+	
+	public int getInventoryCount() {
+		return spel.getInventoryCount();
+	}
+	
+	public void zetEdelstenenTerug(List<String> edelsteenStrings) {
+		    spel.zetEdelstenenTerugString(edelsteenStrings);
+	}
 	
 	public void neemEdelenAlsGenoegBonusEdelstenen() {
 		spel.neemEdelAlsSpelerGenoegBonusEdelstenenHeeft();

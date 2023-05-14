@@ -317,6 +317,24 @@ public class SpelBordController {
     @FXML
     private Label WinnaarLabel;
     
+    @FXML
+    private Button InventoryDiamantButton;
+    
+    @FXML
+    private Button InventorySaffierButton;
+    
+    @FXML
+    private Button InventorySmaragdButton;
+    
+    @FXML
+    private Button InventoryRobijnButton;
+    
+    @FXML
+    private Button InventoryOnyxButton;
+    
+    @FXML
+    private Button terugZettenButton;
+    
     
     public void setDc(Domeincontroller dc) {
     	selectedGems = new ArrayList<>();
@@ -540,14 +558,8 @@ public class SpelBordController {
             	selectedGems = new ArrayList<>();
                 dc.setEdelstenenAantalDto();
             	setupEdelstenenAantal();
-            	dc.volgendeSpeler();
-            	setSpelerAandebeurt();
-            	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
             	dc.setInventoryDto();
             	setInventory();
-            	setPunten();
-                dc.setOntwikkelingskaartenDtos();
-            	setupButtonImages();
             } else {
             	throw new IllegalArgumentException(bundle.getString("keuze"));
             }
@@ -567,14 +579,8 @@ public class SpelBordController {
             	selectedGems = new ArrayList<>();
                 dc.setEdelstenenAantalDto();
             	setupEdelstenenAantal();
-            	dc.volgendeSpeler();
-            	setSpelerAandebeurt();
-            	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
             	dc.setInventoryDto();
             	setInventory();
-            	setPunten();
-                dc.setOntwikkelingskaartenDtos();
-            	setupButtonImages();
             } else {
             	throw new IllegalArgumentException(bundle.getString("keuze"));
             }
@@ -679,10 +685,64 @@ public class SpelBordController {
         try {
             if (selectedGems.size() == 3) {
                 checkSelectedGems3();
+                if(dc.getInventoryCount()>10) {
+                	exceptionLabel.setText("U heeft meer dan 10 edelstenen in uw Inventory, zet edelstenen terug zo dat u 10 of minder edelstenen heeft in uw inventory");
+                	InventoryDiamantButton.setVisible(true);
+                	InventorySaffierButton.setVisible(true);
+                	InventorySmaragdButton.setVisible(true);
+                	InventoryRobijnButton.setVisible(true);
+                	InventoryOnyxButton.setVisible(true);
+                	terugZettenButton.setVisible(true);
+                	btnGem1.setDisable(true);
+                	btnGem2.setDisable(true);
+                	btnGem3.setDisable(true);
+                	btnGem4.setDisable(true);
+                	btnGem5.setDisable(true);
+                	neemEdelstenen.setDisable(true);
+                	pass.setDisable(true);
+
+                }
+                else {
                 exceptionLabel.setText("");
+            	dc.volgendeSpeler();
+            	setSpelerAandebeurt();
+            	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
+            	dc.setInventoryDto();
+            	setInventory();
+            	setPunten();
+                dc.setOntwikkelingskaartenDtos();
+            	setupButtonImages();
+                }
             } else if (selectedGems.size() == 2) {
                 checkSelectedGems();
+            	 if(dc.getInventoryCount()>10) {
+                 	exceptionLabel.setText("U heeft meer dan 10 edelstenen in uw Inventory, zet edelstenen terug zo dat u 10 of minder edelstenen heeft in uw inventory");
+                 	InventoryDiamantButton.setVisible(true);
+                 	InventorySaffierButton.setVisible(true);
+                 	InventorySmaragdButton.setVisible(true);
+                 	InventoryRobijnButton.setVisible(true);
+                 	InventoryOnyxButton.setVisible(true);
+                 	terugZettenButton.setVisible(true);
+                 	btnGem1.setDisable(true);
+                 	btnGem2.setDisable(true);
+                 	btnGem3.setDisable(true);
+                 	btnGem4.setDisable(true);
+                 	btnGem5.setDisable(true);
+                 	neemEdelstenen.setDisable(true);
+                 	pass.setDisable(true);
+
+                 }
+            	 else {
                 exceptionLabel.setText("");
+            	dc.volgendeSpeler();
+            	setSpelerAandebeurt();
+            	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
+            	dc.setInventoryDto();
+            	setInventory();
+            	setPunten();
+                dc.setOntwikkelingskaartenDtos();
+            	setupButtonImages();
+            	 }
             }            
             else {
                 throw new IllegalArgumentException(bundle.getString("keuze"));
@@ -705,6 +765,78 @@ public class SpelBordController {
         btnGem5.setStyle(null);
 
     }
+    
+    @FXML
+    void zetEdelstenenTerug(ActionEvent event) {
+    	if(dc.getInventoryCount()-selectedGems.size()<=10) {
+    		dc.zetEdelstenenTerug(selectedGems);
+       	 exceptionLabel.setText("");
+        	dc.volgendeSpeler();
+        	setSpelerAandebeurt();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
+        	dc.setEdelstenenAantalDto();
+        	setupEdelstenenAantal();
+        	dc.setInventoryDto();
+        	setInventory();
+        	setPunten();
+            dc.setOntwikkelingskaartenDtos();
+        	setupButtonImages();
+        	terugZettenButton.setVisible(false);
+        	InventoryDiamantButton.setVisible(false);
+        	InventorySaffierButton.setVisible(false);
+        	InventorySmaragdButton.setVisible(false);
+        	InventoryRobijnButton.setVisible(false);
+        	InventoryOnyxButton.setVisible(false);
+        	terugZettenButton.setVisible(false);
+        	btnGem1.setDisable(false);
+        	btnGem2.setDisable(false);
+        	btnGem3.setDisable(false);
+        	btnGem4.setDisable(false);
+        	btnGem5.setDisable(false);
+        	neemEdelstenen.setDisable(false);
+        	pass.setDisable(false);
+    	}
+    	else {
+    		exceptionLabel.setText("Je hebt meer dan 10 edelsteenfiches in uw Inventory, zet edelstenen terug");
+    		
+    	}
+    	InventoryDiamantButton.setStyle(null);
+    	InventorySaffierButton.setStyle(null);
+    	InventorySmaragdButton.setStyle(null);
+    	InventoryRobijnButton.setStyle(null);
+    	InventoryOnyxButton.setStyle(null);
+    	
+    }
+    
+	@FXML
+	void btnInventoryDiamant (ActionEvent event) {
+		selectedGems.add("DIAMANTEN");
+		InventoryDiamantButton.setStyle("-fx-background-color: blue;");
+	}
+	
+	@FXML
+	void btnInventorySaffier (ActionEvent event) {
+		selectedGems.add("SAFFIEREN");
+		InventorySaffierButton.setStyle("-fx-background-color: blue;");
+	}
+	
+	@FXML
+	void btnInventorySmaragd (ActionEvent event) {
+		selectedGems.add("SMARAGDEN");
+		InventorySmaragdButton.setStyle("-fx-background-color: blue;");
+	}
+	
+	@FXML
+	void btnInventoryRobijn (ActionEvent event) {
+		selectedGems.add("ROBIJNEN");
+		InventoryRobijnButton.setStyle("-fx-background-color: blue;");
+	}
+	
+	@FXML
+	void btnInventoryOnyx (ActionEvent event) {
+		selectedGems.add("ONYXEN");
+		InventoryOnyxButton.setStyle("-fx-background-color: blue;");
+	}
     
     @FXML
     void btnGem1(ActionEvent event) {

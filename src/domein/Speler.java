@@ -103,7 +103,7 @@ public class Speler {
 		for (int count : edelsteenfichesInventory.values()) {
 		    totalGems += count;
 		}
-		if(totalGems<10) {
+		if(totalGems<13) {
 		// Get the current value for the given Edelsteen
 		int currentValue = this.edelsteenfichesInventory.getOrDefault(edelsteen, 0);
 
@@ -114,7 +114,7 @@ public class Speler {
 		this.edelsteenfichesInventory.put(edelsteen, newValue);
 		}
 		else {
-			throw new IllegalArgumentException("uw Inventory is vol, u hebt 10 edelsteenfiches!");
+			throw new IllegalArgumentException("uw Inventory is vol");
 		}
 
 	}

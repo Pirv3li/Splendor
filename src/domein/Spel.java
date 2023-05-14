@@ -12,7 +12,6 @@ public class Spel {
 	private HashMap<Edelsteen, Integer> edelstenen;
 	private ArrayList<Speler> spelers;
 	private List<Edel> edelen;
-//	private List<Ontwikkelingskaart> ontwikkelingsKaarten;
 	private int spelerIndex;
 	private List<Ontwikkelingskaart> Niveau1Kaarten;
 	private List<Ontwikkelingskaart> Niveau2Kaarten;
@@ -33,7 +32,6 @@ public class Spel {
 	}
 	
 	public void startSpel() {
-		// domeinregel voor max en min spelers.
  		if (spelers.size() < MIN_SPELERS || spelers.size() > MAX_SPELERS) {
  			throw new IllegalArgumentException("Het aantal spelers moet tussen " + MIN_SPELERS + " en " + MAX_SPELERS + " zijn.");
  		}
@@ -74,50 +72,27 @@ public class Spel {
 	
 	public int getStartSpelerIndex(ArrayList<Speler> spelers) {
 	    int youngestAge = 169;
-	    int numYoungestPlayers = 0;
-//	    int longestUsernameLength = 0;
-//	    int numLongestUsernamePlayers = 0;
-//	    String lastUsername = "";
-//	    int numLastUsernamePlayers = 0;
 	    int startSpelerIndex = -1;
 	    for (int i = 0; i < spelers.size(); i++) {
 	        Speler speler = spelers.get(i);
 	        if (speler.getLeeftijd() < youngestAge) {
 	            youngestAge = speler.getLeeftijd();
-	            numYoungestPlayers = 1;
 	            startSpelerIndex = i;
 	        } else if (speler.getLeeftijd() == youngestAge) {
-	            numYoungestPlayers++;
-	            if (numYoungestPlayers == 1) {
+	            if (spelers.get(startSpelerIndex).getGebruikersnaam().length() < speler.getGebruikersnaam().length()) {
 	                startSpelerIndex = i;
+	            } else if (spelers.get(startSpelerIndex).getGebruikersnaam().length() == speler.getGebruikersnaam().length()) {
+	                String currentUsername = spelers.get(startSpelerIndex).getGebruikersnaam();
+	                String newUsername = speler.getGebruikersnaam();
+	                if (newUsername.compareToIgnoreCase(currentUsername) > 0) {
+	                    startSpelerIndex = i;
+	                }
 	            }
 	        }
-//	        else if (speler.getGebruikersnaam().length() > longestUsernameLength) {
-//	            longestUsernameLength = speler.getGebruikersnaam().length();
-//	            numLongestUsernamePlayers = 1;
-//	            startSpelerIndex = i;
-//	        } else if (speler.getGebruikersnaam().length() == longestUsernameLength) {
-//	            numLongestUsernamePlayers++;
-//	            if (numLongestUsernamePlayers == 1) {
-//	                startSpelerIndex = i;
-//	            }
-//	        }
-//	        else {
-//	        String reversedUsername = new StringBuilder(speler.getGebruikersnaam()).reverse().toString();
-//	        if (reversedUsername.compareTo(lastUsername) > 0) {
-//	            lastUsername = reversedUsername;
-//	            numLastUsernamePlayers = 1;
-//	            startSpelerIndex = i;
-//	        } else if (reversedUsername.equals(lastUsername)) {
-//	            numLastUsernamePlayers++;
-//	            if (numLastUsernamePlayers == 1) {
-//	                startSpelerIndex = i;
-//	            }
-//	        }
-//	       }
 	    }
 	    return startSpelerIndex;
 	}
+	
 	public HashMap<Edelsteen, Integer> getAlleEdelstenen(){
 		return this.edelstenen;
 	}

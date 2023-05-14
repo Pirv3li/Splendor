@@ -700,6 +700,18 @@ public class SpelBordController {
                 	btnGem5.setDisable(true);
                 	neemEdelstenen.setDisable(true);
                 	pass.setDisable(true);
+                	btnKaart1.setDisable(true);
+                 	btnKaart2.setDisable(true);
+                 	btnKaart3.setDisable(true);
+                 	btnKaart4.setDisable(true);
+                 	btnKaart5.setDisable(true);
+                 	btnKaart6.setDisable(true);
+                 	btnKaart7.setDisable(true);
+                 	btnKaart8.setDisable(true);
+                 	btnKaart9.setDisable(true);
+                 	btnKaart10.setDisable(true);
+                 	btnKaart11.setDisable(true);
+                 	btnKaart12.setDisable(true);
 
                 }
                 else {
@@ -730,6 +742,18 @@ public class SpelBordController {
                  	btnGem5.setDisable(true);
                  	neemEdelstenen.setDisable(true);
                  	pass.setDisable(true);
+                 	btnKaart1.setDisable(true);
+                 	btnKaart2.setDisable(true);
+                 	btnKaart3.setDisable(true);
+                 	btnKaart4.setDisable(true);
+                 	btnKaart5.setDisable(true);
+                 	btnKaart6.setDisable(true);
+                 	btnKaart7.setDisable(true);
+                 	btnKaart8.setDisable(true);
+                 	btnKaart9.setDisable(true);
+                 	btnKaart10.setDisable(true);
+                 	btnKaart11.setDisable(true);
+                 	btnKaart12.setDisable(true);
 
                  }
             	 else {
@@ -768,45 +792,76 @@ public class SpelBordController {
     
     @FXML
     void zetEdelstenenTerug(ActionEvent event) {
-    	if(dc.getInventoryCount()-selectedGems.size()<=10) {
-    		dc.zetEdelstenenTerug(selectedGems);
-       	 exceptionLabel.setText("");
-        	dc.volgendeSpeler();
-        	setSpelerAandebeurt();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
-        	dc.setEdelstenenAantalDto();
-        	setupEdelstenenAantal();
-        	dc.setInventoryDto();
-        	setInventory();
-        	setPunten();
-            dc.setOntwikkelingskaartenDtos();
-        	setupButtonImages();
-        	terugZettenButton.setVisible(false);
-        	InventoryDiamantButton.setVisible(false);
-        	InventorySaffierButton.setVisible(false);
-        	InventorySmaragdButton.setVisible(false);
-        	InventoryRobijnButton.setVisible(false);
-        	InventoryOnyxButton.setVisible(false);
-        	terugZettenButton.setVisible(false);
-        	btnGem1.setDisable(false);
-        	btnGem2.setDisable(false);
-        	btnGem3.setDisable(false);
-        	btnGem4.setDisable(false);
-        	btnGem5.setDisable(false);
-        	neemEdelstenen.setDisable(false);
-        	pass.setDisable(false);
-    	}
-    	else {
-    		exceptionLabel.setText("Je hebt meer dan 10 edelsteenfiches in uw Inventory, zet edelstenen terug");
-    		
-    	}
-    	InventoryDiamantButton.setStyle(null);
-    	InventorySaffierButton.setStyle(null);
-    	InventorySmaragdButton.setStyle(null);
-    	InventoryRobijnButton.setStyle(null);
-    	InventoryOnyxButton.setStyle(null);
-    	
+        boolean retry = true;
+        while (retry) {
+            if (dc.getInventoryCount() - selectedGems.size() <= 10) {
+                try {
+                    dc.zetEdelstenenTerug(selectedGems);
+                    exceptionLabel.setText("");
+                    dc.volgendeSpeler();
+                    setSpelerAandebeurt();
+                    dc.neemEdelenAlsGenoegBonusEdelstenen();
+                    dc.setEdelenDto();
+                    setupEdelenImages();
+                    dc.setEdelstenenAantalDto();
+                    setupEdelstenenAantal();
+                    dc.setInventoryDto();
+                    setInventory();
+                    setPunten();
+                    dc.setOntwikkelingskaartenDtos();
+                    setupButtonImages();
+                    terugZettenButton.setVisible(false);
+                    InventoryDiamantButton.setVisible(false);
+                    InventorySaffierButton.setVisible(false);
+                    InventorySmaragdButton.setVisible(false);
+                    InventoryRobijnButton.setVisible(false);
+                    InventoryOnyxButton.setVisible(false);
+                    terugZettenButton.setVisible(false);
+                    btnGem1.setDisable(false);
+                    btnGem2.setDisable(false);
+                    btnGem3.setDisable(false);
+                    btnGem4.setDisable(false);
+                    btnGem5.setDisable(false);
+                    neemEdelstenen.setDisable(false);
+                    pass.setDisable(false);
+                    btnKaart1.setDisable(false);
+                    btnKaart2.setDisable(false);
+                    btnKaart3.setDisable(false);
+                    btnKaart4.setDisable(false);
+                    btnKaart5.setDisable(false);
+                    btnKaart6.setDisable(false);
+                    btnKaart7.setDisable(false);
+                    btnKaart8.setDisable(false);
+                    btnKaart9.setDisable(false);
+                    btnKaart10.setDisable(false);
+                    btnKaart11.setDisable(false);
+                    btnKaart12.setDisable(false);
+                    retry = false;
+                } catch (IllegalArgumentException e) {
+                    exceptionLabel.setText(e.getMessage());
+                    selectedGems.clear();
+                    InventoryDiamantButton.setStyle(null);
+                    InventorySaffierButton.setStyle(null);
+                    InventorySmaragdButton.setStyle(null);
+                    InventoryRobijnButton.setStyle(null);
+                    InventoryOnyxButton.setStyle(null);
+                    retry = false;
+                }
+            } else {
+                exceptionLabel.setText("Je hebt meer dan 10 edelsteenfiches in uw Inventory, zet edelstenen terug");
+                selectedGems.clear();
+                retry = false;
+            }
+        }
+
+        InventoryDiamantButton.setStyle(null);
+        InventorySaffierButton.setStyle(null);
+        InventorySmaragdButton.setStyle(null);
+        InventoryRobijnButton.setStyle(null);
+        InventoryOnyxButton.setStyle(null);
     }
+
+
     
 	@FXML
 	void btnInventoryDiamant (ActionEvent event) {

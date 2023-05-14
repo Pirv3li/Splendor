@@ -323,10 +323,10 @@ public class Spel {
 	 public void zetEdelstenenTerug(Edelsteen edelsteen, int aantal) {
 		 int currentAantal = edelstenen.get(edelsteen);
 		 int inventoryCurrentAantal = spelers.get(spelerIndex).getEdelstenenInventory().get(edelsteen);
-		 int edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
 		 if(inventoryCurrentAantal>=1) {
 			 edelstenen.put(edelsteen, currentAantal + aantal);
 			 spelers.get(spelerIndex).getEdelstenenInventory().put(edelsteen, inventoryCurrentAantal - aantal);
+			 edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
 		 }
 		 else {
 			 throw new IllegalArgumentException("U heeft niet genoeg edelstenen");

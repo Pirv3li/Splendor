@@ -854,44 +854,6 @@ public class SpelBordController {
         InventorySmaragdButton.setStyle(null);
         InventoryRobijnButton.setStyle(null);
         InventoryOnyxButton.setStyle(null);
-    	if(dc.getInventoryCount()-selectedGems.size()<=10) {
-    		dc.zetEdelstenenTerug(selectedGems);
-       	 exceptionLabel.setText("");
-        	dc.volgendeSpeler();
-        	setSpelerAandebeurt();
-        	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
-        	dc.setEdelstenenAantalDto();
-        	setupEdelstenenAantal();
-        	dc.setInventoryDto();
-        	setInventory();
-        	setPunten();
-            dc.setOntwikkelingskaartenDtos();
-        	setupButtonImages();
-        	terugZettenButton.setVisible(false);
-        	InventoryDiamantButton.setVisible(false);
-        	InventorySaffierButton.setVisible(false);
-        	InventorySmaragdButton.setVisible(false);
-        	InventoryRobijnButton.setVisible(false);
-        	InventoryOnyxButton.setVisible(false);
-        	terugZettenButton.setVisible(false);
-        	btnGem1.setDisable(false);
-        	btnGem2.setDisable(false);
-        	btnGem3.setDisable(false);
-        	btnGem4.setDisable(false);
-        	btnGem5.setDisable(false);
-        	neemEdelstenen.setDisable(false);
-        	pass.setDisable(false);
-    	}
-    	else {
-    		exceptionLabel.setText(bundle.getString("more10"));
-    		
-    	}
-    	InventoryDiamantButton.setStyle(null);
-    	InventorySaffierButton.setStyle(null);
-    	InventorySmaragdButton.setStyle(null);
-    	InventoryRobijnButton.setStyle(null);
-    	InventoryOnyxButton.setStyle(null);
-    	
     }
 
 

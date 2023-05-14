@@ -264,6 +264,9 @@ public class Spel {
 		 if(currentAantal>= aantal && aantal == 1) {
 			 edelstenen.put(edelsteen, currentAantal - aantal);
 		 }
+		 else {
+			 throw new IllegalArgumentException("Niet genoeg edelstenen om te nemen");
+		 }
 		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
 		 edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
 	 }

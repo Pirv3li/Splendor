@@ -51,7 +51,7 @@ public class Mapper {
             throw new IllegalArgumentException(bundle.getString("birth")+ " " + geboortejaar + " " + bundle.getString("invalid"));
         }
     }
-//
+
 //    public void voegToe(Speler speler) {
 //        try (
 //                Connection conn = DriverManager.getConnection(Connectie.JDBC_URL);

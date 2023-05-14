@@ -604,5 +604,5 @@ public class Spel {
 	        	  speler.initialize();
 	        	}
 	    }
-//
+
 }

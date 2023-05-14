@@ -17,7 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 public class SpelBordController {
-//
+
 	Domeincontroller dc;
 	private List<String> selectedGems;
 

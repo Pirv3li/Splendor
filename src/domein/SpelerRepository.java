@@ -31,5 +31,5 @@ public class SpelerRepository {
     
 //    public List<Speler> getSpelers() {
 //    	return mapper.geefSpelers();
-//     }
+//  }
 }

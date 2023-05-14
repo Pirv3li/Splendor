@@ -141,7 +141,7 @@ public class UserLoginController extends Pane {
         switchLanguageButton.setText(bundle.getString("switch"));
         list.setText(bundle.getString("list"));
     }
-    //
+   
  // Step 5: Change the locale and reload the resource bundle
     @FXML
     public void onLanguageButtonClick() {

@@ -287,5 +287,5 @@ public class Domeincontroller {
         bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
 		spel.initialize();
 		repo.initialize();
-    }//
+    }
 }

@@ -1,6 +1,9 @@
 package domein;
 
+import java.io.IOException;
 import java.util.*;
+
+import util.ontwikkelingskaarten;
 
 public class Speler {
 
@@ -12,6 +15,7 @@ public class Speler {
 	private int punten;
 	private HashMap<Edelsteen, Integer> bonusEdelsteenfichesInventory;
 	private ArrayList<Edel> edelen;
+	private ResourceBundle bundle;
 	
 	public Speler(String gebruikersnaam, int geboortejaar) {
 		setGebruikersnaam(gebruikersnaam);
@@ -32,7 +36,7 @@ public class Speler {
 			    Edelsteen.ONYXEN, 0
 			));
 		edelen = new ArrayList<>();
-
+		initialize();
 	}
 
 	public String getGebruikersnaam() {
@@ -43,17 +47,17 @@ public class Speler {
 		// Domeinregels voor gebruikersnaam, kijk naar exceptions om te verstaan wat ze doen. 
 		
 		if (gebruikersnaam == null || gebruikersnaam.isBlank()) {
-	        throw new IllegalArgumentException("Gebruikersnaam mag niet leeg zijn.");
+	        throw new IllegalArgumentException(bundle.getString("geenId"));
 	    }
 	    
 	    if (!Character.isLetter(gebruikersnaam.charAt(0))) {
-	        throw new IllegalArgumentException("Gebruikersnaam mag enkel met een letter starten.");
+	        throw new IllegalArgumentException(bundle.getString("pos1AZ"));
 	    }
 	    
 	    for (int i = 0; i < gebruikersnaam.length(); i++) {
 	        char c = gebruikersnaam.charAt(i);
 	        if (!Character.isLetterOrDigit(c) && c != ' ' && c != '_') {
-	            throw new IllegalArgumentException("Gebruikersnaam mag enkel letters, cijfers, spacies en _ bevatten.");
+	            throw new IllegalArgumentException(bundle.getString("foutId"));
 	        }
 	    }
 		this.gebruikersnaam = gebruikersnaam;
@@ -68,14 +72,14 @@ public class Speler {
 	    int huidigJaar = Calendar.getInstance().get(Calendar.YEAR);
 	    
 	    if (geboortejaar < 1900 || geboortejaar > huidigJaar) {
-	        throw new IllegalArgumentException("Geboortejaar is ongeldig.");
+	        throw new IllegalArgumentException(bundle.getString("ongeldigJaar"));
 	    }
 	    
 	    int leeftijd = huidigJaar - geboortejaar;
 	    this.leeftijd = leeftijd;
 	    
 	    if (leeftijd < 6) {
-	        throw new IllegalArgumentException("Gebruiker moet minstens 6 jaar oud zijn.");
+	        throw new IllegalArgumentException(bundle.getString("minAge"));
 	    }
 	    
 	    this.geboortejaar = geboortejaar;
@@ -114,7 +118,7 @@ public class Speler {
 		this.edelsteenfichesInventory.put(edelsteen, newValue);
 		}
 		else {
-			throw new IllegalArgumentException("uw Inventory is vol");
+			throw new IllegalArgumentException(bundle.getString("vol"));
 		}
 
 	}
@@ -150,5 +154,10 @@ public class Speler {
 		this.punten = sum;
 		return punten;
 	}
+	
+	public void initialize() {
+        Locale currentLocale = Locale.getDefault();
+        bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
+    }
 
 }

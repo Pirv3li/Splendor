@@ -21,6 +21,7 @@ public class Spel {
 	private int niveau3StapelSize;
 	ontwikkelingskaarten kaarten;
 	private int edelstenenCount;
+	private ResourceBundle bundle;
 
 
 	public Spel() {
@@ -29,12 +30,13 @@ public class Spel {
 			kaarten = new ontwikkelingskaarten();
 		} catch (IOException e) {
 			e.printStackTrace();
+			initialize();
 		}
 	}
 	
 	public void startSpel() {
  		if (spelers.size() < MIN_SPELERS || spelers.size() > MAX_SPELERS) {
- 			throw new IllegalArgumentException("Het aantal spelers moet tussen " + MIN_SPELERS + " en " + MAX_SPELERS + " zijn.");
+ 			throw new IllegalArgumentException(bundle.getString("spelerAantal"));
  		}
  		setAlleEdelstenen(spelers.size());
 	}
@@ -44,7 +46,7 @@ public class Spel {
 	    	Speler speler = new Speler(naam,geboortejaar);
 	        spelers.add(speler);
 	    } else {
-	        throw new IllegalArgumentException("Er kunnen maximaal 4 spelers meedoen.");
+	        throw new IllegalArgumentException(bundle.getString("max"));
 	    }
 	 		
 	}
@@ -272,7 +274,7 @@ public class Spel {
 			 edelstenen.put(edelsteen, currentAantal - aantal);
 		 }
 		 else {
-			 throw new IllegalArgumentException("Je mag enkel 1 edelsteen pakken als er minder dan 4 edelstenen zijn !"); 
+			 throw new IllegalArgumentException(bundle.getString("less4")); 
 		 }
 		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
 		 edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
@@ -329,7 +331,7 @@ public class Spel {
 			 edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
 		 }
 		 else {
-			 throw new IllegalArgumentException("U heeft niet genoeg edelstenen");
+			 throw new IllegalArgumentException(bundle.getString("broke"));
 		 }
 	 }
 	 
@@ -465,7 +467,7 @@ public class Spel {
 		     int bonusCount = bonusInventory.getOrDefault(edelsteen, 0);
 
 		     if (requiredCount > (playerCount + bonusCount)) {
-		         throw new IllegalArgumentException("U heeft niet genoeg Edelstenen om deze ontwikkelingskaart te kopen!");
+		         throw new IllegalArgumentException(bundle.getString("broke"));
 		     }
 		     else {
 		         int edelsteenCount = edelstenen.getOrDefault(edelsteen, 0);
@@ -594,5 +596,13 @@ public class Spel {
 		 this.niveau2StapelSize = niveau2Kaarten.size() - 4;
 		 this.niveau3StapelSize = niveau3Kaarten.size() - 4;
 	 }
+	 
+	 public void initialize() {
+	        Locale currentLocale = Locale.getDefault();
+	        bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
+	        for (Speler speler : spelers) {
+	        	  speler.initialize();
+	        	}
+	    }
 
 }

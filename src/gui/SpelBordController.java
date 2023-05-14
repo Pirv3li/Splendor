@@ -773,15 +773,10 @@ public class SpelBordController {
             }
         } catch (IllegalArgumentException e) {
         	String errorMessage = e.getMessage();
-        	if (errorMessage=="Je mag enkel 1 edelsteen pakken als er minder dan 4 edelstenen zijn !") {
-        		exceptionLabel.setText(bundle.getString("less4"));
-        	}
-        	else {
-        		exceptionLabel.setText(errorMessage);
-        	}
+        	exceptionLabel.setText(errorMessage);
             selectedGems.clear();
             setupEdelstenenAantal();
-        }
+        } 
         btnGem1.setStyle(null);
         btnGem2.setStyle(null);
         btnGem3.setStyle(null);
@@ -859,6 +854,44 @@ public class SpelBordController {
         InventorySmaragdButton.setStyle(null);
         InventoryRobijnButton.setStyle(null);
         InventoryOnyxButton.setStyle(null);
+    	if(dc.getInventoryCount()-selectedGems.size()<=10) {
+    		dc.zetEdelstenenTerug(selectedGems);
+       	 exceptionLabel.setText("");
+        	dc.volgendeSpeler();
+        	setSpelerAandebeurt();
+        	dc.neemEdelenAlsGenoegBonusEdelstenen(); dc.setEdelenDto(); setupEdelenImages();
+        	dc.setEdelstenenAantalDto();
+        	setupEdelstenenAantal();
+        	dc.setInventoryDto();
+        	setInventory();
+        	setPunten();
+            dc.setOntwikkelingskaartenDtos();
+        	setupButtonImages();
+        	terugZettenButton.setVisible(false);
+        	InventoryDiamantButton.setVisible(false);
+        	InventorySaffierButton.setVisible(false);
+        	InventorySmaragdButton.setVisible(false);
+        	InventoryRobijnButton.setVisible(false);
+        	InventoryOnyxButton.setVisible(false);
+        	terugZettenButton.setVisible(false);
+        	btnGem1.setDisable(false);
+        	btnGem2.setDisable(false);
+        	btnGem3.setDisable(false);
+        	btnGem4.setDisable(false);
+        	btnGem5.setDisable(false);
+        	neemEdelstenen.setDisable(false);
+        	pass.setDisable(false);
+    	}
+    	else {
+    		exceptionLabel.setText(bundle.getString("more10"));
+    		
+    	}
+    	InventoryDiamantButton.setStyle(null);
+    	InventorySaffierButton.setStyle(null);
+    	InventorySmaragdButton.setStyle(null);
+    	InventoryRobijnButton.setStyle(null);
+    	InventoryOnyxButton.setStyle(null);
+    	
     }
 
 
@@ -950,7 +983,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
         } catch (IllegalArgumentException e) {
-       	 exceptionLabel.setText(bundle.getString("broke"));
+        	String errorMessage = e.getMessage();
+            exceptionLabel.setText(errorMessage);
         }
     }
 
@@ -981,7 +1015,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
            } catch (IllegalArgumentException e) {
-          	 exceptionLabel.setText(bundle.getString("broke"));
+        	   String errorMessage = e.getMessage();
+               exceptionLabel.setText(errorMessage);
            }  
     }
 
@@ -1011,7 +1046,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
            } catch (IllegalArgumentException e) {
-          	 exceptionLabel.setText(bundle.getString("broke"));
+        	   String errorMessage = e.getMessage();
+               exceptionLabel.setText(errorMessage);
            }   
 
     }
@@ -1042,7 +1078,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
            } catch (IllegalArgumentException e) {
-          	 exceptionLabel.setText(bundle.getString("broke"));
+        	   String errorMessage = e.getMessage();
+               exceptionLabel.setText(errorMessage);
            }         
  
     }
@@ -1073,7 +1110,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
            } catch (IllegalArgumentException e) {
-          	 exceptionLabel.setText(bundle.getString("broke"));
+        	   String errorMessage = e.getMessage();
+               exceptionLabel.setText(errorMessage);
            }  
 
     }
@@ -1104,7 +1142,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
-        	 exceptionLabel.setText(bundle.getString("broke"));
+        	 String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
          }        
 
     }
@@ -1135,7 +1174,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
-        	 exceptionLabel.setText(bundle.getString("broke"));
+        	 String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
          }     
 
     }
@@ -1166,7 +1206,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
-             exceptionLabel.setText(bundle.getString("broke"));
+        	 String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
          }       
  
     }
@@ -1197,7 +1238,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
-        	 exceptionLabel.setText(bundle.getString("broke"));
+        	 String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
          }     
 
     }
@@ -1228,7 +1270,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
-        	 exceptionLabel.setText(bundle.getString("broke"));
+        	 String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
          }      
     }	
     
@@ -1259,7 +1302,8 @@ public class SpelBordController {
         	setupEdelenImages();
         	isWinaar();
          } catch (IllegalArgumentException e) {
-        	 exceptionLabel.setText(bundle.getString("broke"));
+        	 String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
          }     
 
     }
@@ -1291,7 +1335,8 @@ public class SpelBordController {
          	setupEdelenImages();
          	isWinaar();
          } catch (IllegalArgumentException e) {
-        	 exceptionLabel.setText(bundle.getString("broke"));
+        	 String errorMessage = e.getMessage();
+             exceptionLabel.setText(errorMessage);
          }   
 
     }
@@ -1341,6 +1386,8 @@ public class SpelBordController {
         }
         bundle = ResourceBundle.getBundle("resources/messages", Locale.getDefault());
         setResourceBundle(bundle);
+        
+        dc.initialize();
     }
 
 }

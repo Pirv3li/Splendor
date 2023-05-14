@@ -58,6 +58,7 @@ public class UserLoginController extends Pane {
     private Label list;
 
     private Domeincontroller dc;
+    
     private ResourceBundle bundle;
 
     public void setDc(Domeincontroller dc) {
@@ -151,5 +152,7 @@ public class UserLoginController extends Pane {
         }
         bundle = ResourceBundle.getBundle("resources/messages", Locale.getDefault());
         setResourceBundle(bundle);
+        
+        dc.initialize();
     }
 }

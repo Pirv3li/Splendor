@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import dto.OntwikkelingskaartDto;
 import dto.PuntenDto;
 
@@ -21,11 +24,12 @@ public class Domeincontroller {
 	private List<EdelenDto> edelen;
 	private List<InventoryDto> InventoryDto;
 	private ArrayList<String> spelers;
-//	private SpelerRepository spelerRepository;
-// test
+	private ResourceBundle bundle;
+
 	public Domeincontroller() {
 		spel = new Spel();
 		repo = new SpelerRepository();
+		initialize();
 	}
 
 
@@ -71,7 +75,7 @@ public class Domeincontroller {
 	public void voegSpelerToe(String naam, int geboortejaar) {
 		spelers = spel.getSpelerNamen();
 		if(spelers.contains(naam)) {
-			throw new IllegalArgumentException(naam + " is al toegevoegd!");
+			throw new IllegalArgumentException(naam +" " + bundle.getString("alreadyAdded"));
 		}
 		else if(repo.bestaatSpeler(naam,geboortejaar)) {
 		spel.voegSpelerToe(naam, geboortejaar);
@@ -134,7 +138,7 @@ public class Domeincontroller {
 	        return;
 	    }
 	    
-	    System.out.println("Invalid combination of Edelstenen selected");
+	    System.out.println(bundle.getString("keuze"));
 	}
 	
 	public int getInventoryCount() {
@@ -277,4 +281,11 @@ public class Domeincontroller {
 	public List<InventoryDto> getInventory(){
 		return this.InventoryDto;
 	}
+	
+	public void initialize() {
+        Locale currentLocale = Locale.getDefault();
+        bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
+		spel.initialize();
+		repo.initialize();
+    }
 }

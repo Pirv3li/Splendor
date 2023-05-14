@@ -1361,7 +1361,12 @@ public class SpelBordController {
         	Punten4.setText(bundle.getString("score"));
     	}
     	inventory.setText(bundle.getString("inventory"));
-    	
+    	terugZettenButton.setText(bundle.getString("return"));
+    	InventoryDiamantButton.setText(bundle.getString("kies"));
+    	InventorySaffierButton.setText(bundle.getString("kies"));
+    	InventorySmaragdButton.setText(bundle.getString("kies"));
+    	InventoryRobijnButton.setText(bundle.getString("kies"));
+    	InventoryOnyxButton.setText(bundle.getString("kies"));
     }
     
     public void initialize() {
@@ -1375,6 +1380,12 @@ public class SpelBordController {
         Punten3.setText(bundle.getString("score"));
         Punten4.setText(bundle.getString("score"));
         inventory.setText(bundle.getString("inventory"));
+    	terugZettenButton.setText(bundle.getString("return"));
+    	InventoryDiamantButton.setText(bundle.getString("kies"));
+    	InventorySaffierButton.setText(bundle.getString("kies"));
+    	InventorySmaragdButton.setText(bundle.getString("kies"));
+    	InventoryRobijnButton.setText(bundle.getString("kies"));
+    	InventoryOnyxButton.setText(bundle.getString("kies"));
     }
     
     @FXML

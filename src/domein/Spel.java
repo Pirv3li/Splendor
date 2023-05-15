@@ -599,7 +599,16 @@ public class Spel {
 		}
 		 this.edelen = new ArrayList<>();
 		 List<Edel> edelenOverzicht = edelen.getEdelen();
-		 this.edelen = getRandomEdelen(edelenOverzicht,5);
+		 if(spelers.size()==2) {
+		 this.edelen = getRandomEdelen(edelenOverzicht,3);
+		 }
+		 if(spelers.size()==3) {
+			 this.edelen = getRandomEdelen(edelenOverzicht,4);
+			 }
+		 if(spelers.size()==4) {
+			 this.edelen = getRandomEdelen(edelenOverzicht,5);
+			 }
+		 
 	 }
 	 
 	 private List<Ontwikkelingskaart> getRandomKaarten(List<Ontwikkelingskaart> kaarten, int count){

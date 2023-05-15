@@ -360,6 +360,7 @@ public class SpelBordController {
     
     private void setupEdelenImages() {
         edelen = dc.getEdelen();
+        if(spelerNamen.size()==2) {
         for (int i = 0; i < edelen.size(); i++) {
             EdelenDto edelDto = edelen.get(i);
             switch (i) {
@@ -375,21 +376,76 @@ public class SpelBordController {
                     setImageToEdelButton(btnEdel3, edelDto);
                     btnEdel3.setVisible(true);
                     break;
-                case 3:
-                    setImageToEdelButton(btnEdel4, edelDto);
-                    btnEdel4.setVisible(true);
-                    break;
-                case 4:
-                    setImageToEdelButton(btnEdel5, edelDto);
-                    btnEdel5.setVisible(true);
-                    break;
             }
         }
         btnEdel1.setVisible(edelen.size() >= 1);
         btnEdel2.setVisible(edelen.size() >= 2);
-        btnEdel3.setVisible(edelen.size() >= 3);
-        btnEdel4.setVisible(edelen.size() >= 4);
-        btnEdel5.setVisible(edelen.size() == 5);
+        btnEdel3.setVisible(edelen.size() == 3);
+        btnEdel4.setVisible(false);
+        btnEdel5.setVisible(false);
+        }
+        
+        if(spelerNamen.size()==3) {
+            for (int i = 0; i < edelen.size(); i++) {
+                EdelenDto edelDto = edelen.get(i);
+                switch (i) {
+                    case 0:
+                        setImageToEdelButton(btnEdel1, edelDto);
+                        btnEdel1.setVisible(true);
+                        break;
+                    case 1:
+                        setImageToEdelButton(btnEdel2, edelDto);
+                        btnEdel2.setVisible(true);
+                        break;
+                    case 2:
+                        setImageToEdelButton(btnEdel3, edelDto);
+                        btnEdel3.setVisible(true);
+                        break;
+                    case 3:
+                        setImageToEdelButton(btnEdel4, edelDto);
+                        btnEdel3.setVisible(true);
+                        break;
+                }
+            }
+            btnEdel1.setVisible(edelen.size() >= 1);
+            btnEdel2.setVisible(edelen.size() >= 2);
+            btnEdel3.setVisible(edelen.size() >= 3);
+            btnEdel4.setVisible(edelen.size() == 4);
+            btnEdel5.setVisible(false);
+            }
+        
+        if(spelerNamen.size()==4) {
+            for (int i = 0; i < edelen.size(); i++) {
+                EdelenDto edelDto = edelen.get(i);
+                switch (i) {
+                    case 0:
+                        setImageToEdelButton(btnEdel1, edelDto);
+                        btnEdel1.setVisible(true);
+                        break;
+                    case 1:
+                        setImageToEdelButton(btnEdel2, edelDto);
+                        btnEdel2.setVisible(true);
+                        break;
+                    case 2:
+                        setImageToEdelButton(btnEdel3, edelDto);
+                        btnEdel3.setVisible(true);
+                        break;
+                    case 3:
+                        setImageToEdelButton(btnEdel4, edelDto);
+                        btnEdel3.setVisible(true);
+                        break;
+                    case 4:
+                        setImageToEdelButton(btnEdel5, edelDto);
+                        btnEdel3.setVisible(true);
+                        break;
+                }
+            }
+            btnEdel1.setVisible(edelen.size() >= 1);
+            btnEdel2.setVisible(edelen.size() >= 2);
+            btnEdel3.setVisible(edelen.size() >= 3);
+            btnEdel4.setVisible(edelen.size() >= 4);
+            btnEdel5.setVisible(edelen.size() == 5);
+            }
     }
 
 

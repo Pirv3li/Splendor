@@ -256,8 +256,21 @@ public class Domeincontroller {
 	public void setEdelenDto() {
 	    edelen = new ArrayList<>();
 	    List<Edel> alleEdelen = spel.getEdelen();
-	    for (int i = 0; i < alleEdelen.size() && i < 5; i++) {
+	    spelers = spel.getSpelerNamen();
+	    if(spelers.size()==2) {
+	    for (int i = 0; i < alleEdelen.size() && i < 3; i++) {
 	        edelen.add(new EdelenDto(alleEdelen.get(i).getEdelImage()));
+	    	}
+	    }
+	    if(spelers.size()==3) {
+		    for (int i = 0; i < alleEdelen.size() && i < 4; i++) {
+		        edelen.add(new EdelenDto(alleEdelen.get(i).getEdelImage()));
+		    	}
+	    }
+	    if(spelers.size()==4) {
+		    for (int i = 0; i < alleEdelen.size() && i < 5; i++) {
+		        edelen.add(new EdelenDto(alleEdelen.get(i).getEdelImage()));
+		    	}
 	    }
 	}
 

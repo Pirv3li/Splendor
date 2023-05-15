@@ -13,12 +13,21 @@ public class SplendorApp {
         Locale currentLocale = Locale.getDefault();
         bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
     }
-
+    
 	public void SplendorAppStart() {
-		initialize();
 		String gebruikersnaam = "";
 		int geboortejaar = 0;
 		Scanner in = new Scanner (System.in);
+		System.out.println("Choose language/Kies taal (1=English, 0=Nederlands)");
+		int taal = in.nextInt();
+		if(taal==1) {
+			Locale.setDefault(new Locale("en", "GB"));
+			initialize();
+		} else {
+			Locale.setDefault(new Locale("nl", "BE"));
+			initialize();
+		}
+		
 		System.out.println(bundle.getString("uiStart"));
 		int startSpelJaOfNee = in.nextInt();
 		in.nextLine();

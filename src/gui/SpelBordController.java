@@ -680,9 +680,11 @@ public class SpelBordController {
         loginController.setDc(DC);
 
         // Set up the scene and show the stage
+  	    Image logo = new Image("/images/SplendorLogo.jpg");
         Scene initialScene = new Scene(root, 900, 600);
         initialScene.getStylesheets().add("/css/LoginStyle.css");
         initialStage.setScene(initialScene);
+        initialStage.getIcons().add(logo);
         initialStage.setTitle("Splendor");
         initialStage.show();
     }

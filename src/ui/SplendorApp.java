@@ -140,7 +140,7 @@ public class SplendorApp {
 					kaartnummer = in.nextInt();
 					if(kaartnummer == 0) {
 						break;
-					}
+					} 
 							}
 						}
 				in.nextLine();

@@ -158,7 +158,7 @@ public class SplendorApp {
 			
 			dc.volgendeSpeler();
 				}
-			}
+			} 
 		}
 		in.close();
 	}

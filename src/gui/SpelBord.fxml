@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/SpeelbordStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpelBordController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="900.0" styleClass="body" stylesheets="@../css/SpeelbordStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpelBordController">
    <children>
    <Button fx:id="switchLanguageButton" layoutX="10.0" layoutY="590.0" mnemonicParsing="false" onAction="#onLanguageButtonClick" prefHeight="20.0" prefWidth="110.0" style="-fx-background-color: #000;" text="Switch Language" textFill="WHITE" />
       <ImageView fx:id="imgvNiveau1" fitHeight="139.0" fitWidth="100.0" layoutX="8.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="794.265625" AnchorPane.topAnchor="447.0">
@@ -268,7 +268,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="WinnaarLabel" alignment="CENTER" contentDisplay="CENTER" mouseTransparent="true" prefHeight="650.0" prefWidth="900.0" textAlignment="CENTER" textFill="#f7a011" visible="false" wrapText="true">
+      <Label fx:id="WinnaarLabel" alignment="BOTTOM_CENTER" contentDisplay="CENTER" mouseTransparent="true" prefHeight="650.0" prefWidth="900.0" textAlignment="CENTER" textFill="#f7a011" visible="false" wrapText="true">
          <font>
             <Font size="48.0" />
          </font>

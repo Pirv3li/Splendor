@@ -1,22 +1,32 @@
 package ui;
 import domein.Domeincontroller;
+import persistentie.Mapper;
+
 import java.io.IOException;
 import java.util.*;
 
 public class SplendorApp {
-	
+
+    private ResourceBundle bundle;
+
+    public void initialize() {
+        Locale currentLocale = Locale.getDefault();
+        bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
+    }
+
 	public void SplendorAppStart() {
+		initialize();
 		String gebruikersnaam = "";
 		int geboortejaar = 0;
 		Scanner in = new Scanner (System.in);
-		System.out.println("Start spel ( 1=JA , 0=NEE )");
+		System.out.println(bundle.getString("uiStart"));
 		int startSpelJaOfNee = in.nextInt();
 		in.nextLine();
 		if(startSpelJaOfNee==1) {
 			Domeincontroller dc = new Domeincontroller();
-			System.out.println("Geef u gebruikersnaam : ");
+			System.out.println(bundle.getString("uiName"));
 			gebruikersnaam = in.nextLine();
-			System.out.println("Geef u geboortejaar : ");
+			System.out.println(bundle.getString("uiBirth"));
 			geboortejaar = in.nextInt();
 			in.nextLine();
 
@@ -28,23 +38,23 @@ public class SplendorApp {
 			        validInput = true;
 			    } catch (IllegalArgumentException e) {
 			        System.out.println(e.getMessage());
-			        System.out.println("Geef u gebruikersnaam : ");
+			        System.out.println(bundle.getString("uiName"));
 			        gebruikersnaam = in.nextLine();
-			        System.out.println("Geef u geboortejaar : ");
+			        System.out.println(bundle.getString("uiBirth"));
 			        geboortejaar = in.nextInt();
 			        in.nextLine();
 			    }
 			}
 
-			System.out.println("Wil je meer spelers toevoegen ? ( 1=JA , 0=NEE )");
+			System.out.println(bundle.getString("uiAddMore"));
 			int meerSpelersToevoegenJaOfNee = in.nextInt();
 			in.nextLine();
 
 			while (meerSpelersToevoegenJaOfNee != 0) {
 			    validInput = false;
-			    System.out.println("Geef u gebruikersnaam : ");
+			    System.out.println(bundle.getString("uiName"));
 			    gebruikersnaam = in.nextLine();
-			    System.out.println("Geef u geboortejaar : ");
+			    System.out.println(bundle.getString("uiBirth"));
 			    geboortejaar = in.nextInt();
 			    in.nextLine();
 
@@ -54,15 +64,15 @@ public class SplendorApp {
 			            validInput = true;
 			        } catch (IllegalArgumentException e) {
 			            System.out.println(e.getMessage());
-			            System.out.println("Geef u gebruikersnaam : ");
+			            System.out.println(bundle.getString("uiName"));
 			            gebruikersnaam = in.nextLine();
-			            System.out.println("Geef u geboortejaar : ");
+			            System.out.println(bundle.getString("uiBirth"));
 			            geboortejaar = in.nextInt();
 			            in.nextLine();
 			        }
 			    }
 
-			    System.out.println("Wil je meer spelers toevoegen ? ( 1=JA , 0=NEE )");
+			    System.out.println(bundle.getString("uiAddMore"));
 			    meerSpelersToevoegenJaOfNee = in.nextInt();
 			    in.nextLine();
 			}
@@ -73,16 +83,16 @@ public class SplendorApp {
 			
 			while(dc.getPuntenVoorUi()<15) {
 			String spelersOverzicht = dc.getSpelersOverzicht();
-			System.out.println("Overzicht van spelers");
+			System.out.println(bundle.getString("uiSpelersOverzicht"));
 			System.out.println(spelersOverzicht);
-			System.out.println("Overzicht van spel");
+			System.out.println(bundle.getString("uiSpelOverzicht"));
 			String edelstenenOverzicht = dc.getEdelstenenOverzicht();
 			System.out.println(edelstenenOverzicht);
 			String edelenOverzicht = dc.getEdelenOverzicht();
-			System.out.println("Beschikbare edelen");
+			System.out.println(bundle.getString("uiEdelen"));
 			System.out.println(edelenOverzicht);
 			String ontwikkelingsKaartenOverzicht = dc.getOntwikkelingskaartenOverzicht();
-			System.out.println("Beschikbare ontwikkelingskaarten");
+			System.out.println(bundle.getString("uiOntwikkeling"));
 			System.out.println(ontwikkelingsKaartenOverzicht);
 			String naamVanSpelerAanDeBeurt = dc.getNaamVanSpelerAanDeBeurt();
 			dc.neemEdelenAlsGenoegBonusEdelstenen();
@@ -90,7 +100,7 @@ public class SplendorApp {
 			boolean kaartenLoop = true;
 			while(kaartenLoop) {
 			while(EdelsteenNemenOfKaartKopen!=1 && EdelsteenNemenOfKaartKopen!=2) {
-			System.out.println(naamVanSpelerAanDeBeurt + " (Je bent aan de beurt) Neem een edelsteen(Type 1) of koop een ontwikkelingskaart(Type 2)");
+			System.out.println(naamVanSpelerAanDeBeurt + " "+ bundle.getString("uiBeurt"));
 			EdelsteenNemenOfKaartKopen = in.nextInt();
 			in.nextLine();
 			}
@@ -98,12 +108,12 @@ public class SplendorApp {
 				List<String> edelstenen = new ArrayList<>();
 				int tweeOfDrie = 0;
 				while(tweeOfDrie!=2 && tweeOfDrie!=3) {
-				System.out.println("Wil je 2 van zelfde soort of 3 van verschillende soort nemen? (vul in 2 of 3)");
+				System.out.println(bundle.getString("uiKiesGem"));
 				tweeOfDrie = in.nextInt();
 				in.nextLine();
 				}
 				if(tweeOfDrie==2) {
-				System.out.println("Edelsteen :");
+				System.out.println(bundle.getString("gem") + " :");
 				String tweeZelfdeEdelstenen = in.nextLine();
 				edelstenen.add(tweeZelfdeEdelstenen);
 				edelstenen.add(tweeZelfdeEdelstenen);
@@ -112,11 +122,11 @@ public class SplendorApp {
 				break;
 				}
 				else if(tweeOfDrie==3) {
-					System.out.println("Edelsteen 1:");
+					System.out.println(bundle.getString("gem") + " 1:");
 					edelstenen.add(in.nextLine());
-					System.out.println("Edelsteen 2:");
+					System.out.println(bundle.getString("gem") + " 2:");
 					edelstenen.add(in.nextLine());
-					System.out.println("Edelsteen 3:");
+					System.out.println(bundle.getString("gem") + " 3:");
 					edelstenen.add(in.nextLine());
 					dc.neemEdelstenen(edelstenen);
 					dc.volgendeSpeler();
@@ -124,7 +134,7 @@ public class SplendorApp {
 				}
 			}
 			if(EdelsteenNemenOfKaartKopen==2) {
-				System.out.println("geef kaartnummer van kaart dat je wilt kopen (0 om terug te gaan): ");
+				System.out.println(bundle.getString("uiKoopKaart"));
 				int kaartnummer = in.nextInt();
 				if(kaartnummer == 0) {
 					break;
@@ -136,7 +146,7 @@ public class SplendorApp {
 				validInput = true;
 				}catch(Exception e) {
 					System.out.println(e.getMessage());
-					System.out.println("geef kaartnummer van kaart dat je wilt kopen (0 om terug te gaan): ");
+					System.out.println(bundle.getString("uiKoopKaart"));
 					kaartnummer = in.nextInt();
 					if(kaartnummer == 0) {
 						break;

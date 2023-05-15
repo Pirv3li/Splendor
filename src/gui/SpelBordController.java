@@ -2,7 +2,11 @@ package gui;
 import dto.EdelenDto;
 import dto.InventoryDto;
 
+import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
 import java.awt.Rectangle;
+import java.io.IOException;
 import java.util.*;
 import dto.EdelstenenDto;
 import dto.OntwikkelingskaartDto;
@@ -11,6 +15,7 @@ import domein.Domeincontroller;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -646,6 +651,42 @@ public class SpelBordController {
     	lblStapelNiveau2.setText(String.valueOf(dc.getStapelSizeNiveau2()));
     	lblStapelNiveau3.setText(String.valueOf(dc.getStapelSizeNiveau3()));
     }
+    
+    @FXML
+    void WinnaarButton(ActionEvent event) {
+        // Get the reference to the current scene
+        Scene currentScene = WinnaarButton.getScene();
+
+        // Get the reference to the stage (window) associated with the current scene
+        Stage currentStage = (Stage) currentScene.getWindow();
+
+        // Close the current stage (window)
+        currentStage.close();
+
+        // Create a new stage for the initial scene
+        Stage initialStage = new Stage();
+
+        // Load the initial scene using FXMLLoader
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/UserLogin.fxml"));
+        Parent root = null;
+		try {
+			root = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        UserLoginController loginController = loader.getController();
+        Domeincontroller DC = new Domeincontroller();
+        loginController.setDc(DC);
+
+        // Set up the scene and show the stage
+        Scene initialScene = new Scene(root, 900, 600);
+        initialScene.getStylesheets().add("/css/LoginStyle.css");
+        initialStage.setScene(initialScene);
+        initialStage.setTitle("Splendor");
+        initialStage.show();
+    }
+
 
     @FXML
     void btnEdel1(ActionEvent event) {

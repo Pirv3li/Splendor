@@ -1,6 +1,8 @@
 package gui;
 import dto.EdelenDto;
 import dto.InventoryDto;
+
+import java.awt.Rectangle;
 import java.util.*;
 import dto.EdelstenenDto;
 import dto.OntwikkelingskaartDto;
@@ -335,6 +337,8 @@ public class SpelBordController {
     @FXML
     private Button terugZettenButton;
     
+    @FXML
+    private Button WinnaarButton;
     
     public void setDc(Domeincontroller dc) {
     	selectedGems = new ArrayList<>();
@@ -544,6 +548,8 @@ public class SpelBordController {
     			WinnaarLabel.setText(spelerNamen.get(i)+" "+bundle.getString("won")+" "+SpelerPunten.get(i).getPunten()+" "+bundle.getString("points"));
     	        WinnaarLabel.setVisible(true);
     	        WinnaarLabel.setStyle("-fx-background-image: url('images/SplendorVertikaalInlog.jpg');");
+    	        WinnaarButton.setVisible(true);
+    	        WinnaarButton.setText(bundle.getString("agane"));
     	        WinnaarLabel.setMouseTransparent(false);
     		}
     	}
@@ -686,7 +692,7 @@ public class SpelBordController {
             if (selectedGems.size() == 3) {
                 checkSelectedGems3();
                 if(dc.getInventoryCount()>10) {
-                	exceptionLabel.setText("U heeft meer dan 10 edelstenen in uw Inventory, zet edelstenen terug zo dat u 10 of minder edelstenen heeft in uw inventory");
+                	exceptionLabel.setText(bundle.getString("more10"));
                 	InventoryDiamantButton.setVisible(true);
                 	InventorySaffierButton.setVisible(true);
                 	InventorySmaragdButton.setVisible(true);
@@ -728,7 +734,7 @@ public class SpelBordController {
             } else if (selectedGems.size() == 2) {
                 checkSelectedGems();
             	 if(dc.getInventoryCount()>10) {
-                 	exceptionLabel.setText("U heeft meer dan 10 edelstenen in uw Inventory, zet edelstenen terug zo dat u 10 of minder edelstenen heeft in uw inventory");
+                 	exceptionLabel.setText(bundle.getString("more10"));
                  	InventoryDiamantButton.setVisible(true);
                  	InventorySaffierButton.setVisible(true);
                  	InventorySmaragdButton.setVisible(true);
@@ -833,7 +839,7 @@ public class SpelBordController {
                     btnKaart12.setDisable(false);
                     retry = false;
                 } catch (IllegalArgumentException e) {
-                    exceptionLabel.setText(e.getMessage());
+                    exceptionLabel.setText(bundle.getString("have0"));
                     selectedGems.clear();
                     InventoryDiamantButton.setStyle(null);
                     InventorySaffierButton.setStyle(null);
@@ -843,7 +849,7 @@ public class SpelBordController {
                     retry = false;
                 }
             } else {
-                exceptionLabel.setText("Je hebt meer dan 10 edelsteenfiches in uw Inventory, zet edelstenen terug");
+                exceptionLabel.setText(bundle.getString("have0"));
                 selectedGems.clear();
                 retry = false;
             }

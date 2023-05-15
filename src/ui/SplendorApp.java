@@ -86,47 +86,68 @@ public class SplendorApp {
 			System.out.println(ontwikkelingsKaartenOverzicht);
 			String naamVanSpelerAanDeBeurt = dc.getNaamVanSpelerAanDeBeurt();
 			dc.neemEdelenAlsGenoegBonusEdelstenen();
+			int EdelsteenNemenOfKaartKopen = 0;
+			boolean kaartenLoop = true;
+			while(kaartenLoop) {
+			while(EdelsteenNemenOfKaartKopen!=1 && EdelsteenNemenOfKaartKopen!=2) {
 			System.out.println(naamVanSpelerAanDeBeurt + " (Je bent aan de beurt) Neem een edelsteen(Type 1) of koop een ontwikkelingskaart(Type 2)");
-			int EdelsteenNemenOfKaartKopen = in.nextInt();
+			EdelsteenNemenOfKaartKopen = in.nextInt();
 			in.nextLine();
+			}
 			if(EdelsteenNemenOfKaartKopen==1) {
 				List<String> edelstenen = new ArrayList<>();
+				int tweeOfDrie = 0;
+				while(tweeOfDrie!=2 && tweeOfDrie!=3) {
 				System.out.println("Wil je 2 van zelfde soort of 3 van verschillende soort nemen? (vul in 2 of 3)");
-				int tweeOfDrie = in.nextInt();
+				tweeOfDrie = in.nextInt();
 				in.nextLine();
+				}
 				if(tweeOfDrie==2) {
 				System.out.println("Edelsteen :");
 				String tweeZelfdeEdelstenen = in.nextLine();
 				edelstenen.add(tweeZelfdeEdelstenen);
 				edelstenen.add(tweeZelfdeEdelstenen);
+				dc.neemEdelstenen(edelstenen);
+				dc.volgendeSpeler();
+				break;
 				}
-				if(tweeOfDrie==3) {
+				else if(tweeOfDrie==3) {
 					System.out.println("Edelsteen 1:");
 					edelstenen.add(in.nextLine());
 					System.out.println("Edelsteen 2:");
 					edelstenen.add(in.nextLine());
 					System.out.println("Edelsteen 3:");
 					edelstenen.add(in.nextLine());
+					dc.neemEdelstenen(edelstenen);
+					dc.volgendeSpeler();
+					break;
 				}
-				dc.neemEdelstenen(edelstenen);
 			}
 			if(EdelsteenNemenOfKaartKopen==2) {
-				System.out.println("geef kaartnummer van kaart dat je wilt kopen : ");
+				System.out.println("geef kaartnummer van kaart dat je wilt kopen (0 om terug te gaan): ");
 				int kaartnummer = in.nextInt();
+				if(kaartnummer == 0) {
+					break;
+				}
 				validInput = false;
 				while(!validInput) {
 				try {
 				dc.koopOntwikkelingskaart(kaartnummer);
 				validInput = true;
-				}catch(IllegalArgumentException e) {
+				}catch(Exception e) {
 					System.out.println(e.getMessage());
-					System.out.println("geef kaartnummer van kaart dat je wilt kopen : ");
+					System.out.println("geef kaartnummer van kaart dat je wilt kopen (0 om terug te gaan): ");
 					kaartnummer = in.nextInt();
+					if(kaartnummer == 0) {
+						break;
 					}
-				}
+							}
+						}
 				in.nextLine();
-			}
+					}
+			
 			dc.volgendeSpeler();
+				}
 			}
 		}
 		in.close();

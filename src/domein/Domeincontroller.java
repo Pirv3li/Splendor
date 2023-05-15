@@ -77,6 +77,7 @@ public class Domeincontroller {
 		if(spelers.contains(naam)) {
 			throw new IllegalArgumentException(naam +" " + bundle.getString("alreadyAdded"));
 		}
+
 		else if(repo.bestaatSpeler(naam,geboortejaar)) {
 		spel.voegSpelerToe(naam, geboortejaar);
 		}
@@ -111,8 +112,7 @@ public class Domeincontroller {
 	
 	public void neemEdelstenen(List<String> edelsteenStrings) {
 	    if (edelsteenStrings == null || edelsteenStrings.isEmpty()) {
-	        System.out.println("Invalid Edelstenen selected");
-	        return;
+	        throw new IllegalArgumentException("Invalid Edelstenen selected");
 	    }
 	    
 	    List<Edelsteen> edelstenen = new ArrayList<>();
@@ -120,7 +120,7 @@ public class Domeincontroller {
 	        try {
 	            Edelsteen edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
 	            edelstenen.add(edelsteen);
-	        } catch (IllegalArgumentException e) {
+	        } catch (Exception e) {
 	            System.out.println("Invalid Edelsteenfiche");
 	            return;
 	        }

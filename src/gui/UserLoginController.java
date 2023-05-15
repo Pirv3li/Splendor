@@ -77,12 +77,16 @@ public class UserLoginController extends Pane {
     }
 
     public void onClick() {
-        String naam = usernameField.getText();
-        int geboortejaar = Integer.parseInt(birthYearField.getText());
         try{
+        	String naam = usernameField.getText();
+            int geboortejaar = Integer.parseInt(birthYearField.getText());
         	dc.voegSpelerToe(naam, geboortejaar);
-        	loginExceptionLabel.setText("");
-        } catch (IllegalArgumentException e) {
+        	loginExceptionLabel.setText(""); 
+        }catch (NumberFormatException error) {
+        	    String errorMessage = "Invalid geboortejaar. Please enter a valid number.";
+        	    loginExceptionLabel.setText(errorMessage);
+
+        }catch (Exception e) {
         	String errorMessage = e.getMessage();
         	loginExceptionLabel.setText(errorMessage);
         }

@@ -85,7 +85,7 @@ public ArrayList<Ontwikkelingskaart> niveau3 = new ArrayList<>();
 	
 	String imagePath13 = cwd + "/src/images/13.png";
 	BufferedImage image13 = ImageIO.read(new File(imagePath13));
-	Edelsteen[] prijsVanKaart_13 = {Edelsteen.DIAMANTEN, Edelsteen.DIAMANTEN, Edelsteen.ONYXEN, Edelsteen.ONYXEN};
+	Edelsteen[] prijsVanKaart_13 = {Edelsteen.DIAMANTEN, Edelsteen.DIAMANTEN, Edelsteen.SMARAGDEN, Edelsteen.SMARAGDEN};
 	niveau1.add(new Ontwikkelingskaart(image13,1, Edelsteen.ONYXEN, 0, prijsVanKaart_13, 13));
 	
 	String imagePath14 = cwd + "/src/images/14.png";

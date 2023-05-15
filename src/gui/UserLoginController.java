@@ -83,7 +83,7 @@ public class UserLoginController extends Pane {
         	dc.voegSpelerToe(naam, geboortejaar);
         	loginExceptionLabel.setText(""); 
         }catch (NumberFormatException error) {
-        	    String errorMessage = "Invalid gebruikersnaam of geboortejaar.";
+        	    String errorMessage = bundle.getString("onlyNumber");
         	    loginExceptionLabel.setText(errorMessage);
 
         }catch (Exception e) {

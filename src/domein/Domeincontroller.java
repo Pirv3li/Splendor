@@ -112,7 +112,7 @@ public class Domeincontroller {
 	
 	public void neemEdelstenen(List<String> edelsteenStrings) {
 	    if (edelsteenStrings == null || edelsteenStrings.isEmpty()) {
-	        throw new IllegalArgumentException("Invalid Edelstenen selected");
+	        throw new IllegalArgumentException(bundle.getString("keuze"));
 	    }
 	    
 	    List<Edelsteen> edelstenen = new ArrayList<>();
@@ -121,7 +121,7 @@ public class Domeincontroller {
 	            Edelsteen edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
 	            edelstenen.add(edelsteen);
 	        } catch (Exception e) {
-	            System.out.println("Invalid Edelsteenfiche");
+	            System.out.println(bundle.getString("keuze"));
 	            return;
 	        }
 	    }

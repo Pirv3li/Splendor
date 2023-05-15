@@ -265,7 +265,7 @@ public class Spel {
 			 edelstenen.put(edelsteen, currentAantal - aantal);
 		 }
 		 else {
-			 throw new IllegalArgumentException("Niet genoeg edelstenen om te nemen");
+			 throw new IllegalArgumentException(bundle.getString("notEnough"));
 		 }
 		 spelers.get(spelerIndex).voegGemsToeAanInventory(edelsteen, aantal);
 		 edelstenenCount = spelers.get(spelerIndex).getEdelstenenInventory().values().stream().mapToInt(Integer::intValue).sum();
@@ -285,7 +285,7 @@ public class Spel {
 	 
 		public void zetEdelstenenTerugString(List<String> edelsteenStrings) {
 			 if (edelsteenStrings == null || edelsteenStrings.isEmpty()) {
-			        System.out.println("Invalid Edelstenen selected");
+			        System.out.println(bundle.getString("keuze"));
 			        return;
 			    }
 			    
@@ -295,7 +295,7 @@ public class Spel {
 			            Edelsteen edelsteen = Edelsteen.valueOf(edelsteenString.toUpperCase());
 			            edelstenen.add(edelsteen);
 			        } catch (IllegalArgumentException e) {
-			            System.out.println("Invalid Edelsteenfiche");
+			            System.out.println(bundle.getString("keuze"));
 			            return;
 			        }
 			    }

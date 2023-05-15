@@ -51,36 +51,4 @@ public class Mapper {
             throw new IllegalArgumentException(bundle.getString("birth")+ " " + geboortejaar + " " + bundle.getString("invalid"));
         }
     }
-
-//    public void voegToe(Speler speler) {
-//        try (
-//                Connection conn = DriverManager.getConnection(Connectie.JDBC_URL);
-//                PreparedStatement query = conn.prepareStatement("INSERT INTO ID399806_g61.Speler (gebruikersnaam, geboortejaar) VALUES (?, ?)")) {
-//            query.setString(1, speler.getGebruikersnaam());
-//            query.setInt(2, speler.getGeboortejaar());
-//            query.executeUpdate();
-//        } catch (SQLException ex) {
-//            throw new RuntimeException(ex);
-//        }
-//    }
-//
-//    public List<Speler> geefSpelers() {
-//        List<Speler> spelers = new ArrayList<>();
-//
-//        try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL);
-//             PreparedStatement query = conn.prepareStatement("SELECT * FROM ID399806_g61.Speler");
-//             ResultSet rs = query.executeQuery()) {
-//
-//            while (rs.next()) {
-//                String gebruikersnaam = rs.getString("gebruikersnaam");
-//                int geboortejaar = rs.getInt("geboortejaar");
-//
-//                spelers.add(new Speler(gebruikersnaam, geboortejaar));
-//            }
-//        } catch (SQLException ex) {
-//            throw new RuntimeException(ex);
-//        }
-//
-//        return spelers;
-//    }
 }

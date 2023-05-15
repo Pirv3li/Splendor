@@ -307,9 +307,11 @@ public class Spel {
 					    }
 					    
 					    if (edelstenen.size() == 2 && edelstenen.get(0).equals(edelstenen.get(1))) {
-					        zetEdelstenenTerug(edelstenen.get(0), 2);
+					        zetEdelstenenTerug(edelstenen.get(0), 1);
+				            zetEdelstenenTerug(edelstenen.get(0), 1);
 					        return;
 					    }
+					    
 					    if (edelstenen.size() == 2 && new HashSet<>(edelstenen).size() == 2) {
 					        zetEdelstenenTerug(edelstenen.get(0),1);
 					        zetEdelstenenTerug(edelstenen.get(1),1);
@@ -321,6 +323,28 @@ public class Spel {
 					        zetEdelstenenTerug(edelstenen.get(2),1);
 					        return;
 					    }
+					    
+					    if (edelstenen.size() == 3) {
+					        if (edelstenen.get(0).equals(edelstenen.get(1)) && !edelstenen.get(0).equals(edelstenen.get(2))) {
+					            zetEdelstenenTerug(edelstenen.get(0), 1);
+					            zetEdelstenenTerug(edelstenen.get(0), 1);
+					            zetEdelstenenTerug(edelstenen.get(2), 1);
+					            return;
+					        }
+					        if (edelstenen.get(0).equals(edelstenen.get(2)) && !edelstenen.get(0).equals(edelstenen.get(1))) {
+					            zetEdelstenenTerug(edelstenen.get(0), 1);
+					            zetEdelstenenTerug(edelstenen.get(0), 1);
+					            zetEdelstenenTerug(edelstenen.get(1), 1);
+					            return;
+					        }
+					        if (edelstenen.get(1).equals(edelstenen.get(2)) && !edelstenen.get(0).equals(edelstenen.get(1))) {
+					            zetEdelstenenTerug(edelstenen.get(1), 1);
+					            zetEdelstenenTerug(edelstenen.get(1), 1);
+					            zetEdelstenenTerug(edelstenen.get(0), 1);
+					            return;
+					        }
+					    }
+
 				 }
 			    
 		}

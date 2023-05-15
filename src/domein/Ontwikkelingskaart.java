@@ -1,6 +1,8 @@
 package domein;
 
 import java.awt.image.BufferedImage;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Ontwikkelingskaart {
 
@@ -10,6 +12,7 @@ public class Ontwikkelingskaart {
 	private int kaartnummer;
 	private int niveau;
 	BufferedImage image;
+	private ResourceBundle bundle;
 	
 	public Ontwikkelingskaart(BufferedImage image, int niveau,Edelsteen bonus, int punten, Edelsteen[]prijs, int kaartnummer) {
 		this.prijs = prijs;
@@ -46,13 +49,18 @@ public class Ontwikkelingskaart {
 	@Override
 	public String toString() {
 	    StringBuilder sb = new StringBuilder();
-	    sb.append("kaart nummer: ").append(kaartnummer).append(":      ");
-	    sb.append("bonus edelsteen: ").append(bonus.toString()).append(", ");
-	    sb.append("punt(en): ").append(punten).append(", ");
-	    sb.append("prijs: ");
+	    sb.append(bundle.getString("uiKaartnum")).append(kaartnummer).append(":      ");
+	    sb.append(bundle.getString("uiBonus")).append(bonus.toString()).append(", ");
+	    sb.append(bundle.getString("uiPunt")).append(punten).append(", ");
+	    sb.append(bundle.getString("uiCost"));
 	    for (Edelsteen edelsteen : prijs) {
 	        sb.append(edelsteen.toString()).append(" ");
 	    }
 	    return sb.toString();
 	}
+	
+	public void initialize() {
+        Locale currentLocale = Locale.getDefault();
+        bundle = ResourceBundle.getBundle("resources/messages", currentLocale);
+    }
 }

@@ -125,22 +125,22 @@ public class Spel {
 	    StringBuilder sb = new StringBuilder();
 	    int i = 1;
 	    for (Speler speler : spelers) {
-	        sb.append("Speler ").append(i).append(": ")
+	        sb.append(bundle.getString("uiSpeler")).append(" ").append(i).append(": ")
 	            .append(speler.getGebruikersnaam()).append(", ")
 	            .append(speler.getGeboortejaar());
 	        if (i == startspelerIndex+1) {
 	            sb.append(" (startspeler)");
 	        }
-	        sb.append("     prestigepunten : "+speler.telPuntenOp());
-	        sb.append("     Edelsteenfiches in inventory: ");
+	        sb.append("     "+bundle.getString("uiPrestige")+speler.telPuntenOp());
+	        sb.append("     "+bundle.getString("uiInv"));
 			for (Map.Entry<Edelsteen, Integer> entry : speler.getEdelstenenInventory().entrySet()) {
 		        sb.append(entry.getKey() + " " + entry.getValue() + ", ");
 		    }
-			sb.append("     bonus edelsteenfiches in inventory: ");
+			sb.append("     "+ bundle.getString("uiBonusInv"));
 			for (Map.Entry<Edelsteen, Integer> entry : speler.getBonusEdelstenenInventory().entrySet()) {
 		        sb.append(entry.getKey() + " " + entry.getValue() + ", ");
 		    }
-			sb.append("     Ontwikkelingskaarten in inventory: ");
+			sb.append("     "+bundle.getString("uiKaartInv"));
 	        for (Ontwikkelingskaart kaart : speler.getOntwikkelingskaartenInventory()) {
 	            sb.append(kaart.getKaartnummer()).append(", ");
 	        }
@@ -152,7 +152,7 @@ public class Spel {
 	
 	public String edelstenenOverzicht() {
 	    StringBuilder sb = new StringBuilder();
-	    sb.append("Beschikbare edelstenen:\n");
+	    sb.append(bundle.getString("uiGemBesch")+"\n");
 	    for (Map.Entry<Edelsteen, Integer> entry : edelstenen.entrySet()) {
 	        sb.append(entry.getKey() + " " + entry.getValue() + "\n");
 	    }
@@ -161,12 +161,12 @@ public class Spel {
 		    
 	 public String toonOntwikkelingskaartenOverzicht() {
 		    StringBuilder sb = new StringBuilder();
-		    sb.append("Niveau 1 kaarten:\n");
+		    sb.append(bundle.getString("niv1")+"\n");
 		    for (Ontwikkelingskaart kaart : Niveau1Kaarten) {
-		        sb.append("kaart nummer: " + kaart.getKaartnummer() + ": ");
-		        sb.append("\tbonus edelsteen: " + kaart.getBonus());
-		        sb.append(",         punt(en): " + kaart.getPunten());
-		        sb.append(",         prijs: ");
+		    	sb.append(bundle.getString("uiKaartnum") + kaart.getKaartnummer() + ": ");
+		    	sb.append("\t"+ bundle.getString("uiBonus") + kaart.getBonus());
+		    	sb.append(",         "+bundle.getString("uiPunt") + kaart.getPunten());
+		    	sb.append(",         "+bundle.getString("uiCost"));
 		        Edelsteen[] prijs = kaart.getPrijs();
 		        Map<Edelsteen, Integer> gemQuantities = new HashMap<>();
 		        for (Edelsteen edelsteen : prijs) {
@@ -183,12 +183,12 @@ public class Spel {
 		        sb.append("\n");
 		        }
 		    	sb.append("\n");
-		        sb.append("Niveau 2 kaarten:\n");
+		        sb.append(bundle.getString("niv2")+"\n");
 		        for (Ontwikkelingskaart kaart2 : Niveau2Kaarten) {
-			        sb.append("kaart nummer: " + kaart2.getKaartnummer() + ": ");
-			        sb.append("\tbonus edelsteen: " + kaart2.getBonus());
-			        sb.append(",         punt(en): " + kaart2.getPunten());
-			        sb.append(",         prijs: ");
+			        sb.append(bundle.getString("uiKaartnum") + kaart2.getKaartnummer() + ": ");
+			        sb.append("\t"+ bundle.getString("uiBonus") + kaart2.getBonus());
+			        sb.append(",         "+bundle.getString("uiPunt") + kaart2.getPunten());
+			        sb.append(",         "+bundle.getString("uiCost"));
 			        Edelsteen[] prijs2 = kaart2.getPrijs();
 			        Map<Edelsteen, Integer> gemQuantities2 = new HashMap<>();
 			        for (Edelsteen edelsteen : prijs2) {
@@ -205,12 +205,12 @@ public class Spel {
 			        sb.append("\n");
 		        }
 		        sb.append("\n");
-			     sb.append("Niveau 3 kaarten:\n");
+			     sb.append(bundle.getString("niv3")+"\n");
 			     for (Ontwikkelingskaart kaart3 : Niveau3Kaarten) {
-				        sb.append("kaart nummer: " + kaart3.getKaartnummer() + ": ");
-				        sb.append("\tbonus edelsteen: " + kaart3.getBonus());
-				        sb.append(",         punt(en): " + kaart3.getPunten());
-				        sb.append(",         prijs: ");
+			    	 sb.append(bundle.getString("uiKaartnum") + kaart3.getKaartnummer() + ": ");
+			    	 sb.append("\t"+ bundle.getString("uiBonus") + kaart3.getBonus());
+			    	 sb.append(",         "+bundle.getString("uiPunt") + kaart3.getPunten());
+			    	 sb.append(",         "+bundle.getString("uiCost"));
 				        Edelsteen[] prijs3 = kaart3.getPrijs();
 				        Map<Edelsteen, Integer> gemQuantities3 = new HashMap<>();
 				        for (Edelsteen edelsteen : prijs3) {
@@ -238,9 +238,9 @@ public class Spel {
 	 public String toonEdelenOverzicht() {
 		 StringBuilder sb = new StringBuilder();
 		 for(Edel edel : edelen) {
-			 sb.append("Edel nummer: "+edel.getEdelNummer()+": ");
-			 sb.append("\tpunten: "+edel.getPunten());
-			 sb.append("         prijs: ");
+			 sb.append(bundle.getString("uiEdelNum")+edel.getEdelNummer()+": ");
+			 sb.append("\t"+ bundle.getString("score")+":"+edel.getPunten());
+			 sb.append("         "+bundle.getString("uiCost"));
 			 Edelsteen[] prijs = edel.getPrijs();
 		        Map<Edelsteen, Integer> gemQuantities = new HashMap<>();
 		        for (Edelsteen edelsteen : prijs) {

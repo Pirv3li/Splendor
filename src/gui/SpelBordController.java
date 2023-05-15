@@ -608,7 +608,7 @@ public class SpelBordController {
     			winnaarIndex = i;
     			WinnaarLabel.setText(spelerNamen.get(i)+" "+bundle.getString("won")+" "+SpelerPunten.get(i).getPunten()+" "+bundle.getString("points"));
     	        WinnaarLabel.setVisible(true);
-    	        WinnaarLabel.setStyle("-fx-background-image: url('images/SplendorVertikaalInlog.jpg');");
+    	        WinnaarLabel.setStyle("-fx-background-image: url('images/backgroundPic2.jpg');");
     	        WinnaarButton.setVisible(true);
     	        WinnaarButton.setText(bundle.getString("agane"));
     	        WinnaarLabel.setMouseTransparent(false);
